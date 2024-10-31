@@ -1,27 +1,65 @@
-# CalebeDev
+# 👋 Hi there! I'm Calebe
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+Welcome to my GitHub profile! I'm a student of Systems Analysis and Development and a budding web developer, committed to creating practical applications and solutions that enhance user experience. Each project here reflects my dedication to continuous learning and hands-on development.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+###  About Me
 
-## Code scaffolding
+💡 **Idea Explorer**: Passionate about technology and innovation, I'm always on the lookout for creative ways to solve real-world problems.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+🎓 **University Student**: Currently in my 3rd semester of Systems Analysis and Development, with a background in Web Design.
 
-## Build
+🛠 **Developer in Training**: Working as a freelancer with a focus on web development, creating landing pages, and online menus, especially for small businesses.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+👨‍💻 **Experienced in OS**: Skilled in using macOS and Linux for development, utilizing their unique tools and features to enhance my productivity and development environment.
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 💼 Professional Experience
 
-## Running end-to-end tests
+- **Freelancer** - Web Developer | Web Designer
+  - Building websites and landing pages
+  - Setting up API integrations and workflow automation
+  - Supporting new businesses to establish a professional digital presence
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **Internship Project** - Documentation and FAQ Organization
+  - Organized and structured website FAQ contents to improve user experience.
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 💻 Skills
+
+**Front-end**  
+![HTML](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Angular](https://img.shields.io/badge/-Angular-DD0031?style=flat-square&logo=angular&logoColor=white)
+
+**Back-end**  
+![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+
+**Others**  
+![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white)
+![Elementor](https://img.shields.io/badge/-Elementor-92003B?style=flat-square&logo=elementor&logoColor=white)
+![macOS](https://img.shields.io/badge/-macOS-000000?style=flat-square&logo=apple&logoColor=white)
+![Linux](https://img.shields.io/badge/-Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+
+---
+
+### 🌱 Currently Learning
+
+I'm currently focusing on **Angular** and working to deepen my understanding of **data structures** to build more efficient applications.
+
+---
+
+### 🌐 Connect With Me
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/calebe-dev)  
+✉️ **Email**: calebe.araujo101@gmail.com
+
+---
+
+### 🌟 GitHub Stats
+
+![Calebe's GitHub stats](https://github-readme-stats.vercel.app/api?username=Calebe-Dev&show_icons=true&theme=radical)
