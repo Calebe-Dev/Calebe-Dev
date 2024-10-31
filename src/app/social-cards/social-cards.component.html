@@ -1,0 +1,15 @@
+<title> Redes Sociais </title>
+<div class="container"> 
+    <div class="hero">
+      <app-hero></app-hero>
+    </div>
+    <div class="social-cards" *ngFor="let socialinfo of socialinfos">
+      <div class="card">
+        <div class="card-details">
+          <p class="text-title">{{socialinfo.name}}</p>
+          <p class="text-body">{{socialinfo.describe}}</p>
+        </div>
+        <button class="card-button" (click)="'{{socialinfo.link}}'">{{socialinfo.username}}</button>
+      </div>      
+    </div>
+</div> 

@@ -1,0 +1,82 @@
+.container{
+    margin: auto;
+}
+
+/* Contêiner principal */
+.scroll-container {
+    display: flex;
+    flex-direction: row; /* Define as seções em linha horizontal */
+    overflow-x: auto; /* Permite rolagem horizontal */
+    height: 100vh; /* Define a altura para ocupar a viewport */
+    scroll-snap-type: x mandatory; /* Ativa o snap para rolar de seção em seção */
+    -webkit-overflow-scrolling: touch; /* Para rolagem suave em dispositivos móveis */
+    scroll-behavior: smooth;
+}
+
+/* Seções individuais */
+.section {
+    min-width: 100vw; /* Cada seção ocupa 100% da largura da viewport */
+    height: 100vh; /* Cada seção ocupa 100% da altura da viewport */
+    scroll-snap-align: start; /* Faz com que a rolagem "prenda" em cada seção */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #fff;
+    margin: 0;
+}
+
+
+/* Contêiner */
+.scroll-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    height: 100vh;
+    scroll-snap-type: x mandatory;
+}
+
+/* Efeito de surgimento (fade-in) */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.fade-in.animate {
+    opacity: 1;
+}
+
+/* Efeito de deslizamento para cima (slide-in) */
+.slide-in {
+    opacity: 0;
+    transform: translateY(50px); /* Começa 50px abaixo */
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.slide-in.animate {
+    opacity: 1;
+    transform: translateY(0); /* Anima para sua posição original */
+}
+
+/* Outros efeitos de entrada (exemplos de direção) */
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.slide-in-left.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.slide-in-right.animate {
+    opacity: 1;
+    transform: translateX(0);
+}

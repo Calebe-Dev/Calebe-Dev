@@ -1,0 +1,31 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/* Gradiente */
+body {
+    position: relative;
+    overflow: scroll;
+    height: 100%;
+    background: linear-gradient(to bottom right, blue 0%, black 100%);
+}
+
+
+.scroll-element {
+    opacity: 0;
+    transform: translate3d(-150px, 0, 0);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.scroll-element.animate {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+

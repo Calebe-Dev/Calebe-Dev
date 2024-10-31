@@ -1,0 +1,97 @@
+.container{
+    margin-top: 5%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    max-width: 80vh;
+    height: 70vh;
+    border: 2px solid #c3c6ce;
+    overflow: scroll;
+        /*Vidro fosco do fundo da div*/
+        background: rgba(10, 9, 9, 0.4); /* Fundo semitransparente */
+        backdrop-filter: blur(30%); /* Efeito de desfoque */
+        -webkit-backdrop-filter: blur(10px); /* Para compatibilidade com navegadores WebKit */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+  }
+  
+  .hero{
+    display: none;
+  }
+  
+  
+  .social-cards{
+    margin: auto;
+  }
+  
+  
+  /* From Uiverse.io by alexruix */ 
+  .card {
+    font-size: medium;
+    width: 190px;
+    height: 254px;
+    border-radius: 20px;
+    background: #000;
+    position: relative;
+    padding: 1.8rem;
+    border: 2px solid #c3c6ce;
+    transition: 0.5s ease-out;
+    overflow: visible;
+   }
+   
+   .card-details {
+    color: #fff;
+    height: 100%;
+    gap: .5em;
+    display: grid;
+    place-content: center;
+   }
+   
+   .card-button {
+    transform: translate(-50%, 125%);
+    width: 60%;
+    border-radius: 1rem;
+    border: none;
+    background-color: #545454;
+    color: #fff;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.3s ease-out;
+   }
+   
+   .text-body {
+    color: rgb(134, 134, 134);
+   }
+   
+   /*Text*/
+   .text-title {
+    font-size: 1.5em;
+    font-weight: bold;
+   }
+   
+   /*Hover*/
+   .card:hover {
+    border-color: #008bf8;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+   }
+   
+  .card:hover .card-button {
+    transform: translate(-50%, 50%);
+    opacity: 1;
+  }
+  
+  
+  /* Estilos para telas menores que 768px (tablets e smartphones) */
+  @media (max-width: 768px) {
+  
+  }
+  
+  /* Estilos para telas menores que 480px (smartphones) */
+  @media (max-width: 480px) {
+
+  }
+  

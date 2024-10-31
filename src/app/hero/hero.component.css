@@ -1,0 +1,60 @@
+/* Seção Hero */
+
+.hero {
+    min-height: 70vh;
+    min-width: 90vh;
+    margin-top: 5%;
+    border: #c3c6ce, 2px,solid;
+    border-radius: 20px;
+    /*Vidro fosco do fundo da div*/
+    background: rgba(10, 9, 9, 0.4); /* Fundo semitransparente */
+    backdrop-filter: blur(30%); /* Efeito de desfoque */
+    -webkit-backdrop-filter: blur(10px); /* Para compatibilidade com navegadores WebKit */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+}
+
+.banner{
+    width: 100%;
+    color: #fff;
+}
+
+.hero-text {
+    margin-top: 30vh;
+    margin-left: 10vh;
+    color: #fff;
+    font-size: xx-large;
+}
+
+.hero-text p {
+    margin-bottom: 30px;
+}
+
+.btn{
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #d90000;
+}
+
+.container-Global{
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Estilos para telas menores que 768px (tablets e smartphones) */
+@media (max-width: 768px) {
+
+}
+
+/* Estilos para telas menores que 480px (smartphones) */
+@media (max-width: 480px) {
+
+}

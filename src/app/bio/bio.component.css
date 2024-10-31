@@ -1,0 +1,73 @@
+/* Sobre Mim */
+.title{
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: auto;
+    background-color: #101010;
+    box-shadow: #fff;
+    border-radius: 15px;
+    color: #fff;
+    height: 70vh;
+    max-width: 100vh;
+}
+
+.about-text {
+    text-align: justify;
+    flex: 1 1 60%;
+    max-width: 700px;
+    margin: auto;
+    border: #c3c6ce, 2px,solid;
+    padding: 20px;
+    border-radius: 20px;
+
+}
+
+.about-image {
+    flex: 1 1 40%;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+
+
+/* Estilos para telas menores que 768px (tablets e smartphones) */
+@media (max-width: 768px) {
+    .about-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: auto;
+        max-height: 20%;
+        max-width: 100%;
+    }
+    
+}
+
+/* Estilos para telas menores que 480px (smartphones) */
+@media (max-width: 480px) {
+    .about-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: auto;
+        max-height: 20%;
+        max-width: 100%;
+    }
+    
+}
+
