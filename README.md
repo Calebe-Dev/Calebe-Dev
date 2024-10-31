@@ -52,7 +52,7 @@ Welcome to my GitHub profile! I'm a student of Systems Analysis and Development 
 I'm currently focusing on **Angular** and working to deepen my understanding of **data structures** to build more efficient applications.
 
 ---
-
+w
 ### 🌐 Connect With Me
 
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/calebe-dev)  
