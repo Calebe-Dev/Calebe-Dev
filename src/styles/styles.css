@@ -10,7 +10,7 @@
 
 body {
     font-family: 'San Francisco', sans-serif;
-    background-color: #111;
+    background:linear-gradient(45deg,#fff, #505050,#000);
     color: #fff;
     overflow-x: hidden;
 }
@@ -29,10 +29,10 @@ body {
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-.rounded-button:hover {
+/*.rounded-button:hover {
     background-color: #;
     color: #fff;
-}
+}*/
 
 .rounded-button:active {
     background-color: #555;
@@ -86,7 +86,7 @@ header {
 }
 
 .container {
-    max-width: 1200px;
+    min-height: 50rem;
     margin: 0 auto;
     padding: 0 20px;
 /**/
@@ -121,7 +121,7 @@ nav a:hover {
 /* Títulos */
 h1, h2, h3 {
     font-weight: bold;
-    color: #ff0000;
+    color: #f5f5f5;
 }
 
 h1 {
@@ -165,10 +165,9 @@ p {
 .hero {
     position: relative;
     overflow: hidden;
-    background-image: url("hero-background.jpg"); /* Substitua pela URL da sua imagem */
     background-size: cover;
     background-position: center;
-    min-height: 400px;
+    min-height: 50rem;
 }
 
 .hero-text {
@@ -221,43 +220,54 @@ p {
 /*Conectse comigo*/
 /* Seção Conecte-se Comigo */
 #redes-sociais {
-    text-align: center; /* Centraliza o título e os links */
-    width: 100%; 
-    margin: 0, auto; /* Espaçamento superior e inferior da seção */
+    text-align: center;
+    min-width: 50rem; 
+    min-height: 60rem;
   }
   
-  #redes-sociais .social-container{
-      display:inline-block;
-  }
   
   .social-links {
     display: flex;
-    flex-direction: column; /* Organiza os links em coluna */
     align-items: center; /* Alinha os links ao centro horizontalmente */
     gap: 15px; /* Espaçamento entre os links */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
   }
   
   .social-button {
-    display: flex; /* Permite alinhar ícone e texto lado a lado */
-    align-items: center; /* Alinha o ícone e o texto verticalmente */
-    padding: 10px 15px;
-    border: none; /* Remove a borda padrão do botão */
-    border-radius: 20px; /* Cantos arredondados */
-    background-color: #333; /* Cor de fundo do botão */
-    color: #fff; /* Cor do texto do botão */
-    text-decoration: none; /* Remove a linha sob o texto */
-    transition: all 0.3s ease; /* Adiciona uma transição suave */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 300px;
+    height: 300px;
+    color: #fff; 
+    border:solid,rgba(255, 255, 255, 0.343);
+    box-shadow: #000;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.193);
+    text-decoration: none;  
+     h1{
+        margin-top: 35%;
+        color: rgba(255, 255, 255, 0.343);
+        
+    }
   }
   
   .social-button:hover {
-    background-color: #ff0000; /* Cor de fundo ao passar o mouse */
     transform: scale(1.05); /* Aumenta o tamanho ao passar o mouse */
+    box-shadow: #000;
+    border: solid, #fff;
+    background-color: rgba(0, 0, 0, 0.554);
+
+    h1{
+        color: rgba(255, 255, 255, 0.925)
+
+    }
   }
   
   .social-button img {
-    width: 24px; /* Tamanho do ícone */
+    width: 24px; 
     height: 24px; 
-    margin-right: 10px; /* Espaçamento entre ícone e texto */
+    margin-right: 10px; 
   }
 
 
@@ -268,17 +278,23 @@ p {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    min-height: 50rem;
 }
 
 .skill {
-    background-color: #222;
+    background-color: rgba(0, 0, 0, 0.471);
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.27);
     text-align: center;
     width: 100%;
     max-width: 300px;
     transition: transform 0.3s ease;
+    border-radius: 25px;
+    border: solid, rgba(255, 255, 255, 0.295);
+    h3{
+        color: #333;
+    }
 }
 
 .skill img {
@@ -286,17 +302,19 @@ p {
     margin-bottom: 10px;
 }
 
+
+/*  
 .progress-bar {
     width: 100%;
     height: 10px;
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.554);
     border-radius: 5px;
     margin-bottom: 10px;
     overflow: hidden;
 }
 
 .progress {
-    background-color: #ff0000;
+    background-color: rgba(255, 255, 255, 0.521);
     height: 100%;
     border-radius: 5px;
     width: 0;
@@ -309,6 +327,9 @@ p {
     }
 }
 
+*/
+
+
 .skill:hover {
     transform: scale(1.1);
 }
@@ -319,12 +340,14 @@ p {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    min-height: 50rem;
 }
 
 .service {
-    background-color: #222;
+    background-color: rgba(0, 0, 0, 0.529);
+    border-radius: 25px;
+    border: solid, rgba(255, 255, 255, 0.749);
     padding: 20px;
-    border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 100%;
@@ -348,12 +371,14 @@ p {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    min-height: 50rem;
 }
 
 .project {
-    background-color: #222;
+    background-color: rgba(0, 0, 0, 0.529);
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 25px;
+    border: solid, rgba(255, 255, 255, 0.749);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 100%;
@@ -432,13 +457,27 @@ p {
     margin-top: 30px;
 }
 
+.eras-section{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.259);
+    border-radius: 25px;
+    height: 30rem;
+    width: 40rem;
+    border: solid, rgba(255, 255, 255, 0.749);
+    p{
+        margin-top: 10%;
+        margin:5%;
+    }
+}
+
 .era-card {
     background-color: #222;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 100%;
+    width: 20rem;
     max-width: 350px;
     transition: transform 0.3s ease;
     opacity: 0;

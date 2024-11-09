@@ -93,13 +93,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function animateProgressBars() {
+
+    /*
+        function animateProgressBars() {
         const progressBars = document.querySelectorAll('.progress');
         progressBars.forEach(bar => {
-            const targetWidth = bar.parentElement.dataset.skillLevel;
+            const targetWidth = bar.closest('.skill').dataset.skillLevel;
             bar.style.width = targetWidth;
         });
-    }
+    } */
+
+
 
     function applySlideAnimation(elements, delay = 0) {
         elements.forEach((element, index) => {
