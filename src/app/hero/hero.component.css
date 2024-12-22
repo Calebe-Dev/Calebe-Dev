@@ -1,0 +1,41 @@
+.hero {
+  background-color: #000;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  min-height: 50rem;
+  color: #fff;
+}
+
+.hero-section {
+  padding: 60px 0;
+}
+
+.hero-text p {
+  margin-bottom: 30px;
+}
+
+.hero-text {
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  p{
+    text-align: justify;
+    width: 40%;
+    margin: auto;
+  }
+}
+
+.foto img {
+  left: 50%;
+  max-width: 50%;
+  border-radius: 50px;
+  height: auto;
+  margin-left: 50%;
+}
+
