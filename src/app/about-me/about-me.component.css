@@ -124,8 +124,10 @@ h2 {
 
 @media (max-width: 576px) {
   .about-text {
-    top: 20%;
-    left: 50%;
+    position: static;
+    transform: none;
+    text-align: center;
+    padding: 20px;
   }
   .about-text p {
     width: 90%;
@@ -133,6 +135,8 @@ h2 {
   .social-links {
     margin-right: 0;
     align-items: center;
+    max-width: 70%;
+    margin-left: 14%;
   }
   .social-button {
     width: 100%;

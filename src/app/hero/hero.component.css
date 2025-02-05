@@ -24,7 +24,7 @@
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 1;
-  p{
+  p {
     text-align: justify;
     width: 40%;
     margin: auto;
@@ -39,3 +39,26 @@
   margin-left: 50%;
 }
 
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .hero-text {
+    position: static;
+    transform: none;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .hero-text p {
+    width: 100%;
+  }
+
+  .foto img {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 80%;
+  }
+}
