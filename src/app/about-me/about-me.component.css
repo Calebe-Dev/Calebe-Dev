@@ -1,5 +1,7 @@
 .container {
-  background-color: #000;
+  background-color:rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 50px;
   position: relative;
   overflow: hidden; 
@@ -7,7 +9,7 @@
   background-position: center;
   min-height: 50rem;
   color: #fff;
-  padding: 60px 0;
+  padding: 40px 0;
 }
   
 .about-text {

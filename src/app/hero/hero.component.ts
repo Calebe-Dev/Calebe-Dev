@@ -3,7 +3,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })
