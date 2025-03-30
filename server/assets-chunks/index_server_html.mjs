@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="pt-BR" data-beasties-container="">
+export default `<!doctype html>
+<html lang="pt-BR">
 <head><base href="/Calebe-Dev/">
   <meta charset="UTF-8">
   <title>CalebeDev - Desenvolvedor Web & Marketing Digital</title>
@@ -13,11 +13,8 @@
   <!-- Open Graph (Para compartilhamento em redes sociais) -->
   <meta property="og:title" content="CalebeDev - Desenvolvedor Web &amp; Marketing Digital">
   <meta property="og:description" content="Desenvolvimento de sites responsivos, otimização para SEO e gestão de redes sociais. Entre em contato!">
- <!--
-   <meta property="og:image" content="URL_DA_IMAGEM_PREVIEW">
-   <meta property="og:url" content="URL_DO_SEU_SITE">
- -->
- 
+  <meta property="og:image" content="URL_DA_IMAGEM_PREVIEW">
+  <meta property="og:url" content="URL_DO_SEU_SITE">
   <meta property="og:type" content="website">
   
   <!-- Twitter Card (Para compartilhamento no Twitter) -->
@@ -31,8 +28,10 @@
   
   <!-- Canonical (Evita conteúdo duplicado em SEO) -->
   <link rel="canonical" href="URL_DO_SEU_SITE">
-<style>body{font-family:San Francisco,sans-serif;color:#fff;overflow-x:hidden;background:linear-gradient(45deg,#fff,#505050,#000);scroll-behavior:smooth}</style><link rel="stylesheet" href="styles-POGJEEUU.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-POGJEEUU.css"></noscript></head>
-<body ngcm="">
+<link rel="stylesheet" href="styles-POGJEEUU.css"></head>
+<body><script type="text/javascript" id="ng-event-dispatch-contract">(()=>{function p(t,n,r,o,e,i,f,m){return{eventType:t,event:n,targetElement:r,eic:o,timeStamp:e,eia:i,eirp:f,eiack:m}}function u(t){let n=[],r=e=>{n.push(e)};return{c:t,q:n,et:[],etc:[],d:r,h:e=>{r(p(e.type,e,e.target,t,Date.now()))}}}function s(t,n,r){for(let o=0;o<n.length;o++){let e=n[o];(r?t.etc:t.et).push(e),t.c.addEventListener(e,t.h,r)}}function c(t,n,r,o,e=window){let i=u(t);e._ejsas||(e._ejsas={}),e._ejsas[n]=i,s(i,r),s(i,o,!0)}window.__jsaction_bootstrap=c;})();
+</script>
   <app-root></app-root>
-<script src="polyfills-FFHMD2TL.js" type="module"></script><script src="main-GJHB7CIM.js" type="module"></script></body>
+<script src="polyfills-FFHMD2TL.js" type="module"></script><script src="main-T45LOXXS.js" type="module"></script></body>
 </html>
+`;
