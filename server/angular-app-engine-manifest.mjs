@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/Calebe-Dev/',
+  basePath: '/',
   entryPoints: {
     '': () => import('./main.server.mjs')
   },

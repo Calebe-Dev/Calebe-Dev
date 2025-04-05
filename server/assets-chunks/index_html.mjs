@@ -1,4 +1,4 @@
-export default `<!DOCTYPE html><html lang="pt-BR" data-beasties-container><head><base href="/Calebe-Dev/">
+export default `<!DOCTYPE html><html lang="pt-BR" data-beasties-container><head>
   <meta charset="UTF-8">
   <title>CalebeDev - Desenvolvedor Web &amp; Marketing Digital</title>
   

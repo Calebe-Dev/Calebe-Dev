@@ -1,6 +1,6 @@
 export default `<!doctype html>
 <html lang="pt-BR">
-<head><base href="/Calebe-Dev/">
+<head>
   <meta charset="UTF-8">
   <title>CalebeDev - Desenvolvedor Web & Marketing Digital</title>
   
