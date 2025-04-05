@@ -1,2 +1,0 @@
-export default `body{font-family:San Francisco,sans-serif;color:#fff;overflow-x:hidden;background:linear-gradient(45deg,#fff,#505050,#000);scroll-behavior:smooth}
-`;
