@@ -1,60 +1,102 @@
 .about-section {
     padding: 6rem 0;
     background: var(--background-color);
-  }
-  
-  .about-container {
+
+    @media (max-width: 768px) {
+        padding: 4rem 1rem; // Reduz o padding geral em telas menores
+    }
+}
+
+.about-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    text-align: center; // Centraliza o texto
-  }
-  
-  .about-content {
+    text-align: center;
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+
+        @media (max-width: 768px) {
+            font-size: 2rem; // Reduz o tamanho do título em telas menores
+        }
+    }
+}
+
+.about-content {
     display: flex;
     flex-direction: column;
-    align-items: center; // Centraliza os itens
+    align-items: center;
     gap: 3rem;
-    
-    .about-text {
-      max-width: 800px; // Limita a largura do texto para melhor legibilidade
-      text-align: left; // Alinha o texto à esquerda para parágrafos
-      .highlight {
-        font-size: 1.25rem;
-        color: var(--primary-color);
-        font-weight: 500;
-        margin-bottom: 2rem;
-      }
-      
-      p {
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-        color: var(--secondary-color);
-      }
+
+    @media (max-width: 768px) {
+        gap: 2rem; // Reduz o espaçamento entre os itens em telas menores
     }
-  }
-  
-  .key-points {
+
+    .about-text {
+        max-width: 800px;
+        text-align: left;
+
+        @media (max-width: 768px) {
+            text-align: center; // Centraliza o texto em telas menores
+        }
+
+        .highlight {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 2rem;
+
+            @media (max-width: 768px) {
+                font-size: 1.1rem; // Reduz o tamanho do texto em telas menores
+            }
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: var(--secondary-color);
+
+            @media (max-width: 768px) {
+                font-size: 0.95rem; // Reduz o tamanho da fonte em telas menores
+            }
+        }
+    }
+}
+
+.key-points {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin: 3rem 0;
-    
-    .point {
-      h3 {
-        font-size: 1.25rem;
-        margin-bottom: 1rem;
-        font-weight: 600;
-        color: var(--primary-color);
-      }
-      
-      p {
-        color: var(--secondary-color);
-      }
+
+    @media (max-width: 768px) {
+        gap: 1.5rem; // Reduz o espaçamento entre os pontos em telas menores
     }
-  }
-  
-  .mission {
+
+    .point {
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+
+            @media (max-width: 768px) {
+                font-size: 1.1rem; // Reduz o tamanho do título em telas menores
+            }
+        }
+
+        p {
+            color: var(--secondary-color);
+
+            @media (max-width: 768px) {
+                font-size: 0.9rem; // Reduz o tamanho do texto em telas menores
+            }
+        }
+    }
+}
+
+.mission {
     font-size: 1.2rem;
     font-weight: 500;
     margin: 2rem 0;
@@ -62,35 +104,35 @@
     background: rgba(0, 0, 0, 0.03);
     border-radius: 12px;
     text-align: center;
-  }
-  
-  .cta-container {
+
+    @media (max-width: 768px) {
+        font-size: 1rem; // Reduz o tamanho do texto em telas menores
+        padding: 1rem; // Ajusta o padding em telas menores
+    }
+}
+
+.cta-container {
     text-align: center;
     margin-top: 3rem;
-    
+
     .cta-button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: var(--primary-color);
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      }
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            padding: 0.8rem 1.5rem; // Reduz o tamanho do botão em telas menores
+            font-size: 0.95rem; // Ajusta o tamanho da fonte do botão
+        }
     }
-  }
-  
-  @media (max-width: 768px) {
-    .about-section {
-      padding: 4rem 0;
-    }
-    
-    .about-container h2 {
-      font-size: 2rem;
-    }
-  }
+}

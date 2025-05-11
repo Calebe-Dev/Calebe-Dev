@@ -1,40 +1,65 @@
 .services-section {
     padding: 6rem 0;
     background: var(--background-color);
-  }
-  
-  .services-container {
+
+    @media (max-width: 768px) {
+        padding: 4rem 1rem; // Reduz o padding geral em telas menores
+    }
+}
+
+.services-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-  
+
     h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 4rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 4rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+
+        @media (max-width: 768px) {
+            font-size: 2rem; // Reduz o tamanho do título em telas menores
+            margin-bottom: 5rem; // Ajusta o espaçamento inferior
+        }
     }
-  }
-  
-  .services-group {
-    margin-bottom: 4rem;
-  
+}
+
+.services-group {
+    margin-bottom: 5rem; // Aumenta o espaçamento entre os grupos
+
+    @media (max-width: 768px) {
+        margin-bottom: 4rem; // Aumenta o espaçamento entre os grupos em telas menores
+    }
+
     h3 {
-      font-size: 1.75rem;
-      margin-bottom: 2rem;
-      font-weight: 500;
-      letter-spacing: -0.01em;
+        text-align: center;
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+
+        @media (max-width: 768px) {
+            font-size: 1.5rem; // Reduz o tamanho do subtítulo em telas menores
+            margin-top: 5rem; // Ajusta o espaçamento superior
+            margin-bottom: 5rem; // Ajusta o espaçamento inferior
+        }
     }
-  }
-  
-  .services-grid {
+}
+
+.services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-  
-  .service-card {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem; // Aumenta o espaçamento entre os cards
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr; // Exibe os cards em uma única coluna em telas menores
+        gap: 5rem; // Aumenta o espaçamento entre os cards em telas menores
+    }
+}
+
+.service-card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 20px;
@@ -44,79 +69,82 @@
     flex-direction: column;
     height: 100%;
     
+
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      
-      .icon-wrapper {
-        background: var(--primary-color);
-        color: white;
-      }
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+        .icon-wrapper {
+            background: var(--primary-color);
+            color: white;
+        }
     }
-  
+
     .icon-wrapper {
-      width: 60px;
-      height: 60px;
-      border-radius: 16px;
-      background: rgba(0, 0, 0, 0.05);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-      transition: all 0.3s ease;
-  
-      i {
-        font-size: 1.5rem;
-      }
-    }
-  
-    h4 {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-    }
-  
-    p {
-      color: var(--secondary-color);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      flex-grow: 1;
-    }
-  
-    .service-footer {
-      margin-top: auto;
-      
-      .learn-more {
-        color: var(--primary-color);
-        text-decoration: none;
-        font-weight: 500;
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        background: rgba(0, 0, 0, 0.05);
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        transition: gap 0.3s ease;
-  
-        &:hover {
-          gap: 0.75rem;
-        }
-  
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+
         i {
-          font-size: 0.875rem;
+            font-size: 1.5rem;
+
+            @media (max-width: 768px) {
+                font-size: 1.25rem; // Reduz o tamanho do ícone em telas menores
+            }
         }
-      }
     }
-  }
-  
-  @media (max-width: 768px) {
-    .services-section {
-      padding: 4rem 0;
+
+    h4 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+
+        @media (max-width: 768px) {
+            font-size: 1.1rem; // Reduz o tamanho do título em telas menores
+        }
     }
-  
-    .services-container h2 {
-      font-size: 2rem;
+
+    p {
+        color: var(--secondary-color);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+
+        @media (max-width: 768px) {
+            font-size: 0.95rem; // Reduz o tamanho do texto em telas menores
+        }
     }
-  
-    .services-group h3 {
-      font-size: 1.5rem;
+
+    .service-footer {
+        margin-top: auto;
+
+        .learn-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+
+            &:hover {
+                gap: 0.75rem;
+            }
+
+            i {
+                font-size: 0.875rem;
+
+                @media (max-width: 768px) {
+                    font-size: 0.8rem; // Ajusta o tamanho do ícone em telas menores
+                }
+            }
+        }
     }
-  }
+}
