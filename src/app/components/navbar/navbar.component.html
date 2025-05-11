@@ -1,1 +1,21 @@
-<p>navbar works!</p>
+<header class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <a href="#hero"><img src="" alt=""></a>
+      </div>
+  
+      <nav [class.open]="mobileMenuOpen">
+        <a href="#about" (click)="closeMenu()">Sobre</a>
+        <a href="#services" (click)="closeMenu()">Serviços</a>
+        <a href="#projects" (click)="closeMenu()">Projetos</a>
+        <a href="#experience" (click)="closeMenu()">Experiência</a>
+        <a href="#request-form" class="highlight" (click)="closeMenu()">Solicitar Projeto</a>
+      </nav>
+  
+      <button class="hamburger" (click)="toggleMenu()" aria-label="Menu">
+        <span [class.open]="mobileMenuOpen"></span>
+        <span [class.open]="mobileMenuOpen"></span>
+        <span [class.open]="mobileMenuOpen"></span>
+      </button>
+    </div>
+  </header>

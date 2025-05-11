@@ -1,0 +1,101 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8); // Fundo semi-transparente
+    backdrop-filter: blur(10px); // Efeito de blur estilo Apple
+    -webkit-backdrop-filter: blur(10px); // Suporte para Safari
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+  
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;  // Isso garante o alinhamento vertical
+      justify-content: space-between;
+      padding: 1rem 2rem;
+  
+      nav {
+        display: flex;
+        align-items: center;  // Alinha os itens verticalmente
+        gap: 2rem;  // Espaçamento consistente entre os links
+
+        a {
+          font-family: -apple-system, SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+          font-weight: 400;
+          font-size: 0.875rem;
+          letter-spacing: -0.01em;
+          color: var(--primary-color);
+          text-decoration: none;
+          transition: color 0.2s ease;
+  
+          &.highlight {
+            font-weight: 500;
+            background-color: #007aff;
+            color: #fff;
+            padding: 0.5rem 1rem; // Ajusta o padding para reduzir a altura da navbar
+            border-radius: 6px;
+            letter-spacing: -0.02em;
+          }
+  
+          &:hover {
+            color: #007aff;
+          }
+        }
+  
+        @media (max-width: 768px) {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: var(--background-color);
+          flex-direction: column;
+          padding: 1rem;
+          display: none;
+  
+          &.open {
+            display: flex;
+          }
+        }
+      }
+  
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+  
+        span {
+          display: block;
+          width: 24px;
+          height: 2px;
+          background: var(--primary-color);
+          transition: transform 0.3s ease;
+  
+          &.open:nth-child(1) {
+            transform: rotate(45deg) translateY(8px);
+          }
+  
+          &.open:nth-child(2) {
+            opacity: 0;
+          }
+  
+          &.open:nth-child(3) {
+            transform: rotate(-45deg) translateY(-8px);
+          }
+        }
+  
+        @media (max-width: 768px) {
+          display: flex;
+        }
+      }
+    }
+  }
+.logo img {
+    max-width: 60px; // Limita a largura máxima da imagem
+    height: auto; // Mantém a proporção da imagem
+}
