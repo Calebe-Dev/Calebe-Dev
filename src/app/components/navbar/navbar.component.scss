@@ -50,7 +50,9 @@
           top: 100%;
           left: 0;
           right: 0;
-          background: var(--background-color);
+          background: rgba(255, 255, 255, 0.8); // Fundo semi-transparente
+          backdrop-filter: blur(10px); // Efeito de blur
+          -webkit-backdrop-filter: blur(10px); // Suporte para Safari
           flex-direction: column;
           padding: 1rem;
           display: none;
@@ -73,7 +75,7 @@
           display: block;
           width: 24px;
           height: 2px;
-          background: var(--primary-color);
+          background: #000; // Altere para preto ou outra cor visível no fundo branco
           transition: transform 0.3s ease;
   
           &.open:nth-child(1) {
