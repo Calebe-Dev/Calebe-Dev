@@ -1,0 +1,128 @@
+.contact-section {
+    padding: 6rem 0;
+    background: var(--background-color);
+  }
+  
+  .contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+  
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+  }
+  
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .social-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    text-align: left;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  
+      .arrow-link i {
+        transform: translateX(5px);
+      }
+    }
+  
+    .icon-wrapper {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+  
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+  
+    p {
+      color: var(--secondary-color);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+  
+    .arrow-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+  
+      i {
+        transition: transform 0.3s ease;
+      }
+    }
+  
+    &.linkedin .icon-wrapper {
+      background: rgba(0, 119, 181, 0.1);
+      color: #0077b5;
+    }
+  
+    &.github .icon-wrapper {
+      background: rgba(36, 41, 46, 0.1);
+      color: #24292e;
+    }
+  
+    &.instagram .icon-wrapper {
+      background: rgba(225, 48, 108, 0.1);
+      color: #e1306c;
+    }
+  
+    &.email .icon-wrapper {
+      background: rgba(52, 168, 83, 0.1);
+      color: #34a853;
+    }
+  }
+  
+  .contact-footer {
+    p {
+      font-size: 1.1rem;
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+    }
+  
+    .availability {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(52, 168, 83, 0.1);
+      color: #34a853;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .contact-section {
+      padding: 4rem 0;
+    }
+  
+    .contact-container h2 {
+      font-size: 2rem;
+    }
+  }
