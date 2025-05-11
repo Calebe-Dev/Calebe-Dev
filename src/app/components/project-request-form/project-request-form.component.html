@@ -1,0 +1,71 @@
+<section class="project-form-section">
+    <div class="form-container">
+      <div class="progress-bar">
+        <div class="progress" [style.width]="((currentStep + 1) / steps.length * 100) + '%'"></div>
+        <div class="steps">
+          <div class="step" *ngFor="let step of steps; let i = index" 
+               [class.active]="i === currentStep"
+               [class.completed]="i < currentStep">
+            {{ i + 1 }}
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-content" [@slideAnimation]="currentStep">
+        <h2>{{ steps[currentStep].question }}</h2>
+  
+        <div class="input-container" [ngSwitch]="steps[currentStep].type">
+          <!-- Select -->
+          <select *ngSwitchCase="'select'" [(ngModel)]="answers[currentStep]">
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option *ngFor="let option of steps[currentStep].options" [value]="option">
+              {{ option }}
+            </option>
+          </select>
+  
+          <!-- Radio -->
+          <div *ngSwitchCase="'radio'" class="radio-group">
+            <label *ngFor="let option of steps[currentStep].options">
+              <input type="radio" [value]="option" [(ngModel)]="answers[currentStep]">
+              <span>{{ option }}</span>
+            </label>
+          </div>
+  
+          <!-- Textarea -->
+          <textarea *ngSwitchCase="'textarea'"
+                    [(ngModel)]="answers[currentStep]"
+                    [placeholder]="steps[currentStep].placeholder"
+                    rows="4"></textarea>
+  
+          <!-- Budget -->
+          <div *ngSwitchCase="'budget'" class="budget-options">
+            <button *ngFor="let option of steps[currentStep].options"
+                    [class.selected]="answers[currentStep] === option"
+                    (click)="answers[currentStep] = option">
+              {{ option }}
+            </button>
+          </div>
+        </div>
+  
+        <div class="form-actions">
+          <button *ngIf="currentStep > 0" 
+                  (click)="previousStep()"
+                  class="btn-secondary">
+            Voltar
+          </button>
+          
+          <button *ngIf="currentStep < steps.length - 1" 
+                  (click)="nextStep()"
+                  class="btn-primary">
+            Continuar
+          </button>
+          
+          <button *ngIf="currentStep === steps.length - 1" 
+                  (click)="submitForm()"
+                  class="btn-submit">
+            Enviar Solicitação
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
