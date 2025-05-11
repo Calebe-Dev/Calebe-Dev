@@ -136,3 +136,24 @@
         }
     }
 }
+
+.about-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 90vw;
+        margin-bottom: 1.5rem;
+    }
+}
