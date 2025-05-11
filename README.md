@@ -1,59 +1,65 @@
-# CalebeDev
+# 👋 Hi there! I'm Calebe
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
+Welcome to my GitHub profile! I'm a student of Systems Analysis and Development and a budding web developer, committed to creating practical applications and solutions that enhance user experience. Each project here reflects my dedication to continuous learning and hands-on development.
 
-## Development server
+---
 
-To start a local development server, run:
+###  About Me
 
-```bash
-ng serve
-```
+💡 **Idea Explorer**: Passionate about technology and innovation, I'm always on the lookout for creative ways to solve real-world problems.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+🎓 **University Student**: Currently in my 3rd semester of Systems Analysis and Development, with a background in Web Design.
 
-## Code scaffolding
+🛠 **Developer in Training**: Working as a freelancer with a focus on web development, creating landing pages, and online menus, especially for small businesses.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+👨‍💻 **Experienced in OS**: Skilled in using macOS and Linux for development, utilizing their unique tools and features to enhance my productivity and development environment.
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 💼 Professional Experience
 
-```bash
-ng generate --help
-```
+- **Freelancer** - Web Developer | Web Designer
+  - Building websites and landing pages
+  - Setting up API integrations and workflow automation
+  - Supporting new businesses to establish a professional digital presence
 
-## Building
+- **Internship Project** - Documentation and FAQ Organization
+  - Organized and structured website FAQ contents to improve user experience.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+### 💻 Skills
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+**Front-end**  
+![HTML](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Angular](https://img.shields.io/badge/-Angular-DD0031?style=flat-square&logo=angular&logoColor=white)
 
-## Running unit tests
+**Back-end**  
+![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+**Others**  
+![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white)
+![Elementor](https://img.shields.io/badge/-Elementor-92003B?style=flat-square&logo=elementor&logoColor=white)
+![macOS](https://img.shields.io/badge/-macOS-000000?style=flat-square&logo=apple&logoColor=white)
+![Linux](https://img.shields.io/badge/-Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+### 🌱 Currently Learning
 
-For end-to-end (e2e) testing, run:
+I'm currently focusing on **Angular** and working to deepen my understanding of **data structures** to build more efficient applications.
 
-```bash
-ng e2e
-```
+---
+w
+### 🌐 Connect With Me
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/calebe-dev)  
+✉️ **Email**: calebe.araujo101@gmail.com
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 🌟 GitHub Stats
+
+![Calebe's GitHub stats](https://github-readme-stats.vercel.app/api?username=Calebe-Dev&show_icons=true&theme=radical)
