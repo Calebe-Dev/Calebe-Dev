@@ -124,3 +124,25 @@
       font-size: 1.25rem;
     }
   }
+  
+  .projects-illustration {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 2.5rem auto;
+    display: flex;
+    justify-content: center;
+  
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      object-fit: cover;
+      background: #fff;
+    }
+  
+    @media (max-width: 768px) {
+      max-width: 95vw;
+      margin-bottom: 1.5rem;
+    }
+  }

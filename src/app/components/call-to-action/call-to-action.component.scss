@@ -15,8 +15,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                      url('/assets/images/cta-bg.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), 
+                      url('/assets/ilustation2.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -35,6 +35,8 @@
     @media (max-width: 768px) {
         min-height: 50vh;
         background-attachment: scroll; // Remove o efeito parallax em dispositivos móveis
+        flex-direction: column; // <-- Adicione esta linha para empilhar o conteúdo
+        gap: 2rem; // Espaçamento entre conteúdo e imagem
     }
 }
 
@@ -113,26 +115,3 @@
     }
 }
 
-.cta-illustration {
-  width: 100%;
-  max-width: 420px;
-  margin: 2.5rem auto 0 auto;
-  display: flex;
-  justify-content: center;
-  z-index: 2;
-  position: relative;
-
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-    object-fit: cover;
-    background: #fff;
-  }
-
-  @media (max-width: 768px) {
-    max-width: 95vw;
-    margin-top: 1.5rem;
-  }
-}
