@@ -9,7 +9,7 @@
         <a href="#services" (click)="closeMenu()">Serviços</a>
         <a href="#projects" (click)="closeMenu()">Projetos</a>
         <a href="#experience" (click)="closeMenu()">Experiência</a>
-        <a href="#request-form" class="highlight" (click)="closeMenu()">Solicitar Projeto</a>
+        <a [routerLink]="['/solicitar-projeto']" class="highlight" (click)="closeMenu()">Solicitar Projeto</a>
       </nav>
   
       <button class="hamburger" (click)="toggleMenu()" aria-label="Menu">

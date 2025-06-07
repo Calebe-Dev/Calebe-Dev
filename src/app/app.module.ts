@@ -1,10 +1,11 @@
+import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
-    // ... existing code ...
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    // outros módulos...
   ],
-  // ... existing code ...
+  // ...
 })
-export class AppModule { }
+export class AppModule {}
