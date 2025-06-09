@@ -1,105 +1,22 @@
 <section class="skills-section">
-    <div class="skills-container">
-      <h2 data-aos="fade-up">Competências & Tecnologias</h2>
-      
-      <div class="skills-categories">
-        <!-- Desenvolvimento Web -->
-        <div class="category" data-aos="fade-up">
-          <h3>Desenvolvimento Web</h3>
-          <div class="skills-grid">
-            <div class="skill-card">
-              <i class="devicon-html5-plain"></i>
-              <h4>HTML5</h4>
-              <p>Estruturação semântica e acessível para melhor SEO</p>
-            </div>
-            <div class="skill-card">
-              <i class="devicon-css3-plain"></i>
-              <h4>CSS3</h4>
-              <p>Layouts responsivos com Flexbox, Grid e SASS</p>
-            </div>
-            <div class="skill-card">
-              <i class="devicon-javascript-plain"></i>
-              <h4>JavaScript</h4>
-              <p>ES6+, APIs modernas e desenvolvimento interativo</p>
-            </div>
-            <div class="skill-card">
-              <i class="devicon-angular-plain"></i>
-              <h4>Angular</h4>
-              <p>Aplicações escaláveis com TypeScript e RxJS</p>
-            </div>
-            <div class="skill-card">
-              <i class="devicon-react-plain"></i>
-              <h4>React</h4>
-              <p>Interfaces dinâmicas com Hooks e Context API</p>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Marketing Digital -->
-        <div class="category" data-aos="fade-up" data-aos-delay="100">
-          <h3>Marketing Digital</h3>
-          <div class="skills-grid">
-            <div class="skill-card">
-              <i class="fas fa-chart-line"></i>
-              <h4>Meta Ads</h4>
-              <p>Gestão de campanhas e otimização de conversão</p>
-            </div>
-            <div class="skill-card">
-              <i class="fas fa-bullseye"></i>
-              <h4>Tráfego Pago</h4>
-              <p>Estratégias de aquisição e remarketing</p>
-            </div>
-            <div class="skill-card">
-              <i class="fas fa-chart-bar"></i>
-              <h4>Analytics</h4>
-              <p>Análise de dados e otimização de campanhas</p>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Tecnologias Emergentes -->
-        <div class="category" data-aos="fade-up" data-aos-delay="200">
-          <h3>Tecnologias Emergentes</h3>
-          <div class="skills-grid">
-            <div class="skill-card">
-              <i class="fas fa-robot"></i>
-              <h4>IA Generativa</h4>
-              <p>Integração de LLMs e ferramentas de IA</p>
-            </div>
-            <div class="skill-card">
-              <i class="fas fa-camera"></i>
-              <h4>Fotografia</h4>
-              <p>Produção visual para marketing digital</p>
-            </div>
-            <div class="skill-card">
-              <i class="fas fa-mobile-alt"></i>
-              <h4>Mobile Dev</h4>
-              <p>Flutter e Kotlin para apps multiplataforma</p>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Back-end -->
-        <div class="category" data-aos="fade-up" data-aos-delay="300">
-          <h3>Back-end & Dados</h3>
-          <div class="skills-grid">
-            <div class="skill-card">
-              <i class="devicon-python-plain"></i>
-              <h4>Python</h4>
-              <p>Django, Flask e automação de processos</p>
-            </div>
-            <div class="skill-card">
-              <i class="devicon-java-plain"></i>
-              <h4>Java</h4>
-              <p>Spring Boot e desenvolvimento robusto</p>
-            </div>
-            <div class="skill-card">
-              <i class="devicon-mysql-plain"></i>
-              <h4>SQL</h4>
-              <p>Modelagem e gestão de dados relacionais</p>
-            </div>
+  <div class="skills-container">
+    <h2 data-aos="fade-up">Competências & Tecnologias</h2>
+    <div class="skills-categories">
+      <div
+        class="category"
+        *ngFor="let category of skillCategories; let i = index"
+        [attr.data-aos]="'fade-up'"
+        [attr.data-aos-delay]="category.aosDelay || null"
+      >
+        <h3>{{ category.name }}</h3>
+        <div class="skills-grid">
+          <div class="skill-card" *ngFor="let skill of category.skills">
+            <i [class]="skill.icon"></i>
+            <h4>{{ skill.title }}</h4>
+            <p>{{ skill.description }}</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

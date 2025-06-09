@@ -1,84 +1,31 @@
 <section class="projects-section">
-    <div class="projects-container">
+  <div class="projects-container">
 
-      <h2 data-aos="fade-up">Projetos em Destaque</h2>
-      
- 
-
-      <div class="projects-grid">
-        <!-- Lista de Músicas -->
-        <div class="project-card" data-aos="fade-up">
-          <div class="project-content">
-            <span class="project-category">Angular & JSON Server</span>
-            <h3>Lista de Músicas</h3>
-            <p>Aplicação web para exibição de músicas com informações detalhadas, desenvolvida com Angular e Bootstrap, consumindo dados via JSON Server.</p>
-            <div class="project-meta">
-              <span class="date">11 Set 2023</span>
-              <span class="context">ADS 3º Semestre - Programação Web</span>
-            </div>
-            <div class="project-footer">
-              <a href="#" class="github-link">
-                Ver no GitHub
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
+    <h2 data-aos="fade-up">Projetos em Destaque</h2>
+    
+    <div class="projects-grid">
+      <div
+        class="project-card"
+        *ngFor="let project of projects"
+        [attr.data-aos]="'fade-up'"
+        [attr.data-aos-delay]="project.aosDelay"
+      >
+        <div class="project-content">
+          <span class="project-category">{{ project.category }}</span>
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+          <div class="project-meta">
+            <span class="date">{{ project.date }}</span>
+            <span class="context" *ngIf="project.context">{{ project.context }}</span>
           </div>
-        </div>
-  
-        <!-- API Spring -->
-        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-content">
-            <span class="project-category">Spring Boot</span>
-            <h3>API Agenda de Compromissos</h3>
-            <p>Back-end de uma agenda desenvolvida com Spring Boot, implementando REST APIs e boas práticas de desenvolvimento.</p>
-            <div class="project-meta">
-              <span class="date">12 Nov 2023</span>
-              <span class="context">Projeto Final - Programação Web</span>
-            </div>
-            <div class="project-footer">
-              <a href="#" class="github-link">
-                Ver no GitHub
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Portfólio -->
-        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="project-content">
-            <span class="project-category">HTML, CSS & JS</span>
-            <h3>Portfólio Interativo</h3>
-            <p>Projeto de demonstração criando uma experiência única e interativa para o usuário utilizando tecnologias web fundamentais.</p>
-            <div class="project-meta">
-              <span class="date">15 Fev 2023</span>
-            </div>
-            <div class="project-footer">
-              <a href="#" class="github-link">
-                Ver no GitHub
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Landing Page -->
-        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="project-content">
-            <span class="project-category">Landing Page</span>
-            <h3>Douglas Castro</h3>
-            <p>Página de vendas otimizada para conversão, com design moderno e foco em experiência do usuário.</p>
-            <div class="project-meta">
-              <span class="date">15 Fev 2023</span>
-            </div>
-            <div class="project-footer">
-              <a href="#" class="github-link">
-                Ver no GitHub
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
+          <div class="project-footer">
+            <a [href]="project.github" class="github-link" target="_blank" rel="noopener">
+              Ver no GitHub
+              <i class="fas fa-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </section>
