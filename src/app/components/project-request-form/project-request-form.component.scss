@@ -18,13 +18,20 @@
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
     border-radius: 24px;
-    padding: 2rem; // Reduzido para dar mais espaço interno
+    padding: 3rem 2.5rem; // Aumentado padding desktop
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 
     @media (max-width: 768px) {
-        padding: 1.5rem;
+        padding: 2rem 2rem; // Padding mais confortável no mobile
         border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    @media (max-width: 600px) {
+        padding: 1.5rem; // Mantém um padding decente mesmo em telas menores
+    }
+
+    @media (max-width: 400px) {
+        padding: 1.2rem; // Menor mas ainda mantendo respiro
     }
 }
 
@@ -97,21 +104,27 @@
 
 .input-container {
     position: relative;
-    margin-bottom: 4rem; // Base margin
+    margin-bottom: 2.5rem;
     
     label {
         display: block;
         font-size: 1rem;
         font-weight: 500;
         color: var(--text-color);
-        margin-bottom: 0.75rem; // Espaço entre label e input
+        margin-bottom: 1rem;
+        padding-left: 0; // Remove padding left que estava causando desalinhamento
+        
+        @media (max-width: 768px) {
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
     }
 
     input:not([type="radio"]):not([type="checkbox"]),
     textarea,
     select {
         width: 100%;
-        padding: 0.875rem;
+        padding: 1rem 1.2rem; // Aumenta padding horizontal
         border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 12px;
         font-size: 1rem;
@@ -119,27 +132,32 @@
         background: rgba(255, 255, 255, 0.8);
         transition: all 0.3s ease;
         box-sizing: border-box;
-        margin-bottom: 1.5rem; // Espaço após o input
+        margin-bottom: 2rem; // Space between input and next label
+        
+        @media (max-width: 768px) {
+            padding: 0.9rem 1rem; // Mantém padding horizontal decente no mobile
+            font-size: 0.95rem;
+            margin-bottom: 1.8rem;
+        }
+
+        @media (max-width: 480px) {
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
     }
 
     &:last-child {
-        margin-bottom: 0;
+        margin-bottom: 1.5rem;
     }
 
-    @media (max-width: 768px) {
-        margin-bottom: 1.75rem; // Ajustado para mobile
+    // Additional spacing for radio groups and checkboxes
+    .radio-group,
+    .checkbox-group {
+        margin-top: 0.5rem;
+        margin-bottom: 2rem;
         
-        label {
-            margin-bottom: 0.625rem;
-            font-size: 0.95rem;
-        }
-
-        input:not([type="radio"]):not([type="checkbox"]),
-        textarea,
-        select {
-            padding: 0.75rem;
-            margin-bottom: 1.25rem;
-            font-size: 0.95rem;
+        @media (max-width: 768px) {
+            margin-bottom: 1.8rem;
         }
     }
 }
@@ -278,7 +296,7 @@
 /* Ajustes extras para responsividade */
 @media (max-width: 600px) {
     .form-container {
-        padding: 0.25rem;
+        padding: 1.5rem;
     }
     .form-content h2 {
         font-size: 1.1rem;
@@ -295,6 +313,6 @@
 
 @media (max-width: 400px) {
     .form-container {
-        padding: 0.1rem;
+        padding: 1.5rem;
     }
 }
