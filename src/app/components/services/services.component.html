@@ -1,93 +1,21 @@
 <section class="services-section">
-    <div class="services-container">
-      <h2 data-aos="fade-up">Soluções Digitais Completas</h2>
-      
-      <!-- Desenvolvimento Web -->
-      <div class="services-group" data-aos="fade-up">
-        <h3>Desenvolvimento Web</h3>
+  <div class="services-container">
+    <h2 data-aos="fade-up">Soluções Digitais Completas</h2>
+    <div class="services-categories">
+      <div
+        class="services-group"
+        *ngFor="let group of serviceGroups"
+        [attr.data-aos]="'fade-up'"
+        [attr.data-aos-delay]="group.aosDelay || null"
+      >
+        <h3>{{ group.name }}</h3>
         <div class="services-grid">
-          <div class="service-card">
+          <div class="service-card" *ngFor="let service of group.services">
             <div class="icon-wrapper">
-              <i class="fas fa-laptop-code"></i>
+              <i [class]="service.icon"></i>
             </div>
-            <h4>Sites Profissionais</h4>
-            <p>Websites responsivos e otimizados para performance e SEO</p>
-            <div class="service-footer">
-              <a href="#contact" class="learn-more">
-                Saiba mais
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-  
-          <div class="service-card">
-            <div class="icon-wrapper">
-              <i class="fas fa-palette"></i>
-            </div>
-            <h4>Design de Interfaces</h4>
-            <p>Experiências visuais intuitivas e envolventes</p>
-            <div class="service-footer">
-              <a href="#contact" class="learn-more">
-                Saiba mais
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-  
-          <div class="service-card">
-            <div class="icon-wrapper">
-              <i class="fas fa-search"></i>
-            </div>
-            <h4>Otimização SEO</h4>
-            <p>Melhore sua visibilidade nos motores de busca</p>
-            <div class="service-footer">
-              <a href="#contact" class="learn-more">
-                Saiba mais
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Marketing Digital -->
-      <div class="services-group" data-aos="fade-up">
-        <h3>Marketing Digital</h3>
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="icon-wrapper">
-              <i class="fas fa-bullhorn"></i>
-            </div>
-            <h4>Gestão de Tráfego</h4>
-            <p>Campanhas otimizadas para Meta Ads com foco em conversão</p>
-            <div class="service-footer">
-              <a href="#contact" class="learn-more">
-                Saiba mais
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-  
-          <div class="service-card">
-            <div class="icon-wrapper">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <h4>Performance Digital</h4>
-            <p>Estratégias data-driven para maximizar seu ROI</p>
-            <div class="service-footer">
-              <a href="#contact" class="learn-more">
-                Saiba mais
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-  
-          <div class="service-card">
-            <div class="icon-wrapper">
-              <i class="fas fa-rocket"></i>
-            </div>
-            <h4>Landing Pages</h4>
-            <p>Páginas otimizadas para alta conversão</p>
+            <h4>{{ service.title }}</h4>
+            <p>{{ service.description }}</p>
             <div class="service-footer">
               <a href="#contact" class="learn-more">
                 Saiba mais
@@ -98,4 +26,5 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
