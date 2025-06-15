@@ -14,24 +14,49 @@
     <div class="form-content" [@slideAnimation]="currentStep">
       <h2>{{ steps[currentStep].title }}</h2>
 
-      <div class="input-container">
-        <div *ngFor="let question of steps[currentStep].questions">
-          <label>{{ question.question }}</label>
-          <input *ngIf="question.type === 'text'" [(ngModel)]="answers[question.question]" [placeholder]="question.placeholder">
-          <textarea *ngIf="question.type === 'textarea'" [(ngModel)]="answers[question.question]" [placeholder]="question.placeholder"></textarea>
-          <div *ngIf="question.type === 'radio'" class="radio-group">
-            <label *ngFor="let option of question.options">
-              <input type="radio" [value]="option" [(ngModel)]="answers[question.question]">
-              <span>{{ option }}</span>
+      <ng-container *ngFor="let question of steps[currentStep].questions">
+        <div class="input-container">
+          <label class="question-label">{{ question.question }}</label>
+          
+          <!-- Radio group com melhor estrutura -->
+          <div *ngIf="question.type === 'radio'" class="radio-options-group">
+            <label *ngFor="let option of question.options" class="radio-option">
+              <input 
+                type="radio" 
+                [name]="question.question"
+                [value]="option" 
+                [(ngModel)]="answers[question.question]"
+              >
+              <span class="radio-label">{{ option }}</span>
             </label>
           </div>
+
+          <!-- Outros tipos de input mantidos como estão -->
+          <input 
+            *ngIf="question.type === 'text'" 
+            [(ngModel)]="answers[question.question]" 
+            [placeholder]="question.placeholder"
+          >
+          
+          <textarea 
+            *ngIf="question.type === 'textarea'" 
+            [(ngModel)]="answers[question.question]" 
+            [placeholder]="question.placeholder"
+          ></textarea>
         </div>
-      </div>
+      </ng-container>
 
       <div class="form-actions">
         <button *ngIf="currentStep > 0" (click)="previousStep()" class="btn-secondary">Voltar</button>
         <button *ngIf="currentStep < steps.length - 1" (click)="nextStep()" [disabled]="!canProceed()" class="btn-primary">Continuar</button>
         <button *ngIf="currentStep === steps.length - 1" (click)="submitForm()" [disabled]="!canProceed()" class="btn-submit">Enviar</button>
+      </div>
+
+      <div class="message success" *ngIf="showSuccess">
+          Formulário enviado com sucesso! Entraremos em contato em breve.
+      </div>
+      <div class="message error" *ngIf="showError">
+          Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.
       </div>
     </div>
   </div>
