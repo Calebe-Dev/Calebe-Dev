@@ -1,104 +1,98 @@
 .navbar {
     position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.6); // Fundo semi-transparente
-    backdrop-filter: blur(10px); // Efeito de blur estilo Apple
-    -webkit-backdrop-filter: blur(10px); // Suporte para Safari
-    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    transition: all 0.3s ease;
-  
-    .navbar-container {
-      margin: 0 auto;
-      display: flex;
-      align-items: center;  // Isso garante o alinhamento vertical
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      max-height: 44px;
-      min-width: 320px;
-  
-      nav {
-        display: flex;
-        align-items: center;  // Alinha os itens verticalmente
-        gap: 2rem;  // Espaçamento consistente entre os links
+    transition: all 0.3s ease-in-out;
 
-        a {
-          font-family: -apple-system, SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
-          font-weight: 400;
-          font-size: 0.875rem;
-          letter-spacing: -0.01em;
-          color: var(--primary-color);
-          text-decoration: none;
-          transition: color 0.2s ease;
-  
-          &.highlight {
-            font-weight: 500;
-            background-color: #007aff;
-            color: #fff;
-            padding: 0.5rem 1rem; // Ajusta o padding para reduzir a altura da navbar
-            border-radius: 6px;
-            letter-spacing: -0.02em;
-          }
-  
-          &:hover {
-            color: #007aff;
-          }
-        }
-  
-        @media (max-width: 768px) {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background: rgba(255, 255, 255, 0.8); // Fundo semi-transparente
-          backdrop-filter: blur(10px); // Efeito de blur
-          -webkit-backdrop-filter: blur(10px); // Suporte para Safari
-          flex-direction: column;
-          padding: 1rem;
-          display: none;
-  
-          &.open {
-            display: flex;
-          }
+    .navbar-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .navbar-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      a {
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #fff;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #007aff; /* Apple-style blue */
         }
       }
-  
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        background: none;
-        border: none;
-        cursor: pointer;
-  
-        span {
-          display: block;
-          width: 24px;
-          height: 2px;
-          background: #000; // Altere para preto ou outra cor visível no fundo branco
-          transition: transform 0.3s ease;
-  
-          &.open:nth-child(1) {
-            transform: rotate(45deg) translateY(8px);
-          }
-  
-          &.open:nth-child(2) {
-            opacity: 0;
-          }
-  
-          &.open:nth-child(3) {
-            transform: rotate(-45deg) translateY(-8px);
-          }
+
+      .logo img {
+        height: 40px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
         }
-  
-        @media (max-width: 768px) {
-          display: flex;
+      }
+
+      .highlight {
+        padding: 8px 16px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #007aff, #00c6ff);
+        color: #fff;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(0, 122, 255, 0.4);
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: linear-gradient(135deg, #0051ff, #00aaff);
         }
       }
     }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+
+      span {
+        width: 25px;
+        height: 3px;
+        background: #fff;
+        border-radius: 2px;
+        transition: transform 0.3s ease;
+
+        &.open {
+          background: #007aff;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-content {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+
+        &.open {
+          display: flex;
+        }
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
   }
-.logo img {
-    max-width: 40px; // Limita a largura máxima da imagem
-    height: auto; // Mantém a proporção da imagem
-}
