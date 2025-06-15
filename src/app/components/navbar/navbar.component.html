@@ -1,17 +1,12 @@
 <header class="navbar">
-    <div class="navbar-container">
-      <nav class="navbar-content" [class.open]="mobileMenuOpen">
-        <a href="#hero" class="logo"><img src="./assets/logo.png" alt="Logo"></a>
-        <a href="#about" (click)="closeMenu()">Sobre</a>
-        <a href="#services" (click)="closeMenu()">Serviços</a>
-        <a href="#projects" (click)="closeMenu()">Projetos</a>
-        <a href="#experience" (click)="closeMenu()">Experiência</a>
-        <a [routerLink]="['/solicitar-projeto']" class="highlight" (click)="closeMenu()">Solicitar Projeto</a>
-      </nav>
-      <button class="hamburger" (click)="toggleMenu()" aria-label="Menu">
-        <span [class.open]="mobileMenuOpen"></span>
-        <span [class.open]="mobileMenuOpen"></span>
-        <span [class.open]="mobileMenuOpen"></span>
-      </button>
-    </div>
-  </header>
+  <div class="navbar-container">
+    <nav class="navbar-content">
+      <div class="lens" [style.left.px]="lensPosition" [style.width.px]="lensWidth"></div>
+      <a href="#about" (click)="moveLens($event, 'about')">Sobre</a>
+      <a href="#services" (click)="moveLens($event, 'services')">Serviços</a>
+      <a href="#projects" (click)="moveLens($event, 'projects')">Projetos</a>
+      <a href="#experience" (click)="moveLens($event, 'experience')">Experiência</a>
+      <a [routerLink]="['/solicitar-projeto']" class="highlight" (click)="moveLens($event, 'solicitar-projeto')">Solicitar Projeto</a>
+    </nav>
+  </div>
+</header>

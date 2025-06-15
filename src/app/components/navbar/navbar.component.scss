@@ -11,38 +11,31 @@
     backdrop-filter: blur(20px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    transition: all 0.3s ease-in-out;
 
     .navbar-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 30px;
+      position: relative;
     }
 
     .navbar-content {
       display: flex;
       align-items: center;
       gap: 20px;
+      position: relative;
 
       a {
         text-decoration: none;
         font-size: 1rem;
         font-weight: 500;
-        color: #fff;
+        color: #000;
+        position: relative;
+        z-index: 2;
         transition: color 0.3s ease;
 
         &:hover {
-          color: #007aff; /* Apple-style blue */
-        }
-      }
-
-      .logo img {
-        height: 40px;
-        transition: transform 0.3s ease;
-
-        &:hover {
-          transform: scale(1.1);
+          color: #007aff;
         }
       }
 
@@ -53,11 +46,17 @@
         color: #fff;
         font-weight: bold;
         box-shadow: 0 4px 15px rgba(0, 122, 255, 0.4);
-        transition: background 0.3s ease;
+      }
 
-        &:hover {
-          background: linear-gradient(135deg, #0051ff, #00aaff);
-        }
+      .lens {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(30px);
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: left 0.5s cubic-bezier(0.25, 1, 0.5, 1), width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
       }
     }
 
