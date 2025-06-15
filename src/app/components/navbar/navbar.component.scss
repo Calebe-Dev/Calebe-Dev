@@ -14,9 +14,28 @@
 
     .navbar-container {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       position: relative;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+
+      span {
+        width: 25px;
+        height: 3px;
+        background: #fff;
+        border-radius: 2px;
+        transition: transform 0.3s ease, background 0.3s ease;
+
+        &.open {
+          background: #007aff;
+        }
+      }
     }
 
     .navbar-content {
@@ -39,15 +58,6 @@
         }
       }
 
-      .highlight {
-        padding: 8px 16px;
-        border-radius: 20px;
-        background: linear-gradient(135deg, #007aff, #00c6ff);
-        color: #fff;
-        font-weight: bold;
-        box-shadow: 0 4px 15px rgba(0, 122, 255, 0.4);
-      }
-
       .lens {
         position: absolute;
         top: 0;
@@ -58,40 +68,36 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         transition: left 0.5s cubic-bezier(0.25, 1, 0.5, 1), width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
       }
-    }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-
-      span {
-        width: 25px;
-        height: 3px;
-        background: #fff;
-        border-radius: 2px;
-        transition: transform 0.3s ease;
-
-        &.open {
-          background: #007aff;
-        }
+      &.open {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(30px);
+        border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        z-index: 1000;
+        transition: transform 0.3s ease-in-out;
       }
     }
 
     @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
       .navbar-content {
         display: none;
-        flex-direction: column;
-        gap: 15px;
 
         &.open {
           display: flex;
         }
-      }
-
-      .hamburger {
-        display: flex;
       }
     }
   }

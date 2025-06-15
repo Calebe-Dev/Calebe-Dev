@@ -3,16 +3,25 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true, // Indica que o componente é independente
-  imports: [RouterModule], // Importa o RouterModule diretamente
+  standalone: true,
+  imports: [RouterModule],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
   lensPosition: number = 0;
   lensWidth: number = 0;
+  mobileMenuOpen: boolean = false;
 
   sections = ['about', 'services', 'projects', 'experience', 'solicitar-projeto'];
+
+  toggleMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  closeMenu() {
+    this.mobileMenuOpen = false;
+  }
 
   moveLens(event: MouseEvent, section: string) {
     const target = event.target as HTMLElement;
@@ -28,7 +37,7 @@ export class NavbarComponent {
 
   @HostListener('window:scroll', [])
   onScroll() {
-    const scrollPosition = window.scrollY + 100; // Ajuste para compensar o deslocamento
+    const scrollPosition = window.scrollY + 100;
     const navbarContent = document.querySelector('.navbar-content');
 
     for (const section of this.sections) {
