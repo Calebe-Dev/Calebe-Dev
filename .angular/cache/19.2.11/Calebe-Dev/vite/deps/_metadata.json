@@ -1,0 +1,82 @@
+{
+  "hash": "33da77f1",
+  "configHash": "aeb10a63",
+  "lockfileHash": "cf098d33",
+  "browserHash": "75e49bf1",
+  "optimized": {
+    "@angular/animations": {
+      "src": "../../../../../../node_modules/@angular/animations/fesm2022/animations.mjs",
+      "file": "@angular_animations.js",
+      "fileHash": "e0b656f0",
+      "needsInterop": false
+    },
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "52a375f7",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "dca5bf07",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "c1799f93",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "12ca9d89",
+      "needsInterop": false
+    },
+    "@angular/platform-browser/animations": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/animations.mjs",
+      "file": "@angular_platform-browser_animations.js",
+      "fileHash": "394917e4",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "d0ff2c6f",
+      "needsInterop": false
+    },
+    "aos": {
+      "src": "../../../../../../node_modules/aos/dist/aos.js",
+      "file": "aos.js",
+      "fileHash": "4f2b3213",
+      "needsInterop": true
+    },
+    "emailjs-com": {
+      "src": "../../../../../../node_modules/emailjs-com/es/index.js",
+      "file": "emailjs-com.js",
+      "fileHash": "f308055e",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-GSINRFFS": {
+      "file": "chunk-GSINRFFS.js"
+    },
+    "chunk-QYHC7YSN": {
+      "file": "chunk-QYHC7YSN.js"
+    },
+    "chunk-BNGS3SAR": {
+      "file": "chunk-BNGS3SAR.js"
+    },
+    "chunk-LMV4KPHU": {
+      "file": "chunk-LMV4KPHU.js"
+    },
+    "chunk-MDIP56IP": {
+      "file": "chunk-MDIP56IP.js"
+    },
+    "chunk-3OV72XIM": {
+      "file": "chunk-3OV72XIM.js"
+    }
+  }
+}
