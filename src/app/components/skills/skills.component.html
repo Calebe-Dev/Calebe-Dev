@@ -2,12 +2,10 @@
   <div class="skills-container">
     <h2 data-aos="fade-up">Competências & Tecnologias</h2>
     <div class="skills-categories">
-      <div
-        class="category"
-        *ngFor="let category of skillCategories; let i = index"
-        [attr.data-aos]="'fade-up'"
-        [attr.data-aos-delay]="category.aosDelay || null"
-      >
+      <div class="category" 
+           *ngFor="let category of skillCategories" 
+           data-aos="fade-up" 
+           [attr.data-aos-delay]="category.aosDelay || null">
         <h3>{{ category.name }}</h3>
         <div class="skills-grid">
           <div class="skill-card" *ngFor="let skill of category.skills">

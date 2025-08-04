@@ -1,63 +1,61 @@
 import { Component, HostListener } from '@angular/core';
-import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
-  imports: [RouterModule],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  lensPosition: number = 0;
-  lensWidth: number = 0;
-  mobileMenuOpen: boolean = false;
+  lensPosition = 0;
+  lensWidth = 0;
+  mobileMenuOpen = false;
+  sections = ["about", "services", "projects", "experience", "solicitar-projeto"];
 
-  sections = ['about', 'services', 'projects', 'experience', 'solicitar-projeto'];
-
-  toggleMenu() {
+  toggleMenu(): void {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
 
-  closeMenu() {
+  closeMenu(): void {
     this.mobileMenuOpen = false;
   }
 
-  moveLens(event: MouseEvent, section: string) {
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
     const target = event.target as HTMLElement;
     const navbarContent = document.querySelector('.navbar-content');
-    const targetRect = target.getBoundingClientRect();
-    const navbarRect = navbarContent?.getBoundingClientRect();
-
-    if (navbarRect) {
-      this.lensPosition = targetRect.left - navbarRect.left;
-      this.lensWidth = targetRect.width;
+    if (navbarContent && target.matches('a')) {
+      const navRect = navbarContent.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      if (window.innerWidth > 768) {
+        this.lensPosition = targetRect.left - navRect.left;
+        this.lensWidth = targetRect.width;
+      }
     }
   }
 
-  @HostListener('window:scroll', [])
-  onScroll() {
-    const scrollPosition = window.scrollY + 100;
-    const navbarContent = document.querySelector('.navbar-content');
+  @HostListener('window:scroll')
+  onScroll(): void {
+    const scrollPosition = window.scrollY + 100; // Offset for better accuracy
+    const navbarContent = document.querySelector(".navbar-content");
 
-    for (const section of this.sections) {
-      const element = document.getElementById(section);
-      if (element) {
-        const offsetTop = element.offsetTop;
-        const offsetHeight = element.offsetHeight;
+    for (const sectionId of this.sections) {
+      const sectionElement = document.getElementById(sectionId);
+      if (sectionElement) {
+        const sectionTop = sectionElement.offsetTop;
+        const sectionHeight = sectionElement.offsetHeight;
 
-        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-          const link = navbarContent?.querySelector(`a[href="#${section}"]`) as HTMLElement;
-          if (link) {
-            const linkRect = link.getBoundingClientRect();
-            const navbarRect = navbarContent?.getBoundingClientRect();
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          const activeLink = navbarContent?.querySelector(`a[href="#${sectionId}"], a[routerLink="/${sectionId}"]`);
 
-            if (navbarRect) {
-              this.lensPosition = linkRect.left - navbarRect.left;
+          if (activeLink) {
+            const linkRect = activeLink.getBoundingClientRect();
+            const navRect = navbarContent?.getBoundingClientRect();
+            if (navRect && window.innerWidth > 768) {
+              this.lensPosition = linkRect.left - navRect.left;
               this.lensWidth = linkRect.width;
             }
           }
-          break;
+          break; // Found the active section, no need to check others
         }
       }
     }

@@ -1,26 +1,28 @@
-<section class="services-section">
+<section id="services" class="services-section">
   <div class="services-container">
     <h2 data-aos="fade-up">Soluções Digitais Completas</h2>
     <div class="services-categories">
-      <div
-        class="services-group"
-        *ngFor="let group of serviceGroups"
-        [attr.data-aos]="'fade-up'"
-        [attr.data-aos-delay]="group.aosDelay || null"
-      >
-        <h3>{{ group.name }}</h3>
-        <div class="services-grid">
-          <div class="service-card" *ngFor="let service of group.services">
-            <div class="icon-wrapper">
-              <i [class]="service.icon"></i>
-            </div>
-            <h4>{{ service.title }}</h4>
-            <p>{{ service.description }}</p>
-            <div class="service-footer">
-              <a href="#contact" class="learn-more">
-                Saiba mais
-                <i class="fas fa-arrow-right"></i>
-              </a>
+      <div class="services-group" 
+           *ngFor="let group of serviceGroups" 
+           data-aos="fade-up" 
+           [attr.data-aos-delay]="group.aosDelay || null">
+        <div class="cards-container">
+          <h3>{{ group.name }}</h3>
+          <div class="services-grid">
+            <div class="service-card" *ngFor="let service of group.services">
+              <div class="icon-wrapper">
+                <i [class]="service.icon"></i>
+              </div>
+              <div class="card-content">
+                <h4>{{ service.title }}</h4>
+                <p>{{ service.description }}</p>
+              </div>
+              <div class="service-footer">
+                <a href="#contact" class="learn-more">
+                  Saiba mais
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>

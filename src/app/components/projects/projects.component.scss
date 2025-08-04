@@ -1,159 +1,137 @@
 .projects-section {
-    padding: 6rem 0;
-    position: relative;
-    min-height: 80vh;
-   /*
-    background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.3)), url('/assets/mocap.png');
-   */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #fff0, #fff6);
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+  border-radius: 50px;
+  box-shadow: 0 15px 50px #0000004d;
+  overflow: hidden;
+  position: relative;
+  animation: fadeIn 1.5s ease-in-out;
+}
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 4rem 1rem;
+  }
+}
 
-    // Remova ou comente o bloco ::before para não escurecer o fundo
-    // &::before {
-    //     content: '';
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     right: 0;
-    //     bottom: 0;
-    //     background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
-    //     z-index: 1;
-    //     pointer-events: none;
-    // }
-
-    @media (max-width: 768px) {
-        padding: 4rem 0;
-        min-height: 50vh;
-        background-attachment: scroll;
-    }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .projects-container {
-    position: relative;
-    z-index: 2;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 
-    h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 4rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: #000;
-    }
-}
-  
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-  
-  .project-card {
-    background: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(0, 0, 0, 0.9);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    height: 100%;
-    
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-  
-    .project-content {
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-  
-    .project-category {
-      font-size: 0.875rem;
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-      font-weight: 500;
-    }
-  
-    h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-  
-    p {
-      color: var(--secondary-color);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      flex-grow: 1;
-    }
-  
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      font-size: 0.875rem;
-      color: var(--secondary-color);
-  
-      .date {
-        display: flex;
-        align-items: center;
-        
-        &:before {
-          content: '';
-          display: inline-block;
-          width: 6px;
-          height: 6px;
-          background: var(--primary-color);
-          border-radius: 50%;
-          margin-right: 0.5rem;
-        }
-      }
-    }
-  
-    .project-footer {
-      margin-top: auto;
-      
-      .github-link {
-        color: var(--primary-color);
-        text-decoration: none;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        transition: gap 0.3s ease;
-  
-        &:hover {
-          gap: 0.75rem;
-        }
-  
-        i {
-          font-size: 0.875rem;
-        }
-      }
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .projects-section {
-      padding: 4rem 0;
-    }
-  
-    .projects-container h2 {
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    @media (max-width: 768px) {
       font-size: 2rem;
     }
-  
-    .project-card h3 {
-      font-size: 1.25rem;
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    background: #ffffff4d;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px #0003;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px #0000004d;
+    }
+
+    .project-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .project-category {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        @media (max-width: 768px) {
+          font-size: 1.25rem;
+        }
+      }
+
+      p {
+        color: var(--secondary-color);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        @media (max-width: 768px) {
+          font-size: 0.95rem;
+        }
+      }
+
+      .project-meta {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.9rem;
+        color: var(--secondary-color);
+
+        .date {
+          font-weight: 500;
+        }
+        .context {
+          font-style: italic;
+        }
+      }
+
+      .project-footer {
+        margin-top: auto;
+
+        .github-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: var(--primary-color);
+          font-weight: 500;
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: var(--secondary-color);
+          }
+
+          i {
+            font-size: 1rem;
+          }
+        }
+      }
     }
   }
-  
-
+}
