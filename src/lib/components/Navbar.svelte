@@ -1,0 +1,338 @@
+<script lang="ts">
+  import { onMount } from 'svelte';
+  import { browser } from '$app/environment';
+
+  let lensPosition = 0;
+  let lensWidth = 0;
+  let mobileMenuOpen = false;
+  let scrollY = 0;
+  let isScrolled = false;
+  
+  const sections = ["about", "services", "projects", "experience", "solicitar-projeto"];
+
+  function toggleMenu() {
+    mobileMenuOpen = !mobileMenuOpen;
+  }
+
+  function closeMenu() {
+    mobileMenuOpen = false;
+  }
+
+  function handleLinkClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    if (target.matches('a')) {
+      const navbarContent = document.querySelector('.navbar-content');
+      if (navbarContent) {
+        const navRect = navbarContent.getBoundingClientRect();
+        const targetRect = target.getBoundingClientRect();
+        if (window.innerWidth > 768) {
+          lensPosition = targetRect.left - navRect.left;
+          lensWidth = targetRect.width;
+        }
+      }
+    }
+  }
+
+  function updateLensOnScroll() {
+    if (!browser || window.innerWidth <= 768) return;
+    
+    const scrollPosition = window.scrollY + 100;
+    const navbarContent = document.querySelector(".navbar-content");
+
+    for (const sectionId of sections) {
+      const sectionElement = document.getElementById(sectionId);
+      if (sectionElement) {
+        const sectionTop = sectionElement.offsetTop;
+        const sectionHeight = sectionElement.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          const activeLink = navbarContent?.querySelector(`a[href="#${sectionId}"]`);
+
+          if (activeLink) {
+            const linkRect = activeLink.getBoundingClientRect();
+            const navRect = navbarContent?.getBoundingClientRect();
+            if (navRect) {
+              lensPosition = linkRect.left - navRect.left;
+              lensWidth = linkRect.width;
+            }
+          }
+          break;
+        }
+      }
+    }
+  }
+
+  $: if (browser && scrollY !== undefined) {
+    updateLensOnScroll();
+    isScrolled = scrollY > 50;
+  }
+
+  onMount(() => {
+    if (browser) {
+      // Initialize lens on first link
+      setTimeout(() => {
+        const firstLink = document.querySelector('.navbar-content a');
+        if (firstLink && window.innerWidth > 768) {
+          const navbarContent = document.querySelector('.navbar-content');
+          if (navbarContent) {
+            const navRect = navbarContent.getBoundingClientRect();
+            const linkRect = firstLink.getBoundingClientRect();
+            lensPosition = linkRect.left - navRect.left;
+            lensWidth = linkRect.width;
+          }
+        }
+      }, 100);
+    }
+  });
+</script>
+
+<svelte:window bind:scrollY />
+
+<header class="navbar" class:menu-open={mobileMenuOpen} class:scrolled={isScrolled}>
+  <div class="navbar-container">
+    <button aria-label="Menu" class="hamburger" on:click={toggleMenu}>
+      <span class:open={mobileMenuOpen}></span>
+      <span class:open={mobileMenuOpen}></span>
+      <span class:open={mobileMenuOpen}></span>
+    </button>
+    <nav class="navbar-content" class:open={mobileMenuOpen}>
+      <div class="lens" style="left: {lensPosition}px; width: {lensWidth}px;"></div>
+      <a href="#about" on:click={handleLinkClick}>Sobre</a>
+      <a href="#services" on:click={handleLinkClick}>Serviços</a>
+      <a href="#projects" on:click={handleLinkClick}>Projetos</a>
+      <a href="#experience" on:click={handleLinkClick}>Experiência</a>
+      <a class="btnSolicitarProjeto" href="/solicitar-projeto" on:click={closeMenu}>Solicitar Projeto</a>
+      <a href="https://wa.me/5511988385247" target="_blank" rel="noopener" class="highlight" on:click={closeMenu}>Whatsapp</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+.navbar {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  max-width: 980px;
+  z-index: 1000;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(30px);
+  -webkit-backdrop-filter: saturate(180%) blur(30px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-radius: 50px;
+  border: 0.5px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.navbar-content a {
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+
+.navbar-content a:hover {
+  color: #0071e3;
+}
+
+.btnSolicitarProjeto {
+  padding: 6px 14px;
+  border-radius: 14px;
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 600;
+  font-size: 0.813rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.highlight {
+  padding: 6px 14px;
+  border-radius: 14px;
+  background: #0071e3;
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 0.813rem;
+  box-shadow: 0 2px 8px rgba(0, 113, 227, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.highlight:hover {
+  background: #0077ed;
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.4);
+  transform: translateY(-1px);
+}
+
+.lens {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 32px;
+  background: rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 10px;
+  padding: 8px;
+  border: 0.5px solid rgba(255, 255, 255, 0.3);
+  z-index: 1001;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hamburger:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #000;
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.3s ease;
+}
+
+.hamburger span.open {
+  background: #0071e3;
+}
+
+.hamburger span.open:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger span.open:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger span.open:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    width: auto;
+    max-width: none;
+    left: 20px;
+    transform: none;
+    padding: 0;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+  }
+  
+  .navbar.menu-open {
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.85);
+  }
+  
+  .navbar-container {
+    justify-content: center;
+    width: auto;
+    padding: 6px;
+  }
+  
+  .hamburger {
+    display: flex;
+    margin: 0 auto;
+  }
+  
+  .navbar-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(245, 245, 247, 0.95);
+    backdrop-filter: saturate(180%) blur(40px);
+    -webkit-backdrop-filter: saturate(180%) blur(40px);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 60px 0 0;
+    z-index: 2000;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    gap: 8px;
+  }
+  
+  .navbar-content.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .navbar-content a {
+    font-size: 1.15rem;
+    padding: 14px 0;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .btnSolicitarProjeto,
+  .highlight {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  .lens {
+    display: none;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  100% {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+</style>
