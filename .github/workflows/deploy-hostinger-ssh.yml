@@ -1,0 +1,78 @@
+name: Build and Deploy to Hostinger (SSH)
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      HOSTINGER_SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+      HOSTINGER_SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+      HOSTINGER_SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+      HOSTINGER_SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+      HOSTINGER_KNOWN_HOSTS: ${{ secrets.HOSTINGER_KNOWN_HOSTS }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Prepare SSH
+        run: |
+          mkdir -p ~/.ssh
+          # Write private key to file and set safe permissions
+          printf '%s\n' "$HOSTINGER_SSH_KEY" > ~/.ssh/hostinger_deploy
+          chmod 600 ~/.ssh/hostinger_deploy
+
+          # If known hosts secret is provided, write to known_hosts; otherwise fallback to StrictHostKeyChecking=no later
+          if [ -n "$HOSTINGER_KNOWN_HOSTS" ]; then
+            printf '%s\n' "$HOSTINGER_KNOWN_HOSTS" > ~/.ssh/known_hosts
+            chmod 644 ~/.ssh/known_hosts
+          fi
+        shell: bash
+
+      - name: Use repository known_hosts if present
+        run: |
+          # If a HOSTINGER_KNOWN_HOSTS file exists in the repository root, use it (useful for local/CI testing)
+          if [ -f HOSTINGER_KNOWN_HOSTS ]; then
+            cp HOSTINGER_KNOWN_HOSTS ~/.ssh/known_hosts
+            chmod 644 ~/.ssh/known_hosts
+            echo "Using repository HOSTINGER_KNOWN_HOSTS"
+          fi
+        shell: bash
+
+      - name: Ensure remote directory exists
+        run: |
+          ssh -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes -i ~/.ssh/hostinger_deploy -p $HOSTINGER_SSH_PORT $HOSTINGER_SSH_USER@$HOSTINGER_SSH_HOST "mkdir -p ~/public_html"
+        continue-on-error: true
+
+      - name: Deploy release on Hostinger (rsync and swap)
+        run: |
+          set -e
+          if [ -f ~/.ssh/known_hosts ]; then
+            RSYNC_SSH="ssh -i ~/.ssh/hostinger_deploy -p $HOSTINGER_SSH_PORT -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes"
+            SSH_OPTS="-i ~/.ssh/hostinger_deploy -p $HOSTINGER_SSH_PORT -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes"
+          else
+            RSYNC_SSH="ssh -i ~/.ssh/hostinger_deploy -p $HOSTINGER_SSH_PORT -o StrictHostKeyChecking=no"
+            SSH_OPTS="-i ~/.ssh/hostinger_deploy -p $HOSTINGER_SSH_PORT -o StrictHostKeyChecking=no"
+          fi
+          TIMESTAMP=$(date -u +"%Y%m%d%H%M%S")
+          REMOTE_RELEASE_DIR=~/releases/${TIMESTAMP}
+          echo "Rsync to remote release: $REMOTE_RELEASE_DIR"
+          rsync -avz --delete -e "$RSYNC_SSH" ./build/ $HOSTINGER_SSH_USER@$HOSTINGER_SSH_HOST:${REMOTE_RELEASE_DIR}/
+
+          echo "Activating release ${TIMESTAMP}"
+          ssh $SSH_OPTS $HOSTINGER_SSH_USER@$HOSTINGER_SSH_HOST "set -e; mkdir -p ~/releases; chmod 755 ~/releases; if [ -e ~/public_html ]; then mv ~/public_html ~/public_html.bak.${TIMESTAMP} || true; fi; mv \"${REMOTE_RELEASE_DIR}\" ~/public_html; cd ~/releases; ls -1dt * | tail -n +6 | xargs -r rm -rf"
+        shell: bash

@@ -7,21 +7,37 @@
   let mobileMenuOpen = false;
   let scrollY = 0;
   let isScrolled = false;
+  let navbarContentEl: HTMLElement | null = null;
+  let previousActiveElement: Element | null = null;
+  let previousBodyOverflow = '';
   
   const sections = ["about", "services", "projects", "experience", "solicitar-projeto"];
 
   function toggleMenu() {
     mobileMenuOpen = !mobileMenuOpen;
+    if (mobileMenuOpen) focusFirstMenuItem();
   }
 
   function closeMenu() {
     mobileMenuOpen = false;
+    // restore focus to previous element
+    if (previousActiveElement && (previousActiveElement as HTMLElement).focus) {
+      (previousActiveElement as HTMLElement).focus();
+    }
+  }
+
+  function focusFirstMenuItem() {
+    if (browser && navbarContentEl) {
+      previousActiveElement = document.activeElement;
+      const firstLink = navbarContentEl.querySelector('a');
+      if (firstLink && (firstLink as HTMLElement).focus) (firstLink as HTMLElement).focus();
+    }
   }
 
   function handleLinkClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
     if (target.matches('a')) {
-      const navbarContent = document.querySelector('.navbar-content');
+      const navbarContent = navbarContentEl;
       if (navbarContent) {
         const navRect = navbarContent.getBoundingClientRect();
         const targetRect = target.getBoundingClientRect();
@@ -37,7 +53,7 @@
     if (!browser || window.innerWidth <= 768) return;
     
     const scrollPosition = window.scrollY + 100;
-    const navbarContent = document.querySelector(".navbar-content");
+    const navbarContent = navbarContentEl;
 
     for (const sectionId of sections) {
       const sectionElement = document.getElementById(sectionId);
@@ -67,22 +83,42 @@
     isScrolled = scrollY > 50;
   }
 
-  onMount(() => {
-    if (browser) {
-      // Initialize lens on first link
-      setTimeout(() => {
-        const firstLink = document.querySelector('.navbar-content a');
-        if (firstLink && window.innerWidth > 768) {
-          const navbarContent = document.querySelector('.navbar-content');
-          if (navbarContent) {
-            const navRect = navbarContent.getBoundingClientRect();
-            const linkRect = firstLink.getBoundingClientRect();
-            lensPosition = linkRect.left - navRect.left;
-            lensWidth = linkRect.width;
-          }
-        }
-      }, 100);
+  // Manage body scroll when mobile menu is open
+  $: if (browser) {
+    if (mobileMenuOpen) {
+      previousBodyOverflow = document.body.style.overflow || '';
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = previousBodyOverflow || '';
     }
+  }
+
+  onMount(() => {
+    if (!browser) return;
+
+    // Initialize lens on first link (desktop)
+    setTimeout(() => {
+      const firstLink = navbarContentEl?.querySelector('a');
+      if (firstLink && window.innerWidth > 768 && navbarContentEl) {
+        const navRect = navbarContentEl.getBoundingClientRect();
+        const linkRect = firstLink.getBoundingClientRect();
+        lensPosition = linkRect.left - navRect.left;
+        lensWidth = linkRect.width;
+      }
+    }, 100);
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        closeMenu();
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = previousBodyOverflow || '';
+    };
   });
 </script>
 
@@ -90,12 +126,24 @@
 
 <header class="navbar" class:menu-open={mobileMenuOpen} class:scrolled={isScrolled}>
   <div class="navbar-container">
-    <button aria-label="Menu" class="hamburger" on:click={toggleMenu}>
+    <button
+      aria-label="Menu"
+      aria-expanded={mobileMenuOpen}
+      aria-controls="mobile-menu"
+      class="hamburger"
+      on:click={toggleMenu}
+    >
       <span class:open={mobileMenuOpen}></span>
       <span class:open={mobileMenuOpen}></span>
       <span class:open={mobileMenuOpen}></span>
     </button>
-    <nav class="navbar-content" class:open={mobileMenuOpen}>
+    <nav
+      bind:this={navbarContentEl}
+      id="mobile-menu"
+      aria-hidden={!mobileMenuOpen}
+      class="navbar-content"
+      class:open={mobileMenuOpen}
+    >
       <div class="lens" style="left: {lensPosition}px; width: {lensWidth}px;"></div>
       <a href="#about" on:click={handleLinkClick}>Sobre</a>
       <a href="#services" on:click={handleLinkClick}>Serviços</a>
