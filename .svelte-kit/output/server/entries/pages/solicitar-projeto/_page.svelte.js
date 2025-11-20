@@ -1,10 +1,7 @@
-import { x as attr_style, F as ensure_array_like, v as attr_class, w as attr, y as stringify, z as head } from "../../../chunks/index.js";
-import { a as ssr_context, e as escape_html } from "../../../chunks/context.js";
+import { x as attr_style, F as ensure_array_like, v as attr_class, w as attr, y as stringify, z as head } from "../../../chunks/index2.js";
+import { o as onDestroy } from "../../../chunks/index-server.js";
 import "@emailjs/browser";
-function onDestroy(fn) {
-  /** @type {SSRContext} */
-  ssr_context.r.on_destroy(fn);
-}
+import { e as escape_html } from "../../../chunks/context.js";
 function ProjectRequestForm($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let currentStep = 0;

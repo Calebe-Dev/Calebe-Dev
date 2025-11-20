@@ -1,4 +1,4 @@
-import { F as ensure_array_like, w as attr } from "../../../chunks/index.js";
+import { F as ensure_array_like, w as attr } from "../../../chunks/index2.js";
 import { e as escape_html } from "../../../chunks/context.js";
 function _page($$renderer) {
   const posts = [

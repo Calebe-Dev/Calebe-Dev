@@ -1,6 +1,11 @@
 import "clsx";
 import "aos";
-import { v as attr_class, w as attr, x as attr_style, y as stringify } from "../../chunks/index.js";
+import { v as attr_class, w as attr, x as attr_style, y as stringify } from "../../chunks/index2.js";
+import "@sveltejs/kit/internal";
+import "../../chunks/exports.js";
+import "../../chunks/utils.js";
+import "@sveltejs/kit/internal/server";
+import "../../chunks/state.svelte.js";
 function Navbar($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let lensPosition = 0;
@@ -13,7 +18,7 @@ function Navbar($$renderer, $$props) {
         mobileMenuOpen
       ),
       "scrolled": isScrolled
-    })}><div class="navbar-container svelte-rfuq4y"><button aria-label="Menu"${attr("aria-expanded", mobileMenuOpen)} aria-controls="mobile-menu" class="hamburger svelte-rfuq4y"><span${attr_class("svelte-rfuq4y", void 0, { "open": mobileMenuOpen })}></span> <span${attr_class("svelte-rfuq4y", void 0, { "open": mobileMenuOpen })}></span> <span${attr_class("svelte-rfuq4y", void 0, { "open": mobileMenuOpen })}></span></button> <nav id="mobile-menu"${attr("aria-hidden", !mobileMenuOpen)}${attr_class("navbar-content svelte-rfuq4y", void 0, { "open": mobileMenuOpen })}><div class="lens svelte-rfuq4y"${attr_style(`left: ${stringify(lensPosition)}px; width: ${stringify(lensWidth)}px;`)}></div> <button aria-label="Fechar" class="close-btn svelte-rfuq4y">×</button> <a href="/" class="home-link svelte-rfuq4y">Início</a> <a href="#about" class="svelte-rfuq4y">Sobre</a> <a href="#services" class="svelte-rfuq4y">Serviços</a> <a href="#projects" class="svelte-rfuq4y">Projetos</a> <a href="/blog" class="svelte-rfuq4y">Blog</a> <a href="#experience" class="svelte-rfuq4y">Experiência</a> <a class="btnSolicitarProjeto svelte-rfuq4y" href="/solicitar-projeto">Solicitar Projeto</a> <a href="https://wa.me/5511988385247" target="_blank" rel="noopener" class="highlight svelte-rfuq4y">Whatsapp</a></nav></div></header>`);
+    })}><div class="navbar-container svelte-rfuq4y"><button aria-label="Menu"${attr("aria-expanded", mobileMenuOpen)} aria-controls="mobile-menu" class="hamburger svelte-rfuq4y"><span${attr_class("svelte-rfuq4y", void 0, { "open": mobileMenuOpen })}></span> <span${attr_class("svelte-rfuq4y", void 0, { "open": mobileMenuOpen })}></span> <span${attr_class("svelte-rfuq4y", void 0, { "open": mobileMenuOpen })}></span></button> <nav id="mobile-menu"${attr("aria-hidden", !mobileMenuOpen)}${attr_class("navbar-content svelte-rfuq4y", void 0, { "open": mobileMenuOpen })}><div class="lens svelte-rfuq4y"${attr_style(`left: ${stringify(lensPosition)}px; width: ${stringify(lensWidth)}px;`)}></div> <button aria-label="Fechar" class="close-btn svelte-rfuq4y">×</button> <a href="/" class="home-link svelte-rfuq4y">Início</a> <a href="/#about" class="svelte-rfuq4y">Sobre</a> <a href="/#services" class="svelte-rfuq4y">Serviços</a> <a href="/#projects" class="svelte-rfuq4y">Projetos</a> <a href="/#experience" class="svelte-rfuq4y">Experiência</a> <a href="/blog" class="svelte-rfuq4y">Blog</a> <a class="btnSolicitarProjeto svelte-rfuq4y" href="/solicitar-projeto/redirect">Solicitar Projeto</a> <a href="https://wa.me/5511988385247" target="_blank" rel="noopener" class="highlight svelte-rfuq4y">Whatsapp</a></nav></div></header>`);
   });
 }
 function Footer($$renderer) {

@@ -39,11 +39,24 @@ RELEASES_DIR='~/releases'
 REMOTE_RELEASE_DIR="$RELEASES_DIR/$TIMESTAMP"
 
 echo "Ensuring remote releases dir exists"
-# Try to ensure ssh-agent has the key loaded to avoid passphrase prompts during rsync
-if command -v ssh-agent >/dev/null 2>&1 && command -v ssh-add >/dev/null 2>&1; then
+# Ensure ssh-agent has the key loaded to avoid passphrase prompts during rsync.
+# If we are in a non-interactive environment, fail early with a helpful message
+# instead of blocking on a passphrase prompt.
+if command -v ssh-add >/dev/null 2>&1; then
   if ! ssh-add -l >/dev/null 2>&1; then
-    eval "$(ssh-agent -s)" >/dev/null 2>&1 || true
-    ssh-add "${HOSTINGER_SSH_KEY}" || echo "Warning: could not add SSH key to agent (it may require a passphrase)."
+    if [ -t 0 ]; then
+      echo "SSH agent has no identities. Starting ssh-agent and adding key (you may be prompted for passphrase)..."
+      eval "$(ssh-agent -s)" >/dev/null 2>&1 || true
+      if ! ssh-add "${HOSTINGER_SSH_KEY}"; then
+        echo "ERROR: failed to add SSH key to agent. If the key is passphrase-protected, enter the passphrase when prompted or run:\n  ssh-add ${HOSTINGER_SSH_KEY}\nThen re-run this deploy script." >&2
+        exit 1
+      fi
+    else
+      echo "ERROR: deploy is running non-interactively and the SSH agent has no identities." >&2
+      echo "Please add your private key to the agent on this machine (interactive shell) and retry:" >&2
+      echo "  eval \"\$(ssh-agent -s)\" && ssh-add ${HOSTINGER_SSH_KEY}" >&2
+      exit 1
+    fi
   fi
 fi
 

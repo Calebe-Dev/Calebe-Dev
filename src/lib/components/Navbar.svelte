@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { goto } from '$app/navigation';
   import { browser } from '$app/environment';
 
   let lensPosition = 0;
@@ -11,7 +12,7 @@
   let previousActiveElement: Element | null = null;
   let previousBodyOverflow = '';
   
-  const sections = ["about", "services", "projects", "experience", "solicitar-projeto"];
+  const sections = ["about", "services", "projects", "experience", "blog", "solicitar-projeto"];
 
   function toggleMenu() {
     mobileMenuOpen = !mobileMenuOpen;
@@ -36,16 +37,55 @@
 
   function handleLinkClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
-    if (target.matches('a')) {
-      const navbarContent = navbarContentEl;
-      if (navbarContent) {
-        const navRect = navbarContent.getBoundingClientRect();
-        const targetRect = target.getBoundingClientRect();
-        if (window.innerWidth > 768) {
-          lensPosition = targetRect.left - navRect.left;
-          lensWidth = targetRect.width;
-        }
+    if (!target || !target.closest) return;
+    const link = target.closest('a') as HTMLAnchorElement | null;
+    if (!link) return;
+
+    const href = link.getAttribute('href') || '';
+    const navbarContent = navbarContentEl;
+
+    // Update lens on desktop
+    if (navbarContent && link) {
+      const navRect = navbarContent.getBoundingClientRect();
+      const targetRect = link.getBoundingClientRect();
+      if (window.innerWidth > 768) {
+        lensPosition = targetRect.left - navRect.left;
+        lensWidth = targetRect.width;
       }
+    }
+
+    // Handle hash links specially so they work from other routes (e.g. /blog -> /#about)
+    if (href.includes('#')) {
+      event.preventDefault();
+      const id = href.split('#').pop() || '';
+
+      // If we're already on the homepage, just scroll to the element
+      if (browser && window.location.pathname === '/') {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        closeMenu();
+        return;
+      }
+
+      // Otherwise navigate to /#id and attempt to scroll after navigation
+      goto('/#' + id).then(() => {
+        if (!browser) return;
+        // slight delay to wait for DOM update
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 120);
+      }).finally(() => closeMenu());
+
+      return;
+    }
+
+    // For normal links, ensure mobile menu closes
+    if (href && href !== '#') {
+      // let default navigation happen, but close mobile menu
+      setTimeout(() => closeMenu(), 50);
     }
   }
 
@@ -62,7 +102,8 @@
         const sectionHeight = sectionElement.offsetHeight;
 
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          const activeLink = navbarContent?.querySelector(`a[href="#${sectionId}"]`);
+          // match links like "#about" or "/#about"
+          const activeLink = navbarContent?.querySelector(`a[href$="#${sectionId}"]`);
 
           if (activeLink) {
             const linkRect = activeLink.getBoundingClientRect();
@@ -148,13 +189,14 @@
         <button aria-label="Fechar" class="close-btn" on:click={closeMenu}>
           &times;
         </button>
-      <a href="/" class="home-link" on:click={handleLinkClick}>Início</a>
-      <a href="#about" on:click={handleLinkClick}>Sobre</a>
-      <a href="#services" on:click={handleLinkClick}>Serviços</a>
-      <a href="#projects" on:click={handleLinkClick}>Projetos</a>
-      <a href="/blog" on:click={handleLinkClick}>Blog</a>
-      <a href="#experience" on:click={handleLinkClick}>Experiência</a>
-      <a class="btnSolicitarProjeto" href="/solicitar-projeto" on:click={closeMenu}>Solicitar Projeto</a>
+      <!-- Reordered nav: Início, Sobre, Serviços, Projetos, Experiência, Blog, Solicitar, Whatsapp -->
+      <a href="/" class="home-link" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Início</a>
+      <a href="/#about" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Sobre</a>
+      <a href="/#services" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Serviços</a>
+      <a href="/#projects" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Projetos</a>
+      <a href="/#experience" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Experiência</a>
+      <a href="/blog" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Blog</a>
+      <a class="btnSolicitarProjeto" href="/solicitar-projeto/redirect" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Solicitar Projeto</a>
       <a href="https://wa.me/5511988385247" target="_blank" rel="noopener" class="highlight" on:click={closeMenu}>Whatsapp</a>
     </nav>
   </div>

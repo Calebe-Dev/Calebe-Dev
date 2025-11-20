@@ -1,4 +1,4 @@
-import { z as head, F as ensure_array_like, w as attr, v as attr_class, G as clsx, y as stringify } from "../../chunks/index.js";
+import { z as head, F as ensure_array_like, w as attr, v as attr_class, G as clsx, y as stringify } from "../../chunks/index2.js";
 import "clsx";
 import { e as escape_html } from "../../chunks/context.js";
 function Hero($$renderer) {

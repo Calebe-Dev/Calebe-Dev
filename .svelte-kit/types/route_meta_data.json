@@ -8,5 +8,8 @@
 	],
 	"/solicitar-projeto": [
 		"src/routes/+layout.ts"
+	],
+	"/solicitar-projeto/redirect": [
+		"src/routes/+layout.ts"
 	]
 }
