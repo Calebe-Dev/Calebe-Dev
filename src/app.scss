@@ -17,6 +17,12 @@
     --glass-bg: rgba(255, 255, 255, 0.72);
     --glass-border: rgba(255, 255, 255, 0.18);
     
+    /* Navbar / layout sizing variables */
+    --navbar-height: 56px;
+    --navbar-top: 12px;
+    --navbar-overlap: 28px; /* how much the navbar should overlap the hero container */
+    --glass-bg-strong: rgba(255, 255, 255, 0.85);
+    --glass-blur: blur(30px);
     // Glassmorphism
     --glass-blur: blur(80px);
     --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);

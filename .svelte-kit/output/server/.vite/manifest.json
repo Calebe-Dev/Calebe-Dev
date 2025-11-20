@@ -100,7 +100,7 @@
       "_index.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.B3tMWGKY.css"
+      "_app/immutable/assets/_layout.Vqe2DvR2.css"
     ]
   },
   "src/routes/+layout.ts": {
@@ -119,7 +119,20 @@
       "_context.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.CWLh17TM.css"
+      "_app/immutable/assets/_page.BIKWhivb.css"
+    ]
+  },
+  "src/routes/blog/+page.svelte": {
+    "file": "entries/pages/blog/_page.svelte.js",
+    "name": "entries/pages/blog/_page.svelte",
+    "src": "src/routes/blog/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_context.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.Ck5ru7En.css"
     ]
   },
   "src/routes/solicitar-projeto/+page.svelte": {

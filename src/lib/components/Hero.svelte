@@ -160,7 +160,7 @@ $secondary-color: var(--secondary-color);
 
 .hero-container {
   max-width: 1400px;
-  margin: 1rem auto;
+  margin: 0 auto;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -191,6 +191,11 @@ $secondary-color: var(--secondary-color);
   @media (max-width: 568px) {
     padding: 2rem 0.1rem;
     border-radius: 24px;
+  }
+
+  /* Lift the hero container up so the fixed navbar visually overlaps it */
+  @media (min-width: 769px) {
+    margin-top: calc(-1 * var(--navbar-overlap, 28px));
   }
 }
 

@@ -148,9 +148,11 @@
         <button aria-label="Fechar" class="close-btn" on:click={closeMenu}>
           &times;
         </button>
+      <a href="/" class="home-link" on:click={handleLinkClick}>Início</a>
       <a href="#about" on:click={handleLinkClick}>Sobre</a>
       <a href="#services" on:click={handleLinkClick}>Serviços</a>
       <a href="#projects" on:click={handleLinkClick}>Projetos</a>
+      <a href="/blog" on:click={handleLinkClick}>Blog</a>
       <a href="#experience" on:click={handleLinkClick}>Experiência</a>
       <a class="btnSolicitarProjeto" href="/solicitar-projeto" on:click={closeMenu}>Solicitar Projeto</a>
       <a href="https://wa.me/5511988385247" target="_blank" rel="noopener" class="highlight" on:click={closeMenu}>Whatsapp</a>
@@ -161,12 +163,13 @@
 <style>
 .navbar {
   position: fixed;
-  top: 12px;
+  top: var(--navbar-top, 12px);
   left: 50%;
   transform: translateX(-50%);
   width: auto;
   max-width: 980px;
-  z-index: 1000;
+  z-index: 2100;
+  height: var(--navbar-height, 56px);
   border-radius: 50px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -178,15 +181,16 @@
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
 }
 
-.navbar-container {
+  .navbar-container {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 8px 20px;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
+    padding: 8px 20px;
+    /* Match hero container glass background and blur so they appear unified */
+    background: var(--glass-bg-strong, rgba(255,255,255,0.85));
+    backdrop-filter: saturate(180%) var(--glass-blur, blur(30px));
+    -webkit-backdrop-filter: saturate(180%) var(--glass-blur, blur(30px));
   border-radius: 50px;
   border: 0.5px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08), 
