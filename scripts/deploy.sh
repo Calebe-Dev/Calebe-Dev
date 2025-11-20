@@ -54,7 +54,8 @@ echo "Syncing ./build/ to remote release ${REMOTE_RELEASE_DIR}"
 rsync -avz -e "ssh ${SSH_OPTS}" ./build/ ${HOSTINGER_SSH_USER}@${HOSTINGER_SSH_HOST}:${REMOTE_RELEASE_DIR}/
 
 echo "Activating new release ${TIMESTAMP} on remote host"
-ssh ${SSH_OPTS} ${HOSTINGER_SSH_USER}@${HOSTINGER_SSH_HOST} "set -e; mkdir -p ${RELEASES_DIR}; chmod 755 ${RELEASES_DIR}; if [ -e ${REMOTE_DIR} ]; then mv ${REMOTE_DIR} ${REMOTE_DIR}.bak.${TIMESTAMP} || true; fi; mv ${REMOTE_RELEASE_DIR} ${REMOTE_DIR}; # keep 5 latest releases
-cd ${RELEASES_DIR}; ls -1dt * | tail -n +6 | xargs -r rm -rf"
+ssh ${SSH_OPTS} ${HOSTINGER_SSH_USER}@${HOSTINGER_SSH_HOST} "set -e; mkdir -p ${RELEASES_DIR}; chmod 755 ${RELEASES_DIR}; if [ -e ${REMOTE_DIR} ]; then mv ${REMOTE_DIR} ${REMOTE_DIR}.bak.${TIMESTAMP} || true; fi; # copy release contents into the public dir (keep the release dir intact)
+rsync -a --delete ${REMOTE_RELEASE_DIR}/ ${REMOTE_DIR}/; # keep 5 latest releases
+cd ${RELEASES_DIR}; ls -1dt -- */ 2>/dev/null | sed 's:/$::' | tail -n +6 | xargs -r rm -rf || true"
 
 echo "Deploy finished."
