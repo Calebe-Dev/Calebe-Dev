@@ -89,13 +89,17 @@ $apple-blue: #0071e3;
   content: '';
   position: absolute;
   top: -20%;
-  left: -10%;
-  width: 600px;
-  height: 600px;
+  left: -8%;
+  width: min(55vw, 600px);
+  height: min(55vw, 600px);
   background: radial-gradient(circle, rgba(0, 113, 227, 0.08), transparent 70%);
   filter: blur(120px);
   pointer-events: none;
   z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .about-section::before { display: none; }
 }
 
 .about-container {

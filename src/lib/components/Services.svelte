@@ -91,12 +91,16 @@
   content: '';
   position: absolute;
   top: 10%;
-  right: -5%;
-  width: 400px;
-  height: 400px;
+  right: -4%;
+  width: min(45vw, 400px);
+  height: min(45vw, 400px);
   background: radial-gradient(circle, rgba(0, 113, 227, 0.12), transparent 65%);
   filter: blur(90px);
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .services-section::before { display: none; }
 }
 
 .services-section h2 {

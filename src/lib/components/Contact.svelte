@@ -102,12 +102,16 @@
   content: '';
   position: absolute;
   top: 20%;
-  left: -5%;
-  width: 450px;
-  height: 450px;
+  left: -4%;
+  width: min(50vw, 450px);
+  height: min(50vw, 450px);
   background: radial-gradient(circle, rgba(0, 113, 227, 0.11), transparent 70%);
   filter: blur(100px);
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .contact-section::before { display: none; }
 }
 
 .glass-overlay {

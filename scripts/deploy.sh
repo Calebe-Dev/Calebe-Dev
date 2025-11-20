@@ -34,12 +34,23 @@ npm run build
 
 # Create timestamped release
 TIMESTAMP=$(date -u +"%Y%m%d%H%M%S")
-RELEASES_DIR=~/releases
+# Keep tilde unexpanded so the remote shell expands it to the remote user's home
+RELEASES_DIR='~/releases'
 REMOTE_RELEASE_DIR="$RELEASES_DIR/$TIMESTAMP"
+
+echo "Ensuring remote releases dir exists"
+# Try to ensure ssh-agent has the key loaded to avoid passphrase prompts during rsync
+if command -v ssh-agent >/dev/null 2>&1 && command -v ssh-add >/dev/null 2>&1; then
+  if ! ssh-add -l >/dev/null 2>&1; then
+    eval "$(ssh-agent -s)" >/dev/null 2>&1 || true
+    ssh-add "${HOSTINGER_SSH_KEY}" || echo "Warning: could not add SSH key to agent (it may require a passphrase)."
+  fi
+fi
 
 echo "Ensuring remote releases dir exists"
 ssh ${SSH_OPTS} ${HOSTINGER_SSH_USER}@${HOSTINGER_SSH_HOST} "mkdir -p ${RELEASES_DIR} && chmod 755 ${RELEASES_DIR}" || true
 echo "Syncing ./build/ to remote release ${REMOTE_RELEASE_DIR}"
+# Use rsync with explicit ssh options
 rsync -avz -e "ssh ${SSH_OPTS}" ./build/ ${HOSTINGER_SSH_USER}@${HOSTINGER_SSH_HOST}:${REMOTE_RELEASE_DIR}/
 
 echo "Activating new release ${TIMESTAMP} on remote host"

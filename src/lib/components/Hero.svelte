@@ -98,7 +98,14 @@ $secondary-color: var(--secondary-color);
   background: #f5f5f7;
 
   @media (max-width: 768px) {
-    padding: 5.5rem 1rem 3rem;
+    /* Reduce top padding so fixed navbar doesn't create a large gap
+       and let the navbar visually sit on top of the hero container. */
+    padding: 0.5rem 1rem 1.5rem;
+
+    /* Ensure the hero container isn't offset by extra margins */
+    .hero-container {
+      margin-top: 0;
+    }
   }
 }
 
@@ -119,17 +126,17 @@ $secondary-color: var(--secondary-color);
 
 .gradient-1 {
   top: -20%;
-  right: -10%;
-  width: 600px;
-  height: 600px;
+  right: -8%;
+  width: min(60vw, 600px);
+  height: min(60vw, 600px);
   background: radial-gradient(circle, rgba(0, 113, 227, 0.3), transparent 70%);
 }
 
 .gradient-2 {
   bottom: -20%;
-  left: -10%;
-  width: 500px;
-  height: 500px;
+  left: -8%;
+  width: min(50vw, 500px);
+  height: min(50vw, 500px);
   background: radial-gradient(circle, rgba(0, 198, 255, 0.25), transparent 70%);
   animation-delay: -10s;
   animation-duration: 25s;
@@ -153,7 +160,7 @@ $secondary-color: var(--secondary-color);
 
 .hero-container {
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 1rem auto;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -177,12 +184,12 @@ $secondary-color: var(--secondary-color);
   }
 
   @media (max-width: 968px) {
-    padding: 3rem 2rem;
+    padding: 3rem 0.1rem;
     border-radius: 32px;
   }
 
   @media (max-width: 568px) {
-    padding: 2rem 1.5rem;
+    padding: 2rem 0.1rem;
     border-radius: 24px;
   }
 }
@@ -489,5 +496,13 @@ $secondary-color: var(--secondary-color);
 @keyframes bounce {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(10px); }
+}
+
+@media (max-width: 768px) {
+  .gradient-1,
+  .gradient-2,
+  .bg-grid {
+    display: none;
+  }
 }
 </style>

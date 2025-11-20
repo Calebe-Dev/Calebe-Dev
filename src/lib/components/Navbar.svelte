@@ -145,6 +145,9 @@
       class:open={mobileMenuOpen}
     >
       <div class="lens" style="left: {lensPosition}px; width: {lensWidth}px;"></div>
+        <button aria-label="Fechar" class="close-btn" on:click={closeMenu}>
+          &times;
+        </button>
       <a href="#about" on:click={handleLinkClick}>Sobre</a>
       <a href="#services" on:click={handleLinkClick}>Serviços</a>
       <a href="#projects" on:click={handleLinkClick}>Projetos</a>
@@ -196,6 +199,7 @@
   align-items: center;
   gap: 8px;
   position: relative;
+    box-sizing: border-box;
 }
 
 .navbar-content a {
@@ -311,9 +315,9 @@
   }
   
   .navbar.menu-open {
-    width: 90%;
-    left: 50%;
-    transform: translate(-50%);
+    width: calc(100% - 40px);
+    left: 20px;
+    transform: none;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.85);
   }
@@ -333,7 +337,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    right: 0;
+    width: 100%;
     height: 100vh;
     background: rgba(245, 245, 247, 0.95);
     backdrop-filter: saturate(180%) blur(40px);
@@ -362,6 +367,30 @@
     width: 80%;
     text-align: center;
     margin: 0 auto;
+  }
+
+  .close-btn {
+    display: none;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: transparent;
+    border: 0;
+    font-size: 2rem;
+    line-height: 1;
+    padding: 6px 8px;
+    cursor: pointer;
+    color: rgba(0,0,0,0.8);
+    z-index: 2010;
+  }
+
+  .close-btn:focus {
+    outline: 2px solid rgba(0,113,227,0.2);
+    border-radius: 6px;
+  }
+
+  .navbar-content.open .close-btn {
+    display: block;
   }
   
   .btnSolicitarProjeto,

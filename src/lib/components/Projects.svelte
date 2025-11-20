@@ -132,13 +132,17 @@ $secondary-color: var(--secondary-color);
   content: '';
   position: absolute;
   bottom: -20%;
-  right: -10%;
-  width: 600px;
-  height: 600px;
+  right: -8%;
+  width: min(55vw, 600px);
+  height: min(55vw, 600px);
   background: radial-gradient(circle, rgba(0, 113, 227, 0.08), transparent 70%);
   filter: blur(120px);
   pointer-events: none;
   z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .projects-section::after { display: none; }
 }
 
 .projects-container {

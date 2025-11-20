@@ -70,12 +70,16 @@
   content: '';
   position: absolute;
   bottom: -10%;
-  right: -8%;
-  width: 500px;
-  height: 500px;
+  right: -6%;
+  width: min(50vw, 500px);
+  height: min(50vw, 500px);
   background: radial-gradient(circle, rgba(0, 113, 227, 0.09), transparent 70%);
   filter: blur(105px);
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .testimonials-section::after { display: none; }
 }
 
 .testimonials-container {

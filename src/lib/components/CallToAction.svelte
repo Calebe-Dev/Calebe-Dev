@@ -34,11 +34,15 @@
   top: -20%;
   left: 50%;
   transform: translateX(-50%);
-  width: 600px;
-  height: 600px;
+  width: min(80vw, 600px);
+  height: min(80vw, 600px);
   background: radial-gradient(circle, rgba(0, 113, 227, 0.13), transparent 65%);
   filter: blur(115px);
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .cta-section::before { display: none; }
 }
 
 .parallax-container {
