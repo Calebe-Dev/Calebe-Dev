@@ -14,6 +14,8 @@
   
   const sections = ["about", "services", "projects", "experience", "blog", "solicitar-projeto"];
 
+  const SITE_DOMAIN = 'https://calebearaujo.com.br';
+
   function toggleMenu() {
     mobileMenuOpen = !mobileMenuOpen;
     if (mobileMenuOpen) focusFirstMenuItem();
@@ -191,10 +193,10 @@
         </button>
       <!-- Reordered nav: Início, Sobre, Serviços, Projetos, Experiência, Blog, Solicitar, Whatsapp -->
       <a href="/" class="home-link" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Início</a>
-      <a href="/#about" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Sobre</a>
-      <a href="/#services" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Serviços</a>
-      <a href="/#projects" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Projetos</a>
-      <a href="/#experience" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Experiência</a>
+      <a href="https://calebearaujo.com.br/#about" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Sobre</a>
+      <a href="https://calebearaujo.com.br/#services" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Serviços</a>
+      <a href="https://calebearaujo.com.br/#projects" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Projetos</a>
+      <a href="https://calebearaujo.com.br/#experience" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Experiência</a>
       <a href="/blog" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Blog</a>
       <a class="btnSolicitarProjeto" href="/solicitar-projeto/redirect" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Solicitar Projeto</a>
       <a href="https://wa.me/5511988385247" target="_blank" rel="noopener" class="highlight" on:click={closeMenu}>Whatsapp</a>
@@ -235,8 +237,7 @@
     -webkit-backdrop-filter: saturate(180%) var(--glass-blur, blur(30px));
   border-radius: 50px;
   border: 0.5px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08), 
-              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
   transition: all 0.4s ease;
 }
 
