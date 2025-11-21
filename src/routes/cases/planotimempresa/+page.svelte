@@ -16,5 +16,8 @@
   <h2>Métricas</h2>
   <p>Melhorias em LCP, redução de CLS e aumento nas conversões via formulários.</p>
 
+  <h2>Tecnologias</h2>
+  <p>Ferramentas de planejamento e monitoramento de SEO: Microsoft Clarity, Google Search Console e Bing Webmaster Tools.</p>
+
   <p><a href="/projetos">Voltar aos projetos</a></p>
 </main>

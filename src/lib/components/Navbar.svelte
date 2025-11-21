@@ -307,6 +307,11 @@
   white-space: nowrap;
 }
 
+.close-btn {
+  /* hide by default (desktop) - will be shown on mobile when .navbar-content.open */
+  display: none;
+}
+
 .navbar-content a:hover {
   color: #0071e3;
 }

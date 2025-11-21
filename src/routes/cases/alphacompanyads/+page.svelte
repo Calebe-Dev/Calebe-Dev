@@ -19,6 +19,7 @@
 
   <h2>Tecnologias</h2>
   <p>JavaScript, HTML, CSS, integrações REST, analytics e práticas de SEO técnico.</p>
+  <p>Ferramentas de planejamento e monitoramento de SEO: Microsoft Clarity, Google Search Console e Bing Webmaster Tools.</p>
 
   <p><a href="/projetos">Voltar aos projetos</a></p>
 </main>

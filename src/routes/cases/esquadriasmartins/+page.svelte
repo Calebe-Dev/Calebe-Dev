@@ -16,5 +16,8 @@
   <h2>Resultados</h2>
   <p>Aumento de visibilidade em buscas locais e melhoria no tráfego orgânico qualificado.</p>
 
+  <h2>Tecnologias</h2>
+  <p>Ferramentas de planejamento e monitoramento de SEO: Microsoft Clarity, Google Search Console e Bing Webmaster Tools.</p>
+
   <p><a href="/projetos">Voltar aos projetos</a></p>
 </main>
