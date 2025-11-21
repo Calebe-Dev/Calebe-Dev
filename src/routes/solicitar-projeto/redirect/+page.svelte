@@ -1,16 +1,21 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
+  import { onMount, onDestroy } from 'svelte';
 
-  let countdown = 5; // seconds
+  // WhatsApp contact
+  const PHONE = '5511988385247';
+  const DEFAULT_MESSAGE = encodeURIComponent('Olá, gostaria de solicitar um projeto.');
+  const WHATSAPP_URL = `https://wa.me/${PHONE}?text=${DEFAULT_MESSAGE}`;
+
+  let countdown = 5;
   let timerId: number | null = null;
   let autoRedirect = true;
 
-  function proceed() {
+  function goToWhatsapp() {
     if (timerId) {
       clearInterval(timerId);
       timerId = null;
     }
-    goto('/solicitar-projeto');
+    window.location.href = WHATSAPP_URL;
   }
 
   function cancel() {
@@ -21,16 +26,13 @@
     }
   }
 
-  // start countdown on mount
-  import { onMount, onDestroy } from 'svelte';
-
   onMount(() => {
     countdown = 5;
     if (autoRedirect) {
       timerId = window.setInterval(() => {
         countdown -= 1;
         if (countdown <= 0) {
-          proceed();
+          goToWhatsapp();
         }
       }, 1000);
     }
@@ -45,16 +47,16 @@
 </script>
 
 <svelte:head>
-  <title>Solicitar Projeto — Redirecionamento</title>
+  <title>Redirecionando para WhatsApp</title>
   <meta name="robots" content="noindex" />
 </svelte:head>
 
 <section class="redirect-page">
   <div class="container">
-    <h1>Quase lá — Solicitação de Projeto</h1>
-    <p>Obrigado pelo interesse! Antes de redirecionar, verifique as informações do seu pedido. Clique no botão abaixo para continuar para o formulário de solicitação.</p>
+    <h1>Entrando em contato via WhatsApp</h1>
+    <p>Você será redirecionado para o WhatsApp em <strong>{countdown}s</strong>. Caso queira, clique no botão abaixo para ir agora.</p>
     <div class="actions">
-      <button class="primary" on:click={proceed}>Continuar para o formulário</button>
+      <button class="primary" on:click={goToWhatsapp}>Ir para o WhatsApp</button>
       <button class="secondary" on:click={cancel} aria-pressed={!autoRedirect}>
         {#if autoRedirect}
           Cancelar redirecionamento ({countdown}s)
@@ -78,7 +80,7 @@
 
 .container {
   max-width: 720px;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.9);
   backdrop-filter: blur(12px) saturate(180%);
   padding: 2rem;
   border-radius: 12px;
@@ -104,7 +106,7 @@ p {
 }
 
 button.primary {
-  background: #0071e3;
+  background: #25D366; /* WhatsApp green */
   color: #fff;
   border: 0;
   padding: 0.75rem 1.25rem;

@@ -123,13 +123,13 @@
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
       "_exports.js",
       "_utils.js",
-      "_state.svelte.js"
+      "_state.svelte.js",
+      "_index2.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.CgAixgsj.css"
+      "_app/immutable/assets/_layout.qxZsIFa0.css"
     ]
   },
   "src/routes/+layout.ts": {
@@ -186,13 +186,10 @@
     "imports": [
       "_index2.js",
       "_index-server.js",
-      "_exports.js",
-      "_utils.js",
-      "_state.svelte.js",
       "_context.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.BgUjHw1s.css"
+      "_app/immutable/assets/_page.CJ077rAa.css"
     ]
   }
 }

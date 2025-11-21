@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
+	import { afterNavigate } from '$app/navigation';
 	import AOS from 'aos';
 	import 'aos/dist/aos.css';
 	import '../app.scss';
@@ -28,6 +29,20 @@
 			scrollAnimation();
 			const cleanupParallax = parallaxScroll();
 			const cleanupProgress = scrollProgress();
+
+			// Ensure smooth scroll to section when navigating to a hash (works in SPA and static builds)
+			afterNavigate(() => {
+				if (!browser) return;
+				const hash = window.location.hash;
+				if (hash) {
+					const id = hash.replace('#', '');
+					// Delay slightly to allow DOM updates
+					setTimeout(() => {
+						const el = document.getElementById(id);
+						if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					}, 50);
+				}
+			});
 
 			return () => {
 				if (cleanupParallax) cleanupParallax();

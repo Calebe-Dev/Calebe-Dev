@@ -218,12 +218,7 @@
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.navbar.scrolled {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: saturate(180%) blur(30px);
-  -webkit-backdrop-filter: saturate(180%) blur(30px);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
-}
+
 
   .navbar-container {
   display: flex;
@@ -231,14 +226,14 @@
   align-items: center;
   position: relative;
     padding: 8px 20px;
-    /* Match hero container glass background and blur so they appear unified */
-    background: var(--glass-bg-strong, rgba(255,255,255,0.85));
+    /* keep transparent so hero/background shows through; scrolled state adds glass */
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: saturate(180%) var(--glass-blur, blur(30px));
     -webkit-backdrop-filter: saturate(180%) var(--glass-blur, blur(30px));
   border-radius: 50px;
   border: 0.5px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
   transition: all 0.4s ease;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
 }
 
 .navbar-content {

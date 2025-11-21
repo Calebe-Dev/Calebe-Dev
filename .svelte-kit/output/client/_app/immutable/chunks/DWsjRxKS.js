@@ -1,0 +1,1 @@
+import{b as o,h as i,a as c,X as b,i as d,H as T,j as p,s as y,k as _}from"./xnhaWRN-.js";import{B as E}from"./D-12RO6n.js";function m(t,f,h=!1){i&&c();var e=new E(t),u=h?b:0;function n(a,s){if(i){const l=d(t)===T;if(a===l){var r=p();y(r),e.anchor=r,_(!1),e.ensure(a,s),_(!0);return}}e.ensure(a,s)}o(()=>{var a=!1;f((s,r=!0)=>{a=!0,n(r,s)}),a||n(!1,null)},u)}export{m as i};
