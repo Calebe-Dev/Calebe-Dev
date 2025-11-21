@@ -46,9 +46,9 @@
       "_app/immutable/assets/Experience.69sQc6h5.css"
     ]
   },
-  "_Projects.D4O-ZtlQ.css": {
-    "file": "_app/immutable/assets/Projects.D4O-ZtlQ.css",
-    "src": "_Projects.D4O-ZtlQ.css"
+  "_Projects.C3rHsa3g.css": {
+    "file": "_app/immutable/assets/Projects.C3rHsa3g.css",
+    "src": "_Projects.C3rHsa3g.css"
   },
   "_Projects.js": {
     "file": "chunks/Projects.js",
@@ -58,7 +58,7 @@
       "_context.js"
     ],
     "css": [
-      "_app/immutable/assets/Projects.D4O-ZtlQ.css"
+      "_app/immutable/assets/Projects.C3rHsa3g.css"
     ]
   },
   "_Services.c7CCV3dk.css": {
@@ -234,6 +234,87 @@
     ],
     "css": [
       "_app/immutable/assets/_page.Ck5ru7En.css"
+    ]
+  },
+  "src/routes/cases/alphacompanyads/+page.svelte": {
+    "file": "entries/pages/cases/alphacompanyads/_page.svelte.js",
+    "name": "entries/pages/cases/alphacompanyads/_page.svelte",
+    "src": "src/routes/cases/alphacompanyads/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "src/routes/cases/buenoswatertechnology/+page.svelte": {
+    "file": "entries/pages/cases/buenoswatertechnology/_page.svelte.js",
+    "name": "entries/pages/cases/buenoswatertechnology/_page.svelte",
+    "src": "src/routes/cases/buenoswatertechnology/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "src/routes/cases/esquadriasmartins/+page.svelte": {
+    "file": "entries/pages/cases/esquadriasmartins/_page.svelte.js",
+    "name": "entries/pages/cases/esquadriasmartins/_page.svelte",
+    "src": "src/routes/cases/esquadriasmartins/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "src/routes/cases/grupooc/+page.svelte": {
+    "file": "entries/pages/cases/grupooc/_page.svelte.js",
+    "name": "entries/pages/cases/grupooc/_page.svelte",
+    "src": "src/routes/cases/grupooc/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "src/routes/cases/internetfibraagora/+page.svelte": {
+    "file": "entries/pages/cases/internetfibraagora/_page.svelte.js",
+    "name": "entries/pages/cases/internetfibraagora/_page.svelte",
+    "src": "src/routes/cases/internetfibraagora/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "src/routes/cases/leadplanodesaude/+page.svelte": {
+    "file": "entries/pages/cases/leadplanodesaude/_page.svelte.js",
+    "name": "entries/pages/cases/leadplanodesaude/_page.svelte",
+    "src": "src/routes/cases/leadplanodesaude/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "src/routes/cases/linkdedicada/+page.svelte": {
+    "file": "entries/pages/cases/linkdedicada/_page.svelte.js",
+    "name": "entries/pages/cases/linkdedicada/_page.svelte",
+    "src": "src/routes/cases/linkdedicada/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "src/routes/cases/meupabxemnuvem/+page.svelte": {
+    "file": "entries/pages/cases/meupabxemnuvem/_page.svelte.js",
+    "name": "entries/pages/cases/meupabxemnuvem/_page.svelte",
+    "src": "src/routes/cases/meupabxemnuvem/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "src/routes/cases/planotimempresa/+page.svelte": {
+    "file": "entries/pages/cases/planotimempresa/_page.svelte.js",
+    "name": "entries/pages/cases/planotimempresa/_page.svelte",
+    "src": "src/routes/cases/planotimempresa/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js"
     ]
   },
   "src/routes/contato/+page.svelte": {

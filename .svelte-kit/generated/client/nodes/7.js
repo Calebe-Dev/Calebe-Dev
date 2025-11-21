@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/servicos/+page.svelte";
+export { default as component } from "../../../../src/routes/cases/grupooc/+page.svelte";

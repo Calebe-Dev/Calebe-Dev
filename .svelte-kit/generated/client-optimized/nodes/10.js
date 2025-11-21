@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/solicitar-projeto/redirect/+page.svelte";
+export { default as component } from "../../../../src/routes/cases/linkdedicada/+page.svelte";

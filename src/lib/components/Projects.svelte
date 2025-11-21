@@ -6,80 +6,119 @@
     date: string;
     context: string;
     url: string;
+    thumbnail?: string;
     aosDelay: string;
   }
 
   const projects: Project[] = [
     {
+      category: "Ads / Marketing",
+      title: "alphacompanyads.com.br",
+      description: "Desenvolvido totalmente por Calebe — plataforma de anúncios e gestão de campanhas, com foco em performance e conversões. Inclui trabalho de SEO técnico e estratégico.",
+      date: "2025",
+      context: "Desenvolvimento full — front-end e integrações",
+      url: "https://alphacompanyads.com.br/",
+      thumbnail: "/projects/alphacompanyads.svg",
+      aosDelay: ""
+    },
+    {
+      category: "Diretório Local",
+      title: "sorocabaindica.com.br",
+      description: "Portal local desenvolvido para Sorocaba — listas e recomendações de serviços e negócios locais, com foco em encontrar fornecedores e parceiros na região. Inclui trabalho de SEO técnico e estratégico.",
+      date: "2025",
+      context: "Desenvolvimento e manutenção — projeto local",
+      url: "https://sorocabaindica.com.br/",
+      thumbnail: "/projects/sorocabaindica.svg",
+      aosDelay: "50"
+    },
+    {
+      category: "Blog / E-commerce",
+      title: "blog.bellemodaintima.com.br",
+      description: "Blog da Belle Moda Íntima — conteúdo editorial, artigos e atualizações de produtos; integração com plataforma de e-commerce e estratégias de SEO. Inclui trabalho de SEO técnico e estratégico.",
+      date: "2025",
+      context: "Desenvolvimento front-end e integração com CMS",
+      url: "https://blog.bellemodaintima.com.br/",
+      thumbnail: "/projects/blog-bellemodaintima.svg",
+      aosDelay: "100"
+    },
+    {
       category: "Grupo OC — Telecom",
       title: "planotimempresa.com.br",
-      description: "Desenvolvido para Grupo OC. SPA em Angular que promove planos de telefonia e internet TIM para empresas, com foco em TIM Black Empresa, ligações ilimitadas e benefícios de apps sem consumir franquia.",
+      description: "Desenvolvido para Grupo OC. SPA em Angular que promove planos de telefonia e internet TIM para empresas, com foco em TIM Black Empresa, ligações ilimitadas e benefícios de apps sem consumir franquia. Inclui trabalho de SEO técnico e estratégico.",
       date: "Atualizado 2025",
       context: "Desenvolvido para Grupo OC (Angular SPA)",
       url: "https://planotimempresa.com.br/",
+      thumbnail: "/projects/planotimempresa.svg",
       aosDelay: ""
     },
     {
       category: "Esquadrias",
       title: "esquadriasmartins.com.br",
-      description: "Site da Esquadrias Martins — mais de 30 anos de experiência em esquadrias de alumínio em Sorocaba. Portas, portões, janelas e brises para residências e edifícios.",
+      description: "Site da Esquadrias Martins — mais de 30 anos de experiência em esquadrias de alumínio em Sorocaba. Portas, portões, janelas e brises para residências e edifícios. Inclui trabalho de SEO técnico e estratégico.",
       date: "Atualizado 2025",
       context: "Desenvolvido para Esquadrias Martins",
       url: "https://esquadriasmartins.com.br/",
+      thumbnail: "/projects/esquadriasmartins.svg",
       aosDelay: "100"
     },
     {
       category: "Grupo OC — Internet",
       title: "internetfibraagora.com.br",
-      description: "Site para venda de planos fibra óptica (PF/PJ) com ofertas e opções para empresas e residências.",
+      description: "Site para venda de planos fibra óptica (PF/PJ) com ofertas e opções para empresas e residências. Inclui trabalho de SEO técnico e estratégico.",
       date: "Atualizado 2025",
       context: "Desenvolvido para Grupo OC",
       url: "https://internetfibraagora.com.br/",
+      thumbnail: "/projects/internetfibraagora.svg",
       aosDelay: "200"
     },
     {
       category: "Serviços",
       title: "buenoswatertechnology.com.br",
-      description: "Site de serviços: atualização e manutenção — projeto de prestação de serviços técnicos e manutenção industrial.",
+      description: "Site de serviços: atualização e manutenção — projeto de prestação de serviços técnicos e manutenção industrial. Inclui trabalho de SEO técnico e estratégico.",
       date: "Atualizado 2025",
       context: "Atualização e manutenção",
       url: "https://buenoswatertechnology.com.br/",
+      thumbnail: "/projects/buenoswatertechnology.svg",
       aosDelay: "300"
     },
     {
       category: "Grupo OC — Institucional",
       title: "grupooc.com.br",
-      description: "Site institucional do Grupo OC: OC Tel (telecom), OC Digital (marketing) e OC Saúde (planos de saúde) — soluções de assessoria e consultoria empresarial.",
+      description: "Site institucional do Grupo OC: OC Tel (telecom), OC Digital (marketing) e OC Saúde (planos de saúde) — soluções de assessoria e consultoria empresarial. Inclui trabalho de SEO técnico e estratégico.",
       date: "Atualizado 2025",
       context: "Projeto institucional do Grupo OC",
       url: "https://grupooc.com.br/",
+      thumbnail: "/projects/grupooc.svg",
       aosDelay: "400"
     },
     {
       category: "Grupo OC — Conectividade",
       title: "linkdedicada.com.br",
-      description: "Oferta de Link Dedicado de internet para empresas: conexões estáveis com mesma taxa de download/upload e SLA dedicado.",
+      description: "Oferta de Link Dedicado de internet para empresas: conexões estáveis com mesma taxa de download/upload e SLA dedicado. Inclui trabalho de SEO técnico e estratégico.",
       date: "Atualizado 2025",
       context: "Projeto Grupo OC",
       url: "https://linkdedicada.com.br/",
+      thumbnail: "/projects/linkdedicada.svg",
       aosDelay: "500"
     },
     {
       category: "Grupo OC — Telecom",
       title: "meupabxemnuvem.com.br",
-      description: "Promoção de soluções de PABX em nuvem (GoTo) com mais de 100 recursos para comunicação empresarial moderna e escalável.",
+      description: "Promoção de soluções de PABX em nuvem (GoTo) com mais de 100 recursos para comunicação empresarial moderna e escalável. Inclui trabalho de SEO técnico e estratégico.",
       date: "Atualizado 2025",
       context: "Projeto Grupo OC",
       url: "https://meupabxemnuvem.com.br/",
+      thumbnail: "/projects/meupabxemnuvem.svg",
       aosDelay: "600"
     },
     {
       category: "Saúde Empresarial",
       title: "leadplanodesaude.com.br",
-      description: "Site focado em planos de saúde empresariais, consultoria para otimização de custos com operadoras como Amil, Bradesco Saúde e outras.",
+      description: "Site focado em planos de saúde empresariais, consultoria para otimização de custos com operadoras como Amil, Bradesco Saúde e outras. Inclui trabalho de SEO técnico e estratégico.",
       date: "Atualizado 2025",
       context: "Grupo OC — Planos de Saúde",
       url: "https://leadplanodesaude.com.br/",
+      thumbnail: "/projects/leadplanodesaude.svg",
       aosDelay: "700"
     }
   ];
@@ -101,6 +140,9 @@
       {#each projects as project, i}
         <article class="project-card" data-aos="fade-up" data-aos-delay={i * 100}>
           <div class="project-header">
+            {#if project.thumbnail}
+              <img class="project-thumb" src={project.thumbnail} alt={`${project.title} thumbnail`} />
+            {/if}
             <span class="project-category">{project.category}</span>
             <div class="project-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -112,6 +154,7 @@
           
           <div class="project-body">
             <h3>{project.title}</h3>
+            <span class="seo-badge">SEO técnico</span>
             <p class="project-description">{project.description}</p>
             
             <div class="project-meta">
@@ -271,6 +314,28 @@ $secondary-color: var(--secondary-color);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 1rem;
+}
+
+.project-thumb {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 0.5px solid rgba(0,0,0,0.06);
+  flex-shrink: 0;
+}
+
+.seo-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  background: rgba(0,113,227,0.08);
+  color: #0071e3;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  vertical-align: middle;
 }
 
 .project-category {

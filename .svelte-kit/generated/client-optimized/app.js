@@ -11,7 +11,16 @@ export const nodes = [
 	() => import('./nodes/7'),
 	() => import('./nodes/8'),
 	() => import('./nodes/9'),
-	() => import('./nodes/10')
+	() => import('./nodes/10'),
+	() => import('./nodes/11'),
+	() => import('./nodes/12'),
+	() => import('./nodes/13'),
+	() => import('./nodes/14'),
+	() => import('./nodes/15'),
+	() => import('./nodes/16'),
+	() => import('./nodes/17'),
+	() => import('./nodes/18'),
+	() => import('./nodes/19')
 ];
 
 export const server_loads = [];
@@ -19,13 +28,22 @@ export const server_loads = [];
 export const dictionary = {
 		"/": [2],
 		"/blog": [3],
-		"/contato": [4],
-		"/experiencia": [5],
-		"/projetos": [6],
-		"/servicos": [7],
-		"/sobre": [8],
-		"/solicitar-projeto": [9],
-		"/solicitar-projeto/redirect": [10]
+		"/cases/alphacompanyads": [4],
+		"/cases/buenoswatertechnology": [5],
+		"/cases/esquadriasmartins": [6],
+		"/cases/grupooc": [7],
+		"/cases/internetfibraagora": [8],
+		"/cases/leadplanodesaude": [9],
+		"/cases/linkdedicada": [10],
+		"/cases/meupabxemnuvem": [11],
+		"/cases/planotimempresa": [12],
+		"/contato": [13],
+		"/experiencia": [14],
+		"/projetos": [15],
+		"/servicos": [16],
+		"/sobre": [17],
+		"/solicitar-projeto": [18],
+		"/solicitar-projeto/redirect": [19]
 	};
 
 export const hooks = {

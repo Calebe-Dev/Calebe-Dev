@@ -6,6 +6,33 @@
 	"/blog": [
 		"src/routes/+layout.ts"
 	],
+	"/cases/alphacompanyads": [
+		"src/routes/+layout.ts"
+	],
+	"/cases/buenoswatertechnology": [
+		"src/routes/+layout.ts"
+	],
+	"/cases/esquadriasmartins": [
+		"src/routes/+layout.ts"
+	],
+	"/cases/grupooc": [
+		"src/routes/+layout.ts"
+	],
+	"/cases/internetfibraagora": [
+		"src/routes/+layout.ts"
+	],
+	"/cases/leadplanodesaude": [
+		"src/routes/+layout.ts"
+	],
+	"/cases/linkdedicada": [
+		"src/routes/+layout.ts"
+	],
+	"/cases/meupabxemnuvem": [
+		"src/routes/+layout.ts"
+	],
+	"/cases/planotimempresa": [
+		"src/routes/+layout.ts"
+	],
 	"/contato": [
 		"src/routes/+layout.ts"
 	],
