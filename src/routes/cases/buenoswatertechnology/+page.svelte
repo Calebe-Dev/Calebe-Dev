@@ -1,7 +1,3 @@
-<script lang="ts">
-  export let data;
-</script>
-
 <main class="case">
   <h1>buenoswatertechnology.com.br — Case Study</h1>
   <p>Site de serviços com foco em manutenção e atualização técnica.</p>

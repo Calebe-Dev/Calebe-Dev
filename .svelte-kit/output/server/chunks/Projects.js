@@ -22,7 +22,6 @@ function Projects($$renderer, $$props) {
         date: "2025",
         context: "Desenvolvimento full — front-end e integrações",
         url: "https://alphacompanyads.com.br/",
-        thumbnail: "/projects/alphacompanyads.svg",
         aosDelay: ""
       },
       {
@@ -32,7 +31,6 @@ function Projects($$renderer, $$props) {
         date: "2025",
         context: "Desenvolvimento e manutenção — projeto local",
         url: "https://sorocabaindica.com.br/",
-        thumbnail: "/projects/sorocabaindica.svg",
         aosDelay: "50"
       },
       {
@@ -42,7 +40,6 @@ function Projects($$renderer, $$props) {
         date: "2025",
         context: "Desenvolvimento front-end e integração com CMS",
         url: "https://blog.bellemodaintima.com.br/",
-        thumbnail: "/projects/blog-bellemodaintima.svg",
         aosDelay: "100"
       },
       {
@@ -52,7 +49,6 @@ function Projects($$renderer, $$props) {
         date: "Atualizado 2025",
         context: "Desenvolvido para Grupo OC (Angular SPA)",
         url: "https://planotimempresa.com.br/",
-        thumbnail: "/projects/planotimempresa.svg",
         aosDelay: ""
       },
       {
@@ -62,7 +58,6 @@ function Projects($$renderer, $$props) {
         date: "Atualizado 2025",
         context: "Desenvolvido para Esquadrias Martins",
         url: "https://esquadriasmartins.com.br/",
-        thumbnail: "/projects/esquadriasmartins.svg",
         aosDelay: "100"
       },
       {
@@ -72,7 +67,6 @@ function Projects($$renderer, $$props) {
         date: "Atualizado 2025",
         context: "Desenvolvido para Grupo OC",
         url: "https://internetfibraagora.com.br/",
-        thumbnail: "/projects/internetfibraagora.svg",
         aosDelay: "200"
       },
       {
@@ -82,7 +76,6 @@ function Projects($$renderer, $$props) {
         date: "Atualizado 2025",
         context: "Atualização e manutenção",
         url: "https://buenoswatertechnology.com.br/",
-        thumbnail: "/projects/buenoswatertechnology.svg",
         aosDelay: "300"
       },
       {
@@ -92,7 +85,6 @@ function Projects($$renderer, $$props) {
         date: "Atualizado 2025",
         context: "Projeto institucional do Grupo OC",
         url: "https://grupooc.com.br/",
-        thumbnail: "/projects/grupooc.svg",
         aosDelay: "400"
       },
       {
@@ -102,7 +94,6 @@ function Projects($$renderer, $$props) {
         date: "Atualizado 2025",
         context: "Projeto Grupo OC",
         url: "https://linkdedicada.com.br/",
-        thumbnail: "/projects/linkdedicada.svg",
         aosDelay: "500"
       },
       {
@@ -112,7 +103,6 @@ function Projects($$renderer, $$props) {
         date: "Atualizado 2025",
         context: "Projeto Grupo OC",
         url: "https://meupabxemnuvem.com.br/",
-        thumbnail: "/projects/meupabxemnuvem.svg",
         aosDelay: "600"
       },
       {
@@ -122,7 +112,6 @@ function Projects($$renderer, $$props) {
         date: "Atualizado 2025",
         context: "Grupo OC — Planos de Saúde",
         url: "https://leadplanodesaude.com.br/",
-        thumbnail: "/projects/leadplanodesaude.svg",
         aosDelay: "700"
       }
     ];
@@ -141,7 +130,7 @@ function Projects($$renderer, $$props) {
     const each_array = ensure_array_like(projects);
     for (let i = 0, $$length = each_array.length; i < $$length; i++) {
       let project = each_array[i];
-      $$renderer2.push(`<article class="project-card svelte-1tes396" data-aos="fade-up"${attr("data-aos-delay", i * 100)}><div class="project-header svelte-1tes396">`);
+      $$renderer2.push(`<article class="project-card svelte-1tes396" data-aos="fade-up"${attr("data-aos-delay", i * 100)}><div class="project-header svelte-1tes396"><div class="project-thumb-bg svelte-1tes396" aria-hidden="true">`);
       if (project.thumbnail) {
         $$renderer2.push("<!--[-->");
         $$renderer2.push(`<img class="project-thumb svelte-1tes396"${attr("src", project.thumbnail)}${attr("alt", `${project.title} thumbnail`)}/>`);
@@ -156,14 +145,14 @@ function Projects($$renderer, $$props) {
         }
         $$renderer2.push(`<!--]-->`);
       }
-      $$renderer2.push(`<!--]--> <span class="project-category svelte-1tes396">${escape_html(project.category)}</span> <div class="project-icon svelte-1tes396"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div> <div class="project-body svelte-1tes396"><h3 class="svelte-1tes396">${escape_html(project.title)}</h3> <span class="seo-badge svelte-1tes396">SEO técnico</span> <p class="project-description svelte-1tes396">${escape_html(project.description)}</p> <div class="project-meta svelte-1tes396">`);
+      $$renderer2.push(`<!--]--></div> <span class="project-category svelte-1tes396">${escape_html(project.category)}</span> <div class="project-icon svelte-1tes396"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="svelte-1tes396"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div> <div class="project-body svelte-1tes396"><h3 class="svelte-1tes396">${escape_html(project.title)}</h3> <span class="seo-badge svelte-1tes396">SEO técnico</span> <p class="project-description svelte-1tes396">${escape_html(project.description)}</p> <div class="project-meta svelte-1tes396">`);
       if (project.context) {
         $$renderer2.push("<!--[-->");
         $$renderer2.push(`<span class="meta-item svelte-1tes396"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="svelte-1tes396"><path d="M8 2v12M12 6l-4-4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg> ${escape_html(project.context)}</span>`);
       } else {
         $$renderer2.push("<!--[!-->");
       }
-      $$renderer2.push(`<!--]--> <span class="meta-item svelte-1tes396"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="svelte-1tes396"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"></circle><path d="M8 4v4l2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg> ${escape_html(project.date)}</span></div></div> <div class="project-footer svelte-1tes396"><a${attr("href", project.url)} target="_blank" rel="noopener" class="project-link svelte-1tes396"><span>Visitar site</span> <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="svelte-1tes396"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div></article>`);
+      $$renderer2.push(`<!--]--> <span class="meta-item svelte-1tes396"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="svelte-1tes396"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"></circle><path d="M8 4v4l2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg> ${escape_html(project.date)}</span></div></div> <div class="project-footer svelte-1tes396"><a${attr("href", project.url)} target="_blank" rel="noopener" class="project-link svelte-1tes396"><span class="svelte-1tes396">Visitar site</span> <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="svelte-1tes396"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div></article>`);
     }
     $$renderer2.push(`<!--]--></div></div></section>`);
   });

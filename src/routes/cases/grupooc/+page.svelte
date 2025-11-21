@@ -1,7 +1,3 @@
-<script lang="ts">
-  export let data;
-</script>
-
 <main class="case">
   <h1>grupooc.com.br — Case Study</h1>
   <p>Site institucional do Grupo OC cobrindo OC Tel, OC Digital e OC Saúde.</p>

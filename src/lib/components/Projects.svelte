@@ -20,7 +20,7 @@
       date: "2025",
       context: "Desenvolvimento full — front-end e integrações",
       url: "https://alphacompanyads.com.br/",
-      thumbnail: "/projects/alphacompanyads.svg",
+      
       aosDelay: ""
     },
     {
@@ -30,7 +30,7 @@
       date: "2025",
       context: "Desenvolvimento e manutenção — projeto local",
       url: "https://sorocabaindica.com.br/",
-      thumbnail: "/projects/sorocabaindica.svg",
+      
       aosDelay: "50"
     },
     {
@@ -40,7 +40,7 @@
       date: "2025",
       context: "Desenvolvimento front-end e integração com CMS",
       url: "https://blog.bellemodaintima.com.br/",
-      thumbnail: "/projects/blog-bellemodaintima.svg",
+      
       aosDelay: "100"
     },
     {
@@ -50,7 +50,7 @@
       date: "Atualizado 2025",
       context: "Desenvolvido para Grupo OC (Angular SPA)",
       url: "https://planotimempresa.com.br/",
-      thumbnail: "/projects/planotimempresa.svg",
+      
       aosDelay: ""
     },
     {
@@ -60,7 +60,7 @@
       date: "Atualizado 2025",
       context: "Desenvolvido para Esquadrias Martins",
       url: "https://esquadriasmartins.com.br/",
-      thumbnail: "/projects/esquadriasmartins.svg",
+      
       aosDelay: "100"
     },
     {
@@ -70,7 +70,7 @@
       date: "Atualizado 2025",
       context: "Desenvolvido para Grupo OC",
       url: "https://internetfibraagora.com.br/",
-      thumbnail: "/projects/internetfibraagora.svg",
+      
       aosDelay: "200"
     },
     {
@@ -80,7 +80,7 @@
       date: "Atualizado 2025",
       context: "Atualização e manutenção",
       url: "https://buenoswatertechnology.com.br/",
-      thumbnail: "/projects/buenoswatertechnology.svg",
+      
       aosDelay: "300"
     },
     {
@@ -90,7 +90,7 @@
       date: "Atualizado 2025",
       context: "Projeto institucional do Grupo OC",
       url: "https://grupooc.com.br/",
-      thumbnail: "/projects/grupooc.svg",
+      
       aosDelay: "400"
     },
     {
@@ -100,7 +100,7 @@
       date: "Atualizado 2025",
       context: "Projeto Grupo OC",
       url: "https://linkdedicada.com.br/",
-      thumbnail: "/projects/linkdedicada.svg",
+      
       aosDelay: "500"
     },
     {
@@ -110,7 +110,7 @@
       date: "Atualizado 2025",
       context: "Projeto Grupo OC",
       url: "https://meupabxemnuvem.com.br/",
-      thumbnail: "/projects/meupabxemnuvem.svg",
+      
       aosDelay: "600"
     },
     {
@@ -120,7 +120,7 @@
       date: "Atualizado 2025",
       context: "Grupo OC — Planos de Saúde",
       url: "https://leadplanodesaude.com.br/",
-      thumbnail: "/projects/leadplanodesaude.svg",
+      
       aosDelay: "700"
     }
   ];
@@ -159,13 +159,15 @@
       {#each projects as project, i}
         <article class="project-card" data-aos="fade-up" data-aos-delay={i * 100}>
           <div class="project-header">
-            {#if project.thumbnail}
-              <img class="project-thumb" src={project.thumbnail} alt={`${project.title} thumbnail`} on:error={(e) => (e.currentTarget.src = '/projects/default.svg')} />
-            {:else if thumbs && thumbs[project.url]}
-              <img class="project-thumb" src={thumbs[project.url]} alt={`${project.title} thumbnail`} on:error={(e) => (e.currentTarget.src = '/projects/default.svg')} />
-            {:else}
-              <img class="project-thumb" src={getFaviconUrl(project.url, 128)} alt={`${project.title} favicon`} on:error={(e) => (e.currentTarget.src = '/projects/default.svg')} />
-            {/if}
+            <div class="project-thumb-bg" aria-hidden="true">
+              {#if project.thumbnail}
+                <img class="project-thumb" src={project.thumbnail} alt={`${project.title} thumbnail`} on:error={(e) => (e.currentTarget.src = '/projects/default.svg')} />
+              {:else if thumbs && thumbs[project.url]}
+                <img class="project-thumb" src={thumbs[project.url]} alt={`${project.title} thumbnail`} on:error={(e) => (e.currentTarget.src = '/projects/default.svg')} />
+              {:else}
+                <img class="project-thumb" src={getFaviconUrl(project.url, 128)} alt={`${project.title} favicon`} on:error={(e) => (e.currentTarget.src = '/projects/default.svg')} />
+              {/if}
+            </div>
             <span class="project-category">{project.category}</span>
             <div class="project-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -341,18 +343,88 @@ $secondary-color: var(--secondary-color);
 }
 
 .project-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 6px;
+}
+
+.project-thumb-bg {
   width: 48px;
   height: 48px;
-  object-fit: cover;
+  padding: 6px;
+  box-sizing: border-box;
   border-radius: 8px;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 0.5px solid rgba(0,0,0,0.06);
   flex-shrink: 0;
 
   @media (max-width: 768px) {
     width: 40px;
     height: 40px;
+    padding: 4px;
   }
 }
+
+/* ensure white background remains in dark mode to normalize transparent svgs */
+:global(html[data-theme="dark"]) .project-thumb-bg {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.06) !important;
+}
+
+/* Dark mode: make text and icons white for better contrast */
+:global(html[data-theme="dark"]) .projects-section {
+  color: #e6eef9;
+}
+
+:global(html[data-theme="dark"]) .project-card {
+  background: rgba(255,255,255,0.03);
+  border: 0.5px solid rgba(255,255,255,0.06);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.6);
+}
+
+:global(html[data-theme="dark"]) .project-body h3 {
+  color: #ffffff !important;
+}
+
+:global(html[data-theme="dark"]) .project-description,
+:global(html[data-theme="dark"]) .project-meta .meta-item,
+:global(html[data-theme="dark"]) .section-subtitle,
+:global(html[data-theme="dark"]) .section-header h2 {
+  color: rgba(255,255,255,0.88) !important;
+}
+
+:global(html[data-theme="dark"]) .project-category {
+  background: rgba(255,255,255,0.06) !important;
+  color: #dbe9ff !important;
+}
+
+:global(html[data-theme="dark"]) .seo-badge {
+  background: rgba(255,255,255,0.04) !important;
+  color: #9ed0ff !important;
+}
+
+:global(html[data-theme="dark"]) .project-icon {
+  background: rgba(255,255,255,0.03) !important;
+  color: #9ed0ff !important;
+}
+
+:global(html[data-theme="dark"]) .project-icon svg,
+:global(html[data-theme="dark"]) .project-footer svg,
+:global(html[data-theme="dark"]) .project-meta svg {
+  stroke: currentColor !important;
+  fill: currentColor !important;
+}
+
+:global(html[data-theme="dark"]) .project-link,
+:global(html[data-theme="dark"]) .project-link span {
+  color: #ffffff !important;
+}
+
 
 .seo-badge {
   display: inline-block;

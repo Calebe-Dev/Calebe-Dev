@@ -1,7 +1,3 @@
-<script lang="ts">
-  export let data;
-</script>
-
 <main class="case">
   <h1>alphacompanyads.com.br — Case Study</h1>
   <p>Desenvolvido totalmente por Calebe. Trabalho realizado: front-end, integrações e otimização para performance.</p>

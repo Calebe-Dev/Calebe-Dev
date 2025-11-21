@@ -1,7 +1,3 @@
-<script lang="ts">
-  export let data;
-</script>
-
 <main class="case">
   <h1>internetfibraagora.com.br — Case Study</h1>
   <p>Portal de vendas de planos de fibra óptica com foco em PF e PJ.</p>

@@ -1,7 +1,3 @@
-<script lang="ts">
-  export let data;
-</script>
-
 <main class="case">
   <h1>esquadriasmartins.com.br — Case Study</h1>
   <p>Site institucional para Esquadrias Martins. Foco em apresentação de produtos e geração de leads locais.</p>

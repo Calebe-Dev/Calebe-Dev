@@ -1,7 +1,3 @@
-<script lang="ts">
-  export let data;
-</script>
-
 <main class="case">
   <h1>planotimempresa.com.br — Case Study</h1>
   <p>Desenvolvido para o Grupo OC. SPA em Angular promovendo planos TIM para empresas.</p>

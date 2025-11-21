@@ -1,7 +1,3 @@
-<script lang="ts">
-  export let data;
-</script>
-
 <main class="case">
   <h1>leadplanodesaude.com.br — Case Study</h1>
   <p>Site de planos de saúde empresariais com foco em geração de leads e otimização de custos.</p>

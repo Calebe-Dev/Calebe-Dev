@@ -1,8 +1,6 @@
-import { J as bind_props } from "../../../../chunks/index2.js";
-function _page($$renderer, $$props) {
-  let data = $$props["data"];
+import "clsx";
+function _page($$renderer) {
   $$renderer.push(`<main class="case"><h1>planotimempresa.com.br — Case Study</h1> <p>Desenvolvido para o Grupo OC. SPA em Angular promovendo planos TIM para empresas.</p> <h2>Escopo</h2> <ul><li>SPA em Angular</li> <li>Estratégia de conversão para planos empresariais</li> <li>Otimizações de SEO técnico</li></ul> <h2>Métricas</h2> <p>Melhorias em LCP, redução de CLS e aumento nas conversões via formulários.</p> <h2>Tecnologias</h2> <p>Ferramentas de planejamento e monitoramento de SEO: Microsoft Clarity, Google Search Console e Bing Webmaster Tools.</p> <p><a href="/projetos">Voltar aos projetos</a></p></main>`);
-  bind_props($$props, { data });
 }
 export {
   _page as default

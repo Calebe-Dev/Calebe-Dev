@@ -1,7 +1,3 @@
-<script lang="ts">
-  export let data;
-</script>
-
 <main class="case">
   <h1>linkdedicada.com.br — Case Study</h1>
   <p>Projeto focado em venda de link dedicado com SLAs e pacotes empresariais.</p>

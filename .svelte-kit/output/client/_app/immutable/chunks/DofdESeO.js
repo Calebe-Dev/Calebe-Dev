@@ -1,1 +1,0 @@
-import{g as o,h as _,j as c,T,m as d,H as b,n as g,s as m,o as f}from"./BoNEu6__.js";import{B as p}from"./B6Yiry-_.js";function v(t,i,h=!1){_&&c();var e=new p(t),u=h?T:0;function n(a,s){if(_){const l=d(t)===b;if(a===l){var r=g();m(r),e.anchor=r,f(!1),e.ensure(a,s),f(!0);return}}e.ensure(a,s)}o(()=>{var a=!1;i((s,r=!0)=>{a=!0,n(r,s)}),a||n(!1,null)},u)}export{v as i};
