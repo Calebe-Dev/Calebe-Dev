@@ -6,6 +6,21 @@
 	"/blog": [
 		"src/routes/+layout.ts"
 	],
+	"/contato": [
+		"src/routes/+layout.ts"
+	],
+	"/experiencia": [
+		"src/routes/+layout.ts"
+	],
+	"/projetos": [
+		"src/routes/+layout.ts"
+	],
+	"/servicos": [
+		"src/routes/+layout.ts"
+	],
+	"/sobre": [
+		"src/routes/+layout.ts"
+	],
 	"/solicitar-projeto": [
 		"src/routes/+layout.ts"
 	],

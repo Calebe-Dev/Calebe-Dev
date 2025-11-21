@@ -9,6 +9,73 @@
       "_environment.js"
     ]
   },
+  "_About.BlIgPChJ.css": {
+    "file": "_app/immutable/assets/About.BlIgPChJ.css",
+    "src": "_About.BlIgPChJ.css"
+  },
+  "_About.js": {
+    "file": "chunks/About.js",
+    "name": "About",
+    "css": [
+      "_app/immutable/assets/About.BlIgPChJ.css"
+    ]
+  },
+  "_Contact.BUHYQ6wQ.css": {
+    "file": "_app/immutable/assets/Contact.BUHYQ6wQ.css",
+    "src": "_Contact.BUHYQ6wQ.css"
+  },
+  "_Contact.js": {
+    "file": "chunks/Contact.js",
+    "name": "Contact",
+    "imports": [
+      "_index2.js",
+      "_context.js"
+    ],
+    "css": [
+      "_app/immutable/assets/Contact.BUHYQ6wQ.css"
+    ]
+  },
+  "_Experience.69sQc6h5.css": {
+    "file": "_app/immutable/assets/Experience.69sQc6h5.css",
+    "src": "_Experience.69sQc6h5.css"
+  },
+  "_Experience.js": {
+    "file": "chunks/Experience.js",
+    "name": "Experience",
+    "css": [
+      "_app/immutable/assets/Experience.69sQc6h5.css"
+    ]
+  },
+  "_Projects.D4O-ZtlQ.css": {
+    "file": "_app/immutable/assets/Projects.D4O-ZtlQ.css",
+    "src": "_Projects.D4O-ZtlQ.css"
+  },
+  "_Projects.js": {
+    "file": "chunks/Projects.js",
+    "name": "Projects",
+    "imports": [
+      "_index2.js",
+      "_context.js"
+    ],
+    "css": [
+      "_app/immutable/assets/Projects.D4O-ZtlQ.css"
+    ]
+  },
+  "_Services.c7CCV3dk.css": {
+    "file": "_app/immutable/assets/Services.c7CCV3dk.css",
+    "src": "_Services.c7CCV3dk.css"
+  },
+  "_Services.js": {
+    "file": "chunks/Services.js",
+    "name": "Services",
+    "imports": [
+      "_index2.js",
+      "_context.js"
+    ],
+    "css": [
+      "_app/immutable/assets/Services.c7CCV3dk.css"
+    ]
+  },
   "_context.js": {
     "file": "chunks/context.js",
     "name": "context"
@@ -129,7 +196,7 @@
       "_index2.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.qxZsIFa0.css"
+      "_app/immutable/assets/_layout.DJu-C1-L.css"
     ]
   },
   "src/routes/+layout.ts": {
@@ -145,10 +212,15 @@
     "isEntry": true,
     "imports": [
       "_index2.js",
-      "_context.js"
+      "_About.js",
+      "_context.js",
+      "_Services.js",
+      "_Experience.js",
+      "_Projects.js",
+      "_Contact.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.BIKWhivb.css"
+      "_app/immutable/assets/_page.CgngGVt1.css"
     ]
   },
   "src/routes/blog/+page.svelte": {
@@ -162,6 +234,51 @@
     ],
     "css": [
       "_app/immutable/assets/_page.Ck5ru7En.css"
+    ]
+  },
+  "src/routes/contato/+page.svelte": {
+    "file": "entries/pages/contato/_page.svelte.js",
+    "name": "entries/pages/contato/_page.svelte",
+    "src": "src/routes/contato/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_Contact.js"
+    ]
+  },
+  "src/routes/experiencia/+page.svelte": {
+    "file": "entries/pages/experiencia/_page.svelte.js",
+    "name": "entries/pages/experiencia/_page.svelte",
+    "src": "src/routes/experiencia/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_Experience.js"
+    ]
+  },
+  "src/routes/projetos/+page.svelte": {
+    "file": "entries/pages/projetos/_page.svelte.js",
+    "name": "entries/pages/projetos/_page.svelte",
+    "src": "src/routes/projetos/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_Projects.js"
+    ]
+  },
+  "src/routes/servicos/+page.svelte": {
+    "file": "entries/pages/servicos/_page.svelte.js",
+    "name": "entries/pages/servicos/_page.svelte",
+    "src": "src/routes/servicos/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_Services.js"
+    ]
+  },
+  "src/routes/sobre/+page.svelte": {
+    "file": "entries/pages/sobre/_page.svelte.js",
+    "name": "entries/pages/sobre/_page.svelte",
+    "src": "src/routes/sobre/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_About.js"
     ]
   },
   "src/routes/solicitar-projeto/+page.svelte": {

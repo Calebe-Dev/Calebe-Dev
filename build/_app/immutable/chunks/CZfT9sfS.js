@@ -1,1 +1,0 @@
-import{c as u,b as g,W as o,h as t,g as _,C as p,J as a,k as i,s as d,l as m}from"./xnhaWRN-.js";function E(n,r){let s=null,f=t;var l;if(t){s=m;for(var e=_(document.head);e!==null&&(e.nodeType!==p||e.data!==n);)e=a(e);if(e===null)i(!1);else{var y=a(e);e.remove(),d(y)}}t||(l=document.head.appendChild(u()));try{g(()=>r(l),o)}finally{f&&(i(!0),d(s))}}export{E as h};

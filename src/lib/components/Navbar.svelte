@@ -22,12 +22,27 @@
   }
 
   function closeMenu() {
-    mobileMenuOpen = false;
-    // restore focus to previous element
-    if (previousActiveElement && (previousActiveElement as HTMLElement).focus) {
-      (previousActiveElement as HTMLElement).focus();
+    // If focus is inside the navbar, move it to the previously focused element
+    // (or the hamburger) BEFORE hiding the nav to avoid setting aria-hidden
+    // on an element that still contains focus (browser will block this and log a warning).
+    if (browser && document.activeElement && navbarContentEl && navbarContentEl.contains(document.activeElement)) {
+      try {
+        if (previousActiveElement && (previousActiveElement as HTMLElement).focus) {
+          (previousActiveElement as HTMLElement).focus();
+        } else {
+          const hamburger = document.querySelector('.hamburger') as HTMLElement | null;
+          if (hamburger && hamburger.focus) hamburger.focus();
+          else (document.body as HTMLElement).focus();
+        }
+      } catch (e) {
+        /* ignore focus errors */
+      }
     }
+
+    // now hide the menu (this toggles aria-hidden)
+    mobileMenuOpen = false;
   }
+
 
   function focusFirstMenuItem() {
     if (browser && navbarContentEl) {
@@ -84,11 +99,47 @@
       return;
     }
 
-    // For normal links, ensure mobile menu closes
-    if (href && href !== '#') {
-      // let default navigation happen, but close mobile menu
-      setTimeout(() => closeMenu(), 50);
+    // For internal links (same-origin or absolute path), use SPA navigation to avoid full reloads
+    try {
+      const url = new URL(href, browser ? window.location.origin : SITE_DOMAIN);
+      const isSameOrigin = url.origin === (browser ? window.location.origin : new URL(SITE_DOMAIN).origin);
+
+      if (isSameOrigin) {
+        // build path+search+hash for navigation
+        const navPath = url.pathname + (url.search || '') + (url.hash || '');
+        // If the target is the site root, force a full reload to restart the homepage
+        if (navPath === '/' || navPath === '') {
+          event.preventDefault();
+          try { window.location.href = '/'; } catch (e) { /* ignore */ }
+          closeMenu();
+          return;
+        }
+        // If it's a hash-only link to the current page (e.g. '/#about'), let hash handler manage it above.
+        event.preventDefault();
+        // Use goto for client navigation; fall back to full navigation if goto fails
+        event.preventDefault();
+        goto(navPath).then(() => {
+          // after navigation, if there's a hash, attempt to scroll
+          if (browser && url.hash) {
+            const id = url.hash.replace('#', '');
+            setTimeout(() => {
+              const el = document.getElementById(id);
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 120);
+          }
+        }).catch((err) => {
+          // fallback to full navigation if SPA navigation fails
+          try { window.location.href = navPath; } catch (e) { /* ignore */ }
+        }).finally(() => closeMenu());
+
+        return;
+      }
+    } catch (err) {
+      // If URL parsing fails, fall back to default behavior
     }
+
+    // External links: allow default behavior but close the mobile menu
+    setTimeout(() => closeMenu(), 50);
   }
 
   function updateLensOnScroll() {
@@ -193,13 +244,13 @@
         </button>
       <!-- Reordered nav: Início, Sobre, Serviços, Projetos, Experiência, Blog, Solicitar, Whatsapp -->
       <a href="/" class="home-link" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Início</a>
-      <a href="https://calebearaujo.com.br/#about" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Sobre</a>
-      <a href="https://calebearaujo.com.br/#services" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Serviços</a>
-      <a href="https://calebearaujo.com.br/#projects" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Projetos</a>
-      <a href="https://calebearaujo.com.br/#experience" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Experiência</a>
+      <a href="/sobre" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Sobre</a>
+      <a href="/servicos" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Serviços</a>
+      <a href="/projetos" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Projetos</a>
+      <a href="/experiencia" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Experiência</a>
       <a href="/blog" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Blog</a>
-      <a class="btnSolicitarProjeto" href="/solicitar-projeto/redirect" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Solicitar Projeto</a>
-      <a href="https://wa.me/5511988385247" target="_blank" rel="noopener" class="highlight" on:click={closeMenu}>Whatsapp</a>
+      <a class="btnSolicitarProjeto" href="/solicitar-projeto" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Solicitar Projeto</a>
+      <a href="/solicitar-projeto/redirect" class="highlight" on:click={(e) => { handleLinkClick(e); closeMenu(); }}>Whatsapp</a>
     </nav>
   </div>
 </header>
