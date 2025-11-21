@@ -383,6 +383,15 @@
               background 0.3s ease;
 }
 
+/* Dark-mode overrides for hamburger lines */
+:global(html[data-theme="dark"]) .hamburger span {
+  background: #ffffff !important;
+}
+
+:global(html[data-theme="dark"]) .hamburger span.open {
+  background: #7fc7ff !important;
+}
+
 .hamburger span.open {
   background: #0071e3;
 }
@@ -407,9 +416,11 @@
     transform: none;
     padding: 0;
     border-radius: 16px;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: var(--glass-blur);
-      -webkit-backdrop-filter: var(--glass-blur);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    /* subtle pulse on mobile when menu is closed */
+    animation: pulse 3s ease-in-out infinite;
   }
   
   .navbar.menu-open {
@@ -417,7 +428,7 @@
     left: 20px;
     transform: none;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.85);
+    background: transparent;
   }
   
   .navbar-container {
@@ -429,8 +440,8 @@
   .hamburger {
     display: flex;
     margin: 0 auto;
-    background: var(--glass-bg);
-    border: var(--glass-border-width) solid var(--glass-border);
+    background: transparent;
+    border: 0;
   }
   
   .navbar-content {
@@ -440,9 +451,9 @@
     right: 0;
     width: 100%;
     height: 100vh;
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border-radius: 0;
     box-shadow: none;
     padding: 60px 0 0;
