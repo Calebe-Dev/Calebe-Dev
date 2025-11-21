@@ -26,10 +26,10 @@ function Footer($$renderer) {
 }
 function ThemeToggle($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
-    $$renderer2.push(`<button class="theme-toggle svelte-1cmi4dh" aria-label="Toggle theme"${attr("title", "Mudar para tema escuro")}>`);
+    $$renderer2.push(`<button class="theme-toggle svelte-1cmi4dh" aria-label="Toggle theme"${attr("title", "Mudar para tema escuro")}><span class="bg svelte-1cmi4dh" aria-hidden="true"></span> `);
     {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<span class="icon svelte-1cmi4dh">🌙</span>`);
+      $$renderer2.push(`<span class="icon svelte-1cmi4dh" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" class="svelte-1cmi4dh"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor"></path></svg></span>`);
     }
     $$renderer2.push(`<!--]--></button>`);
   });
