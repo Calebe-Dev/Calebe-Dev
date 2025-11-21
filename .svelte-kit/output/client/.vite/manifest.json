@@ -1,6 +1,6 @@
 {
   ".svelte-kit/generated/client-optimized/app.js": {
-    "file": "_app/immutable/entry/app.C3W94GU4.js",
+    "file": "_app/immutable/entry/app.CWW8mQYt.js",
     "name": "entry/app",
     "src": ".svelte-kit/generated/client-optimized/app.js",
     "isEntry": true,
@@ -28,7 +28,7 @@
     ]
   },
   ".svelte-kit/generated/client-optimized/nodes/0.js": {
-    "file": "_app/immutable/nodes/0.D1Dpyt9f.js",
+    "file": "_app/immutable/nodes/0.DUW0XrdH.js",
     "name": "nodes/0",
     "src": ".svelte-kit/generated/client-optimized/nodes/0.js",
     "isEntry": true,
@@ -37,7 +37,7 @@
       "_DsnmJJEf.js",
       "_DwAkts8l.js",
       "_Jq-9NrJ-.js",
-      "_BDExq4xP.js",
+      "_9RkQud94.js",
       "_DyducZTZ.js",
       "_DJr5V1Lj.js",
       "_DZ0HL6fQ.js",
@@ -51,7 +51,7 @@
     ]
   },
   ".svelte-kit/generated/client-optimized/nodes/1.js": {
-    "file": "_app/immutable/nodes/1.Cl157zNz.js",
+    "file": "_app/immutable/nodes/1.Bi2e-nLL.js",
     "name": "nodes/1",
     "src": ".svelte-kit/generated/client-optimized/nodes/1.js",
     "isEntry": true,
@@ -62,7 +62,7 @@
       "_Jq-9NrJ-.js",
       "_DJr5V1Lj.js",
       "_B8WW7rjd.js",
-      "_BDExq4xP.js"
+      "_9RkQud94.js"
     ]
   },
   ".svelte-kit/generated/client-optimized/nodes/10.js": {
@@ -87,7 +87,7 @@
     ]
   },
   ".svelte-kit/generated/client-optimized/nodes/2.js": {
-    "file": "_app/immutable/nodes/2.CqpabKAR.js",
+    "file": "_app/immutable/nodes/2.BP5e-o9j.js",
     "name": "nodes/2",
     "src": ".svelte-kit/generated/client-optimized/nodes/2.js",
     "isEntry": true,
@@ -104,7 +104,7 @@
       "_BHuBF3J2.js",
       "_BRfNeVtl.js",
       "_BcKW_dTd.js",
-      "_FfFsVylN.js",
+      "_ChlX1nJR.js",
       "_BSYH4xEd.js"
     ],
     "css": [
@@ -156,7 +156,7 @@
     ]
   },
   ".svelte-kit/generated/client-optimized/nodes/6.js": {
-    "file": "_app/immutable/nodes/6.3SyKZgTV.js",
+    "file": "_app/immutable/nodes/6.BnemJA99.js",
     "name": "nodes/6",
     "src": ".svelte-kit/generated/client-optimized/nodes/6.js",
     "isEntry": true,
@@ -165,7 +165,7 @@
       "_DsnmJJEf.js",
       "_DyducZTZ.js",
       "_Jq-9NrJ-.js",
-      "_FfFsVylN.js"
+      "_ChlX1nJR.js"
     ]
   },
   ".svelte-kit/generated/client-optimized/nodes/7.js": {
@@ -218,6 +218,14 @@
       "_app/immutable/assets/9.Cq9sRD-G.css"
     ]
   },
+  "_9RkQud94.js": {
+    "file": "_app/immutable/chunks/9RkQud94.js",
+    "name": "entry",
+    "imports": [
+      "_DwAkts8l.js",
+      "_Jq-9NrJ-.js"
+    ]
+  },
   "_About.BlIgPChJ.css": {
     "file": "_app/immutable/assets/About.BlIgPChJ.css",
     "src": "_About.BlIgPChJ.css"
@@ -226,14 +234,6 @@
     "file": "_app/immutable/chunks/B8WW7rjd.js",
     "name": "lifecycle",
     "imports": [
-      "_Jq-9NrJ-.js"
-    ]
-  },
-  "_BDExq4xP.js": {
-    "file": "_app/immutable/chunks/BDExq4xP.js",
-    "name": "entry",
-    "imports": [
-      "_DwAkts8l.js",
       "_Jq-9NrJ-.js"
     ]
   },
@@ -334,6 +334,23 @@
       "_Jq-9NrJ-.js"
     ]
   },
+  "_ChlX1nJR.js": {
+    "file": "_app/immutable/chunks/ChlX1nJR.js",
+    "name": "Projects",
+    "imports": [
+      "_DsnmJJEf.js",
+      "_DyducZTZ.js",
+      "_Jq-9NrJ-.js",
+      "_DJr5V1Lj.js",
+      "_CAiVNhte.js",
+      "_C3ViNqAO.js",
+      "_Bek3Da11.js",
+      "_DZ0HL6fQ.js"
+    ],
+    "css": [
+      "_app/immutable/assets/Projects.D4O-ZtlQ.css"
+    ]
+  },
   "_Contact.BUHYQ6wQ.css": {
     "file": "_app/immutable/assets/Contact.BUHYQ6wQ.css",
     "src": "_Contact.BUHYQ6wQ.css"
@@ -376,23 +393,6 @@
     "file": "_app/immutable/assets/Experience.69sQc6h5.css",
     "src": "_Experience.69sQc6h5.css"
   },
-  "_FfFsVylN.js": {
-    "file": "_app/immutable/chunks/FfFsVylN.js",
-    "name": "Projects",
-    "imports": [
-      "_DsnmJJEf.js",
-      "_DyducZTZ.js",
-      "_Jq-9NrJ-.js",
-      "_DJr5V1Lj.js",
-      "_CAiVNhte.js",
-      "_C3ViNqAO.js",
-      "_Bek3Da11.js",
-      "_DZ0HL6fQ.js"
-    ],
-    "css": [
-      "_app/immutable/assets/Projects.D4O-ZtlQ.css"
-    ]
-  },
   "_GyE0pPXO.js": {
     "file": "_app/immutable/chunks/GyE0pPXO.js",
     "name": "About",
@@ -418,12 +418,12 @@
     "src": "_Services.BmT8H51T.css"
   },
   "node_modules/@sveltejs/kit/src/runtime/client/entry.js": {
-    "file": "_app/immutable/entry/start.BSe7r805.js",
+    "file": "_app/immutable/entry/start.hBy73A4E.js",
     "name": "entry/start",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/entry.js",
     "isEntry": true,
     "imports": [
-      "_BDExq4xP.js"
+      "_9RkQud94.js"
     ]
   }
 }

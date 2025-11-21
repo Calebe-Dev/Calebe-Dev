@@ -3,40 +3,76 @@ import { e as escape_html } from "./context.js";
 function Projects($$renderer) {
   const projects = [
     {
-      category: "Angular & JSON Server",
-      title: "Lista de Músicas",
-      description: "Aplicação web para exibição de músicas com informações detalhadas, desenvolvida com Angular e Bootstrap, consumindo dados via JSON Server.",
-      date: "11 Set 2023",
-      context: "ADS 3º Semestre - Programação Web",
-      github: "#",
+      category: "Grupo OC — Telecom",
+      title: "planotimempresa.com.br",
+      description: "Desenvolvido para Grupo OC. SPA em Angular que promove planos de telefonia e internet TIM para empresas, com foco em TIM Black Empresa, ligações ilimitadas e benefícios de apps sem consumir franquia.",
+      date: "Atualizado 2025",
+      context: "Desenvolvido para Grupo OC (Angular SPA)",
+      url: "https://planotimempresa.com.br/",
       aosDelay: ""
     },
     {
-      category: "Spring Boot",
-      title: "API Agenda de Compromissos",
-      description: "Back-end de uma agenda desenvolvida com Spring Boot, implementando REST APIs e boas práticas de desenvolvimento.",
-      date: "12 Nov 2023",
-      context: "Projeto Final - Programação Web",
-      github: "#",
+      category: "Esquadrias",
+      title: "esquadriasmartins.com.br",
+      description: "Site da Esquadrias Martins — mais de 30 anos de experiência em esquadrias de alumínio em Sorocaba. Portas, portões, janelas e brises para residências e edifícios.",
+      date: "Atualizado 2025",
+      context: "Desenvolvido para Esquadrias Martins",
+      url: "https://esquadriasmartins.com.br/",
       aosDelay: "100"
     },
     {
-      category: "HTML, CSS & JS",
-      title: "Portfólio Interativo",
-      description: "Projeto de demonstração criando uma experiência única e interativa para o usuário utilizando tecnologias web fundamentais.",
-      date: "15 Fev 2023",
-      context: "",
-      github: "#",
+      category: "Grupo OC — Internet",
+      title: "internetfibraagora.com.br",
+      description: "Site para venda de planos fibra óptica (PF/PJ) com ofertas e opções para empresas e residências.",
+      date: "Atualizado 2025",
+      context: "Desenvolvido para Grupo OC",
+      url: "https://internetfibraagora.com.br/",
       aosDelay: "200"
     },
     {
-      category: "Landing Page",
-      title: "Douglas Castro",
-      description: "Página de vendas otimizada para conversão, com design moderno e foco em experiência do usuário.",
-      date: "15 Fev 2023",
-      context: "",
-      github: "#",
+      category: "Serviços",
+      title: "buenoswatertechnology.com.br",
+      description: "Site de serviços: atualização e manutenção — projeto de prestação de serviços técnicos e manutenção industrial.",
+      date: "Atualizado 2025",
+      context: "Atualização e manutenção",
+      url: "https://buenoswatertechnology.com.br/",
       aosDelay: "300"
+    },
+    {
+      category: "Grupo OC — Institucional",
+      title: "grupooc.com.br",
+      description: "Site institucional do Grupo OC: OC Tel (telecom), OC Digital (marketing) e OC Saúde (planos de saúde) — soluções de assessoria e consultoria empresarial.",
+      date: "Atualizado 2025",
+      context: "Projeto institucional do Grupo OC",
+      url: "https://grupooc.com.br/",
+      aosDelay: "400"
+    },
+    {
+      category: "Grupo OC — Conectividade",
+      title: "linkdedicada.com.br",
+      description: "Oferta de Link Dedicado de internet para empresas: conexões estáveis com mesma taxa de download/upload e SLA dedicado.",
+      date: "Atualizado 2025",
+      context: "Projeto Grupo OC",
+      url: "https://linkdedicada.com.br/",
+      aosDelay: "500"
+    },
+    {
+      category: "Grupo OC — Telecom",
+      title: "meupabxemnuvem.com.br",
+      description: "Promoção de soluções de PABX em nuvem (GoTo) com mais de 100 recursos para comunicação empresarial moderna e escalável.",
+      date: "Atualizado 2025",
+      context: "Projeto Grupo OC",
+      url: "https://meupabxemnuvem.com.br/",
+      aosDelay: "600"
+    },
+    {
+      category: "Saúde Empresarial",
+      title: "leadplanodesaude.com.br",
+      description: "Site focado em planos de saúde empresariais, consultoria para otimização de custos com operadoras como Amil, Bradesco Saúde e outras.",
+      date: "Atualizado 2025",
+      context: "Grupo OC — Planos de Saúde",
+      url: "https://leadplanodesaude.com.br/",
+      aosDelay: "700"
     }
   ];
   head("1tes396", $$renderer, ($$renderer2) => {
@@ -53,7 +89,7 @@ function Projects($$renderer) {
     } else {
       $$renderer.push("<!--[!-->");
     }
-    $$renderer.push(`<!--]--> <span class="meta-item svelte-1tes396"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="svelte-1tes396"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"></circle><path d="M8 4v4l2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg> ${escape_html(project.date)}</span></div></div> <div class="project-footer svelte-1tes396"><a${attr("href", project.github)} target="_blank" rel="noopener" class="project-link svelte-1tes396"><span>Ver no GitHub</span> <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="svelte-1tes396"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div></article>`);
+    $$renderer.push(`<!--]--> <span class="meta-item svelte-1tes396"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="svelte-1tes396"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"></circle><path d="M8 4v4l2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg> ${escape_html(project.date)}</span></div></div> <div class="project-footer svelte-1tes396"><a${attr("href", project.url)} target="_blank" rel="noopener" class="project-link svelte-1tes396"><span>Visitar site</span> <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="svelte-1tes396"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div></article>`);
   }
   $$renderer.push(`<!--]--></div></div></section>`);
 }
