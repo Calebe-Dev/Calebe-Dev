@@ -24,10 +24,22 @@ function Navbar($$renderer, $$props) {
 function Footer($$renderer) {
   $$renderer.push(`<footer class="footer svelte-jz8lnl"><div class="footer-container svelte-jz8lnl"><div class="footer-content svelte-jz8lnl"><div class="footer-brand svelte-jz8lnl"><h3 class="svelte-jz8lnl">Calebe Araújo</h3> <p class="svelte-jz8lnl">Desenvolvedor Full Stack &amp; Gestor de Tráfego</p></div> <div class="footer-links svelte-jz8lnl"><div class="link-group svelte-jz8lnl"><h4 class="svelte-jz8lnl">Navegação</h4> <a href="#home" class="svelte-jz8lnl">Início</a> <a href="#about" class="svelte-jz8lnl">Sobre</a> <a href="#services" class="svelte-jz8lnl">Serviços</a> <a href="#projects" class="svelte-jz8lnl">Projetos</a></div> <div class="link-group svelte-jz8lnl"><h4 class="svelte-jz8lnl">Social</h4> <a href="https://www.linkedin.com/in/calebe-dev" target="_blank" rel="noopener noreferrer" class="svelte-jz8lnl">LinkedIn</a> <a href="https://github.com/calebe_original" target="_blank" rel="noopener noreferrer" class="svelte-jz8lnl">GitHub</a> <a href="https://www.instagram.com/calebe_original/" target="_blank" rel="noopener noreferrer" class="svelte-jz8lnl">Instagram</a></div> <div class="link-group svelte-jz8lnl"><h4 class="svelte-jz8lnl">Contato</h4> <a href="mailto:seu-email@dominio.com" class="svelte-jz8lnl">Email</a> <a href="#contact" class="svelte-jz8lnl">Formulário</a></div></div></div> <div class="footer-bottom svelte-jz8lnl"><p class="svelte-jz8lnl">© 2024 Calebe Araújo. Todos os direitos reservados.</p></div></div></footer>`);
 }
+function ThemeToggle($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    $$renderer2.push(`<button class="theme-toggle svelte-1cmi4dh" aria-label="Toggle theme"${attr("title", "Mudar para tema escuro")}>`);
+    {
+      $$renderer2.push("<!--[-->");
+      $$renderer2.push(`<span class="icon svelte-1cmi4dh">🌙</span>`);
+    }
+    $$renderer2.push(`<!--]--></button>`);
+  });
+}
 function _layout($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let { children } = $$props;
     Navbar($$renderer2);
+    $$renderer2.push(`<!----> `);
+    ThemeToggle($$renderer2);
     $$renderer2.push(`<!----> `);
     children($$renderer2);
     $$renderer2.push(`<!----> `);

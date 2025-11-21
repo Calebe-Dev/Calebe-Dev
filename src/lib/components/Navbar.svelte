@@ -278,13 +278,13 @@
   position: relative;
     padding: 8px 20px;
     /* keep transparent so hero/background shows through; scrolled state adds glass */
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: saturate(180%) var(--glass-blur, blur(30px));
-    -webkit-backdrop-filter: saturate(180%) var(--glass-blur, blur(30px));
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
   border-radius: 50px;
-  border: 0.5px solid rgba(255, 255, 255, 0.18);
+  border: var(--glass-border-width) solid var(--glass-border);
   transition: all 0.4s ease;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--glass-shadow);
 }
 
 .navbar-content {
@@ -408,8 +408,8 @@
     padding: 0;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
   }
   
   .navbar.menu-open {
@@ -429,6 +429,8 @@
   .hamburger {
     display: flex;
     margin: 0 auto;
+    background: var(--glass-bg);
+    border: var(--glass-border-width) solid var(--glass-border);
   }
   
   .navbar-content {
@@ -438,9 +440,9 @@
     right: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(245, 245, 247, 0.95);
-    backdrop-filter: saturate(180%) blur(40px);
-    -webkit-backdrop-filter: saturate(180%) blur(40px);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     border-radius: 0;
     box-shadow: none;
     padding: 60px 0 0;

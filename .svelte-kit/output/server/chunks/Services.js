@@ -62,6 +62,27 @@ function Services($$renderer) {
           description: "Gestão de redes sociais para engajamento e crescimento"
         }
       ]
+    },
+    {
+      name: "Produção Audiovisual",
+      aosDelay: "200",
+      services: [
+        {
+          icon: "fas fa-video",
+          title: "Gravação e Edição de Vídeos",
+          description: "Captação, gravação e edição de vídeos para anúncios e apresentações — atualmente trabalhando com Imobiliária JL na produção de vídeos de imóveis."
+        },
+        {
+          icon: "fas fa-camera",
+          title: "Fotografia Imobiliária",
+          description: "Sessões fotográficas otimizadas para anúncios imobiliários e listings."
+        },
+        {
+          icon: "fas fa-clapperboard",
+          title: "Pós-produção",
+          description: "Edição, correção de cor e otimização para plataformas sociais e anúncios."
+        }
+      ]
     }
   ];
   head("hz61c4", $$renderer, ($$renderer2) => {

@@ -143,3 +143,246 @@
   .smooth-transition {
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
+
+  /* Dark theme overrides when [data-theme="dark"] is set on the document element */
+  :root[data-theme="dark"], [data-theme="dark"] {
+    --primary-color: #e6eef6;
+    --secondary-color: rgba(230, 238, 246, 0.8);
+    --background-color: #0b0f13;
+    --accent-color: #4da3ff;
+    --glass-bg: rgba(18, 20, 23, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.04);
+    --glass-bg-strong: rgba(18, 20, 23, 0.72);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  }
+
+  html, body, #svelte {
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  /* Dark-mode component tweaks: darker cards, light text, subtle gradients */
+  :root[data-theme="dark"] .cards-container,
+  :root[data-theme="dark"] .service-card,
+  :root[data-theme="dark"] .cards-container h3,
+  :root[data-theme="dark"] .projects-section,
+  :root[data-theme="dark"] .projects-section::after,
+  :root[data-theme="dark"] .footer,
+  :root[data-theme="dark"] .footer-bottom,
+  :root[data-theme="dark"] .navbar-container,
+  :root[data-theme="dark"] .navbar,
+  :root[data-theme="dark"] .navbar-content {
+    color: var(--primary-color);
+    border-color: rgba(255,255,255,0.04);
+  }
+
+  :root[data-theme="dark"] body {
+    background-image: radial-gradient( circle at 10% 10%, rgba(77,163,255,0.04), transparent 12% ),
+                      radial-gradient( circle at 90% 80%, rgba(77,163,255,0.02), transparent 12% ),
+                      linear-gradient(180deg, #071226 0%, #0b0f13 100%);
+  }
+
+  :root[data-theme="dark"] .cards-container {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  }
+
+  :root[data-theme="dark"] .service-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.32));
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    color: var(--primary-color);
+  }
+
+  :root[data-theme="dark"] .cards-container h3,
+  :root[data-theme="dark"] .service-card h4 {
+    color: var(--primary-color);
+  }
+
+  :root[data-theme="dark"] .card-content p,
+  :root[data-theme="dark"] .footer p,
+  :root[data-theme="dark"] .footer a {
+    color: var(--secondary-color);
+  }
+
+  :root[data-theme="dark"] .glass {
+    background: var(--glass-bg);
+    border: var(--glass-border-width) solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  /* Component-level dark overrides for hero, about and projects */
+  :root[data-theme="dark"] .hero-section {
+    background: linear-gradient(180deg, rgba(7,18,38,0.6) 0%, rgba(11,15,19,0.9) 100%);
+  }
+
+  :root[data-theme="dark"] .hero-container {
+    background: var(--glass-bg-strong);
+    border: 1px solid var(--glass-border);
+    color: var(--primary-color);
+  }
+
+  :root[data-theme="dark"] .hero-content h1,
+  :root[data-theme="dark"] .hero-content .hero-description,
+  :root[data-theme="dark"] .hero-stats .stat-label {
+    color: var(--primary-color);
+  }
+
+  :root[data-theme="dark"] .hero-badge {
+    background: linear-gradient(90deg, rgba(77,163,255,0.06), rgba(0,198,255,0.03));
+    border: 1px solid rgba(77,163,255,0.08);
+    color: var(--accent-color);
+  }
+
+  :root[data-theme="dark"] .intro-card,
+  :root[data-theme="dark"] .story-card,
+  :root[data-theme="dark"] .mission-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.32));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 12px 48px rgba(0,0,0,0.55);
+    color: var(--primary-color);
+  }
+
+  :root[data-theme="dark"] .intro-card h2,
+  :root[data-theme="dark"] .story-card h3,
+  :root[data-theme="dark"] .mission-text {
+    color: var(--primary-color);
+  }
+
+  :root[data-theme="dark"] .story-card p,
+  :root[data-theme="dark"] .lead,
+  :root[data-theme="dark"] .project-description {
+    color: var(--secondary-color);
+  }
+
+  :root[data-theme="dark"] .project-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.32));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 12px 48px rgba(0,0,0,0.55);
+    color: var(--primary-color);
+  }
+
+  :root[data-theme="dark"] .project-thumb {
+    border: 0.5px solid rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.02);
+  }
+
+  :root[data-theme="dark"] .seo-badge {
+    background: rgba(77,163,255,0.08);
+    color: var(--accent-color);
+  }
+
+  :root[data-theme="dark"] .project-category {
+    background: rgba(77,163,255,0.06);
+    color: var(--accent-color);
+  }
+
+  :root[data-theme="dark"] .project-icon {
+    background: rgba(255,255,255,0.02);
+    color: var(--accent-color);
+  }
+
+  /* Navbar link color in dark mode */
+  :root[data-theme="dark"] .navbar-content a {
+    color: var(--primary-color);
+  }
+
+  :root[data-theme="dark"] .navbar-content a:hover {
+    color: var(--accent-color);
+  }
+
+  /* Serviços: título claro no modo escuro */
+  :root[data-theme="dark"] .services-section h2 {
+    color: #ffffff;
+  }
+
+  /* Habilidades técnicas */
+  :root[data-theme="dark"] .skills-section .category,
+  :root[data-theme="dark"] .skills-section .skill-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.32));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.55);
+    color: var(--primary-color);
+  }
+
+  :root[data-theme="dark"] .skills-section h2,
+  :root[data-theme="dark"] .skills-section h3,
+  :root[data-theme="dark"] .skills-section h4 {
+    color: var(--primary-color);
+  }
+
+  :root[data-theme="dark"] .skills-section p {
+    color: var(--secondary-color);
+  }
+
+  /* Experiência */
+  :root[data-theme="dark"] .experience-section,
+  :root[data-theme="dark"] .experience-card,
+  :root[data-theme="dark"] .timeline-marker {
+    background: transparent;
+    color: var(--primary-color);
+  }
+
+  :root[data-theme="dark"] .experience-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.32));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 12px 48px rgba(0,0,0,0.55);
+  }
+
+  :root[data-theme="dark"] .experience-card .date,
+  :root[data-theme="dark"] .experience-card h3,
+  :root[data-theme="dark"] .experience-card h4,
+  :root[data-theme="dark"] .experience-card .location,
+  :root[data-theme="dark"] .experience-card .description,
+  :root[data-theme="dark"] .skills-tags span {
+    color: var(--secondary-color);
+  }
+
+  :root[data-theme="dark"] .timeline::before {
+    background: rgba(255,255,255,0.06);
+  }
+
+  /* Depoimentos */
+  :root[data-theme="dark"] .testimonials-section .testimonial-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.28));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 12px 48px rgba(0,0,0,0.55);
+    color: var(--primary-color);
+  }
+
+  :root[data-theme="dark"] .testimonials-section .quote-icon {
+    color: rgba(77,163,255,0.12);
+  }
+
+  :root[data-theme="dark"] .testimonials-section .testimonial-text,
+  :root[data-theme="dark"] .testimonials-section .author-info p {
+    color: var(--secondary-color);
+  }
+
+  /* Contato / Vamos Conectar */
+  :root[data-theme="dark"] .contact-section .social-card,
+  :root[data-theme="dark"] .contact-section .footer-glass {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.32));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 12px 48px rgba(0,0,0,0.55);
+    color: var(--primary-color);
+  }
+
+  :root[data-theme="dark"] .contact-section .social-card p,
+  :root[data-theme="dark"] .contact-section .availability,
+  :root[data-theme="dark"] .contact-section .icon-wrapper {
+    color: var(--secondary-color);
+  }
+
+  :root[data-theme="dark"] .contact-section .arrow-link {
+    color: var(--accent-color);
+  }
+
+  /* Force specific headings/text to pure white in dark mode */
+  :root[data-theme="dark"] .experience-container h2 {
+    color: #ffffff;
+  }
+
+  :root[data-theme="dark"] .contact-section .footer-glass p {
+    color: #ffffff;
+  }

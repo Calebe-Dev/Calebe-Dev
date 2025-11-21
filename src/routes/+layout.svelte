@@ -7,6 +7,7 @@
 	import '../app.scss';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 	import { 
 		scrollAnimation, 
 		parallaxScroll, 
@@ -53,5 +54,6 @@
 </script>
 
 <Navbar />
+<ThemeToggle />
 {@render children()}
 <Footer />
