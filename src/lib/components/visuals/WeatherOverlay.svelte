@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { environment } from '$lib/state/environment.svelte';
+	import { fade } from 'svelte/transition';
 	
 	let isRainy = $derived(environment.weather === 'rainy');
 	let isSunny = $derived(environment.weather === 'sunny');
 </script>
 
 {#if isRainy}
-	<div class="rain-container">
+	<div transition:fade={{ duration: 1000 }} class="rain-container">
 		{#each Array(50) as _}
 			<div class="drop" style="left: {Math.random() * 100}%; animation-delay: {Math.random() * 2}s; animation-duration: {Math.random() * 1 + 0.5}s;"></div>
 		{/each}
@@ -14,8 +15,10 @@
 {/if}
 
 {#if isSunny}
-	<div class="sun-flare"></div>
-	<div class="god-rays"></div>
+	<div transition:fade={{ duration: 1000 }}>
+		<div class="sun-flare"></div>
+		<div class="god-rays"></div>
+	</div>
 {/if}
 
 <style>
