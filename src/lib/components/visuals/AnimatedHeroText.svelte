@@ -4,10 +4,10 @@
 	import { environment } from '$lib/state/environment.svelte';
 
 	let { messages = [] } = $props();
-	
+
 	let currentIndex = $state(0);
 	let isFinished = $state(false);
-	let textElement: HTMLElement;
+	let textElement: HTMLElewment;
 	let offscreenCanvas: HTMLCanvasElement;
 	let offscreenCtx: CanvasRenderingContext2D;
 
@@ -28,9 +28,11 @@
 		}
 
 		offscreenCtx.clearRect(0, 0, w, h);
-		
+
 		// Estilizar o canvas para bater com o CSS
-		const fontSize = parseFloat(window.getComputedStyle(textElement.querySelector('h2') || textElement).fontSize);
+		const fontSize = parseFloat(
+			window.getComputedStyle(textElement.querySelector('h2') || textElement).fontSize
+		);
 		offscreenCtx.font = `bold ${fontSize * scale}px Inter, sans-serif`;
 		offscreenCtx.textAlign = 'center';
 		offscreenCtx.textBaseline = 'middle';
@@ -59,12 +61,12 @@
 				isFinished = true;
 				clearInterval(interval);
 			}
-		}, 6000);
+		}, 4500); // Duração reduzida para 4.5s
 
 		// Loop de atualização constante para física (inclusive durante animações)
 		let animId: number;
 		const loop = () => {
-			updateCollisionMask();
+			if (browser) updateCollisionMask();
 			animId = requestAnimationFrame(loop);
 		};
 		loop();
@@ -76,16 +78,16 @@
 	});
 </script>
 
-<div class="text-container h-48 flex flex-col items-center justify-center relative">
+<div class="text-container min-h-[500px] flex flex-col items-center justify-center relative">
 	<!-- Canvas invisível para gerar o mapa de colisão -->
 	<canvas bind:this={offscreenCanvas} class="hidden"></canvas>
 
-	<div bind:this={textElement} class="relative w-full flex justify-center min-h-[1.5em]">
+	<div bind:this={textElement} class="relative w-full h-64 flex items-center justify-center">
 		{#key currentIndex}
 			<h2 
-				in:fade={{ duration: 1200, delay: 600 }} 
-				out:fade={{ duration: 1200 }}
-				class="absolute text-5xl md:text-7xl font-bold text-white tracking-tight text-center drop-shadow-2xl"
+				in:fade={{ duration: 1000, delay: 500 }} 
+				out:fade={{ duration: 1000 }}
+				class="absolute text-5xl md:text-7xl font-bold text-white tracking-tight text-center drop-shadow-2xl px-4"
 			>
 				{messages[currentIndex]}
 			</h2>
@@ -94,8 +96,8 @@
 
 	{#if isFinished}
 		<div 
-			in:fade={{ duration: 1500, delay: 1000 }}
-			class="mt-12 text-2xl md:text-3xl font-light text-blue-300/90 tracking-widest uppercase animate-pulse"
+			in:fade={{ duration: 1500, delay: 500 }}
+			class="mt-24 text-xl md:text-2xl font-light text-blue-300/80 tracking-widest uppercase animate-pulse text-center"
 		>
 			Desenvolvedor Fullstack Multi Plataforma
 		</div>

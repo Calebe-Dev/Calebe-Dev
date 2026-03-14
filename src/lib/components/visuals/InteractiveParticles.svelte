@@ -67,33 +67,35 @@
 				}
 			}
 
-			// COLISÃO COM O TEXTO (Hero Text Bounds)
-			if (environment.textBounds) {
+			// COLISÃO PIXEL-PERFEIT (Hero Text Mask)
+			if (environment.textBounds && environment.collisionMask.data) {
 				const b = environment.textBounds;
-				// Margem de segurança para a colisão
-				const margin = 20;
+				const mask = environment.collisionMask;
+				
 				if (
-					this.x > b.left - margin && 
-					this.x < b.right + margin && 
-					this.y > b.top - margin && 
-					this.y < b.bottom + margin
+					this.x > b.left && 
+					this.x < b.right && 
+					this.y > b.top && 
+					this.y < b.bottom
 				) {
-					// Física de colisão simples: empurrar para a borda mais próxima
-					const distLeft = Math.abs(this.x - (b.left - margin));
-					const distRight = Math.abs(this.x - (b.right + margin));
-					const distTop = Math.abs(this.y - (b.top - margin));
-					const distBottom = Math.abs(this.y - (b.bottom + margin));
+					// Mapear posição da partícula para coordenadas do mask
+					const scale = mask.width / b.width;
+					const maskX = Math.floor((this.x - b.left) * scale);
+					const maskY = Math.floor((this.y - b.top) * scale);
 
-					const minDist = Math.min(distLeft, distRight, distTop, distBottom);
-
-					if (minDist === distLeft) { this.vx -= 1.5; this.x = b.left - margin; }
-					else if (minDist === distRight) { this.vx += 1.5; this.x = b.right + margin; }
-					else if (minDist === distTop) { this.vy -= 1.5; this.y = b.top - margin; }
-					else if (minDist === distBottom) { this.vy += 1.5; this.y = b.bottom + margin; }
-					
-					// Inverter um pouco a velocidade para o "kike"
-					this.vx *= -0.5;
-					this.vy *= -0.5;
+					if (mask.data && maskX >= 0 && maskX < mask.width && maskY >= 0 && maskY < mask.height) {
+						const pixelIndex = (maskY * mask.width + maskX) * 4 + 3; // Canal Alpha
+						if (mask.data[pixelIndex] > 0) {
+							// COLISÃO DETECTADA: Kike simples
+							// Empurrar para fora (usando a velocidade atual invertida)
+							this.vx *= -1.2;
+							this.vy *= -1.2;
+							
+							// Adicionar um pouco de jitter para não grudar
+							this.x += this.vx * 2;
+							this.y += this.vy * 2;
+						}
+					}
 				}
 			}
 
