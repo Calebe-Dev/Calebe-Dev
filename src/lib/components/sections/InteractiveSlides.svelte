@@ -18,7 +18,8 @@
 	});
 
 	// Helper para calcular a opacidade/transform baseada num range específico
-	function getInterpolation(progress: number, start: number, end: number, fadeOutStart: number = 0.8) {
+	// Adicionado 'plateau' para efeito de "stickiness" (o texto fica parado no centro mais tempo)
+	function getInterpolation(progress: number, start: number, end: number) {
 		if (progress < start || progress > end) return { opacity: 0, y: 40, blur: 10, scale: 0.95 };
 		
 		const range = end - start;
@@ -29,17 +30,16 @@
 		let blur = 0;
 		let scale = 1;
 
-		// Fade In (primeiros 20% do range local)
-		if (localProgress < 0.2) {
-			const ease = localProgress / 0.2;
+		// Efeito Stickiness: o centro (0.3 a 0.7) é estático
+		if (localProgress < 0.3) {
+			const ease = localProgress / 0.3;
 			opacity = ease;
 			y = 40 * (1 - ease);
 			blur = 10 * (1 - ease);
 			scale = 0.95 + (0.05 * ease);
 		} 
-		// Fade Out (últimos 20% do range local)
-		else if (localProgress > fadeOutStart) {
-			const ease = (1 - localProgress) / (1 - fadeOutStart);
+		else if (localProgress > 0.7) {
+			const ease = (1 - localProgress) / 0.3;
 			opacity = ease;
 			y = -40 * (1 - ease);
 			blur = 10 * (1 - ease);
@@ -49,7 +49,8 @@
 		return { opacity, y, blur, scale };
 	}
 
-	let hasAutoScrolled = $state(false);
+	let snapTimeout: number;
+	const snapPoints = [0.15, 0.5, 0.85]; // Pontos de foco magnético
 
 	onMount(() => {
 		const updateDimensions = () => {
@@ -61,23 +62,30 @@
 			}
 		};
 
-		const onScroll = () => {
-			scrollY = window.scrollY;
+		const snapToNearest = () => {
+			if (environment.isScrollLocked) return;
 			
-			// Detectar se a seção ocupa mais de 60% da tela
-			const rect = container.getBoundingClientRect();
-			const visibility = Math.abs(rect.top) / viewportHeight;
-			
-			// Trigger do auto-scroll (60% da tela ocupada e ainda não scrollou auto)
-			if (rect.top < viewportHeight * 0.4 && !hasAutoScrolled && !environment.isScrollLocked) {
-				hasAutoScrolled = true;
-				const targetScroll = sectionTop + sectionHeight - viewportHeight;
-				
+			// Encontrar o ponto magnético mais próximo
+			const nearest = snapPoints.reduce((prev, curr) => 
+				Math.abs(curr - globalProgress) < Math.abs(prev - globalProgress) ? curr : prev
+			);
+
+			// Só snap se estiver perto o suficiente (evitar snaps irritantes se o usuário quer passar direto)
+			if (Math.abs(nearest - globalProgress) < 0.15) {
+				const targetScroll = sectionTop + (nearest * (sectionHeight - viewportHeight));
 				window.scrollTo({
 					top: targetScroll,
 					behavior: 'smooth'
 				});
 			}
+		};
+
+		const onScroll = () => {
+			scrollY = window.scrollY;
+			
+			// Lógica Magnética: Detectar fim do scroll
+			clearTimeout(snapTimeout);
+			snapTimeout = window.setTimeout(snapToNearest, 150);
 		};
 
 		updateDimensions();
@@ -92,7 +100,7 @@
 
 	const slide1 = $derived(getInterpolation(globalProgress, 0, 0.35));
 	const slide2 = $derived(getInterpolation(globalProgress, 0.32, 0.68));
-	const slide3 = $derived(getInterpolation(globalProgress, 0.65, 1.0, 1.0)); // Não faz fadeOut no fim
+	const slide3 = $derived(getInterpolation(globalProgress, 0.65, 1.0));
 </script>
 
 <div bind:this={container} class="relative w-full h-[600vh] bg-black">
