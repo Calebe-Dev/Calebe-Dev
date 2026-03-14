@@ -105,9 +105,9 @@
 				this.vy += (Math.random() - 0.5) * environment.shakeIntensity;
 			}
 
-			// Efeito de Scroll
+			// Efeito de Scroll (Gravidade sutil)
 			if (environment.scrollProgress > 0) {
-				const gravity = environment.scrollProgress * 0.5;
+				const gravity = environment.scrollProgress * 0.15;
 				this.vy += gravity;
 			}
 
