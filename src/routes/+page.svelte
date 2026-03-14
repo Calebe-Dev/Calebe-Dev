@@ -1,6 +1,8 @@
 <script lang="ts">
 	import DynamicHeroBackground from '$lib/components/visuals/DynamicHeroBackground.svelte';
 	import AnimatedHeroText from '$lib/components/visuals/AnimatedHeroText.svelte';
+	import AboutSection from '$lib/components/sections/AboutSection.svelte';
+	import ServicesGrid from '$lib/components/sections/ServicesGrid.svelte';
 	import { environment } from '$lib/state/environment.svelte';
 	import { fade } from 'svelte/transition';
 
@@ -21,8 +23,8 @@
 	<!-- Botão de Showcase (Review Experience) - Mais Discreto -->
 	<div class="absolute bottom-6 right-6 z-30 flex flex-col items-end gap-2">
 		{#if environment.isShowcaseRunning && environment.showcaseLabel}
-			<div 
-				in:fade={{ duration: 500 }} 
+			<div
+				in:fade={{ duration: 500 }}
 				out:fade={{ duration: 500 }}
 				class="px-3 py-1 bg-blue-500/5 border border-blue-500/20 rounded-full text-[9px] text-blue-400/80 uppercase tracking-widest backdrop-blur-sm"
 			>
@@ -30,8 +32,8 @@
 			</div>
 		{/if}
 
-		<button 
-			on:click={() => environment.startShowcase()} 
+		<button
+			on:click={() => environment.startShowcase()}
 			disabled={environment.isShowcaseRunning}
 			class="group p-3 bg-white/5 hover:bg-white/10 backdrop-blur-md rounded-full transition-all duration-500 border border-white/10 hover:border-white/20 disabled:opacity-30
 				{environment.dayCycle === 'day' ? 'text-slate-900/50 border-slate-900/5' : 'text-white/40 border-white/10'}"
@@ -49,6 +51,5 @@
 	</div>
 </section>
 
-<section class="p-20 bg-black text-white">
-	<p class="text-center opacity-50">Role para explorar o novo projeto...</p>
-</section>
+<AboutSection />
+<ServicesGrid />
