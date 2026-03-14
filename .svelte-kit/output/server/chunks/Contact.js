@@ -1,50 +1,48 @@
-import { z as head, F as ensure_array_like, w as attr, v as attr_class, y as stringify, G as clsx } from "./index2.js";
-import { e as escape_html } from "./context.js";
+import "clsx";
+import { S as SectionSlide, A as AnimatedBlock } from "./AnimatedBlock.js";
 function Contact($$renderer) {
-  const contactCards = [
-    {
-      icon: "fab fa-linkedin",
-      title: "LinkedIn",
-      description: "Vamos expandir nossa rede profissional",
-      link: "https://www.linkedin.com/in/calebe-dev",
-      linkLabel: "Conectar",
-      cssClass: "linkedin"
-    },
-    {
-      icon: "fab fa-github",
-      title: "GitHub",
-      description: "Explore meus projetos e contribuições",
-      link: "https://github.com/Calebe-Dev",
-      linkLabel: "Ver Projetos",
-      cssClass: "github"
-    },
-    {
-      icon: "fab fa-instagram",
-      title: "Instagram",
-      description: "Acompanhe meu dia a dia profissional",
-      link: "https://www.instagram.com/calebe_original/",
-      linkLabel: "Seguir",
-      cssClass: "instagram"
-    },
-    {
-      icon: "fas fa-envelope",
-      title: "E-mail",
-      description: "Vamos conversar sobre seu projeto",
-      link: "mailto:seu-email@dominio.com",
-      linkLabel: "Enviar mensagem",
-      cssClass: "email"
+  SectionSlide($$renderer, {
+    id: "contact",
+    class: "relative overflow-hidden bg-black text-white",
+    children: ($$renderer2) => {
+      $$renderer2.push(`<div class="pointer-events-none absolute -bottom-32 -left-20 h-[500px] w-[500px] rounded-full bg-blue-500/12 blur-[120px]"></div> <div class="pointer-events-none absolute -top-28 right-0 h-[420px] w-[420px] rounded-full bg-indigo-500/12 blur-[110px]"></div> <div class="container relative z-10 mx-auto px-6 text-center">`);
+      AnimatedBlock($$renderer2, {
+        children: ($$renderer3) => {
+          $$renderer3.push(`<p class="text-xs uppercase tracking-[0.24em] text-slate-300">Vamos tirar seu projeto do papel</p>`);
+        }
+      });
+      $$renderer2.push(`<!----> `);
+      AnimatedBlock($$renderer2, {
+        delay: 80,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<h2 class="mx-auto mt-4 max-w-4xl text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">Precisa de um site profissional com SEO técnico e alta performance?</h2>`);
+        }
+      });
+      $$renderer2.push(`<!----> `);
+      AnimatedBlock($$renderer2, {
+        delay: 150,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<p class="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-slate-300">Fale comigo para planejar uma solução sob medida para sua empresa, com foco em posicionamento no
+				Google, experiência premium e geração de leads qualificados.</p>`);
+        }
+      });
+      $$renderer2.push(`<!----> `);
+      AnimatedBlock($$renderer2, {
+        delay: 220,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"><a href="/solicitar-projeto" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold uppercase tracking-wide text-black shadow-[0_20px_38px_-22px_rgba(255,255,255,0.95)] transition hover:scale-[1.02]">Solicitar Projeto</a> <a href="mailto:contato@calebearaujo.com.br" class="apple-shell inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-white/12">contato@calebearaujo.com.br</a></div>`);
+        }
+      });
+      $$renderer2.push(`<!----> `);
+      AnimatedBlock($$renderer2, {
+        delay: 280,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<div class="mt-10 flex flex-wrap justify-center gap-3 text-sm text-slate-300"><a href="https://www.linkedin.com/in/calebe-dev" target="_blank" rel="noopener noreferrer" class="rounded-full border border-white/15 bg-black/30 px-4 py-2 transition hover:bg-white/10">LinkedIn</a> <a href="https://github.com/Calebe-Dev" target="_blank" rel="noopener noreferrer" class="rounded-full border border-white/15 bg-black/30 px-4 py-2 transition hover:bg-white/10">GitHub</a> <a href="https://instagram.com/calebe_original" target="_blank" rel="noopener noreferrer" class="rounded-full border border-white/15 bg-black/30 px-4 py-2 transition hover:bg-white/10">Instagram</a></div>`);
+        }
+      });
+      $$renderer2.push(`<!----></div>`);
     }
-  ];
-  head("wt4tt0", $$renderer, ($$renderer2) => {
-    $$renderer2.push(`<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>`);
   });
-  $$renderer.push(`<section id="contact" class="contact-section svelte-wt4tt0"><div class="glass-overlay svelte-wt4tt0"></div> <div class="contact-container svelte-wt4tt0"><h2 data-aos="fade-up" class="svelte-wt4tt0">Vamos Conectar</h2> <div data-aos="fade-up" class="social-grid svelte-wt4tt0"><!--[-->`);
-  const each_array = ensure_array_like(contactCards);
-  for (let i = 0, $$length = each_array.length; i < $$length; i++) {
-    let card = each_array[i];
-    $$renderer.push(`<a${attr("href", card.link)} target="_blank" rel="noopener"${attr_class(`social-card ${stringify(card.cssClass)}`, "svelte-wt4tt0")}${attr("data-aos-delay", i * 100)}><div class="card-content svelte-wt4tt0"><div class="icon-wrapper svelte-wt4tt0"><i${attr_class(clsx(card.icon), "svelte-wt4tt0")}></i></div> <h3 class="svelte-wt4tt0">${escape_html(card.title)}</h3> <p class="svelte-wt4tt0">${escape_html(card.description)}</p> <span class="arrow-link svelte-wt4tt0">${escape_html(card.linkLabel)} <i class="fas fa-arrow-right"></i></span></div> <div class="card-shine svelte-wt4tt0"></div></a>`);
-  }
-  $$renderer.push(`<!--]--></div> <div data-aos="fade-up" class="contact-footer svelte-wt4tt0"><div class="footer-glass svelte-wt4tt0"><p class="svelte-wt4tt0">Disponível para projetos freelance e oportunidades profissionais</p> <span class="availability svelte-wt4tt0">Atualmente disponível para novos projetos</span></div></div></div></section>`);
 }
 export {
   Contact as C

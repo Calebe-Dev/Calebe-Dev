@@ -1,513 +1,186 @@
 <script lang="ts">
-  // Hero component - design moderno e destacado
+	import SectionSlide from './ui/SectionSlide.svelte';
+	import AnimatedBlock from './ui/AnimatedBlock.svelte';
+	import ParticleBackground from './ui/ParticleBackground.svelte';
+	import MeshGradient from './ui/MeshGradient.svelte';
+
+	const highlights = [
+		'SEO técnico orientado a resultado',
+		'Core Web Vitals acima da média',
+		'Design premium com foco em conversão'
+	];
 </script>
 
-<section class="hero-section" data-scroll data-parallax="0.15">
-  <div class="hero-background">
-    <div class="bg-gradient gradient-1"></div>
-    <div class="bg-gradient gradient-2"></div>
-    <div class="bg-grid"></div>
-  </div>
-  
-  <div class="hero-container">
-    <div class="hero-wrapper">
-      <div class="hero-content">
-        <div class="hero-badge" data-aos="fade-up">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M10 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6l2-6z" fill="currentColor"/>
-          </svg>
-          <span>Desenvolvedor Full-Stack & Gestor de Tráfego</span>
-        </div>
-        
-        <h1 data-aos="fade-up" data-aos-delay="100">
-          Criando experiências
-          <span class="gradient-text">digitais que</span>
-          transformam negócios
-        </h1>
-        
-        <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
-          Combino desenvolvimento web de ponta com estratégias de marketing digital para criar soluções que não apenas impressionam, mas geram resultados reais e mensuráveis.
-        </p>
-        
-        <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
-          <div class="stat-item">
-            <div class="stat-number">5+</div>
-            <div class="stat-label">Anos de Experiência</div>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <div class="stat-number">20+</div>
-            <div class="stat-label">Projetos Entregues</div>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Clientes Satisfeitos</div>
-          </div>
-        </div>
-        
-        <div class="hero-cta" data-aos="fade-up" data-aos-delay="400">
-          <a href="/solicitar-projeto" class="primary-cta">
-            <span>Iniciar Meu Projeto</span>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a href="#projects" class="secondary-cta">
-            <span>Ver Portfólio</span>
-          </a>
-        </div>
-      </div>
-      
-      <div class="hero-visual" data-aos="fade-left" data-aos-delay="500">
-        <div class="visual-card">
-          <div class="card-glow"></div>
-          <img src="/ProfileFoto.jpeg" alt="Calebe Araújo - Desenvolvedor" />
-          <div class="card-overlay">
-            <div class="tech-badge">Svelte</div>
-            <div class="tech-badge">React</div>
-            <div class="tech-badge">Angular</div>
-            <div class="tech-badge">Meta Ads</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="600">
-    <span>Role para explorar</span>
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </div>
-</section>
+<SectionSlide id="hero" class="relative z-10 overflow-hidden">
+	<MeshGradient />
+	<ParticleBackground />
 
-<style lang="scss">
-$apple-blue: #0071e3;
-$primary-color: var(--primary-color);
-$secondary-color: var(--secondary-color);
+	<div class="hero-stage container relative z-10 mx-auto px-6 py-8 text-center">
+		<AnimatedBlock>
+			<span
+				class="hero-chip inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-200"
+			>
+				<span class="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(41,151,255,0.9)]"></span>
+				Desenvolvedor Full Stack em Sorocaba
+			</span>
+		</AnimatedBlock>
 
-.hero-section {
-  min-height: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0rem 2rem 6rem;
-  position: relative;
-  overflow: hidden;
-  background: #f5f5f7;
+		<AnimatedBlock delay={90}>
+			<h1
+				class="mx-auto mt-8 max-w-5xl text-balance text-5xl font-bold leading-[1.1] tracking-tight text-white sm:text-7xl lg:text-8xl"
+			>
+				Design de alta performance
+				<span class="block text-zinc-500"
+					>para quem busca resultados reais.</span
+				>
+			</h1>
+		</AnimatedBlock>
 
-  @media (max-width: 768px) {
-    /* Reduce top padding so fixed navbar doesn't create a large gap
-       and let the navbar visually sit on top of the hero container. */
-    padding: 0.5rem 1rem 1.5rem;
+		<AnimatedBlock delay={170}>
+			<p class="mx-auto mt-8 max-w-2xl text-lg font-medium leading-relaxed text-zinc-400 sm:text-xl">
+				Crio experiências digitais <strong class="text-white">premium</strong> com 
+				SEO técnico e performance web avançada para empresas que não aceitam o básico.
+			</p>
+		</AnimatedBlock>
 
-    /* Ensure the hero container isn't offset by extra margins */
-    .hero-container {
-      margin-top: 0;
-    }
-  }
-}
+		<AnimatedBlock delay={240}>
+			<div class="mx-auto mt-10 grid w-full max-w-5xl gap-4 md:grid-cols-3">
+				{#each highlights as item}
+					<div
+						class="rounded-2xl border border-white/12 bg-gradient-to-b from-white/[0.14] to-white/[0.03] px-4 py-4 text-sm font-medium text-slate-200 backdrop-blur-xl"
+					>
+						{item}
+					</div>
+				{/each}
+			</div>
+		</AnimatedBlock>
 
-.hero-background {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: 0;
-}
+		<AnimatedBlock delay={300}>
+			<div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+				<a
+					href="/solicitar-projeto"
+					class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-3 text-base font-semibold text-black transition hover:scale-[1.02] sm:w-auto"
+				>
+					Solicitar Projeto
+					<svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4">
+						<path d="M4 10h12M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" />
+					</svg>
+				</a>
+				<a
+					href="#projects"
+					class="inline-flex w-full items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-3 text-base font-medium text-white transition hover:bg-white/12 sm:w-auto"
+				>
+					Ver estudos de caso
+				</a>
+			</div>
+		</AnimatedBlock>
 
-.bg-gradient {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.6;
-  animation: float 20s ease-in-out infinite;
-}
+		<AnimatedBlock delay={360}>
+			<div class="mx-auto mt-14 w-full max-w-5xl">
+				<div class="hero-device-wrap relative overflow-hidden rounded-[34px] border border-white/12 bg-gradient-to-b from-slate-300/[0.16] via-slate-900/30 to-black/70 p-6 md:p-8">
+					<div
+						class="pointer-events-none absolute -left-20 top-4 h-48 w-48 rounded-full bg-blue-400/20 blur-[70px]"
+					></div>
+					<div
+						class="pointer-events-none absolute -right-24 bottom-2 h-52 w-52 rounded-full bg-indigo-400/20 blur-[80px]"
+					></div>
 
-.gradient-1 {
-  top: -20%;
-  right: -8%;
-  width: min(60vw, 600px);
-  height: min(60vw, 600px);
-  background: radial-gradient(circle, rgba(0, 113, 227, 0.3), transparent 70%);
-}
+					<div class="relative grid gap-5 md:grid-cols-[1.2fr_0.8fr]">
+						<div class="rounded-2xl border border-white/10 bg-black/35 p-5 text-left md:p-6">
+							<p class="text-xs uppercase tracking-[0.24em] text-slate-400">Processo</p>
+							<h2 class="mt-2 text-2xl font-semibold text-white md:text-3xl">
+								Do briefing ao lançamento com precisão cirúrgica.
+							</h2>
+							<p class="mt-3 text-sm leading-relaxed text-slate-300 md:text-base">
+								Planejamento estratégico, prototipagem, desenvolvimento full stack, otimização SEO e
+								monitoramento de performance desde o primeiro deploy.
+							</p>
+						</div>
 
-.gradient-2 {
-  bottom: -20%;
-  left: -8%;
-  width: min(50vw, 500px);
-  height: min(50vw, 500px);
-  background: radial-gradient(circle, rgba(0, 198, 255, 0.25), transparent 70%);
-  animation-delay: -10s;
-  animation-duration: 25s;
-}
+						<div class="hero-phone-shell mx-auto flex w-full max-w-[260px] flex-col justify-between rounded-[2rem] border border-white/15 bg-black/45 p-4 shadow-[0_25px_55px_-25px_rgba(0,0,0,0.95)]">
+							<div class="mx-auto h-1.5 w-16 rounded-full bg-white/20"></div>
+							<div class="mt-4 rounded-2xl border border-white/10 bg-gradient-to-b from-blue-300/35 to-indigo-500/10 p-4">
+								<p class="text-xs uppercase tracking-[0.18em] text-slate-200">Média de entrega</p>
+								<p class="mt-1 text-3xl font-semibold text-white">95+</p>
+								<p class="text-xs text-slate-300">Lighthouse em projetos otimizados</p>
+							</div>
+							<div class="mt-3 grid grid-cols-2 gap-2 text-left text-xs text-slate-300">
+								<div class="rounded-xl border border-white/10 bg-black/35 p-2">CWV</div>
+								<div class="rounded-xl border border-white/10 bg-black/35 p-2">SEO</div>
+								<div class="rounded-xl border border-white/10 bg-black/35 p-2">UX</div>
+								<div class="rounded-xl border border-white/10 bg-black/35 p-2">CRO</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</AnimatedBlock>
+	</div>
+</SectionSlide>
 
-.bg-grid {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(0, 113, 227, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 113, 227, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
-}
+<style>
+	.hero-stage {
+		position: relative;
+	}
 
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-40px, 40px) scale(1.1); }
-}
+	.hero-stage::before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 8%;
+		width: min(880px, 90vw);
+		height: 1px;
+		transform: translateX(-50%);
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+		opacity: 0.5;
+	}
 
-.hero-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: saturate(180%) blur(30px);
-  -webkit-backdrop-filter: saturate(180%) blur(30px);
-  border-radius: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.1),
-    0 8px 20px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  padding: 4rem;
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+	.hero-chip {
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32), 0 16px 28px -24px rgba(0, 0, 0, 0.9);
+	}
 
-  &:hover {
-    box-shadow: 
-      0 30px 80px rgba(0, 0, 0, 0.15),
-      0 12px 30px rgba(0, 0, 0, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  }
+	.hero-device-wrap::after {
+		content: '';
+		position: absolute;
+		inset: -120% -40%;
+		background: linear-gradient(112deg, transparent 40%, rgba(255, 255, 255, 0.18) 51%, transparent 62%);
+		animation: heroSheen 10s ease-in-out infinite;
+		pointer-events: none;
+	}
 
-  @media (max-width: 968px) {
-    padding: 3rem 0.1rem;
-    border-radius: 32px;
-  }
+	.hero-phone-shell {
+		position: relative;
+		animation: phoneFloat 8s ease-in-out infinite;
+	}
 
-  @media (max-width: 568px) {
-    padding: 2rem 0.1rem;
-    border-radius: 24px;
-  }
+	@keyframes heroSheen {
+		0%,
+		70%,
+		100% {
+			transform: translateX(-42%);
+			opacity: 0;
+		}
+		76%,
+		92% {
+			transform: translateX(46%);
+			opacity: 1;
+		}
+	}
 
-  /* Lift the hero container up so the fixed navbar visually overlaps it */
-  @media (min-width: 769px) {
-    margin-top: calc(-1 * var(--navbar-overlap, 28px));
-  }
-}
+	@keyframes phoneFloat {
+		0%,
+		100% {
+			transform: translateY(0px);
+		}
+		50% {
+			transform: translateY(-8px);
+		}
+	}
 
-.hero-wrapper {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 4rem;
-  align-items: center;
-
-  @media (max-width: 968px) {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    text-align: center;
-  }
-}
-
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  padding: 0.625rem 1.25rem;
-  background: rgba(0, 113, 227, 0.08);
-  border: 1px solid rgba(0, 113, 227, 0.15);
-  border-radius: 100px;
-  color: $apple-blue;
-  font-size: 0.875rem;
-  font-weight: 600;
-  width: fit-content;
-  letter-spacing: 0.01em;
-
-  @media (max-width: 968px) {
-    margin: 0 auto;
-  }
-
-  svg {
-    flex-shrink: 0;
-  }
-}
-
-.hero-content h1 {
-  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  color: $primary-color;
-  margin: 0;
-
-  .gradient-text {
-    background: linear-gradient(135deg, $apple-blue, #00c6ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
-  }
-}
-
-.hero-description {
-  font-size: 1.25rem;
-  line-height: 1.65;
-  color: $secondary-color;
-  max-width: 600px;
-  margin: 0;
-
-  @media (max-width: 968px) {
-    margin: 0 auto;
-    font-size: 1.05rem;
-  }
-}
-
-.hero-stats {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding: 2rem 0;
-
-  @media (max-width: 968px) {
-    justify-content: center;
-  }
-
-  @media (max-width: 568px) {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  color: $apple-blue;
-  line-height: 1;
-}
-
-.stat-label {
-  font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.6);
-  font-weight: 500;
-}
-
-.stat-divider {
-  width: 1px;
-  height: 40px;
-  background: rgba(0, 0, 0, 0.1);
-
-  @media (max-width: 568px) {
-    display: none;
-  }
-}
-
-.hero-cta {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  @media (max-width: 968px) {
-    justify-content: center;
-  }
-
-  @media (max-width: 568px) {
-    flex-direction: column;
-    width: 100%;
-  }
-}
-
-.primary-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
-  background: $apple-blue;
-  color: #fff;
-  border-radius: 980px;
-  font-weight: 600;
-  font-size: 1.05rem;
-  text-decoration: none;
-  box-shadow: 0 4px 16px rgba(0, 113, 227, 0.3);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-
-  &:hover {
-    background: #0077ed;
-    box-shadow: 0 8px 24px rgba(0, 113, 227, 0.4);
-    transform: translateY(-2px);
-    gap: 1rem;
-  }
-
-  svg {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  &:hover svg {
-    transform: translateX(4px);
-  }
-
-  @media (max-width: 568px) {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-.secondary-cta {
-  display: inline-flex;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: $apple-blue;
-  border-radius: 980px;
-  font-weight: 600;
-  font-size: 1.05rem;
-  text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.9);
-    border-color: $apple-blue;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  }
-
-  @media (max-width: 568px) {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-.hero-visual {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @media (max-width: 968px) {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-}
-
-.visual-card {
-  position: relative;
-  width: 100%;
-  max-width: 520px;
-  border-radius: 32px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15),
-              0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-
-  &:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2),
-                0 12px 30px rgba(0, 0, 0, 0.15);
-
-    .card-glow {
-      opacity: 1;
-    }
-
-    .card-overlay {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-  }
-}
-
-.card-glow {
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(135deg, $apple-blue, #00c6ff);
-  border-radius: 32px;
-  opacity: 0;
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: -1;
-  filter: blur(20px);
-}
-
-.card-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 2rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.tech-badge {
-  padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 100px;
-  color: #fff;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.875rem;
-  font-weight: 500;
-  animation: bounce 2s ease-in-out infinite;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(10px); }
-}
-
-@media (max-width: 768px) {
-  .gradient-1,
-  .gradient-2,
-  .bg-grid {
-    display: none;
-  }
-}
+	@media (prefers-reduced-motion: reduce) {
+		.hero-device-wrap::after,
+		.hero-phone-shell {
+			animation: none;
+		}
+	}
 </style>

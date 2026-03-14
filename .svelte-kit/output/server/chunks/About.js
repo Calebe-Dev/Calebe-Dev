@@ -1,6 +1,48 @@
-import "clsx";
+import { a4 as ensure_array_like } from "./index2.js";
+import { S as SectionSlide, A as AnimatedBlock } from "./AnimatedBlock.js";
+import { S as ScrollReveal } from "./ScrollReveal.js";
+import { e as escape_html } from "./context.js";
 function About($$renderer) {
-  $$renderer.push(`<div class="about-section svelte-7hpc9t" id="about" data-scroll-progress=""><div class="about-container svelte-7hpc9t"><div class="about-hero svelte-7hpc9t" data-aos="fade-up"><div class="hero-image svelte-7hpc9t"><img src="/ilustration.png" alt="Ilustração notebook com café" class="svelte-7hpc9t"/></div></div> <div class="about-content svelte-7hpc9t"><div class="intro-card svelte-7hpc9t" data-aos="fade-up" data-aos-delay="100"><span class="badge svelte-7hpc9t">Desenvolvedor Full-Stack</span> <h2 class="svelte-7hpc9t">Transformando ideias em experiências digitais extraordinárias</h2> <p class="lead svelte-7hpc9t">Olá! Sou Calebe, apaixonado por criar soluções que combinam código limpo, design intuitivo e estratégias de crescimento comprovadas.</p></div> <div class="story-grid svelte-7hpc9t"><div class="story-card svelte-7hpc9t" data-aos="fade-up" data-aos-delay="200"><div class="story-icon svelte-7hpc9t">💡</div> <h3 class="svelte-7hpc9t">A Jornada</h3> <p class="svelte-7hpc9t">Minha paixão por tecnologia começou aos 12 anos com Scratch-MIT. Desde então, venho construindo uma trajetória que une desenvolvimento web, design e estratégia digital - sempre focado em criar impacto real.</p></div> <div class="story-card svelte-7hpc9t" data-aos="fade-up" data-aos-delay="300"><div class="story-icon svelte-7hpc9t">🎯</div> <h3 class="svelte-7hpc9t">Visão 360°</h3> <p class="svelte-7hpc9t">Como desenvolvedor Full-Stack e Gestor de Tráfego certificado, não apenas construo sistemas robustos e landing pages convertedoras - garanto que eles alcancem seu público através de campanhas estratégicas no Meta Ads.</p></div> <div class="story-card svelte-7hpc9t" data-aos="fade-up" data-aos-delay="400"><div class="story-icon svelte-7hpc9t">🚀</div> <h3 class="svelte-7hpc9t">Excelência Técnica</h3> <p class="svelte-7hpc9t">Cursando Análise e Desenvolvimento de Sistemas, combino conhecimento acadêmico com experiência prática. Cada projeto é uma oportunidade de entregar soluções tecnicamente superiores.</p></div> <div class="story-card svelte-7hpc9t" data-aos="fade-up" data-aos-delay="500"><div class="story-icon svelte-7hpc9t">🤝</div> <h3 class="svelte-7hpc9t">Liderança &amp; Comunicação</h3> <p class="svelte-7hpc9t">Minha experiência como representante estudantil e organizador de eventos desenvolveu habilidades essenciais de liderança - fundamentais para transformar requisitos em soluções precisas.</p></div></div> <div class="mission-card svelte-7hpc9t" data-aos="fade-up" data-aos-delay="600"><p class="mission-text svelte-7hpc9t">Minha missão é transformar sua visão em realidade digital, entregando não apenas código, mas experiências que geram resultados.</p> <a href="#contact" class="cta-button svelte-7hpc9t">Vamos Conversar Sobre Seu Projeto <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="svelte-7hpc9t"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div></div></div></div>`);
+  const pillars = [
+    {
+      title: "Estratégia orientada a negócio",
+      desc: "Cada linha de código existe para aumentar clareza da oferta, tráfego qualificado e taxa de conversão."
+    },
+    {
+      title: "Engenharia de performance",
+      desc: "Arquitetura leve, experiência fluida e otimizações contínuas para manter velocidade e escala."
+    },
+    {
+      title: "SEO técnico na base",
+      desc: "Semântica, dados estruturados e arquitetura de informação para ampliar alcance orgânico."
+    }
+  ];
+  SectionSlide($$renderer, {
+    id: "about",
+    class: "relative overflow-hidden bg-zinc-950",
+    children: ($$renderer2) => {
+      $$renderer2.push(`<div class="pointer-events-none absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[140px]"></div> <div class="container relative z-10 mx-auto px-6"><div class="grid items-center gap-8 lg:grid-cols-[1fr_1.05fr]">`);
+      AnimatedBlock($$renderer2, {
+        children: ($$renderer3) => {
+          $$renderer3.push(`<div class="apple-shell relative overflow-hidden rounded-[34px] p-6 md:p-8"><div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(125,196,255,0.25),transparent_40%)]"></div> <div class="relative"><p class="text-xs uppercase tracking-[0.22em] text-slate-300">Perfil profissional</p> <h2 class="mt-3 text-3xl font-semibold text-white md:text-4xl">Desenvolvedor Full Stack com visão de produto e marketing.</h2> <p class="mt-4 text-base leading-relaxed text-slate-300">Sou o Calebe Araújo e atuo na interseção entre desenvolvimento web, SEO e growth. Meu foco é
+							entregar projetos que performam bem no Google, carregam rápido e convertem melhor.</p> <div class="mt-6 grid gap-3 sm:grid-cols-3"><div class="apple-shell rounded-2xl p-4"><p class="text-xs uppercase tracking-[0.16em] text-slate-400">Especialidade</p> <p class="mt-2 text-lg font-semibold text-white">Sites de alta conversão</p></div> <div class="apple-shell rounded-2xl p-4"><p class="text-xs uppercase tracking-[0.16em] text-slate-400">Stack</p> <p class="mt-2 text-lg font-semibold text-white">SvelteKit + TypeScript</p></div> <div class="apple-shell rounded-2xl p-4"><p class="text-xs uppercase tracking-[0.16em] text-slate-400">Objetivo</p> <p class="mt-2 text-lg font-semibold text-white">Tráfego + Receita</p></div></div></div></div>`);
+        }
+      });
+      $$renderer2.push(`<!----> <div class="space-y-4"><!--[-->`);
+      const each_array = ensure_array_like(pillars);
+      for (let i = 0, $$length = each_array.length; i < $$length; i++) {
+        let pillar = each_array[i];
+        ScrollReveal($$renderer2, {
+          animation: "fade-up",
+          delay: i * 90,
+          children: ($$renderer3) => {
+            $$renderer3.push(`<article class="apple-shell rounded-3xl p-6"><h3 class="text-xl font-semibold text-white">${escape_html(pillar.title)}</h3> <p class="mt-3 text-base leading-relaxed text-slate-300">${escape_html(pillar.desc)}</p></article>`);
+          }
+        });
+      }
+      $$renderer2.push(`<!--]--></div></div></div>`);
+    }
+  });
 }
 export {
   About as A

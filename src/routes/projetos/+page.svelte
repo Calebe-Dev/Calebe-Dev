@@ -2,10 +2,12 @@
   import Projects from '$lib/components/Projects.svelte';
 </script>
 
-<main>
-  <section class="page-section">
-    <div class="container">
-      <Projects />
-    </div>
-  </section>
-</main>
+<svelte:head>
+  <title>Projetos | Cases de SEO, Performance e Conversão</title>
+  <meta
+    name="description"
+    content="Veja projetos desenvolvidos com foco em performance web, SEO técnico e aumento de conversão para negócios digitais."
+  />
+</svelte:head>
+
+<Projects />

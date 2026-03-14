@@ -2,10 +2,12 @@
   import Experience from '$lib/components/Experience.svelte';
 </script>
 
-<main>
-  <section class="page-section">
-    <div class="container">
-      <Experience />
-    </div>
-  </section>
-</main>
+<svelte:head>
+  <title>Experiência | Calebe Araújo</title>
+  <meta
+    name="description"
+    content="Trajetória profissional em desenvolvimento full stack, SEO técnico e growth para projetos de alto desempenho."
+  />
+</svelte:head>
+
+<Experience />

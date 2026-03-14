@@ -255,7 +255,10 @@
 .project-form-section {
   min-height: 100vh;
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.05));
+  background:
+    radial-gradient(circle at 15% 10%, rgba(41, 151, 255, 0.16), transparent 40%),
+    radial-gradient(circle at 85% 5%, rgba(159, 123, 247, 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(8, 13, 26, 0.92), rgba(5, 8, 16, 0.97));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -264,11 +267,12 @@
 .form-container {
   max-width: 800px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(20px);
+  background: rgba(8, 13, 26, 0.78);
+  border: 1px solid rgba(166, 191, 244, 0.2);
+  backdrop-filter: blur(20px) saturate(150%);
   border-radius: 30px;
   padding: 3rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.85);
 }
 
 .progress-bar {
@@ -293,12 +297,12 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.5);
+  color: #c4cde0;
   transition: all 0.3s ease;
 }
 
@@ -316,7 +320,7 @@
 .form-content h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #000;
+  color: #f4f7ff;
   font-weight: 600;
 }
 
@@ -329,16 +333,17 @@
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 1rem;
-  color: rgba(0, 0, 0, 0.8);
+  color: #d8e3fc;
 }
 
 input[type="text"],
 textarea {
   width: 100%;
   padding: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(166, 191, 244, 0.22);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f4f7ff;
   font-size: 1rem;
   transition: all 0.3s ease;
 }
@@ -347,7 +352,12 @@ input[type="text"]:focus,
 textarea:focus {
   outline: none;
   border-color: #007aff;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder {
+  color: #91a2c7;
 }
 
 textarea {
@@ -367,13 +377,14 @@ textarea {
   gap: 0.75rem;
   padding: 1rem;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(166, 191, 244, 0.16);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .radio-option:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .radio-option input[type="radio"] {
@@ -384,7 +395,7 @@ textarea {
 
 .radio-label {
   font-size: 1rem;
-  color: rgba(0, 0, 0, 0.8);
+  color: #d8e3fc;
 }
 
 .form-actions {
@@ -425,12 +436,13 @@ textarea {
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.3);
-  color: #000;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f4f7ff;
+  border: 1px solid rgba(166, 191, 244, 0.22);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .message {

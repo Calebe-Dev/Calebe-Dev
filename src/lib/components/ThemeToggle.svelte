@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import { browser } from '$app/environment';
 
-  let currentTheme: 'light' | 'dark' = 'light';
+  let currentTheme: 'light' | 'dark' = 'dark';
 
   function toggleTheme() {
     currentTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -15,10 +15,8 @@
   onMount(() => {
     if (browser) {
       const saved = localStorage.getItem('theme') as 'light' | 'dark' | null;
-      if (saved) {
-        currentTheme = saved;
-        document.documentElement.setAttribute('data-theme', currentTheme);
-      }
+      currentTheme = saved === 'light' || saved === 'dark' ? saved : 'dark';
+      document.documentElement.setAttribute('data-theme', currentTheme);
     }
   });
 </script>
@@ -26,6 +24,7 @@
 <button 
   class="theme-toggle" 
   on:click={toggleTheme}
+  aria-pressed={currentTheme === 'dark'}
   aria-label="Toggle theme"
   title={currentTheme === 'light' ? 'Mudar para tema escuro' : 'Mudar para tema claro'}
 >
@@ -58,16 +57,16 @@
 <style lang="scss">
 .theme-toggle {
   position: fixed;
-  top: 2rem;
-  right: 2rem;
-  z-index: 1000;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2200;
   overflow: hidden;
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   border: var(--glass-border-width) solid var(--glass-border);
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,6 +75,7 @@
   box-shadow: var(--glass-shadow);
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -89,8 +89,8 @@
     padding: 6px;
 
   &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    transform: scale(1.08);
+    box-shadow: 0 12px 28px -16px rgba(0, 0, 0, 0.7);
   }
 
   .icon {
@@ -108,6 +108,7 @@
     z-index: 0;
     background: var(--glass-bg);
     pointer-events: none;
+    transform: translateZ(0);
     -webkit-transform: translateZ(0);
   }
 
@@ -129,25 +130,29 @@
   }
 
   @media (max-width: 768px) {
-    top: 1rem;
-    right: 1rem;
-    width: 44px;
-    height: 44px;
+    top: 0.85rem;
+    right: 0.85rem;
+    width: 42px;
+    height: 42px;
   }
 }
 
 /* Force definitive dark-mode appearance to avoid UA/compositing artifacts */
 :global(html[data-theme="dark"]) .theme-toggle {
-  background: rgba(0, 0, 0, 0.92) !important;
-  background-color: rgba(0, 0, 0, 0.92) !important;
-  border-color: rgba(255, 255, 255, 0.06) !important;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+  background: rgba(10, 16, 30, 0.88) !important;
+  background-color: rgba(10, 16, 30, 0.88) !important;
+  border-color: rgba(173, 191, 235, 0.3) !important;
+  box-shadow: 0 12px 28px -16px rgba(3, 8, 20, 0.8) !important;
 }
 
 :global(html[data-theme="dark"]) .theme-toggle .icon svg {
-  color: #ffffff !important;
+  color: #f1f6ff !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+:global(html[data-theme="light"]) .theme-toggle .icon svg {
+  color: #123060 !important;
   fill: currentColor !important;
   stroke: currentColor !important;
 }

@@ -2,10 +2,12 @@
   import Contact from '$lib/components/Contact.svelte';
 </script>
 
-<main>
-  <section class="page-section">
-    <div class="container">
-      <Contact />
-    </div>
-  </section>
-</main>
+<svelte:head>
+  <title>Contato | Solicite seu Projeto Web</title>
+  <meta
+    name="description"
+    content="Entre em contato para criar um site profissional com SEO técnico, performance web e foco em geração de leads."
+  />
+</svelte:head>
+
+<Contact />

@@ -1,69 +1,51 @@
 <script lang="ts">
-  import Hero from '$lib/components/Hero.svelte';
-  import About from '$lib/components/About.svelte';
-  import Skills from '$lib/components/Skills.svelte';
-  import Services from '$lib/components/Services.svelte';
-  import Experience from '$lib/components/Experience.svelte';
-  import Projects from '$lib/components/Projects.svelte';
-  import Testimonials from '$lib/components/Testimonials.svelte';
-  import CallToAction from '$lib/components/CallToAction.svelte';
-  import Contact from '$lib/components/Contact.svelte';
+	import Hero from '$lib/components/Hero.svelte';
+	import About from '$lib/components/About.svelte';
+	import Skills from '$lib/components/Skills.svelte';
+	import Services from '$lib/components/Services.svelte';
+	import Experience from '$lib/components/Experience.svelte';
+	import Projects from '$lib/components/Projects.svelte';
+	import Testimonials from '$lib/components/Testimonials.svelte';
+	import Contact from '$lib/components/Contact.svelte';
+	import SplitDivider from '$lib/components/ui/SplitDivider.svelte';
 </script>
 
 <svelte:head>
-  <title>Portfolio - Calebe Araújo</title>
-  <meta name="description" content="Portfolio profissional de Calebe Araújo - Desenvolvedor Full Stack e Gestor de Tráfego" />
+	<title>Calebe Araújo | Design de Alta Performance & SEO Técnico</title>
+	<meta
+		name="description"
+		content="Transformando visão em realidade com sites premium, SEO técnico e performance web avançada. Especialista em landing pages de alta conversão e aplicações web Apple-like."
+	/>
+	<meta
+		name="keywords"
+		content="desenvolvedor full stack, design premium, apple-like ui, seo técnico sorocaba, sites de alta performance, landing pages conversão"
+	/>
 </svelte:head>
 
-<main>
-  <section id="home" data-scroll-progress>
-    <Hero />
-  </section>
-  
-  <section id="about" data-scroll data-scroll-progress>
-    <About />
-  </section>
-  
-  <section id="skills" data-scroll data-scroll-progress>
-    <Skills />
-  </section>
-  
-  <section id="services" data-scroll data-scroll-progress>
-    <Services />
-  </section>
-  
-  <section id="experience" data-scroll data-scroll-progress>
-    <Experience />
-  </section>
-  
-  <section id="projects" data-scroll data-scroll-progress>
-    <Projects />
-  </section>
-  
-  <section id="testimonials" data-scroll data-scroll-progress>
-    <Testimonials />
-  </section>
-  
-  <section id="cta" data-scroll data-scroll-progress>
-    <CallToAction />
-  </section>
-  
-  <section id="contact" data-scroll data-scroll-progress>
-    <Contact />
-  </section>
+<main class="bg-black">
+	<Hero />
+
+	<About />
+
+	<Services />
+
+	<SplitDivider
+		title="Engenharia que converte."
+		subtitle="Sua presença digital construída com precisão técnica e foco total em resultados de negócio."
+	/>
+
+	<Projects />
+
+	<SplitDivider
+		title="Velocidade é posicionamento."
+		subtitle="Arquitetura moderna e Core Web Vitals otimizados para garantir a melhor experiência e ranking."
+	/>
+
+	<Skills />
+
+	<Experience />
+
+	<Testimonials />
+
+	<Contact />
 </main>
-
-<style>
-main {
-  min-height: 100vh;
-  padding-top: 80px;
-}
-
-section {
-  padding: 2rem 0;
-}
-
-section:first-child {
-  padding-top: 0;
-}
-</style>

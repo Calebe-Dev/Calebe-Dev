@@ -7,6 +7,14 @@
   ];
 </script>
 
+<svelte:head>
+  <title>Blog | SEO, Performance Web e Desenvolvimento</title>
+  <meta
+    name="description"
+    content="Artigos sobre desenvolvimento full stack, SEO técnico, performance web e estratégias de conversão para projetos digitais."
+  />
+</svelte:head>
+
 <section class="blog-hero">
   <div class="blog-container">
     <div class="section-header">
@@ -28,26 +36,30 @@
 
 <style lang="scss">
 .blog-hero {
-  padding: 4rem 2rem;
+  padding: clamp(5.8rem, 10vw, 7.5rem) 1rem 3rem;
   background: transparent;
 }
 
 .blog-container {
-  max-width: 1200px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 2rem;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: saturate(180%) blur(30px);
-  border-radius: 20px;
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+  background: rgba(8, 13, 26, 0.74);
+  border: 1px solid rgba(166, 191, 244, 0.2);
+  backdrop-filter: saturate(160%) blur(16px);
+  border-radius: 24px;
+  box-shadow: 0 20px 45px -22px rgba(2, 6, 18, 0.9);
 }
 
 .section-header h1 {
-  font-size: 2.5rem;
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #f4f7ff;
   margin-bottom: 0.5rem;
 }
 
 .section-subtitle {
-  color: rgba(0,0,0,0.6);
+  color: #b8c4de;
   margin-bottom: 2rem;
 }
 
@@ -58,24 +70,36 @@
 }
 
 .post-card {
-  background: rgba(255,255,255,0.72);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(166, 191, 244, 0.18);
   padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  border-radius: 16px;
+  box-shadow: 0 12px 25px -16px rgba(5, 10, 24, 0.9);
 }
 
-.post-card h3 { margin-bottom: 0.5rem; }
-.post-card p { color: rgba(0,0,0,0.65); margin-bottom: 1rem; }
+.post-card h3 {
+  margin: 0 0 0.7rem;
+  color: #f4f7ff;
+}
+
+.post-card p {
+  color: #b8c4de;
+  margin: 0 0 1rem;
+}
+
 .read-more {
   display: inline-block;
-  padding: 0.5rem 1rem;
-  background: #0071e3;
+  padding: 0.55rem 1rem;
+  background: linear-gradient(135deg, #0f7ce9, #1d95ff);
   color: #fff;
   border-radius: 999px;
   text-decoration: none;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
-  .blog-container { padding: 1.25rem; }
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

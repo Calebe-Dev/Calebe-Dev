@@ -1,4 +1,4 @@
-import { z as head, w as attr } from "../../../../chunks/index2.js";
+import { a1 as head, _ as attr } from "../../../../chunks/index2.js";
 import { o as onDestroy } from "../../../../chunks/index-server.js";
 import { e as escape_html } from "../../../../chunks/context.js";
 function _page($$renderer, $$props) {
@@ -12,7 +12,7 @@ function _page($$renderer, $$props) {
       });
       $$renderer3.push(`<meta name="robots" content="noindex"/>`);
     });
-    $$renderer2.push(`<section class="redirect-page svelte-1v4kp2c"><div class="container svelte-1v4kp2c"><h1 class="svelte-1v4kp2c">Entrando em contato via WhatsApp</h1> <p class="svelte-1v4kp2c">Você será redirecionado para o WhatsApp em <strong>${escape_html(countdown)}s</strong>. Caso queira, clique no botão abaixo para ir agora.</p> <div class="actions svelte-1v4kp2c"><button class="primary svelte-1v4kp2c">Ir para o WhatsApp</button> <button class="secondary"${attr("aria-pressed", false)}>`);
+    $$renderer2.push(`<section class="redirect-page svelte-1v4kp2c"><div class="container svelte-1v4kp2c"><h1 class="svelte-1v4kp2c">Entrando em contato via WhatsApp</h1> <p class="svelte-1v4kp2c">Você será redirecionado para o WhatsApp em <strong>${escape_html(countdown)}s</strong>. Caso queira, clique no botão abaixo para ir agora.</p> <div class="actions svelte-1v4kp2c"><button class="primary svelte-1v4kp2c">Ir para o WhatsApp</button> <button class="secondary svelte-1v4kp2c"${attr("aria-pressed", false)}>`);
     {
       $$renderer2.push("<!--[-->");
       $$renderer2.push(`Cancelar redirecionamento (${escape_html(countdown)}s)`);

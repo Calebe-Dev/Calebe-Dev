@@ -1,4 +1,4 @@
-import { F as ensure_array_like, w as attr } from "../../../chunks/index2.js";
+import { a1 as head, a4 as ensure_array_like, _ as attr } from "../../../chunks/index2.js";
 import { e as escape_html } from "../../../chunks/context.js";
 function _page($$renderer) {
   const posts = [
@@ -18,6 +18,12 @@ function _page($$renderer) {
       excerpt: "Boas práticas de SEO técnico aplicadas a apps SvelteKit estáticas."
     }
   ];
+  head("u4k2t", $$renderer, ($$renderer2) => {
+    $$renderer2.title(($$renderer3) => {
+      $$renderer3.push(`<title>Blog | SEO, Performance Web e Desenvolvimento</title>`);
+    });
+    $$renderer2.push(`<meta name="description" content="Artigos sobre desenvolvimento full stack, SEO técnico, performance web e estratégias de conversão para projetos digitais."/>`);
+  });
   $$renderer.push(`<section class="blog-hero svelte-u4k2t"><div class="blog-container svelte-u4k2t"><div class="section-header svelte-u4k2t"><h1 class="svelte-u4k2t">Blog</h1> <p class="section-subtitle svelte-u4k2t">Artigos, tutoriais e análises sobre desenvolvimento e marketing digital</p></div> <div class="posts-grid svelte-u4k2t"><!--[-->`);
   const each_array = ensure_array_like(posts);
   for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {

@@ -74,32 +74,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
-  padding: 3rem 1rem;
+  min-height: 70svh;
+  padding: 6rem 1rem 3rem;
 }
 
 .container {
-  max-width: 720px;
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(12px) saturate(180%);
+  width: min(720px, 100%);
+  background: rgba(8, 13, 26, 0.76);
+  border: 1px solid rgba(166, 191, 244, 0.24);
+  backdrop-filter: blur(12px) saturate(160%);
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px -18px rgba(0, 0, 0, 0.75);
   text-align: center;
 }
 
 h1 {
   margin: 0 0 0.75rem 0;
-  font-size: 1.6rem;
+  font-size: clamp(1.5rem, 3.4vw, 2rem);
+  color: #f4f7ff;
 }
 
 p {
-  color: rgba(0,0,0,0.75);
+  color: #c4cde0;
   margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 
 .actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
   align-items: center;
@@ -110,14 +114,38 @@ button.primary {
   color: #fff;
   border: 0;
   padding: 0.75rem 1.25rem;
-  border-radius: 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f4f7ff;
+  border: 1px solid rgba(166, 191, 244, 0.24);
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
   font-weight: 600;
   cursor: pointer;
 }
 
 a.muted {
-  color: rgba(0,0,0,0.6);
+  color: #a9b6d4;
   text-decoration: underline;
   font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button.primary,
+  button.secondary,
+  a.muted {
+    width: 100%;
+    text-align: center;
+  }
 }
 </style>

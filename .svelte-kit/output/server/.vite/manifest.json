@@ -9,71 +9,63 @@
       "_environment.js"
     ]
   },
-  "_About.BlIgPChJ.css": {
-    "file": "_app/immutable/assets/About.BlIgPChJ.css",
-    "src": "_About.BlIgPChJ.css"
-  },
   "_About.js": {
     "file": "chunks/About.js",
     "name": "About",
-    "css": [
-      "_app/immutable/assets/About.BlIgPChJ.css"
+    "imports": [
+      "_index2.js",
+      "_AnimatedBlock.js",
+      "_ScrollReveal.js",
+      "_context.js"
     ]
   },
-  "_Contact.BUHYQ6wQ.css": {
-    "file": "_app/immutable/assets/Contact.BUHYQ6wQ.css",
-    "src": "_Contact.BUHYQ6wQ.css"
+  "_AnimatedBlock.js": {
+    "file": "chunks/AnimatedBlock.js",
+    "name": "AnimatedBlock",
+    "imports": [
+      "_index2.js"
+    ]
   },
   "_Contact.js": {
     "file": "chunks/Contact.js",
     "name": "Contact",
     "imports": [
-      "_index2.js",
-      "_context.js"
-    ],
-    "css": [
-      "_app/immutable/assets/Contact.BUHYQ6wQ.css"
+      "_AnimatedBlock.js"
     ]
-  },
-  "_Experience.69sQc6h5.css": {
-    "file": "_app/immutable/assets/Experience.69sQc6h5.css",
-    "src": "_Experience.69sQc6h5.css"
   },
   "_Experience.js": {
     "file": "chunks/Experience.js",
     "name": "Experience",
-    "css": [
-      "_app/immutable/assets/Experience.69sQc6h5.css"
+    "imports": [
+      "_index2.js",
+      "_AnimatedBlock.js",
+      "_ScrollReveal.js",
+      "_context.js"
     ]
-  },
-  "_Projects.CfXi0XUd.css": {
-    "file": "_app/immutable/assets/Projects.CfXi0XUd.css",
-    "src": "_Projects.CfXi0XUd.css"
   },
   "_Projects.js": {
     "file": "chunks/Projects.js",
     "name": "Projects",
     "imports": [
       "_index2.js",
+      "_AnimatedBlock.js",
       "_context.js"
-    ],
-    "css": [
-      "_app/immutable/assets/Projects.CfXi0XUd.css"
     ]
   },
-  "_Services.c7CCV3dk.css": {
-    "file": "_app/immutable/assets/Services.c7CCV3dk.css",
-    "src": "_Services.c7CCV3dk.css"
+  "_ScrollReveal.js": {
+    "file": "chunks/ScrollReveal.js",
+    "name": "ScrollReveal",
+    "imports": [
+      "_index2.js"
+    ]
   },
   "_Services.js": {
     "file": "chunks/Services.js",
     "name": "Services",
     "imports": [
       "_index2.js",
+      "_AnimatedBlock.js",
       "_context.js"
-    ],
-    "css": [
-      "_app/immutable/assets/Services.c7CCV3dk.css"
     ]
   },
   "_context.js": {
@@ -84,13 +76,13 @@
     "file": "chunks/environment.js",
     "name": "environment"
   },
-  "_equality.js": {
-    "file": "chunks/equality.js",
-    "name": "equality"
-  },
   "_exports.js": {
     "file": "chunks/exports.js",
     "name": "exports"
+  },
+  "_false.js": {
+    "file": "chunks/false.js",
+    "name": "false"
   },
   "_index-server.js": {
     "file": "chunks/index-server.js",
@@ -103,15 +95,15 @@
     "file": "chunks/index.js",
     "name": "index",
     "imports": [
-      "_utils2.js",
-      "_equality.js"
+      "_context.js"
     ]
   },
   "_index2.js": {
     "file": "chunks/index2.js",
     "name": "index",
     "imports": [
-      "_context.js"
+      "_context.js",
+      "_false.js"
     ]
   },
   "_internal.js": {
@@ -119,10 +111,8 @@
     "name": "internal",
     "imports": [
       "_index2.js",
-      "_environment.js",
-      "_utils2.js",
-      "_equality.js",
-      "_context.js"
+      "_context.js",
+      "_environment.js"
     ]
   },
   "_shared.js": {
@@ -136,15 +126,11 @@
     "file": "chunks/state.svelte.js",
     "name": "state.svelte",
     "imports": [
-      "_utils2.js"
+      "_context.js"
     ]
   },
   "_utils.js": {
     "file": "chunks/utils.js",
-    "name": "utils"
-  },
-  "_utils2.js": {
-    "file": "chunks/utils2.js",
     "name": "utils"
   },
   "node_modules/@sveltejs/kit/src/runtime/app/server/remote/index.js": {
@@ -154,6 +140,7 @@
     "isEntry": true,
     "imports": [
       "_shared.js",
+      "_false.js",
       "_environment.js"
     ]
   },
@@ -176,12 +163,13 @@
     "src": "node_modules/@sveltejs/kit/src/runtime/server/index.js",
     "isEntry": true,
     "imports": [
+      "_false.js",
       "_environment.js",
+      "_shared.js",
       "_exports.js",
       "_utils.js",
       "_index.js",
-      "_internal.js",
-      "_shared.js"
+      "_internal.js"
     ]
   },
   "src/routes/+layout.svelte": {
@@ -190,13 +178,14 @@
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
+      "_index2.js",
       "_exports.js",
       "_utils.js",
       "_state.svelte.js",
-      "_index2.js"
+      "_context.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.KPSBOtx1.css"
+      "_app/immutable/assets/_layout.nNN_b12m.css"
     ]
   },
   "src/routes/+layout.ts": {
@@ -212,15 +201,17 @@
     "isEntry": true,
     "imports": [
       "_index2.js",
-      "_About.js",
+      "_AnimatedBlock.js",
       "_context.js",
+      "_About.js",
+      "_ScrollReveal.js",
       "_Services.js",
       "_Experience.js",
       "_Projects.js",
       "_Contact.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.CgngGVt1.css"
+      "_app/immutable/assets/_page.T5eFYB8J.css"
     ]
   },
   "src/routes/blog/+page.svelte": {
@@ -233,7 +224,7 @@
       "_context.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.Ck5ru7En.css"
+      "_app/immutable/assets/_page.BrcTVSc_.css"
     ]
   },
   "src/routes/cases/alphacompanyads/+page.svelte": {
@@ -296,6 +287,7 @@
     "src": "src/routes/contato/+page.svelte",
     "isEntry": true,
     "imports": [
+      "_index2.js",
       "_Contact.js"
     ]
   },
@@ -305,6 +297,7 @@
     "src": "src/routes/experiencia/+page.svelte",
     "isEntry": true,
     "imports": [
+      "_index2.js",
       "_Experience.js"
     ]
   },
@@ -314,6 +307,7 @@
     "src": "src/routes/projetos/+page.svelte",
     "isEntry": true,
     "imports": [
+      "_index2.js",
       "_Projects.js"
     ]
   },
@@ -323,6 +317,7 @@
     "src": "src/routes/servicos/+page.svelte",
     "isEntry": true,
     "imports": [
+      "_index2.js",
       "_Services.js"
     ]
   },
@@ -332,6 +327,7 @@
     "src": "src/routes/sobre/+page.svelte",
     "isEntry": true,
     "imports": [
+      "_index2.js",
       "_About.js"
     ]
   },
@@ -346,7 +342,7 @@
       "_context.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.CC0k29pC.css"
+      "_app/immutable/assets/_page.0_1WbrRt.css"
     ]
   },
   "src/routes/solicitar-projeto/redirect/+page.svelte": {
@@ -360,7 +356,7 @@
       "_context.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.CJ077rAa.css"
+      "_app/immutable/assets/_page.BwiCfF5e.css"
     ]
   }
 }
