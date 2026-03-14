@@ -1,26 +1,53 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
 	import { environment } from '$lib/state/environment.svelte';
 
 	let container: HTMLElement;
 	let scrollY = $state(0);
 	let sectionTop = $state(0);
 	let sectionHeight = $state(0);
+	let viewportHeight = $state(0);
 	
-	// Calcular progresso interno da seção (0 a 1)
-	let progress = $derived.by(() => {
-		if (sectionHeight === 0) return 0;
-		const p = (scrollY - sectionTop) / (sectionHeight - window.innerHeight);
+	// Progresso global da seção (0 a 1)
+	let globalProgress = $derived.by(() => {
+		if (sectionHeight <= viewportHeight) return 0;
+		const start = sectionTop;
+		const end = sectionTop + sectionHeight - viewportHeight;
+		const p = (scrollY - start) / (end - start);
 		return Math.max(0, Math.min(1, p));
 	});
 
-	// Determinar slide atual com base no progresso
-	let currentSlide = $derived.by(() => {
-		if (progress < 0.33) return 0;
-		if (progress < 0.66) return 1;
-		return 2;
-	});
+	// Helper para calcular a opacidade/transform baseada num range específico
+	function getInterpolation(progress: number, start: number, end: number, fadeOutStart: number = 0.8) {
+		if (progress < start || progress > end) return { opacity: 0, y: 40, blur: 10, scale: 0.95 };
+		
+		const range = end - start;
+		const localProgress = (progress - start) / range;
+		
+		let opacity = 1;
+		let y = 0;
+		let blur = 0;
+		let scale = 1;
+
+		// Fade In (primeiros 20% do range local)
+		if (localProgress < 0.2) {
+			const ease = localProgress / 0.2;
+			opacity = ease;
+			y = 40 * (1 - ease);
+			blur = 10 * (1 - ease);
+			scale = 0.95 + (0.05 * ease);
+		} 
+		// Fade Out (últimos 20% do range local)
+		else if (localProgress > fadeOutStart) {
+			const ease = (1 - localProgress) / (1 - fadeOutStart);
+			opacity = ease;
+			y = -40 * (1 - ease);
+			blur = 10 * (1 - ease);
+			scale = 1 + (0.05 * (1 - ease));
+		}
+
+		return { opacity, y, blur, scale };
+	}
 
 	onMount(() => {
 		const updateDimensions = () => {
@@ -28,6 +55,7 @@
 				const rect = container.getBoundingClientRect();
 				sectionTop = rect.top + window.scrollY;
 				sectionHeight = rect.height;
+				viewportHeight = window.innerHeight;
 			}
 		};
 
@@ -44,62 +72,66 @@
 			window.removeEventListener('scroll', onScroll);
 		};
 	});
+
+	const slide1 = $derived(getInterpolation(globalProgress, 0, 0.35));
+	const slide2 = $derived(getInterpolation(globalProgress, 0.32, 0.68));
+	const slide3 = $derived(getInterpolation(globalProgress, 0.65, 1.0, 1.0)); // Não faz fadeOut no fim
 </script>
 
-<div bind:this={container} class="relative w-full h-[300vh] bg-black">
+<div bind:this={container} class="relative w-full h-[500vh] bg-black">
 	<!-- Sticky Wrapper -->
-	<div class="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
+	<div class="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center bg-black">
 		
-		<!-- Slide Backgrounds (Dinâmicos) -->
-		<div class="absolute inset-0 transition-all duration-1000 ease-in-out"
-			style="background: {
-				currentSlide === 0 ? 'radial-gradient(circle at 50% 50%, #0f172a 0%, #000 100%)' :
-				currentSlide === 1 ? 'radial-gradient(circle at 10% 90%, #1e1b4b 0%, #000 100%)' :
-				'radial-gradient(circle at 90% 10%, #312e81 0%, #000 100%)'
-			}"
+		<!-- Fundo Progressivo -->
+		<div class="absolute inset-0 opacity-40"
+			style="background: radial-gradient(circle at {50 + (globalProgress * 20)}% {50 - (globalProgress * 20)}%, #1e1b4b 0%, transparent 70%)"
 		></div>
 
-		<!-- Conteúdo dos Slides -->
-		<div class="relative z-10 w-full max-w-6xl px-8">
-			{#if currentSlide === 0}
-				<div in:fly={{ y: 50, duration: 1000 }} out:fade class="flex flex-col gap-6">
-					<span class="text-blue-500 font-bold tracking-[0.3em] uppercase text-sm">Design & Estratégia</span>
-					<h2 class="text-5xl md:text-8xl font-black text-white leading-tight tracking-tighter">
-						Porque a <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Experiência do Usuário</span> faz diferença?
-					</h2>
-				</div>
-			{:else if currentSlide === 1}
-				<div in:fly={{ y: 50, duration: 1000 }} out:fade class="flex flex-col gap-8 max-w-4xl">
-					<h3 class="text-4xl md:text-6xl font-bold text-white leading-snug">
-						O primeiro contato com sua marca pode ser a diferença entre 
-						<span class="text-indigo-400 italic">confiança e autoridade</span>
-					</h3>
-					<p class="text-xl md:text-2xl text-slate-400 font-light leading-relaxed">
-						Dúvidas ocultas afetam sua credibilidade antes mesmo do primeiro clique.
-					</p>
-				</div>
-			{:else if currentSlide === 2}
-				<div in:fly={{ y: 50, duration: 1000 }} out:fade class="flex flex-col gap-8">
-					<h2 class="text-5xl md:text-8xl font-black text-white leading-none tracking-tighter">
-						Mais que um <br/> <span class="text-blue-500 underline decoration-blue-500/30">artefato</span>.
-					</h2>
-					<p class="text-2xl md:text-3xl text-slate-300 max-w-2xl font-medium">
-						Usando as mesmas tecnologias que as maiores empresas de tecnologia para tornar qualquer projeto excepcional.
-					</p>
-					
-					<!-- Arte em Destaque (Placeholder Animado) -->
-					<div class="mt-8 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent scale-x-0 transition-transform duration-1000"
-						style="transform: scaleX({progress > 0.9 ? 1 : 0})"
-					></div>
-				</div>
-			{/if}
-		</div>
+		<!-- Conteúdo Interpolado -->
+		<div class="relative z-10 w-full max-w-5xl px-8 text-center flex flex-col items-center">
+			
+			<!-- Slide 1 -->
+			<div class="absolute inset-x-0 transition-all duration-75 ease-out pointer-events-none px-8"
+				style="opacity: {slide1.opacity}; transform: translateY({slide1.y}px) scale({slide1.scale}); filter: blur({slide1.blur}px)"
+			>
+				<span class="text-blue-500 font-bold tracking-[0.4em] uppercase text-xs mb-8 block">Storytelling Digital</span>
+				<h2 class="text-6xl md:text-9xl font-black text-white leading-[0.9] tracking-tighter">
+					Porque a <br/> <span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-500">Experiência</span> <br/> faz diferença?
+				</h2>
+			</div>
 
-		<!-- Indicador de Progresso Lateral -->
-		<div class="absolute right-12 top-1/2 -translate-y-1/2 flex flex-col gap-4">
-			{#each [0, 1, 2] as i}
-				<div class="w-1.5 h-12 rounded-full transition-all duration-500 {currentSlide === i ? 'bg-blue-500 scale-y-125' : 'bg-white/10'}"></div>
-			{/each}
+			<!-- Slide 2 -->
+			<div class="absolute inset-x-0 transition-all duration-75 ease-out pointer-events-none px-8"
+				style="opacity: {slide2.opacity}; transform: translateY({slide2.y}px) scale({slide2.scale}); filter: blur({slide2.blur}px)"
+			>
+				<h3 class="text-4xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight max-w-4xl mx-auto">
+					O primeiro contato com sua marca é o limite entre 
+					<span class="bg-blue-600/20 px-4 py-1 rounded-lg border border-blue-500/30">autoridade</span> e dúvida.
+				</h3>
+				<p class="mt-8 text-xl md:text-3xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+					Dúvidas silenciosas afetam sua credibilidade antes mesmo do primeiro clique.
+				</p>
+			</div>
+
+			<!-- Slide 3 -->
+			<div class="absolute inset-x-0 transition-all duration-75 ease-out pointer-events-none px-8"
+				style="opacity: {slide3.opacity}; transform: translateY({slide3.y}px) scale({slide3.scale}); filter: blur({slide3.blur}px)"
+			>
+				<h2 class="text-6xl md:text-9xl font-black text-white leading-none tracking-tighter mb-10">
+					Mais que um <br/> <span class="text-blue-500">artefato</span>.
+				</h2>
+				<p class="text-xl md:text-3xl text-slate-300 max-w-3xl mx-auto font-medium leading-relaxed">
+					Usando as mesmas tecnologias que as maiores Big Techs para tornar qualquer projeto uma obra de arte em destaque.
+				</p>
+				
+				<!-- Detalhe Visual (Arte) -->
+				<div class="mt-12 w-32 h-32 mx-auto relative">
+					<div class="absolute inset-0 border border-blue-500/50 rounded-full animate-ping"></div>
+					<div class="absolute inset-4 border border-blue-400/30 rounded-full animate-pulse delay-75"></div>
+					<div class="absolute inset-8 bg-blue-600 rounded-full shadow-[0_0_50px_rgba(37,99,235,0.6)]"></div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>
@@ -107,5 +139,6 @@
 <style>
 	h2, h3 {
 		text-wrap: balance;
+		word-break: keep-all;
 	}
 </style>
