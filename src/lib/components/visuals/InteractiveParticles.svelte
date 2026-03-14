@@ -56,15 +56,17 @@
 
 				if (environment.isLeftClickActive) {
 					// GRAVIDADE (Botão Esquerdo): Puxa para o cursor
-					// Fator de atração: mais forte perto (force é maior), mais lenta longe
-					const attractionForce = force * this.density * 1.2;
+					// Suavizado: força um pouco menor e atrito extra para evitar "jitter"
+					const attractionForce = force * this.density * 0.8; 
 					this.vx += Math.cos(angle) * attractionForce;
 					this.vy += Math.sin(angle) * attractionForce;
+					this.friction = 0.92; // Mais atrito durante a atração para suavizar a chegada
 				} else {
 					// REPULSÃO (Padrão): Empurra para longe
 					const pushForce = force * this.density * 2;
 					this.vx -= Math.cos(angle) * pushForce;
 					this.vy -= Math.sin(angle) * pushForce;
+					this.friction = 0.98; // Volta ao atrito normal
 				}
 			}
 
