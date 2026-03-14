@@ -12,7 +12,7 @@
 	let offscreenCanvas: HTMLCanvasElement;
 	let offscreenCtx: CanvasRenderingContext2D;
 
-	let subtitleElement: HTMLElement;
+	let subtitleElement = $state<HTMLElement | null>(null);
 
 	function updateCollisionMask() {
 		if (!textElement || !offscreenCanvas || !offscreenCtx) return;
@@ -115,7 +115,8 @@
 			<h2 
 				in:fade={{ duration: 1000, delay: 500 }} 
 				out:fade={{ duration: 1000 }}
-				class="absolute text-5xl md:text-7xl font-bold text-white tracking-tight text-center drop-shadow-2xl px-4"
+				class="absolute text-5xl md:text-7xl font-bold tracking-tight text-center px-4 transition-colors duration-1000
+					{environment.dayCycle === 'day' ? 'text-slate-900 drop-shadow-sm' : 'text-white drop-shadow-2xl'}"
 			>
 				{messages[currentIndex]}
 			</h2>
@@ -126,7 +127,8 @@
 		<div 
 			bind:this={subtitleElement}
 			in:fade={{ duration: 1500, delay: 200 }}
-			class="mt-4 text-xl md:text-2xl font-light text-blue-300/80 tracking-widest uppercase text-center"
+			class="mt-4 text-xl md:text-2xl font-light tracking-widest uppercase text-center transition-colors duration-1000
+				{environment.dayCycle === 'day' ? 'text-slate-700' : 'text-blue-300/80'}"
 		>
 			Desenvolvedor Fullstack Multi Plataforma
 		</div>
@@ -134,7 +136,8 @@
 		<!-- Indicador de Scroll -->
 		<div 
 			in:fade={{ duration: 1000, delay: 1000 }}
-			class="absolute bottom-[-100px] flex flex-col items-center gap-2 text-white/40 animate-bounce cursor-pointer"
+			class="absolute bottom-[-100px] flex flex-col items-center gap-2 animate-bounce cursor-pointer transition-colors duration-1000
+				{environment.dayCycle === 'day' ? 'text-slate-900/40' : 'text-white/40'}"
 		>
 			<span class="text-[10px] uppercase tracking-[0.3em] font-medium">Role para explorar</span>
 			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">

@@ -6,7 +6,10 @@
 }
 
 body {
-  @apply bg-black text-white antialiased;
+  background-color: black;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-family: 'Inter', sans-serif;
 }
 @keyframes fadeIn {
