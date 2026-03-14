@@ -1,6 +1,7 @@
 <script lang="ts">
 	import DynamicHeroBackground from '$lib/components/visuals/DynamicHeroBackground.svelte';
 	import AnimatedHeroText from '$lib/components/visuals/AnimatedHeroText.svelte';
+	import InteractiveSlides from '$lib/components/sections/InteractiveSlides.svelte';
 	import { environment } from '$lib/state/environment.svelte';
 	import { fade } from 'svelte/transition';
 
@@ -49,6 +50,8 @@
 	</div>
 </section>
 
+<InteractiveSlides />
+
 <section class="p-20 bg-black text-white">
-	<p class="text-center opacity-50">Role para explorar o novo projeto...</p>
+	<p class="text-center opacity-30 text-xs tracking-widest uppercase">Mais conteúdo em breve...</p>
 </section>

@@ -11,6 +11,11 @@
 			autoRaf: true,
 		});
 
+		// Garantir que começamos no topo se o scroll estiver travado (intro)
+		if (environment.isScrollLocked) {
+			window.scrollTo(0, 0);
+		}
+
 		// Controle de Trava de Scroll
 		$effect(() => {
 			if (environment.isScrollLocked) {
