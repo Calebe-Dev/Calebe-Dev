@@ -22,7 +22,7 @@
 		constructor(canvasWidth: number, canvasHeight: number) {
 			this.x = Math.random() * canvasWidth;
 			this.y = Math.random() * canvasHeight;
-			this.size = Math.random() * 2 + 1;
+			this.size = Math.random() * 4 + 2; // Partículas maiores (2-6px)
 			this.baseX = this.x;
 			this.baseY = this.y;
 			this.vx = 0;
@@ -36,7 +36,7 @@
 			let distance = Math.sqrt(dx * dx + dy * dy);
 			let forceDirectionX = dx / distance;
 			let forceDirectionY = dy / distance;
-			let maxDistance = 150;
+			let maxDistance = 200; // Raio de interação um pouco maior
 			let force = (maxDistance - distance) / maxDistance;
 			let directionX = forceDirectionX * force * this.density;
 			let directionY = forceDirectionY * force * this.density;
@@ -74,7 +74,13 @@
 
 	function animate() {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		const color = environment.dayCycle === 'day' ? 'rgba(59, 130, 246, 0.4)' : 'rgba(255, 255, 255, 0.4)';
+		
+		// Cores complementares com contraste:
+		// Dia (fundo claro): Partículas escuras (Navy Blue)
+		// Noite (fundo escuro): Partículas claras (Luminous Blue/Cyan)
+		const color = environment.dayCycle === 'day' 
+			? 'rgba(15, 23, 42, 0.6)' 
+			: 'rgba(191, 219, 254, 0.7)';
 		
 		for (let p of particles) {
 			p.update(environment.mouse.x, environment.mouse.y);
