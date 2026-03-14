@@ -10,6 +10,7 @@ class EnvironmentState {
 	scrollProgress = $state(0);
 	isLeftClickActive = $state(false);
 	shakeIntensity = $state(0);
+	textBounds = $state<DOMRect | null>(null);
 
 	constructor() {
 		if (browser) {

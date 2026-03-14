@@ -24,9 +24,6 @@
 	
 	<div class="relative z-20 text-center px-6 w-full max-w-4xl">
 		<AnimatedHeroText {messages} />
-		<p class="text-xl md:text-2xl text-blue-200/80 max-w-2xl mx-auto font-light leading-relaxed mt-6 animate-fadeIn" style="animation-delay: 2s;">
-			Engenharia Digital Premium & Design de Alta Performance
-		</p>
 	</div>
 
 	<!-- Debug controls (temporary for user verification) -->

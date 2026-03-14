@@ -55,18 +55,45 @@
 				const angle = Math.atan2(dy, dx);
 
 				if (environment.isLeftClickActive) {
-					// GRAVIDADE (Botão Esquerdo): Puxa para o cursor
-					// Suavizado: força um pouco menor e atrito extra para evitar "jitter"
 					const attractionForce = force * this.density * 0.8; 
 					this.vx += Math.cos(angle) * attractionForce;
 					this.vy += Math.sin(angle) * attractionForce;
-					this.friction = 0.92; // Mais atrito durante a atração para suavizar a chegada
+					this.friction = 0.92;
 				} else {
-					// REPULSÃO (Padrão): Empurra para longe
 					const pushForce = force * this.density * 2;
 					this.vx -= Math.cos(angle) * pushForce;
 					this.vy -= Math.sin(angle) * pushForce;
-					this.friction = 0.98; // Volta ao atrito normal
+					this.friction = 0.98;
+				}
+			}
+
+			// COLISÃO COM O TEXTO (Hero Text Bounds)
+			if (environment.textBounds) {
+				const b = environment.textBounds;
+				// Margem de segurança para a colisão
+				const margin = 20;
+				if (
+					this.x > b.left - margin && 
+					this.x < b.right + margin && 
+					this.y > b.top - margin && 
+					this.y < b.bottom + margin
+				) {
+					// Física de colisão simples: empurrar para a borda mais próxima
+					const distLeft = Math.abs(this.x - (b.left - margin));
+					const distRight = Math.abs(this.x - (b.right + margin));
+					const distTop = Math.abs(this.y - (b.top - margin));
+					const distBottom = Math.abs(this.y - (b.bottom + margin));
+
+					const minDist = Math.min(distLeft, distRight, distTop, distBottom);
+
+					if (minDist === distLeft) { this.vx -= 1.5; this.x = b.left - margin; }
+					else if (minDist === distRight) { this.vx += 1.5; this.x = b.right + margin; }
+					else if (minDist === distTop) { this.vy -= 1.5; this.y = b.top - margin; }
+					else if (minDist === distBottom) { this.vy += 1.5; this.y = b.bottom + margin; }
+					
+					// Inverter um pouco a velocidade para o "kike"
+					this.vx *= -0.5;
+					this.vy *= -0.5;
 				}
 			}
 
@@ -76,7 +103,7 @@
 				this.vy += (Math.random() - 0.5) * environment.shakeIntensity;
 			}
 
-			// Efeito de Scroll: "Gravidade" que puxa para o fundo da Hero
+			// Efeito de Scroll
 			if (environment.scrollProgress > 0) {
 				const gravity = environment.scrollProgress * 0.5;
 				this.vy += gravity;
@@ -96,10 +123,7 @@
 			if (this.x < 0) { this.x = 0; this.vx *= -0.8; }
 			if (this.x > canvas.width) { this.x = canvas.width; this.vx *= -0.8; }
 			if (this.y < 0) { this.y = 0; this.vy *= -0.8; }
-			if (this.y > canvas.height) { 
-				this.y = canvas.height; 
-				this.vy *= -0.5; 
-			}
+			if (this.y > canvas.height) { this.y = canvas.height; this.vy *= -0.5; }
 		}
 
 		draw(ctx: CanvasRenderingContext2D) {
