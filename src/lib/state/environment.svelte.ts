@@ -13,6 +13,7 @@ class EnvironmentState {
 	textBounds = $state<DOMRect | null>(null);
 	isScrollLocked = $state(true);
 	isShowcaseRunning = $state(false);
+	showcaseLabel = $state("");
 	collisionMask = $state<{
 		data: Uint8ClampedArray | null;
 		width: number;
@@ -24,19 +25,20 @@ class EnvironmentState {
 		this.isShowcaseRunning = true;
 
 		const steps = [
-			{ dayCycle: 'day' as const, weather: 'sunny' as const },
-			{ dayCycle: 'day' as const, weather: 'rainy' as const },
-			{ dayCycle: 'night' as const, weather: 'rainy' as const },
-			{ dayCycle: 'night' as const, weather: 'sunny' as const },
+			{ dayCycle: 'day' as const, weather: 'sunny' as const, label: 'Dia Ensolarado' },
+			{ dayCycle: 'day' as const, weather: 'rainy' as const, label: 'Chuva na Tarde' },
+			{ dayCycle: 'night' as const, weather: 'rainy' as const, label: 'Noite de Tempestade' },
+			{ dayCycle: 'night' as const, weather: 'sunny' as const, label: 'Noite Estrelada' },
 		];
 
 		for (const step of steps) {
+			this.showcaseLabel = step.label;
 			this.dayCycle = step.dayCycle;
 			this.weather = step.weather;
-			await new Promise(resolve => setTimeout(resolve, 2000));
+			await new Promise(resolve => setTimeout(resolve, 3000));
 		}
 
-		// Reset to current time/weather logic or leave at last step
+		this.showcaseLabel = "";
 		this.isShowcaseRunning = false;
 	}
 
