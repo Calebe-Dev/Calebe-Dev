@@ -18,45 +18,32 @@
 		<AnimatedHeroText {messages} />
 	</div>
 
-	<!-- Botão de Showcase (Review Experience) -->
-	<div class="absolute bottom-12 z-30 flex flex-col items-center w-full gap-4">
+	<!-- Botão de Showcase (Review Experience) - Mais Discreto -->
+	<div class="absolute bottom-6 right-6 z-30 flex flex-col items-end gap-2">
 		{#if environment.isShowcaseRunning && environment.showcaseLabel}
 			<div 
 				in:fade={{ duration: 500 }} 
 				out:fade={{ duration: 500 }}
-				class="px-4 py-1.5 bg-blue-500/10 border border-blue-500/30 rounded-full text-[10px] text-blue-400 uppercase tracking-[0.2em] font-bold backdrop-blur-md"
+				class="px-3 py-1 bg-blue-500/5 border border-blue-500/20 rounded-full text-[9px] text-blue-400/80 uppercase tracking-widest backdrop-blur-sm"
 			>
-				Mostrando: {environment.showcaseLabel}
+				{environment.showcaseLabel}
 			</div>
 		{/if}
 
 		<button 
 			on:click={() => environment.startShowcase()} 
 			disabled={environment.isShowcaseRunning}
-			class="group px-8 py-3 bg-white/5 hover:bg-white/10 backdrop-blur-xl rounded-full text-xs transition-all duration-500 uppercase tracking-[0.4em] border border-white/10 hover:border-white/30 flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed
-				{environment.dayCycle === 'day'
-				? 'text-slate-900 border-slate-900/10'
-				: 'text-white border-white/20'}"
+			class="group p-3 bg-white/5 hover:bg-white/10 backdrop-blur-md rounded-full transition-all duration-500 border border-white/10 hover:border-white/20 disabled:opacity-30
+				{environment.dayCycle === 'day' ? 'text-slate-900/50 border-slate-900/5' : 'text-white/40 border-white/10'}"
+			title="Review Experience"
 		>
 			{#if environment.isShowcaseRunning}
-				<span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-ping"></span>
-				Sincronizando...
+				<span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
 			{:else}
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="16"
-					height="16"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					class="group-hover:rotate-180 transition-transform duration-700"
-				>
-					<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+				<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-60 group-hover:opacity-100 group-hover:rotate-90 transition-all duration-500">
+					<circle cx="12" cy="12" r="3"></circle>
+					<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
 				</svg>
-				Review Experience
 			{/if}
 		</button>
 	</div>
