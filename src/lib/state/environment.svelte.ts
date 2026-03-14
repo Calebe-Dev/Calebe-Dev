@@ -38,6 +38,10 @@ class EnvironmentState {
 			await new Promise(resolve => setTimeout(resolve, 3000));
 		}
 
+		this.showcaseLabel = "Sincronizando com seu horário...";
+		await new Promise(resolve => setTimeout(resolve, 1500));
+		
+		this.updateCycle();
 		this.showcaseLabel = "";
 		this.isShowcaseRunning = false;
 	}
@@ -84,7 +88,7 @@ class EnvironmentState {
 		this.shakeIntensity = 15;
 	}
 
-	private updateCycle() {
+	updateCycle() {
 		const hour = new Date().getHours();
 		this.dayCycle = (hour >= 6 && hour < 18) ? 'day' : 'night';
 	}

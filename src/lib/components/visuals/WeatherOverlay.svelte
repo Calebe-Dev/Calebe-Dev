@@ -6,6 +6,22 @@
 	let isSunny = $derived(environment.weather === 'sunny');
 </script>
 
+{#if environment.dayCycle === 'night' && !isRainy}
+	<div transition:fade={{ duration: 1500 }} class="star-field">
+		{#each Array(100) as _}
+			<div 
+				class="star" 
+				style="
+					left: {Math.random() * 100}%; 
+					top: {Math.random() * 100}%; 
+					transform: scale({Math.random() * 0.7 + 0.3});
+					animation-delay: {Math.random() * 5}s;
+				"
+			></div>
+		{/each}
+	</div>
+{/if}
+
 {#if isRainy}
 	<div transition:fade={{ duration: 1000 }} class="rain-container">
 		{#each Array(50) as _}
@@ -73,5 +89,28 @@
 		pointer-events: none;
 		z-index: -1;
 		mask-image: radial-gradient(circle at 85% 15%, black, transparent 70%);
+	}
+
+	.star-field {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		z-index: -1;
+	}
+
+	.star {
+		position: absolute;
+		width: 2px;
+		height: 2px;
+		background: white;
+		border-radius: 50%;
+		box-shadow: 0 0 5px white;
+		opacity: 0.5;
+		animation: twinkle 4s infinite ease-in-out;
+	}
+
+	@keyframes twinkle {
+		0%, 100% { opacity: 0.3; transform: scale(0.8); }
+		50% { opacity: 0.8; transform: scale(1.1); }
 	}
 </style>

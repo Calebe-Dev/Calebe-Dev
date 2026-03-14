@@ -1,7 +1,8 @@
 <script lang="ts">
 	import DynamicHeroBackground from '$lib/components/visuals/DynamicHeroBackground.svelte';
-w	import AnimatedHeroText from '$lib/components/visuals/AnimatedHeroText.svelte';
+	import AnimatedHeroText from '$lib/components/visuals/AnimatedHeroText.svelte';
 	import { environment } from '$lib/state/environment.svelte';
+	import { fade } from 'svelte/transition';
 
 	const messages = [
 		"Olá, tudo bem?",
