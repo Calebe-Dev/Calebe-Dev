@@ -11,6 +11,7 @@ class EnvironmentState {
 	isLeftClickActive = $state(false);
 	shakeIntensity = $state(0);
 	textBounds = $state<DOMRect | null>(null);
+	isScrollLocked = $state(true);
 	collisionMask = $state<{
 		data: Uint8ClampedArray | null;
 		width: number;

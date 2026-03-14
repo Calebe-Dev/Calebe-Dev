@@ -88,6 +88,7 @@
 				currentIndex++;
 			} else {
 				isFinished = true;
+				environment.isScrollLocked = false;
 				clearInterval(interval);
 			}
 		}, 4500);
