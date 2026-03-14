@@ -7,6 +7,7 @@ class EnvironmentState {
 	dayCycle = $state<DayCycle>('day');
 	weather = $state<WeatherType>('sunny');
 	mouse = $state({ x: 0, y: 0 });
+	scrollProgress = $state(0);
 
 	constructor() {
 		if (browser) {
@@ -14,7 +15,11 @@ class EnvironmentState {
 			window.addEventListener('mousemove', (e) => {
 				this.mouse = { x: e.clientX, y: e.clientY };
 			});
-			// In a real app, you'd fetch weather here
+
+			window.addEventListener('scroll', () => {
+				const height = window.innerHeight;
+				this.scrollProgress = Math.min(window.scrollY / height, 1);
+			}, { passive: true });
 		}
 	}
 
