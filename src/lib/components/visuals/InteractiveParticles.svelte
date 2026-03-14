@@ -44,7 +44,7 @@
 		update(mouseX: number, mouseY: number) {
 			this.updateColor();
 			
-			// Interação com o Mouse (Física de Repulsão)
+			// Interação com o Mouse (Física de Repulsão/Atração)
 			let dx = mouseX - this.x;
 			let dy = mouseY - this.y;
 			let distance = Math.sqrt(dx * dx + dy * dy);
@@ -53,20 +53,34 @@
 			if (distance < maxDistance) {
 				const force = (maxDistance - distance) / maxDistance;
 				const angle = Math.atan2(dy, dx);
-				// Empurrão mais forte e persistente
-				const pushForce = force * this.density * 2;
-				this.vx -= Math.cos(angle) * pushForce;
-				this.vy -= Math.sin(angle) * pushForce;
+
+				if (environment.isLeftClickActive) {
+					// GRAVIDADE (Botão Esquerdo): Puxa para o cursor
+					// Fator de atração: mais forte perto (force é maior), mais lenta longe
+					const attractionForce = force * this.density * 1.2;
+					this.vx += Math.cos(angle) * attractionForce;
+					this.vy += Math.sin(angle) * attractionForce;
+				} else {
+					// REPULSÃO (Padrão): Empurra para longe
+					const pushForce = force * this.density * 2;
+					this.vx -= Math.cos(angle) * pushForce;
+					this.vy -= Math.sin(angle) * pushForce;
+				}
+			}
+
+			// Efeito TERREMOTO (Botão Direito)
+			if (environment.shakeIntensity > 0) {
+				this.vx += (Math.random() - 0.5) * environment.shakeIntensity;
+				this.vy += (Math.random() - 0.5) * environment.shakeIntensity;
 			}
 
 			// Efeito de Scroll: "Gravidade" que puxa para o fundo da Hero
-			// Conforme o scroll ocorre, adicionamos uma força descendente
 			if (environment.scrollProgress > 0) {
 				const gravity = environment.scrollProgress * 0.5;
 				this.vy += gravity;
 			}
 
-			// Drift aleatório (Brownian-ish motion) para não ficarem paradas
+			// Drift aleatório sutil
 			this.vx += (Math.random() - 0.5) * 0.05;
 			this.vy += (Math.random() - 0.5) * 0.05;
 
@@ -76,13 +90,13 @@
 			this.vx *= this.friction;
 			this.vy *= this.friction;
 
-			// Boundary Check & Bounce (Bater nos cantos e ficar na tela)
+			// Boundary Check & Bounce
 			if (this.x < 0) { this.x = 0; this.vx *= -0.8; }
 			if (this.x > canvas.width) { this.x = canvas.width; this.vx *= -0.8; }
 			if (this.y < 0) { this.y = 0; this.vy *= -0.8; }
 			if (this.y > canvas.height) { 
 				this.y = canvas.height; 
-				this.vy *= -0.5; // Bate no fundo com menos força (acumula lá)
+				this.vy *= -0.5; 
 			}
 		}
 
