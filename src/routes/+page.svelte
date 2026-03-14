@@ -22,9 +22,9 @@
 <section class="h-screen flex flex-col items-center justify-center relative overflow-hidden">
 	<DynamicHeroBackground />
 	
-	<div class="relative z-10 text-center px-6 w-full max-w-4xl">
+	<div class="relative z-20 text-center px-6 w-full max-w-4xl">
 		<AnimatedHeroText {messages} />
-		<p class="text-xl md:text-2xl text-blue-200/80 max-w-2xl mx-auto font-light leading-relaxed mt-6 opacity-0 animate-[fadeIn_1.5s_ease-out_forwards] delay-1000">
+		<p class="text-xl md:text-2xl text-blue-200/80 max-w-2xl mx-auto font-light leading-relaxed mt-6 animate-fadeIn" style="animation-delay: 2s;">
 			Engenharia Digital Premium & Design de Alta Performance
 		</p>
 	</div>

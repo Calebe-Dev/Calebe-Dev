@@ -5,31 +5,26 @@
 	let { messages = [] } = $props();
 	
 	let currentIndex = $state(0);
-	let visible = $state(true);
 
 	onMount(() => {
 		const interval = setInterval(() => {
-			visible = false;
-			setTimeout(() => {
-				currentIndex = (currentIndex + 1) % messages.length;
-				visible = true;
-			}, 1000); // Tempo do fade-out antes de trocar
-		}, 4000); // Duração total de cada frase
+			currentIndex = (currentIndex + 1) % messages.length;
+		}, 4000);
 
 		return () => clearInterval(interval);
 	});
 </script>
 
-<div class="text-container h-24 flex items-center justify-center">
-	{#if visible}
+<div class="text-container h-32 flex items-center justify-center relative">
+	{#key currentIndex}
 		<h2 
-			in:fade={{ duration: 800 }} 
-			out:fade={{ duration: 800 }}
-			class="text-4xl md:text-6xl font-bold text-white tracking-tight text-center drop-shadow-2xl"
+			in:fade={{ duration: 1000, delay: 400 }} 
+			out:fade={{ duration: 1000 }}
+			class="absolute text-4xl md:text-6xl font-bold text-white tracking-tight text-center drop-shadow-2xl"
 		>
 			{messages[currentIndex]}
 		</h2>
-	{/if}
+	{/key}
 </div>
 
 <style>
