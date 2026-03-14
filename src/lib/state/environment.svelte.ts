@@ -12,11 +12,33 @@ class EnvironmentState {
 	shakeIntensity = $state(0);
 	textBounds = $state<DOMRect | null>(null);
 	isScrollLocked = $state(true);
+	isShowcaseRunning = $state(false);
 	collisionMask = $state<{
 		data: Uint8ClampedArray | null;
 		width: number;
 		height: number;
 	}>({ data: null, width: 0, height: 0 });
+
+	async startShowcase() {
+		if (this.isShowcaseRunning) return;
+		this.isShowcaseRunning = true;
+
+		const steps = [
+			{ dayCycle: 'day' as const, weather: 'sunny' as const },
+			{ dayCycle: 'day' as const, weather: 'rainy' as const },
+			{ dayCycle: 'night' as const, weather: 'rainy' as const },
+			{ dayCycle: 'night' as const, weather: 'sunny' as const },
+		];
+
+		for (const step of steps) {
+			this.dayCycle = step.dayCycle;
+			this.weather = step.weather;
+			await new Promise(resolve => setTimeout(resolve, 2000));
+		}
+
+		// Reset to current time/weather logic or leave at last step
+		this.isShowcaseRunning = false;
+	}
 
 	constructor() {
 		if (browser) {

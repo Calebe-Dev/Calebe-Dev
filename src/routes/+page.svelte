@@ -8,15 +8,6 @@
 		"Eu sou Calebe",
 		"Bem Vindo a meu portfólio!!"
 	];
-
-	// Toggle helper for testing
-	function toggleWeather() {
-		environment.weather = environment.weather === 'sunny' ? 'rainy' : 'sunny';
-	}
-	
-	function toggleTime() {
-		environment.dayCycle = environment.dayCycle === 'day' ? 'night' : 'day';
-	}
 </script>
 
 <section class="h-screen flex flex-col items-center justify-center relative overflow-hidden">
@@ -26,13 +17,23 @@
 		<AnimatedHeroText {messages} />
 	</div>
 
-	<!-- Debug controls (temporary for user verification) -->
-	<div class="absolute bottom-8 right-8 z-20 flex gap-4">
-		<button on:click={toggleTime} class="px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur rounded-full text-xs transition-all uppercase tracking-widest border border-white/20">
-			Alternar Ciclo (Dia/Noite)
-		</button>
-		<button on:click={toggleWeather} class="px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur rounded-full text-xs transition-all uppercase tracking-widest border border-white/20">
-			Alternar Clima (Sol/Chuva)
+	<!-- Botão de Showcase (Review Experience) -->
+	<div class="absolute bottom-12 z-30 flex justify-center w-full">
+		<button 
+			on:click={() => environment.startShowcase()} 
+			disabled={environment.isShowcaseRunning}
+			class="group px-8 py-3 bg-white/5 hover:bg-white/10 backdrop-blur-xl rounded-full text-xs transition-all duration-500 uppercase tracking-[0.4em] border border-white/10 hover:border-white/30 flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed
+				{environment.dayCycle === 'day' ? 'text-slate-900 border-slate-900/10' : 'text-white border-white/20'}"
+		>
+			{#if environment.isShowcaseRunning}
+				<span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-ping"></span>
+				Sincronizando...
+			{:else}
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:rotate-180 transition-transform duration-700">
+					<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+				</svg>
+				Review Experience
+			{/if}
 		</button>
 	</div>
 </section>
