@@ -11,6 +11,11 @@ class EnvironmentState {
 	isLeftClickActive = $state(false);
 	shakeIntensity = $state(0);
 	textBounds = $state<DOMRect | null>(null);
+	collisionMask = $state<{
+		data: Uint8ClampedArray | null;
+		width: number;
+		height: number;
+	}>({ data: null, width: 0, height: 0 });
 
 	constructor() {
 		if (browser) {
