@@ -1,6 +1,13 @@
 <script lang="ts">
 	import DynamicHeroBackground from '$lib/components/visuals/DynamicHeroBackground.svelte';
+	import AnimatedHeroText from '$lib/components/visuals/AnimatedHeroText.svelte';
 	import { environment } from '$lib/state/environment.svelte';
+
+	const messages = [
+		"Olá, tudo bem?",
+		"Eu sou Calebe",
+		"Bem Vindo a meu portfólio!!"
+	];
 
 	// Toggle helper for testing
 	function toggleWeather() {
@@ -15,11 +22,9 @@
 <section class="h-screen flex flex-col items-center justify-center relative overflow-hidden">
 	<DynamicHeroBackground />
 	
-	<div class="relative z-10 text-center px-6">
-		<h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-4 text-white drop-shadow-lg">
-			Calebe Araújo
-		</h1>
-		<p class="text-xl md:text-2xl text-blue-200/80 max-w-2xl mx-auto font-light leading-relaxed">
+	<div class="relative z-10 text-center px-6 w-full max-w-4xl">
+		<AnimatedHeroText {messages} />
+		<p class="text-xl md:text-2xl text-blue-200/80 max-w-2xl mx-auto font-light leading-relaxed mt-6 opacity-0 animate-[fadeIn_1.5s_ease-out_forwards] delay-1000">
 			Engenharia Digital Premium & Design de Alta Performance
 		</p>
 	</div>
