@@ -83,7 +83,20 @@
 	onMount(() => {
 		offscreenCtx = offscreenCanvas.getContext('2d', { willReadFrequently: true })!;
 
+		// Verificar se o usuário já recarregou a página fora da Hero
+		if (window.scrollY > 100) {
+			isFinished = true;
+			currentIndex = messages.length - 1;
+			environment.isScrollLocked = false;
+			updateCollisionMask();
+		}
+
 		const interval = setInterval(() => {
+			if (isFinished) {
+				clearInterval(interval);
+				return;
+			}
+			
 			if (currentIndex < messages.length - 1) {
 				currentIndex++;
 			} else {
