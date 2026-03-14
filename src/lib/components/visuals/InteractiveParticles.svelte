@@ -16,20 +16,22 @@
 	class Particle {
 		x: number;
 		y: number;
+		vx: number = 0;
+		vy: number = 0;
 		size: number;
-		baseX: number;
-		baseY: number;
 		density: number;
 		colorIndex: number;
 		color: string = '';
+		friction: number = 0.98; // Atrito menor para mais "deslize"
 
 		constructor(canvasWidth: number, canvasHeight: number) {
 			this.x = Math.random() * canvasWidth;
 			this.y = Math.random() * canvasHeight;
 			this.size = Math.random() * 4 + 2;
-			this.baseX = this.x;
-			this.baseY = this.y;
-			this.density = (Math.random() * 30) + 1;
+			// Pequena velocidade inicial aleatória para movimento constante
+			this.vx = (Math.random() - 0.5) * 0.5;
+			this.vy = (Math.random() - 0.5) * 0.5;
+			this.density = (Math.random() * 20) + 1;
 			this.colorIndex = Math.floor(Math.random() * 5);
 			this.updateColor();
 		}
@@ -42,38 +44,46 @@
 		update(mouseX: number, mouseY: number) {
 			this.updateColor();
 			
-			// Efeito de Scroll: Empurra as partículas para cima conforme desce
-			// Quando scrollProgress chega em 1 (fim da hero), as partículas ficam "esmagadas" no fundo
-			const scrollOffset = environment.scrollProgress * canvas.height * 0.5;
-			const targetBaseY = this.baseY - scrollOffset;
-
+			// Interação com o Mouse (Física de Repulsão)
 			let dx = mouseX - this.x;
 			let dy = mouseY - this.y;
 			let distance = Math.sqrt(dx * dx + dy * dy);
-			let forceDirectionX = dx / distance;
-			let forceDirectionY = dy / distance;
 			let maxDistance = 200;
-			let force = (maxDistance - distance) / maxDistance;
-			let directionX = forceDirectionX * force * this.density;
-			let directionY = forceDirectionY * force * this.density;
 
 			if (distance < maxDistance) {
-				this.x -= directionX;
-				this.y -= directionY;
-			} else {
-				if (this.x !== this.baseX) {
-					let dx = this.x - this.baseX;
-					this.x -= dx / 20;
-				}
-				if (this.y !== targetBaseY) {
-					let dy = this.y - targetBaseY;
-					this.y -= dy / 20;
-				}
+				const force = (maxDistance - distance) / maxDistance;
+				const angle = Math.atan2(dy, dx);
+				// Empurrão mais forte e persistente
+				const pushForce = force * this.density * 2;
+				this.vx -= Math.cos(angle) * pushForce;
+				this.vy -= Math.sin(angle) * pushForce;
 			}
 
-			// Boundary Check: Manter dentro do canvas conforme o scroll
-			if (this.y < 0) this.y = 0;
-			if (this.y > canvas.height) this.y = canvas.height;
+			// Efeito de Scroll: "Gravidade" que puxa para o fundo da Hero
+			// Conforme o scroll ocorre, adicionamos uma força descendente
+			if (environment.scrollProgress > 0) {
+				const gravity = environment.scrollProgress * 0.5;
+				this.vy += gravity;
+			}
+
+			// Drift aleatório (Brownian-ish motion) para não ficarem paradas
+			this.vx += (Math.random() - 0.5) * 0.05;
+			this.vy += (Math.random() - 0.5) * 0.05;
+
+			// Aplicação de Velocidade e Atrito
+			this.x += this.vx;
+			this.y += this.vy;
+			this.vx *= this.friction;
+			this.vy *= this.friction;
+
+			// Boundary Check & Bounce (Bater nos cantos e ficar na tela)
+			if (this.x < 0) { this.x = 0; this.vx *= -0.8; }
+			if (this.x > canvas.width) { this.x = canvas.width; this.vx *= -0.8; }
+			if (this.y < 0) { this.y = 0; this.vy *= -0.8; }
+			if (this.y > canvas.height) { 
+				this.y = canvas.height; 
+				this.vy *= -0.5; // Bate no fundo com menos força (acumula lá)
+			}
 		}
 
 		draw(ctx: CanvasRenderingContext2D) {
