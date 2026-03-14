@@ -130,10 +130,18 @@
 
 		draw(ctx: CanvasRenderingContext2D) {
 			ctx.fillStyle = this.color;
+			ctx.save();
 			ctx.beginPath();
 			ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-			ctx.closePath();
+			ctx.fillStyle = this.color;
+			
+			if (environment.dayCycle === 'night') {
+				ctx.shadowBlur = 8;
+				ctx.shadowColor = this.color;
+			}
+			
 			ctx.fill();
+			ctx.restore();
 		}
 	}
 
