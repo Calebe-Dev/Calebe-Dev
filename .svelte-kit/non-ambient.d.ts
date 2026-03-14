@@ -27,33 +27,15 @@ export {};
 
 declare module "$app/types" {
 	export interface AppTypes {
-		RouteId(): "/" | "/blog" | "/cases" | "/cases/alphacompanyads" | "/cases/buenoswatertechnology" | "/cases/esquadriasmartins" | "/cases/grupooc" | "/cases/internetfibraagora" | "/cases/leadplanodesaude" | "/cases/linkdedicada" | "/cases/meupabxemnuvem" | "/cases/planotimempresa" | "/contato" | "/experiencia" | "/projetos" | "/servicos" | "/sobre" | "/solicitar-projeto" | "/solicitar-projeto/redirect";
+		RouteId(): "/";
 		RouteParams(): {
 			
 		};
 		LayoutParams(): {
-			"/": Record<string, never>;
-			"/blog": Record<string, never>;
-			"/cases": Record<string, never>;
-			"/cases/alphacompanyads": Record<string, never>;
-			"/cases/buenoswatertechnology": Record<string, never>;
-			"/cases/esquadriasmartins": Record<string, never>;
-			"/cases/grupooc": Record<string, never>;
-			"/cases/internetfibraagora": Record<string, never>;
-			"/cases/leadplanodesaude": Record<string, never>;
-			"/cases/linkdedicada": Record<string, never>;
-			"/cases/meupabxemnuvem": Record<string, never>;
-			"/cases/planotimempresa": Record<string, never>;
-			"/contato": Record<string, never>;
-			"/experiencia": Record<string, never>;
-			"/projetos": Record<string, never>;
-			"/servicos": Record<string, never>;
-			"/sobre": Record<string, never>;
-			"/solicitar-projeto": Record<string, never>;
-			"/solicitar-projeto/redirect": Record<string, never>
+			"/": Record<string, never>
 		};
-		Pathname(): "/" | "/blog" | "/blog/" | "/cases" | "/cases/" | "/cases/alphacompanyads" | "/cases/alphacompanyads/" | "/cases/buenoswatertechnology" | "/cases/buenoswatertechnology/" | "/cases/esquadriasmartins" | "/cases/esquadriasmartins/" | "/cases/grupooc" | "/cases/grupooc/" | "/cases/internetfibraagora" | "/cases/internetfibraagora/" | "/cases/leadplanodesaude" | "/cases/leadplanodesaude/" | "/cases/linkdedicada" | "/cases/linkdedicada/" | "/cases/meupabxemnuvem" | "/cases/meupabxemnuvem/" | "/cases/planotimempresa" | "/cases/planotimempresa/" | "/contato" | "/contato/" | "/experiencia" | "/experiencia/" | "/projetos" | "/projetos/" | "/servicos" | "/servicos/" | "/sobre" | "/sobre/" | "/solicitar-projeto" | "/solicitar-projeto/" | "/solicitar-projeto/redirect" | "/solicitar-projeto/redirect/";
+		Pathname(): "/";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/.DS_Store" | "/.htaccess" | "/ProfileFoto.jpeg" | "/ilustation2.png" | "/ilustration.png" | "/ilustration3.png" | "/logo.png" | "/meta/ favicon.ico" | "/meta/.DS_Store" | "/meta/Logo_icon.png" | "/meta/fallback-square.jpeg" | "/meta/fallback-square.png" | "/meta/google-image.jpeg" | "/meta/google-image.png" | "/meta/og-image.jpeg" | "/meta/og-image.png" | "/meta/twitter-image.jpeg" | "/meta/twitter-image.png" | "/mocap.png" | "/projects/alphacompanyads.com.br.png" | "/projects/blog.bellemodaintima.com.br.png" | "/projects/buenoswatertechnology.com.br.png" | "/projects/esquadriasmartins.com.br.png" | "/projects/grupooc.com.br.ico" | "/projects/internetfibraagora.com.br.png" | "/projects/leadplanodesaude.com.br.png" | "/projects/linkdedicada.com.br.png" | "/projects/meupabxemnuvem.com.br.png" | "/projects/planotimempresa.com.br.png" | "/robots.txt" | "/sitemap.xml" | string & {};
+		Asset(): string & {};
 	}
 }
