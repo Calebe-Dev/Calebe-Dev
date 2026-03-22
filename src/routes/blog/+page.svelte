@@ -11,34 +11,71 @@
 	<meta name="description" content="Artigos sobre desenvolvimento, frontend e design." />
 </svelte:head>
 
-<section class="min-h-screen pt-40 pb-24 relative bg-slate-900 overflow-hidden">
-	<div class="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-blue-900/20 to-transparent pointer-events-none"></div>
-	<div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+<section class="min-h-screen pt-32 pb-32 relative bg-black overflow-hidden selection:bg-blue-500/30">
+    <!-- Grade Background Subtil -->
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_100%_100%_at_50%_0%,#000_10%,transparent_100%)] pointer-events-none"></div>
 
-	<div class="container mx-auto px-6 max-w-6xl relative z-10" in:fade={{ duration: 800, delay: 200 }}>
-		<div class="mb-16">
-			<a href="/" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors duration-300 mb-8 uppercase tracking-widest font-medium">
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-				Voltar ao Portfólio
-			</a>
-			<h1 class="text-4xl md:text-6xl font-medium text-slate-100 mt-2 mb-6 tracking-tight">
-				Todos os <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Artigos</span>
-			</h1>
-			<p class="text-lg text-slate-400 max-w-2xl font-light leading-relaxed">
-				Explore todos os meus conteúdos publicados sobre desenvolvimento web, SvelteKit, Tailwind e arquitetura de software.
-			</p>
-		</div>
+	<div class="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10" in:fade={{ duration: 800, delay: 200 }}>
+        
+        <!-- Bloco Principal Flutuante e Arredondado -->
+        <div class="bg-slate-900/40 backdrop-blur-3xl border border-white/5 rounded-[3.5rem] p-8 md:p-16 lg:p-20 relative shadow-[0_30px_100px_-20px_rgba(0,0,0,0.7)] overflow-hidden min-h-[75vh]">
+            
+            <!-- Glows Internos -->
+            <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+            <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/10 blur-[100px] rounded-full pointer-events-none"></div>
 
-		{#if data.posts.length > 0}
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-				{#each data.posts as post}
-					<BlogCard {post} />
-				{/each}
-			</div>
-		{:else}
-			<div class="py-32 text-center border border-dashed border-white/10 rounded-3xl bg-white/5 backdrop-blur-sm">
-				<p class="text-slate-400 text-lg">Nenhum post encontrado no momento.</p>
-			</div>
-		{/if}
+            <div class="mb-16 md:flex justify-between items-end gap-12 relative z-10">
+                <div class="max-w-3xl">
+                    <a href="/" class="inline-flex items-center gap-2 text-xs text-slate-400 hover:text-white transition-colors duration-300 mb-8 uppercase tracking-widest font-bold bg-white/5 py-2 px-4 rounded-full border border-white/10 hover:border-white/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        Voltar ao Portfólio
+                    </a>
+                    
+                    <h1 class="text-5xl md:text-7xl font-black text-white mt-2 mb-6 tracking-tighter drop-shadow-sm">
+                        Sistema de <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Postagens</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-400 font-light leading-relaxed text-balance">
+                        Explore meus conteúdos técnicos, análises de arquitetura e casos de otimização renderizados instantaneamente pela engine nativa do SvelteKit.
+                    </p>
+                </div>
+
+                <!-- Box Informativo do Sistema Adicionado -->
+                <div class="hidden lg:flex flex-col gap-3 py-6 px-8 bg-black/40 border border-white/10 rounded-[2rem] backdrop-blur-md min-w-[280px]">
+                    <span class="text-[10px] text-white/40 font-bold uppercase tracking-widest mb-1">Stack do Módulo</span>
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+                            <span class="w-3 h-3 bg-orange-500 rounded-full animate-pulse"></span>
+                        </span>
+                        <span class="text-sm text-slate-200 font-medium">SvelteKit Engine</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                        </span>
+                        <span class="text-sm text-slate-200 font-medium">Renderização SSR Otimizada</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </span>
+                        <span class="text-sm text-slate-200 font-medium">Parsers Markdown Estáticos</span>
+                    </div>
+                </div>
+            </div>
+
+            {#if data.posts.length > 0}
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+                    {#each data.posts as post}
+                        <div class="h-full">
+                            <BlogCard {post} />
+                        </div>
+                    {/each}
+                </div>
+            {:else}
+                <div class="py-32 text-center border border-dashed border-white/10 rounded-[2.5rem] bg-white/5 backdrop-blur-md relative z-10">
+                    <p class="text-slate-400 text-lg font-medium">Módulo ativo. Nenhum post encontrado.</p>
+                </div>
+            {/if}
+        </div>
 	</div>
 </section>
