@@ -5,5 +5,8 @@
 	],
 	"/blog/[slug]": [
 		"src/routes/blog/[slug]/+page.ts"
+	],
+	"/sitemap.xml": [
+		"src/routes/sitemap.xml/+server.ts"
 	]
 }
