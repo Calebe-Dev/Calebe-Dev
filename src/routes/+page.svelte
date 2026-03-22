@@ -6,6 +6,8 @@
 	import AboutSection from '$lib/components/sections/AboutSection.svelte';
 	import ExperienceSection from '$lib/components/sections/ExperienceSection.svelte';
 	import ProjectsSection from '$lib/components/sections/ProjectsSection.svelte';
+	import GithubStatsSection from '$lib/components/sections/GithubStatsSection.svelte';
+	import SocialInviteSection from '$lib/components/sections/SocialInviteSection.svelte';
 	import ContactSection from '$lib/components/sections/ContactSection.svelte';
 	import { environment } from '$lib/state/environment.svelte';
 	import { fade } from 'svelte/transition';
@@ -64,5 +66,9 @@
 <StackSection />
 
 <ProjectsSection />
+
+<GithubStatsSection />
+
+<SocialInviteSection />
 
 <ContactSection />
