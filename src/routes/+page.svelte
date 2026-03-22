@@ -3,6 +3,10 @@
 	import AnimatedHeroText from '$lib/components/visuals/AnimatedHeroText.svelte';
 	import InteractiveSlides from '$lib/components/sections/InteractiveSlides.svelte';
 	import StackSection from '$lib/components/sections/StackSection.svelte';
+	import AboutSection from '$lib/components/sections/AboutSection.svelte';
+	import ExperienceSection from '$lib/components/sections/ExperienceSection.svelte';
+	import ProjectsSection from '$lib/components/sections/ProjectsSection.svelte';
+	import ContactSection from '$lib/components/sections/ContactSection.svelte';
 	import { environment } from '$lib/state/environment.svelte';
 	import { fade } from 'svelte/transition';
 
@@ -51,10 +55,14 @@
 	</div>
 </section>
 
+<AboutSection />
+
+<ExperienceSection />
+
 <InteractiveSlides />
 
 <StackSection />
 
-<section class="p-20 bg-black text-white">
-	<p class="text-center opacity-30 text-xs tracking-widest uppercase">Mais conteúdo em breve...</p>
-</section>
+<ProjectsSection />
+
+<ContactSection />
