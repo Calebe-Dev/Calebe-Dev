@@ -35,12 +35,21 @@
 		},
 		{
 			period: 'Ago 2025 - Atual',
-			role: 'Desenvolvedor Full Stack',
+			role: 'Líder Técnico & Full Stack',
 			company: 'Grupo OC',
-			desc: 'Desenvolvimento corporativo em larga escala. Performance extrema, SEO técnico e integrações complexas.',
+			desc: 'Desenvolvimento corporativo, SEO Avançado e integrações complexas. Reconstruí e otimizei toda a lógica de palavras-chave, sincronizando nossa rede de páginas operacionais com CRM e CMS proprietários.',
 			color: 'bg-fuchsia-600',
 			gradient: 'from-fuchsia-600/30 to-fuchsia-900/10',
-			tag: 'Full Stack'
+			tag: 'Tech Lead',
+			sites: [
+				'timcorporativo.com.br', 'esquadriasmartins.com.br', 'bellemodaintima.com.br', 
+				'internetfibraagora.com.br', 'planoempresarialtim.com.br', 'planoempresarialc.com.br', 
+				'planoempresac.com.br', 'leadplanodesaude.com.br', 'grupooc.com.br', 
+				'sorocabaindica.com.br', 'campinasindica.com.br', 'guarulhosindica.com.br', 
+				'osascoindica.com.br', 'saopauloindica.com.br', 'prajáimoveis.com.br', 
+				'planovivoempresarial.com.br', 'linkdedicada.com.br', 'planotimcorporativo.com.br', 
+				'planotimempresa.com.br'
+			]
 		},
 		{
 			period: 'Ago 2025 - Atual',
@@ -126,7 +135,17 @@
 							{exp.desc}
 						</p>
 
-						<div class="mt-12 pt-6 border-t border-white/10 flex items-center justify-between">
+						{#if exp.sites}
+							<div class="mt-6 flex flex-wrap gap-2 max-h-24 md:max-h-32 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+								{#each exp.sites as site}
+									<a href={`https://${site}`} target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30 rounded-md text-[10px] sm:text-xs font-mono text-white/70 hover:text-white transition-all cursor-pointer">
+										{site}
+									</a>
+								{/each}
+							</div>
+						{/if}
+
+						<div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
 							<span class="text-[10px] text-white/40 font-semibold tracking-widest uppercase">Foco Principal: </span>
 							<span class="px-3 py-1 bg-white/10 rounded border border-white/5 text-white/90 text-xs font-bold tracking-wide">{exp.tag}</span>
 						</div>
