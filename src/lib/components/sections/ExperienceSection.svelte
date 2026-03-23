@@ -74,10 +74,10 @@
 <svelte:window bind:scrollY bind:innerHeight bind:innerWidth />
 
 <!-- Seção alta (4x a altura da tela) para gerar área de scroll -->
-<section bind:this={container} class="relative w-full h-[400vh] bg-neutral-950">
+<section bind:this={container} class="relative w-full h-[400dvh] bg-neutral-950">
 	
 	<!-- Wrapper Fixo na tela -->
-	<div class="sticky top-0 w-full h-screen overflow-hidden flex flex-col justify-center bg-neutral-950 transition-colors duration-1000">
+	<div class="sticky top-0 w-full h-[100dvh] overflow-hidden flex flex-col justify-center bg-neutral-950 transition-colors duration-1000">
 		
 		<!-- Dynamic Background Orb (Clean/Focado) -->
 		<div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[600px] w-full max-w-4xl mx-auto {activeColor} opacity-10 blur-[150px] transition-colors duration-[1500ms] rounded-full pointer-events-none"></div>
