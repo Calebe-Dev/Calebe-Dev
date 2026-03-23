@@ -55,18 +55,18 @@ jobs:
 
       - name: Ensure remote directory exists
         run: |
-          ssh -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes -i ~/.ssh/hostinger_deploy -p $HOSTINGER_SSH_PORT $HOSTINGER_SSH_USER@$HOSTINGER_SSH_HOST "mkdir -p ~/public_html"
+          ssh -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes -i ~/.ssh/hostinger_deploy -p ${HOSTINGER_SSH_PORT:-22} $HOSTINGER_SSH_USER@$HOSTINGER_SSH_HOST "mkdir -p ~/public_html"
         continue-on-error: true
 
       - name: Deploy release on Hostinger (rsync and swap)
         run: |
           set -e
           if [ -f ~/.ssh/known_hosts ]; then
-            RSYNC_SSH="ssh -i ~/.ssh/hostinger_deploy -p $HOSTINGER_SSH_PORT -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes"
-            SSH_OPTS="-i ~/.ssh/hostinger_deploy -p $HOSTINGER_SSH_PORT -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes"
+            RSYNC_SSH="ssh -i ~/.ssh/hostinger_deploy -p ${HOSTINGER_SSH_PORT:-22} -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes"
+            SSH_OPTS="-i ~/.ssh/hostinger_deploy -p ${HOSTINGER_SSH_PORT:-22} -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes"
           else
-            RSYNC_SSH="ssh -i ~/.ssh/hostinger_deploy -p $HOSTINGER_SSH_PORT -o StrictHostKeyChecking=no"
-            SSH_OPTS="-i ~/.ssh/hostinger_deploy -p $HOSTINGER_SSH_PORT -o StrictHostKeyChecking=no"
+            RSYNC_SSH="ssh -i ~/.ssh/hostinger_deploy -p ${HOSTINGER_SSH_PORT:-22} -o StrictHostKeyChecking=no"
+            SSH_OPTS="-i ~/.ssh/hostinger_deploy -p ${HOSTINGER_SSH_PORT:-22} -o StrictHostKeyChecking=no"
           fi
           TIMESTAMP=$(date -u +"%Y%m%d%H%M%S")
           REMOTE_RELEASE_DIR=~/releases/${TIMESTAMP}
