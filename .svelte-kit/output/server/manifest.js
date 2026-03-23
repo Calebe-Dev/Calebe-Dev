@@ -42,16 +42,9 @@ return {
 				params: [{"name":"slug","optional":false,"rest":false,"chained":false}],
 				page: { layouts: [0,], errors: [1,], leaf: 4 },
 				endpoint: null
-			},
-			{
-				id: "/sitemap.xml",
-				pattern: /^\/sitemap\.xml\/?$/,
-				params: [],
-				page: null,
-				endpoint: __memo(() => import('./entries/endpoints/sitemap.xml/_server.ts.js'))
 			}
 		],
-		prerendered_routes: new Set([]),
+		prerendered_routes: new Set(["/sitemap.xml"]),
 		matchers: async () => {
 			
 			return {  };
