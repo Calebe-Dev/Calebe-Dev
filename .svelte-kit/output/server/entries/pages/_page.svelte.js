@@ -1,4 +1,4 @@
-import { w as attr_class, x as ensure_array_like, y as attr_style, z as stringify, F as attr } from "../../chunks/index2.js";
+import { w as attr_class, x as ensure_array_like, y as attr_style, z as stringify, F as attr, G as head } from "../../chunks/index2.js";
 import "clsx";
 import { a as ssr_context, e as escape_html } from "../../chunks/context.js";
 import { B as BlogCard } from "../../chunks/BlogCard.js";
@@ -769,6 +769,12 @@ function _page($$renderer, $$props) {
       "Eu sou Calebe",
       "Bem Vindo a meu portfólio!!"
     ];
+    head("1uha8ag", $$renderer2, ($$renderer3) => {
+      $$renderer3.title(($$renderer4) => {
+        $$renderer4.push(`<title>Calebe | Desenvolvedor Full Stack</title>`);
+      });
+      $$renderer3.push(`<meta name="description" content="Portfólio de Calebe Araujo, Desenvolvedor Full Stack especializado em experiências web de alta performance, UX premium e engenharia de software robusta."/> <meta property="og:title" content="Calebe | Desenvolvedor Full Stack"/> <meta property="og:description" content="Experiências web de alta performance, UX premium e engenharia de software robusta."/> <meta property="og:type" content="website"/>`);
+    });
     $$renderer2.push(`<section class="h-screen flex flex-col items-center justify-center relative overflow-hidden">`);
     DynamicHeroBackground($$renderer2);
     $$renderer2.push(`<!----> <div class="absolute top-8 right-8 z-50"><a href="/blog"${attr_class(`group px-5 py-2.5 bg-white/5 hover:bg-white/10 backdrop-blur-md rounded-full text-[11px] transition-all duration-500 uppercase tracking-widest border border-white/5 hover:border-white/20 flex items-center gap-2 ${stringify(environment.dayCycle === "day" ? "text-slate-900/60 border-slate-900/5 hover:text-slate-900" : "text-white/60 border-white/10 hover:text-white")}`)}><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-50 group-hover:opacity-100 transition-opacity duration-500"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> Blog</a></div> <div class="relative z-20 text-center px-6 w-full max-w-4xl">`);
