@@ -65,7 +65,7 @@
 		<div class="mb-20 md:flex items-end justify-between">
 			<div class="max-w-xl">
 				<span class="text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block" data-aos="fade-up">Portfólio</span>
-				<h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-6 text-balance drop-shadow-sm" data-aos="fade-up" data-aos-delay="100">
+				<h2 class="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter mb-6 text-balance drop-shadow-sm" data-aos="fade-up" data-aos-delay="100">
 					Nível de <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Produção</span>
 				</h2>
 			</div>
@@ -99,7 +99,7 @@
 							</span>
 							<div class="flex flex-wrap gap-2 mt-1">
 								{#each project.tags as tag}
-									<span class="text-[9px] uppercase tracking-widest text-slate-500 font-bold whitespace-nowrap">
+									<span class="text-[10px] uppercase tracking-widest text-slate-500 font-bold whitespace-nowrap">
 										{tag}
 									</span>
 								{/each}
@@ -143,7 +143,7 @@
 
 							<!-- Body -->
 							<div class="mt-12 mb-12">
-								<h3 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tighter drop-shadow-lg leading-none">
+								<h3 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tighter drop-shadow-lg leading-none">
 									{selectedProject.name}
 								</h3>
 								<p class="text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-md text-balance">

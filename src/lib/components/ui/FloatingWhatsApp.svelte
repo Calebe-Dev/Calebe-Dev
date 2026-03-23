@@ -5,7 +5,7 @@
     href="https://wa.me/5511988385247" 
     target="_blank" 
     rel="noopener noreferrer" 
-    class="fixed bottom-6 left-6 z-50 group flex items-center gap-3"
+    class="fixed bottom-4 left-4 md:bottom-6 md:left-6 z-50 group flex items-center gap-3 scale-[0.70] md:scale-100 origin-bottom-left"
     aria-label="Fale comigo no WhatsApp"
 >
     <!-- Balão flutuante estilizado -->

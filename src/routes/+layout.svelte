@@ -34,6 +34,6 @@
 	});
 </script>
 
-<div class="min-h-screen bg-black">
+<div class="min-h-screen bg-black overflow-x-hidden w-full">
 	{@render children()}
 </div>

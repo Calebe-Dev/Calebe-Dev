@@ -65,7 +65,7 @@
 		<!-- Editorial Header -->
 		<div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-32 transition-colors duration-700 {activeItem ? 'text-white' : 'text-slate-900'}">
 			<div class="max-w-2xl">
-				<h2 class="text-7xl md:text-9xl font-black tracking-tight mb-4 text-balance">
+				<h2 class="text-5xl md:text-7xl lg:text-9xl font-black tracking-tight mb-4 text-balance">
 					Minha <br/><span class="text-transparent bg-clip-text transition-all duration-700 {activeItem ? 'bg-white/90' : 'bg-gradient-to-r from-slate-950 to-slate-500'}">Stack</span>
 				</h2>
 				<div class="h-1 w-24 mb-8 {activeItem ? 'bg-white/40' : 'bg-blue-600'} transition-colors duration-700"></div>
@@ -118,7 +118,7 @@
 		<div class="mt-40 pt-24 border-t border-slate-200/50 transition-colors duration-700 {activeItem ? 'border-white/10' : ''}">
 			<div class="text-center mb-20">
 				<span class="font-bold uppercase tracking-[0.4em] text-[10px] mb-6 block {activeItem ? 'text-white/60' : 'text-blue-600'} transition-colors duration-700">Ecossistema Global</span>
-				<h3 class="text-4xl md:text-6xl font-black tracking-tighter mb-6 leading-tight transition-colors duration-700 {activeItem ? 'text-white' : 'text-slate-900'}">
+				<h3 class="text-3xl md:text-4xl lg:text-6xl font-black tracking-tighter mb-6 leading-tight transition-colors duration-700 {activeItem ? 'text-white' : 'text-slate-900'}">
 					As tecnologias que <br class="hidden md:block" /> movem a <span class="italic font-serif font-light opacity-80">indústria líder</span>.
 				</h3>
 				<p class="font-light leading-relaxed max-w-2xl mx-auto {activeItem ? 'text-white/70' : 'text-slate-500'} transition-colors duration-700">

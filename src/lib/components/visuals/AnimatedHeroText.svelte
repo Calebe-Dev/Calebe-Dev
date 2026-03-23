@@ -129,7 +129,7 @@
 			<h2 
 				in:fade={{ duration: 1000, delay: 500 }} 
 				out:fade={{ duration: 1000 }}
-				class="absolute text-5xl md:text-7xl font-bold tracking-tight text-center px-4 transition-colors duration-1000
+				class="absolute text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-center px-4 transition-colors duration-1000
 					{environment.dayCycle === 'day' ? 'text-slate-900 drop-shadow-sm' : 'text-white drop-shadow-2xl'}"
 			>
 				{messages[currentIndex]}

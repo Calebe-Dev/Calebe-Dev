@@ -83,9 +83,9 @@
 		<div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[600px] w-full max-w-4xl mx-auto {activeColor} opacity-10 blur-[150px] transition-colors duration-[1500ms] rounded-full pointer-events-none"></div>
 
 		<!-- Título estático da seção -->
-		<div class="absolute top-12 left-8 md:top-24 md:left-24 z-20">
+		<div class="absolute top-4 left-6 md:top-12 md:left-24 z-20">
 			<span class="text-white/40 font-bold uppercase tracking-[0.4em] text-[10px] mb-2 block animate-pulse">Evolution</span>
-			<h2 class="text-5xl md:text-7xl font-black text-white mix-blend-exclusion">Trajetória</h2>
+			<h2 class="text-4xl md:text-5xl lg:text-7xl font-black text-white mix-blend-exclusion">Trajetória</h2>
 		</div>
 
 		<div 
@@ -119,7 +119,7 @@
 							<span class={`w-3 h-3 rounded-full ${exp.color} transition-all duration-300 shadow-[0_0_20px_currentColor] ${i === activeIndex ? 'animate-ping' : ''}`}></span>
 						</div>
 						
-						<h3 class="text-4xl md:text-5xl font-black text-white mb-3 text-balance leading-tight drop-shadow-lg">{exp.role}</h3>
+						<h3 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-3 text-balance leading-tight drop-shadow-lg">{exp.role}</h3>
 						<div class="text-white/60 text-base md:text-lg font-bold tracking-widest uppercase mb-8 mix-blend-screen">{exp.company}</div>
 						
 						<p class="text-white/80 text-lg md:text-xl font-light leading-relaxed text-balance">
