@@ -34,7 +34,7 @@ jobs:
       - name: Build Application
         run: npm run build
         
-      - name: Deploy via SCP para HestiaCP
+      - name: Deploy via SCP para Hostinger
         uses: appleboy/scp-action@v0.1.7
         with:
           host: "147.93.38.91"
@@ -42,5 +42,5 @@ jobs:
           username: "u623083914"
           password: ${{ secrets.HOST_PASSWORD }}
           source: "build/*"
-          target: "/home/u623083914/web/SEU_DOMINIO_AQUI/public_html/"
+          target: "/home/u623083914/domains/calebearaujo.com.br/public_html/"
           strip_components: 1
