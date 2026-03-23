@@ -21,6 +21,14 @@
 	];
 </script>
 
+<svelte:head>
+	<title>Calebe | Desenvolvedor Full Stack</title>
+	<meta name="description" content="Portfólio de Calebe Araujo, Desenvolvedor Full Stack especializado em experiências web de alta performance, UX premium e engenharia de software robusta." />
+	<meta property="og:title" content="Calebe | Desenvolvedor Full Stack" />
+	<meta property="og:description" content="Experiências web de alta performance, UX premium e engenharia de software robusta." />
+	<meta property="og:type" content="website" />
+</svelte:head>
+
 <section class="h-screen flex flex-col items-center justify-center relative overflow-hidden">
 	<DynamicHeroBackground />
 

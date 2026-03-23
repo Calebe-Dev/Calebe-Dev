@@ -4,7 +4,8 @@
 
 	let canvas: HTMLCanvasElement;
 	let ctx: CanvasRenderingContext2D;
-	let animationFrame: number;
+	let animationFrame: number = 0;
+	let observer: IntersectionObserver;
 	
 	let particles: Particle[] = [];
 	const PARTICLE_COUNT = 100;
@@ -171,11 +172,24 @@
 		};
 		window.addEventListener('resize', handleResize);
 		handleResize();
-		animate();
+
+		// Intersection Observer para hibernar canvas off-screen
+		observer = new IntersectionObserver((entries) => {
+			if (entries[0].isIntersecting) {
+				if (!animationFrame) animate();
+			} else {
+				if (animationFrame) {
+					cancelAnimationFrame(animationFrame);
+					animationFrame = 0;
+				}
+			}
+		});
+		observer.observe(canvas);
 	});
 
 	onDestroy(() => {
 		if (animationFrame) cancelAnimationFrame(animationFrame);
+		if (observer) observer.disconnect();
 	});
 </script>
 
