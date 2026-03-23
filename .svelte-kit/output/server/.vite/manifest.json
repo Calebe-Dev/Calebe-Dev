@@ -122,7 +122,7 @@
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "css": [
-      "_app/immutable/assets/_layout.cC-4--OY.css"
+      "_app/immutable/assets/_layout.BVtNuj-P.css"
     ]
   },
   "src/routes/+page.svelte": {
@@ -138,7 +138,7 @@
       "_equality.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.Cmdx01Jm.css"
+      "_app/immutable/assets/_page.BD1BXSms.css"
     ]
   },
   "src/routes/blog/+page.svelte": {
