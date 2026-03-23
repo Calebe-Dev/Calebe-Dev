@@ -34,9 +34,13 @@ jobs:
       - name: Build Application
         run: npm run build
         
-      # (Opcional) Guardar output do build para inspecionar no GitHub ou deploys manuais
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v4
+      - name: Deploy via SCP para HestiaCP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          name: sveltekit-build-layer
-          path: build/  # Ajuste para .svelte-kit dependendo do seu Svelte Adapter
+          host: "147.93.38.91"
+          port: 65002
+          username: "u623083914"
+          password: ${{ secrets.HOST_PASSWORD }}
+          source: "build/*"
+          target: "/home/u623083914/web/SEU_DOMINIO_AQUI/public_html/"
+          strip_components: 1

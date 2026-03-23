@@ -9,101 +9,53 @@
       "_environment.js"
     ]
   },
-  "_About.js": {
-    "file": "chunks/About.js",
-    "name": "About",
+  "_BlogCard.js": {
+    "file": "chunks/BlogCard.js",
+    "name": "BlogCard",
     "imports": [
       "_index2.js",
-      "_AnimatedBlock.js",
-      "_ScrollReveal.js",
       "_context.js"
     ]
   },
-  "_AnimatedBlock.js": {
-    "file": "chunks/AnimatedBlock.js",
-    "name": "AnimatedBlock",
+  "_blog.js": {
+    "file": "chunks/blog.js",
+    "name": "blog",
     "imports": [
-      "_index2.js"
-    ]
-  },
-  "_Contact.js": {
-    "file": "chunks/Contact.js",
-    "name": "Contact",
-    "imports": [
-      "_AnimatedBlock.js"
-    ]
-  },
-  "_Experience.js": {
-    "file": "chunks/Experience.js",
-    "name": "Experience",
-    "imports": [
-      "_index2.js",
-      "_AnimatedBlock.js",
-      "_ScrollReveal.js",
-      "_context.js"
-    ]
-  },
-  "_Projects.js": {
-    "file": "chunks/Projects.js",
-    "name": "Projects",
-    "imports": [
-      "_index2.js",
-      "_AnimatedBlock.js",
-      "_context.js"
-    ]
-  },
-  "_ScrollReveal.js": {
-    "file": "chunks/ScrollReveal.js",
-    "name": "ScrollReveal",
-    "imports": [
-      "_index2.js"
-    ]
-  },
-  "_Services.js": {
-    "file": "chunks/Services.js",
-    "name": "Services",
-    "imports": [
-      "_index2.js",
-      "_AnimatedBlock.js",
-      "_context.js"
+      "_dominando-animacoes.js"
     ]
   },
   "_context.js": {
     "file": "chunks/context.js",
     "name": "context"
   },
+  "_dominando-animacoes.js": {
+    "file": "chunks/dominando-animacoes.js",
+    "name": "dominando-animacoes"
+  },
   "_environment.js": {
     "file": "chunks/environment.js",
     "name": "environment"
+  },
+  "_equality.js": {
+    "file": "chunks/equality.js",
+    "name": "equality"
   },
   "_exports.js": {
     "file": "chunks/exports.js",
     "name": "exports"
   },
-  "_false.js": {
-    "file": "chunks/false.js",
-    "name": "false"
-  },
-  "_index-server.js": {
-    "file": "chunks/index-server.js",
-    "name": "index-server",
-    "imports": [
-      "_context.js"
-    ]
-  },
   "_index.js": {
     "file": "chunks/index.js",
     "name": "index",
     "imports": [
-      "_context.js"
+      "_equality.js"
     ]
   },
   "_index2.js": {
     "file": "chunks/index2.js",
     "name": "index",
     "imports": [
-      "_context.js",
-      "_false.js"
+      "_context.js"
     ]
   },
   "_internal.js": {
@@ -111,8 +63,9 @@
     "name": "internal",
     "imports": [
       "_index2.js",
-      "_context.js",
-      "_environment.js"
+      "_environment.js",
+      "_equality.js",
+      "_context.js"
     ]
   },
   "_shared.js": {
@@ -120,13 +73,6 @@
     "name": "shared",
     "imports": [
       "_utils.js"
-    ]
-  },
-  "_state.svelte.js": {
-    "file": "chunks/state.svelte.js",
-    "name": "state.svelte",
-    "imports": [
-      "_context.js"
     ]
   },
   "_utils.js": {
@@ -140,7 +86,6 @@
     "isEntry": true,
     "imports": [
       "_shared.js",
-      "_false.js",
       "_environment.js"
     ]
   },
@@ -151,7 +96,7 @@
     "isEntry": true,
     "imports": [
       "_context.js",
-      "_state.svelte.js",
+      "_equality.js",
       "_exports.js",
       "_utils.js",
       "_index.js"
@@ -163,7 +108,6 @@
     "src": "node_modules/@sveltejs/kit/src/runtime/server/index.js",
     "isEntry": true,
     "imports": [
-      "_false.js",
       "_environment.js",
       "_shared.js",
       "_exports.js",
@@ -177,22 +121,9 @@
     "name": "entries/pages/_layout.svelte",
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
-    "imports": [
-      "_index2.js",
-      "_exports.js",
-      "_utils.js",
-      "_state.svelte.js",
-      "_context.js"
-    ],
     "css": [
-      "_app/immutable/assets/_layout.nNN_b12m.css"
+      "_app/immutable/assets/_layout.cC-4--OY.css"
     ]
-  },
-  "src/routes/+layout.ts": {
-    "file": "entries/pages/_layout.ts.js",
-    "name": "entries/pages/_layout.ts",
-    "src": "src/routes/+layout.ts",
-    "isEntry": true
   },
   "src/routes/+page.svelte": {
     "file": "entries/pages/_page.svelte.js",
@@ -201,17 +132,13 @@
     "isEntry": true,
     "imports": [
       "_index2.js",
-      "_AnimatedBlock.js",
       "_context.js",
-      "_About.js",
-      "_ScrollReveal.js",
-      "_Services.js",
-      "_Experience.js",
-      "_Projects.js",
-      "_Contact.js"
+      "_BlogCard.js",
+      "_index.js",
+      "_equality.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.T5eFYB8J.css"
+      "_app/immutable/assets/_page.Cmdx01Jm.css"
     ]
   },
   "src/routes/blog/+page.svelte": {
@@ -221,142 +148,44 @@
     "isEntry": true,
     "imports": [
       "_index2.js",
+      "_BlogCard.js"
+    ]
+  },
+  "src/routes/blog/+page.ts": {
+    "file": "entries/pages/blog/_page.ts.js",
+    "name": "entries/pages/blog/_page.ts",
+    "src": "src/routes/blog/+page.ts",
+    "isEntry": true,
+    "imports": [
+      "_blog.js"
+    ]
+  },
+  "src/routes/blog/[slug]/+page.svelte": {
+    "file": "entries/pages/blog/_slug_/_page.svelte.js",
+    "name": "entries/pages/blog/_slug_/_page.svelte",
+    "src": "src/routes/blog/[slug]/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
       "_context.js"
-    ],
-    "css": [
-      "_app/immutable/assets/_page.BrcTVSc_.css"
     ]
   },
-  "src/routes/cases/alphacompanyads/+page.svelte": {
-    "file": "entries/pages/cases/alphacompanyads/_page.svelte.js",
-    "name": "entries/pages/cases/alphacompanyads/_page.svelte",
-    "src": "src/routes/cases/alphacompanyads/+page.svelte",
-    "isEntry": true
-  },
-  "src/routes/cases/buenoswatertechnology/+page.svelte": {
-    "file": "entries/pages/cases/buenoswatertechnology/_page.svelte.js",
-    "name": "entries/pages/cases/buenoswatertechnology/_page.svelte",
-    "src": "src/routes/cases/buenoswatertechnology/+page.svelte",
-    "isEntry": true
-  },
-  "src/routes/cases/esquadriasmartins/+page.svelte": {
-    "file": "entries/pages/cases/esquadriasmartins/_page.svelte.js",
-    "name": "entries/pages/cases/esquadriasmartins/_page.svelte",
-    "src": "src/routes/cases/esquadriasmartins/+page.svelte",
-    "isEntry": true
-  },
-  "src/routes/cases/grupooc/+page.svelte": {
-    "file": "entries/pages/cases/grupooc/_page.svelte.js",
-    "name": "entries/pages/cases/grupooc/_page.svelte",
-    "src": "src/routes/cases/grupooc/+page.svelte",
-    "isEntry": true
-  },
-  "src/routes/cases/internetfibraagora/+page.svelte": {
-    "file": "entries/pages/cases/internetfibraagora/_page.svelte.js",
-    "name": "entries/pages/cases/internetfibraagora/_page.svelte",
-    "src": "src/routes/cases/internetfibraagora/+page.svelte",
-    "isEntry": true
-  },
-  "src/routes/cases/leadplanodesaude/+page.svelte": {
-    "file": "entries/pages/cases/leadplanodesaude/_page.svelte.js",
-    "name": "entries/pages/cases/leadplanodesaude/_page.svelte",
-    "src": "src/routes/cases/leadplanodesaude/+page.svelte",
-    "isEntry": true
-  },
-  "src/routes/cases/linkdedicada/+page.svelte": {
-    "file": "entries/pages/cases/linkdedicada/_page.svelte.js",
-    "name": "entries/pages/cases/linkdedicada/_page.svelte",
-    "src": "src/routes/cases/linkdedicada/+page.svelte",
-    "isEntry": true
-  },
-  "src/routes/cases/meupabxemnuvem/+page.svelte": {
-    "file": "entries/pages/cases/meupabxemnuvem/_page.svelte.js",
-    "name": "entries/pages/cases/meupabxemnuvem/_page.svelte",
-    "src": "src/routes/cases/meupabxemnuvem/+page.svelte",
-    "isEntry": true
-  },
-  "src/routes/cases/planotimempresa/+page.svelte": {
-    "file": "entries/pages/cases/planotimempresa/_page.svelte.js",
-    "name": "entries/pages/cases/planotimempresa/_page.svelte",
-    "src": "src/routes/cases/planotimempresa/+page.svelte",
-    "isEntry": true
-  },
-  "src/routes/contato/+page.svelte": {
-    "file": "entries/pages/contato/_page.svelte.js",
-    "name": "entries/pages/contato/_page.svelte",
-    "src": "src/routes/contato/+page.svelte",
+  "src/routes/blog/[slug]/+page.ts": {
+    "file": "entries/pages/blog/_slug_/_page.ts.js",
+    "name": "entries/pages/blog/_slug_/_page.ts",
+    "src": "src/routes/blog/[slug]/+page.ts",
     "isEntry": true,
     "imports": [
-      "_index2.js",
-      "_Contact.js"
+      "_dominando-animacoes.js"
     ]
   },
-  "src/routes/experiencia/+page.svelte": {
-    "file": "entries/pages/experiencia/_page.svelte.js",
-    "name": "entries/pages/experiencia/_page.svelte",
-    "src": "src/routes/experiencia/+page.svelte",
+  "src/routes/sitemap.xml/+server.ts": {
+    "file": "entries/endpoints/sitemap.xml/_server.ts.js",
+    "name": "entries/endpoints/sitemap.xml/_server.ts",
+    "src": "src/routes/sitemap.xml/+server.ts",
     "isEntry": true,
     "imports": [
-      "_index2.js",
-      "_Experience.js"
-    ]
-  },
-  "src/routes/projetos/+page.svelte": {
-    "file": "entries/pages/projetos/_page.svelte.js",
-    "name": "entries/pages/projetos/_page.svelte",
-    "src": "src/routes/projetos/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index2.js",
-      "_Projects.js"
-    ]
-  },
-  "src/routes/servicos/+page.svelte": {
-    "file": "entries/pages/servicos/_page.svelte.js",
-    "name": "entries/pages/servicos/_page.svelte",
-    "src": "src/routes/servicos/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index2.js",
-      "_Services.js"
-    ]
-  },
-  "src/routes/sobre/+page.svelte": {
-    "file": "entries/pages/sobre/_page.svelte.js",
-    "name": "entries/pages/sobre/_page.svelte",
-    "src": "src/routes/sobre/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index2.js",
-      "_About.js"
-    ]
-  },
-  "src/routes/solicitar-projeto/+page.svelte": {
-    "file": "entries/pages/solicitar-projeto/_page.svelte.js",
-    "name": "entries/pages/solicitar-projeto/_page.svelte",
-    "src": "src/routes/solicitar-projeto/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index2.js",
-      "_index-server.js",
-      "_context.js"
-    ],
-    "css": [
-      "_app/immutable/assets/_page.0_1WbrRt.css"
-    ]
-  },
-  "src/routes/solicitar-projeto/redirect/+page.svelte": {
-    "file": "entries/pages/solicitar-projeto/redirect/_page.svelte.js",
-    "name": "entries/pages/solicitar-projeto/redirect/_page.svelte",
-    "src": "src/routes/solicitar-projeto/redirect/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index2.js",
-      "_index-server.js",
-      "_context.js"
-    ],
-    "css": [
-      "_app/immutable/assets/_page.BwiCfF5e.css"
+      "_blog.js"
     ]
   }
 }

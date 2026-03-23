@@ -7,21 +7,44 @@ function __memo(fn) {
 return {
 	appDir: "_app",
 	appPath: "_app",
-	assets: new Set([".DS_Store",".htaccess","ProfileFoto.jpeg","ilustation2.png","ilustration.png","ilustration3.png","logo.png","meta/ favicon.ico","meta/.DS_Store","meta/Logo_icon.png","meta/fallback-square.jpeg","meta/fallback-square.png","meta/google-image.jpeg","meta/google-image.png","meta/og-image.jpeg","meta/og-image.png","meta/twitter-image.jpeg","meta/twitter-image.png","mocap.png","projects/alphacompanyads.com.br.png","projects/blog.bellemodaintima.com.br.png","projects/buenoswatertechnology.com.br.png","projects/esquadriasmartins.com.br.png","projects/grupooc.com.br.ico","projects/internetfibraagora.com.br.png","projects/leadplanodesaude.com.br.png","projects/linkdedicada.com.br.png","projects/meupabxemnuvem.com.br.png","projects/planotimempresa.com.br.png","robots.txt","sitemap.xml"]),
-	mimeTypes: {".jpeg":"image/jpeg",".png":"image/png",".txt":"text/plain",".xml":"text/xml"},
+	assets: new Set(["favicon.ico","favicon.png","images/profile.png"]),
+	mimeTypes: {".png":"image/png"},
 	_: {
-		client: {start:"_app/immutable/entry/start.CBYuSgVl.js",app:"_app/immutable/entry/app.VVbbOdWS.js",imports:["_app/immutable/entry/start.CBYuSgVl.js","_app/immutable/chunks/D7bDE7s5.js","_app/immutable/chunks/DkeT_iWF.js","_app/immutable/chunks/vrsCPnT0.js","_app/immutable/chunks/FiylZbA1.js","_app/immutable/chunks/D5pPKzSo.js","_app/immutable/entry/app.VVbbOdWS.js","_app/immutable/chunks/vrsCPnT0.js","_app/immutable/chunks/FiylZbA1.js","_app/immutable/chunks/DsnmJJEf.js","_app/immutable/chunks/DkeT_iWF.js","_app/immutable/chunks/CPJ8bTrX.js","_app/immutable/chunks/DL-Tp0oz.js","_app/immutable/chunks/BIJZ0H6C.js","_app/immutable/chunks/D5pPKzSo.js","_app/immutable/chunks/DeyMtwpE.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.BX6kZg2J.js",app:"_app/immutable/entry/app.DROX4fcg.js",imports:["_app/immutable/entry/start.BX6kZg2J.js","_app/immutable/chunks/C371uLwd.js","_app/immutable/chunks/BqZ4PB0F.js","_app/immutable/chunks/DVo-wBgY.js","_app/immutable/chunks/BUApaBEI.js","_app/immutable/chunks/BZ-t1UF3.js","_app/immutable/entry/app.DROX4fcg.js","_app/immutable/chunks/BFFpLJ0y.js","_app/immutable/chunks/BqZ4PB0F.js","_app/immutable/chunks/DyCXBryD.js","_app/immutable/chunks/4vlF8PZU.js","_app/immutable/chunks/BZ-t1UF3.js","_app/immutable/chunks/DPX2TOQM.js","_app/immutable/chunks/CqZo5WDi.js","_app/immutable/chunks/DVo-wBgY.js","_app/immutable/chunks/CSzjZZ41.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
-			__memo(() => import('./nodes/1.js'))
+			__memo(() => import('./nodes/1.js')),
+			__memo(() => import('./nodes/2.js')),
+			__memo(() => import('./nodes/3.js')),
+			__memo(() => import('./nodes/4.js'))
 		],
 		remotes: {
 			
 		},
 		routes: [
-			
+			{
+				id: "/",
+				pattern: /^\/$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 2 },
+				endpoint: null
+			},
+			{
+				id: "/blog",
+				pattern: /^\/blog\/?$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 3 },
+				endpoint: null
+			},
+			{
+				id: "/blog/[slug]",
+				pattern: /^\/blog\/([^/]+?)\/?$/,
+				params: [{"name":"slug","optional":false,"rest":false,"chained":false}],
+				page: { layouts: [0,], errors: [1,], leaf: 4 },
+				endpoint: null
+			}
 		],
-		prerendered_routes: new Set(["/","/blog","/cases/alphacompanyads","/cases/buenoswatertechnology","/cases/esquadriasmartins","/cases/grupooc","/cases/internetfibraagora","/cases/leadplanodesaude","/cases/linkdedicada","/cases/meupabxemnuvem","/cases/planotimempresa","/contato","/experiencia","/projetos","/servicos","/sobre","/solicitar-projeto","/solicitar-projeto/redirect"]),
+		prerendered_routes: new Set(["/sitemap.xml"]),
 		matchers: async () => {
 			
 			return {  };
