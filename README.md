@@ -84,8 +84,4 @@ Every repository here is a practical experiment: improving performance, automati
 
 ✉️ **Email**: [calebe.araujo101@gmail.com](mailto:calebe.araujo101@gmail.com)
 
----
 
-## 📊 GitHub Stats
-
-![Calebe's GitHub stats](https://github-readme-stats.vercel.app/api?username=Calebe-Dev&show_icons=true&theme=radical)
