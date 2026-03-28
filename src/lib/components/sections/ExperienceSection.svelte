@@ -10,10 +10,10 @@
 			period: '2017 - 2022',
 			startDate: '2017-01-01',
 			endDate: '2022-12-31',
-			role: 'Consultor de TI & Infraestrutura Especialista',
+			role: 'Consultor de TI & Infraestrutura',
 			company: 'Projetos Independentes',
-			desc: 'Liderança em projetos de infraestrutura crítica e segurança cibernética. Implementação de arquiteturas de rede resilientes e gestão de servidores de alta disponibilidade para o setor corporativo.',
-			color: 'rgba(245, 158, 11, 0.5)', // Amber
+			desc: 'Liderança técnica em suporte corporativo Nível 2 e 3. Implementação de arquitetura de rede, manutenção de servidores Windows/Linux e consultoria de segurança para clientes finais.',
+			color: 'bg-amber-500',
 			gradient: 'from-amber-600/30 to-amber-900/10',
 			tag: 'Infra & Sec',
 			skills: 'Networking, Server Management, IT Support'
@@ -22,10 +22,10 @@
 			period: 'Mai 2024 - Fev 2025',
 			startDate: '2024-05-01',
 			endDate: '2025-02-01',
-			role: 'Full Stack Developer & Landing Specialist',
+			role: 'Desenvolvedor Full Stack (Intern)',
 			company: 'QIplus',
-			desc: 'Desenvolvimento de ecossistemas web de alta conversão. Otimização de core web vitals e criação de automações inteligentes integradas a plataformas WordPress e SvelteKit.',
-			color: 'rgba(16, 185, 129, 0.5)', // Emerald
+			desc: 'Desenvolvimento de interfaces de alta conversão com SvelteKit e TypeScript. Automação de fluxos de marketing e desenvolvimento de plugins personalizados para ecossistemas WordPress.',
+			color: 'bg-emerald-500',
 			gradient: 'from-emerald-600/30 to-emerald-900/10',
 			tag: 'SvelteKit & Bot',
 			skills: 'SvelteKit, TypeScript, WordPress, Marketing Automation'
@@ -34,10 +34,10 @@
 			period: 'Fev 2025 - Ago 2025',
 			startDate: '2025-02-01',
 			endDate: '2025-08-01',
-			role: 'Senior Web Engineering & SEO Tech',
+			role: 'Senior Web Developer',
 			company: 'Alpha Company Ads',
-			desc: 'Arquitetura de soluções focadas em Business Intelligence e SEO agressivo. Implementação de tracking avançado e estruturas de dados complexas para análise de performance em tempo real.',
-			color: 'rgba(6, 182, 212, 0.5)', // Cyan
+			desc: 'Arquitetura de soluções web focadas em Business Intelligence (BI). Implementação de SEO técnico avançado e integração de APIs de terceiros para monitoramento de métricas em tempo real.',
+			color: 'bg-cyan-500',
 			gradient: 'from-cyan-600/30 to-cyan-900/10',
 			tag: 'SEO & BI',
 			skills: 'Technical SEO, BI, API Integration, Analytics'
@@ -45,10 +45,10 @@
 		{
 			period: 'Ago 2025 - Atual',
 			startDate: '2025-08-01',
-			role: 'CTO & Tech Lead / Software Architect',
+			role: 'Chief Technology Officer (CTO) / Lead Developer',
 			company: 'Grupo OC',
-			desc: 'Liderança da estratégia tecnológica e arquitetura de microserviços. Desenvolvimento de motor CRM proprietário e sincronização massiva de dados para gestão de leads em escala industrial.',
-			color: 'rgba(192, 38, 211, 0.5)', // Fuchsia
+			desc: 'Gestão da arquitetura de sistemas e liderança técnica. Implementação de ecossistema de microserviços em Node.js e integração profunda com CRM proprietário para escala de leads.',
+			color: 'bg-fuchsia-600',
 			gradient: 'from-fuchsia-600/30 to-fuchsia-900/10',
 			tag: 'Tech Lead / CRM',
 			skills: 'Node.js, Microservices, System Architecture, Lead Ops'
@@ -56,10 +56,10 @@
 		{
 			period: 'Ago 2025 - Atual',
 			startDate: '2025-08-01',
-			role: 'Full Stack Infrastructure Engineer & DevOps',
+			role: 'Full Stack Infrastructure Engineer',
 			company: 'Grupo OC',
-			desc: 'Engenharia de Cloud e On-premise de alta fidelidade. Setup de servidores Ubuntu resilientes com Túnel Cloudflare (Zero Trust) e arquitetura de banco de dados PostgreSQL escalável.',
-			color: 'rgba(79, 70, 229, 0.5)', // Indigo
+			desc: 'Engenharia de Cloud e On-premise. Deploy e manutenção de servidores Ubuntu com Cloudflare Tunnel (Zero Trust). Desenvolvimento de sistema CRM+CMS robusto com banco de dados PostgreSQL.',
+			color: 'bg-indigo-600',
 			gradient: 'from-indigo-600/30 to-indigo-900/10',
 			tag: 'DevOps & CRM',
 			skills: 'Ubuntu Server, Cloudflare Tunnel, Docker, PostgreSQL'
@@ -67,6 +67,7 @@
 	];
 
 	let globalProgress = $derived.by(() => {
+		// Register dependencies for Svelte reactivity
 		const _ = scrollY;
 		if (!container) return 0;
 		const rect = container.getBoundingClientRect();
@@ -77,113 +78,101 @@
 		return scrolled / maxScroll;
 	});
 
-	// Lógica de "Plateau" (Scroll Lock) para o track horizontal
-	// Mapeia o progresso linear para saltos discretos com pausar no centro.
-	let lockedProgress = $derived.by(() => {
-		const step = 1 / experiences.length;
-		const itemIndex = Math.floor(globalProgress / step);
-		const localProg = (globalProgress % step) / step;
-		
-		// Interpolador com curva "S" para o lock (Platô central em 25%-75%)
-		let easedProgress;
-		if (localProg < 0.25) {
-			easedProgress = 0; 
-		} else if (localProg > 0.75) {
-			easedProgress = 1;
-		} else {
-			easedProgress = (localProg - 0.25) / 0.5;
-		}
-
-		return (itemIndex + easedProgress) * step;
-	});
-
 	let trackWidth = $derived(trackRef ? trackRef.scrollWidth : 2000);
+	
 	let activeIndex = $derived(Math.min(experiences.length - 1, Math.floor(globalProgress * experiences.length)));
+	let activeColor = $derived(experiences[activeIndex]?.color || 'bg-blue-600');
 </script>
 
 <svelte:window bind:scrollY bind:innerHeight bind:innerWidth />
 
-<section bind:this={container} class="relative w-full h-[600dvh] bg-black overflow-clip selection:bg-blue-500/30" itemscope itemtype="https://schema.org/Person">
-	<div class="sticky top-0 w-full h-[100dvh] overflow-hidden flex flex-col justify-center bg-black transition-colors duration-1000">
+<!-- Seção alta (4x a altura da tela) para gerar área de scroll -->
+<section bind:this={container} class="relative w-full h-[400dvh] bg-neutral-950" itemscope itemtype="https://schema.org/Person">
+	<meta itemprop="name" content="Calebe Araujo" />
+	
+	<!-- Wrapper Fixo na tela -->
+	<div class="sticky top-0 w-full h-[100dvh] overflow-hidden flex flex-col justify-center bg-neutral-950 transition-colors duration-1000">
 		
-		<!-- Atmospheric Lighting -->
-		<div 
-			class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[800px] w-full max-w-5xl mx-auto opacity-[0.08] blur-[180px] transition-colors duration-[1500ms] rounded-full pointer-events-none"
-			style="background-color: {experiences[activeIndex].color};"
-		></div>
+		<!-- Dynamic Background Orb (Clean/Focado) -->
+		<div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[600px] w-full max-w-4xl mx-auto {activeColor} opacity-10 blur-[150px] transition-colors duration-[1500ms] rounded-full pointer-events-none"></div>
 
-		<!-- Title Entrance (Immersive Style) -->
-		<div class="absolute top-12 left-8 md:top-24 md:left-24 z-20">
-			<span class="text-blue-500 font-bold uppercase tracking-[0.6em] text-[9px] mb-4 block opacity-50">Evolution Timeline</span>
-			<h2 class="text-5xl md:text-8xl font-black text-white mix-blend-difference tracking-tighter uppercase">Trajetória</h2>
+		<!-- Título estático da seção -->
+		<div class="absolute top-4 left-6 md:top-12 md:left-24 z-20">
+			<span class="text-white/40 font-bold uppercase tracking-[0.4em] text-[10px] mb-2 block animate-pulse">Evolution</span>
+			<h2 class="text-4xl md:text-5xl lg:text-7xl font-black text-white mix-blend-exclusion">Trajetória</h2>
 		</div>
 
 		<div 
 			bind:this={trackRef} 
-			class="experience-track flex items-center gap-16 md:gap-40 px-[15vw] md:px-[35vw] min-w-max relative z-10" 
-			style="--progress: {lockedProgress}; --track-diff: {trackWidth > innerWidth ? trackWidth - innerWidth : 0}px;"
+			class="experience-track flex items-center gap-12 md:gap-32 px-[10vw] md:px-[30vw] min-w-max relative z-10" 
+			style="--progress: {globalProgress}; --track-diff: {trackWidth > innerWidth ? trackWidth - innerWidth : 0}px;"
 		>
 			{#each experiences as exp, i}
-				{@const itemProgress = (globalProgress * experiences.length) - i}
-				{@const absItemProg = Math.abs(itemProgress)}
-				{@const isActive = absItemProg < 0.5}
-
-				<!-- Experience Card with 3D Interaction -->
+				<!-- Componente de Card Clean Premium -->
 				<div 
-					class="experience-card w-[80vw] md:w-[720px] shrink-0 p-12 md:p-24 rounded-[4rem] border border-white/[0.05] backdrop-blur-3xl transition-all duration-1000 cubic-bezier(0.16, 1, 0.3, 1) shadow-[0_50px_100px_-30px_rgba(0,0,0,0.7)] relative overflow-hidden group
-					{isActive ? 'is-active opacity-100 border-white/[0.15] scale-100' : 'opacity-10 scale-90 blur-sm'}
+					class="experience-card w-[85vw] md:w-[600px] shrink-0 p-10 md:p-14 rounded-[3rem] border border-white/[0.08] backdrop-blur-2xl transition-all duration-700 ease-out shadow-2xl relative overflow-hidden group
+					{i === activeIndex ? 'active scale-100 opacity-100 border-white/[0.2]' : 'scale-90 opacity-40 grayscale-[50%]'}
 				"
-				style="transform: translate3d(0, 0, {isActive ? 0 : -200}px);"
 				itemscope 
 				itemtype="https://schema.org/WorkExperience"
 				itemprop="hasOccupation"
 				>
-					<div class="absolute inset-0 bg-gradient-to-br {exp.gradient} opacity-[0.03] group-hover:opacity-[0.1] transition-opacity duration-700"></div>
+					<!-- Fundo de Gradiente Interno -->
+					<div 
+						class="absolute inset-0 bg-gradient-to-br {exp.gradient} transition-opacity duration-300"
+						style="opacity: {0.05 + (i === activeIndex ? 0.9 : 0)};"
+					></div>
 
+					<!-- Efeito especial do final -->
+					{#if i === experiences.length - 1 && globalProgress > 0.98}
+						<div class="absolute inset-0 bg-white/10 mix-blend-overlay animate-pulse blur-md text-fluid-body"></div>
+						<div class="absolute -inset-10 bg-gradient-to-tr from-fuchsia-500/40 via-purple-500/10 to-transparent blur-3xl rounded-full animate-spin-slow pointer-events-none"></div>
+					{/if}
+
+					<!-- Conteúdo em Camada Superior -->
 					<div class="relative z-10">
-						<div class="flex items-center justify-between mb-16">
-							<span class="px-8 py-3 rounded-full border border-white/10 text-[10px] font-black tracking-[0.4em] text-white/60 uppercase bg-white/5 backdrop-blur-3xl">
-								{exp.period}
+						<div class="flex flex-wrap items-center justify-between gap-4 mb-10">
+							<span class="px-4 py-2 rounded-full border border-white/20 text-[10px] font-bold tracking-[0.2em] text-white/90 uppercase bg-black/20 backdrop-blur-md">
+								<time datetime={exp.startDate}>{exp.period.split(' - ')[0]}</time> - 
+								{#if exp.endDate}
+									<time datetime={exp.endDate}>{exp.period.split(' - ')[1]}</time>
+								{:else}
+									<span>Atual</span>
+								{/if}
 							</span>
-							<div class={`w-5 h-5 rounded-full transition-all duration-700 shadow-[0_0_30px_rgba(255,255,255,0.2)]`} style="background-color: {exp.color};"></div>
+							<span class={`w-3 h-3 rounded-full ${exp.color} transition-all duration-300 shadow-[0_0_20px_currentColor] ${i === activeIndex ? 'animate-ping' : ''}`}></span>
 						</div>
 						
-						<h3 class="text-4xl md:text-6xl font-black text-white mb-8 leading-none tracking-tighter" itemprop="name">{exp.role}</h3>
-						<div class="text-white/40 text-[12px] font-black tracking-[0.5em] uppercase mb-12" itemprop="hiringOrganization">{exp.company}</div>
+						<h3 class="text-fluid-section font-black text-white mb-3 text-balance leading-tight drop-shadow-lg" itemprop="name">{exp.role}</h3>
+						<div class="text-white/60 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-8 mix-blend-screen" itemprop="hiringOrganization">{exp.company}</div>
 						
-						<p class="text-white/80 text-xl md:text-3xl font-light leading-snug text-balance" itemprop="description">
+						<p class="text-white/80 text-fluid-body font-light leading-relaxed text-balance" itemprop="description">
 							{exp.desc}
 						</p>
 
-						<div class="mt-16 pt-10 border-t border-white/5 flex flex-wrap gap-4">
-							{#each exp.skills.split(', ') as skill}
-								<span class="px-5 py-2 bg-white/5 rounded-xl border border-white/5 text-white/30 text-[10px] font-bold uppercase tracking-widest">{skill}</span>
-							{/each}
+						<!-- Hidden skills for ATS/SEO Parsers -->
+						<meta itemprop="skills" content={exp.skills} />
+
+						<div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+							<span class="text-[10px] text-white/40 font-semibold tracking-widest uppercase">Foco Principal: </span>
+							<span class="px-3 py-1 bg-white/10 rounded border border-white/5 text-white/90 text-[10px] font-bold tracking-wide">{exp.tag}</span>
 						</div>
 					</div>
 				</div>
 			{/each}
 		</div>
 
-		<!-- Footer Tracking -->
-		<div class="absolute bottom-16 left-8 right-8 md:left-24 md:right-24 z-20 flex items-center justify-between">
-			<div class="text-white/30 text-[12px] font-black tracking-[0.6em] tabular-nums uppercase">
-				Checkpoint {String(activeIndex + 1).padStart(2, '0')} — {String(experiences.length).padStart(2, '0')}
+		<!-- Indicador de progresso no rodapé -->
+		<div class="absolute bottom-12 left-8 right-8 md:left-24 md:right-24 z-20 flex items-center justify-between">
+			<div class="text-white/40 text-[10px] font-mono font-bold tracking-[0.2em]">
+				{String(activeIndex + 1).padStart(2, '0')} / {String(experiences.length).padStart(2, '0')}
 			</div>
 			
-			<div class="w-full max-w-[300px] flex gap-3 ml-12">
-				{#each experiences as _, i}
-					<div 
-						class="h-1 rounded-full transition-all duration-700 ease-out" 
-						style="
-							width: {i === activeIndex ? '80px' : '20px'};
-							background: {i === activeIndex ? experiences[i].color : 'rgba(255,255,255,0.05)'};
-							box-shadow: {i === activeIndex ? '0 0 15px currentColor' : 'none'};
-						"
-					></div>
-				{/each}
+			<div class="w-full max-w-sm h-1 bg-white/10 rounded-full overflow-hidden ml-6">
+				<div class="h-full {activeColor} transition-all duration-300 ease-out" style="width: {globalProgress * 100}%"></div>
 			</div>
 		</div>
+
 	</div>
 </section>
 
@@ -191,20 +180,12 @@
 	.experience-track {
 		transform: translateX(calc(-1 * var(--track-diff, 0) * var(--progress, 0)));
 		will-change: transform;
-		transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+		/* Smooth interpolation using CSS transition on top of the JS update */
+		transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 	}
 
 	.experience-card {
-		transform-style: preserve-3d;
-		backface-visibility: hidden;
-	}
-
-	.is-active {
-		animation: card-focus 4s ease-in-out infinite alternate;
-	}
-
-	@keyframes card-focus {
-		from { border-color: rgba(255,255,255,0.1); }
-		to { border-color: rgba(255,255,255,0.25); }
+		/* Subtile transition for scale/opacity when active */
+		transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 </style>

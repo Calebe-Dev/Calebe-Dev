@@ -14,15 +14,13 @@
 
 	let subtitleElement = $state<HTMLElement | null>(null);
 
-	// Logica de transição suave (Clean design)
-	let messageVisible = $state(true);
-
 	function updateCollisionMask() {
 		if (!textElement || !offscreenCanvas || !offscreenCtx) return;
 
 		const mainBounds = textElement.getBoundingClientRect();
 		const subtitleBounds = isFinished && subtitleElement ? subtitleElement.getBoundingClientRect() : null;
 		
+		// Encontrar o bounding box total que engloba ambos os textos
 		const left = Math.min(mainBounds.left, subtitleBounds?.left ?? mainBounds.left);
 		const right = Math.max(mainBounds.right, subtitleBounds?.right ?? mainBounds.right);
 		const top = Math.min(mainBounds.top, subtitleBounds?.top ?? mainBounds.top);
@@ -31,7 +29,7 @@
 		const totalWidth = right - left;
 		const totalHeight = bottom - top;
 
-		if (totalWidth <= 0) return;
+		if (totalWidth === 0) return;
 
 		const scale = 0.5;
 		const w = Math.floor(totalWidth * scale);
@@ -44,16 +42,19 @@
 
 		offscreenCtx.clearRect(0, 0, w, h);
 		
-		const mainFS = parseFloat(window.getComputedStyle(textElement.querySelector('h3') || textElement).fontSize);
+		// Desenhar Texto Principal no Mask
+		const mainFS = parseFloat(window.getComputedStyle(textElement.querySelector('h2') || textElement).fontSize);
 		offscreenCtx.font = `bold ${mainFS * scale}px Inter, sans-serif`;
 		offscreenCtx.textAlign = 'center';
 		offscreenCtx.textBaseline = 'middle';
 		offscreenCtx.fillStyle = 'white';
 		
+		// Posição relativa ao "total bounds"
 		const mainCenterX = (mainBounds.left - left + mainBounds.width / 2) * scale;
 		const mainCenterY = (mainBounds.top - top + mainBounds.height / 2) * scale;
 		offscreenCtx.fillText(messages[currentIndex], mainCenterX, mainCenterY);
 
+		// Desenhar Subtítulo no Mask (se visível)
 		if (isFinished && subtitleElement) {
 			const subFS = parseFloat(window.getComputedStyle(subtitleElement).fontSize);
 			offscreenCtx.font = `300 ${subFS * scale}px Inter, sans-serif`;
@@ -68,6 +69,7 @@
 			width: w,
 			height: h
 		};
+		// Reportar a caixa total para o canvas de partículas saber onde procurar o erro
 		environment.textBounds = {
 			left, right, top, bottom,
 			width: totalWidth,
@@ -81,11 +83,12 @@
 	onMount(() => {
 		offscreenCtx = offscreenCanvas.getContext('2d', { willReadFrequently: true })!;
 
+		// Verificar se o usuário já recarregou a página fora da Hero
 		if (window.scrollY > 100) {
 			isFinished = true;
 			currentIndex = messages.length - 1;
 			environment.isScrollLocked = false;
-            updateCollisionMask();
+			updateCollisionMask();
 		}
 
 		const interval = setInterval(() => {
@@ -117,57 +120,49 @@
 	});
 </script>
 
-<div class="text-container min-h-[400px] flex flex-col items-center justify-center relative perspective-[2500px]">
+<div class="text-container min-h-[400px] flex flex-col items-center justify-center relative">
+	<!-- Canvas invisível para gerar o mapa de colisão -->
 	<canvas bind:this={offscreenCanvas} class="hidden"></canvas>
 
 	<div bind:this={textElement} class="relative w-full h-48 flex items-center justify-center">
 		{#key currentIndex}
-			<h3 
-				in:fade={{ duration: 1500, delay: 200 }}
-				out:fade={{ duration: 800 }}
-				class="absolute text-fluid-hero font-bold tracking-tight text-center px-4 transition-colors duration-1000 whitespace-nowrap blur-none
-					{environment.dayCycle === 'day' ? 'text-slate-900' : 'text-white'}"
+			<h2 
+				in:fade={{ duration: 1000, delay: 500 }} 
+				out:fade={{ duration: 1000 }}
+				class="absolute text-fluid-hero font-bold tracking-tight text-center px-4 transition-colors duration-1000
+					{environment.dayCycle === 'day' ? 'text-slate-900 drop-shadow-sm' : 'text-white drop-shadow-2xl'}"
 			>
-                {messages[currentIndex]}
-			</h3>
+				{messages[currentIndex]}
+			</h2>
 		{/key}
 	</div>
 
 	{#if isFinished}
 		<div 
 			bind:this={subtitleElement}
-			in:fade={{ duration: 2000, delay: 600 }}
-			class="mt-8 text-lg md:text-xl font-medium tracking-[0.4em] uppercase text-center transition-all duration-1000 mix-blend-difference
-				{environment.dayCycle === 'day' ? 'text-slate-600' : 'text-blue-500/60'}"
+			in:fade={{ duration: 1500, delay: 200 }}
+			class="mt-4 text-xl md:text-2xl font-light tracking-widest uppercase text-center transition-colors duration-1000
+				{environment.dayCycle === 'day' ? 'text-slate-700' : 'text-blue-300/80'}"
 		>
 			Desenvolvedor Fullstack Multi Plataforma
 		</div>
 
-		<!-- Animated Scroll Indicator -->
+		<!-- Indicador de Scroll -->
 		<div 
-			in:fade={{ duration: 1000, delay: 1200 }}
-			class="absolute bottom-[-160px] flex flex-col items-center gap-4 transition-all duration-1000
-				{environment.dayCycle === 'day' ? 'text-slate-900/30' : 'text-white/10'}"
+			in:fade={{ duration: 1000, delay: 1000 }}
+			class="absolute bottom-[-100px] flex flex-col items-center gap-2 animate-bounce cursor-pointer transition-colors duration-1000
+				{environment.dayCycle === 'day' ? 'text-slate-900/40' : 'text-white/40'}"
 		>
-			<span class="text-[8px] uppercase tracking-[0.6em] font-medium opacity-50">Explore a Infraestrutura</span>
-			<div class="w-[1px] h-24 bg-gradient-to-b from-blue-500/20 to-transparent relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-1/2 bg-blue-400/40 animate-scroll-dash"></div>
-            </div>
+			<span class="text-[10px] uppercase tracking-[0.3em] font-medium">Role para explorar</span>
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+			</svg>
 		</div>
 	{/if}
 </div>
 
 <style>
 	.text-container {
-		transform-style: preserve-3d;
+		perspective: 1000px;
 	}
-
-    @keyframes scroll-dash {
-        0% { transform: translateY(-100%); }
-        100% { transform: translateY(200%); }
-    }
-
-    .animate-scroll-dash {
-        animation: scroll-dash 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-    }
 </style>
