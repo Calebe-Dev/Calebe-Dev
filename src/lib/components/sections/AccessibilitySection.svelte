@@ -53,37 +53,43 @@
         return `color-mix(in srgb, ${colors[index+1]}, ${colors[index]} ${100 - localProgress * 100}%)`;
     });
 
-    // Helper para gerar offsets 3D determinísticos
+    // Helper para gerar estilos com Platô (Scroll Lock) e Suavidade CSS
     function getCharStyle(char: string, blockIndex: number, charOffset: number, absDist: number, dist: number) {
-        if (char === ' ') return '';
+        if (char === ' ') return 'display: inline-block; width: 0.25em;';
         
-        // Semente única para cada caractere
         const seed = (blockIndex * 500) + charOffset;
         const random = (s: number) => {
             const x = Math.sin(s) * 10000;
             return x - Math.floor(x);
         };
 
-        // Intensidade do caos baseada na distância do scroll (0 a 1)
-        // Quanto mais longe do centro (absDist maior), mais caótico.
-        // A montagem acontece quando absDist < 0.15
-        const intensity = Math.min(1, absDist * 7); 
+        // Lógica de Platô (Lock): Se absDist < 0.06, a intensidade é Zero (montado)
+        // Isso cria a "trava" onde a animação para e o conteúdo fica visível.
+        const plateau = 0.06;
+        let intensity = 0;
+        if (absDist > plateau) {
+            intensity = Math.min(1, (absDist - plateau) * 8);
+        }
         
-        // Vetores de explosão (de onde as letras vêm)
-        const offsetX = (random(seed) - 0.5) * 3000 * intensity;
+        const offsetX = (random(seed) - 0.5) * 2500 * intensity;
         const offsetY = (random(seed + 1) - 0.5) * 2000 * intensity;
         const offsetZ = (random(seed + 2) - 0.5) * 4000 * intensity;
-        const rotateX = (random(seed + 3) - 0.5) * 1080 * intensity;
-        const rotateY = (random(seed + 4) - 0.5) * 1080 * intensity;
-        const rotateZ = (random(seed + 5) - 0.5) * 720 * intensity;
+        const rotateX = (random(seed + 3) - 0.5) * 720 * intensity;
+        const rotateY = (random(seed + 4) - 0.5) * 720 * intensity;
+        const rotateZ = (random(seed + 5) - 0.5) * 360 * intensity;
+
+        // Adicionando delay individual para um efeito cascata na montagem
+        const delay = random(seed + 6) * 0.2;
 
         return `
             display: inline-block;
             transform: translate3d(${offsetX}px, ${offsetY}px, ${offsetZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg);
-            opacity: ${1 - (intensity * 0.8)};
-            filter: blur(${intensity * 15}px);
+            opacity: ${1 - (intensity * 0.9)};
+            filter: blur(${intensity * 12}px);
             white-space: pre;
             will-change: transform, opacity;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out, filter 0.5s ease-out;
+            transition-delay: ${intensity === 0 ? delay : 0}s;
         `;
     }
 </script>
@@ -92,112 +98,120 @@
 
 <section 
     bind:this={container} 
-    class="relative w-full h-[600vh] transition-colors duration-1000 ease-linear"
+    class="relative w-full h-[800vh] transition-colors duration-1000 ease-linear"
     style="background-color: {bgColor};"
 >
+    <!-- Sticky Central Wrapper -->
     <div class="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden">
         
-        <!-- Background Depth Elements -->
-        <div class="absolute inset-0 pointer-events-none opacity-20">
-            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-blue-500/10"></div>
-            {#each Array(15) as _, i}
+        <!-- Atmospheric Depth (Parallax) -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            {#each Array(12) as _, i}
                 <div 
-                    class="absolute bg-white/5 rounded-full blur-3xl"
+                    class="absolute bg-white/[0.03] rounded-full blur-3xl animate-pulse-slow"
                     style="
-                        width: {300 + (i * 40)}px; 
-                        height: {300 + (i * 40)}px;
-                        top: {10 + (i * 6)}%;
-                        left: {10 + (Math.cos(i) * 30 + 30)}%;
-                        transform: translateZ({-i * 200}px);
+                        width: {400 + (i * 50)}px; 
+                        height: {400 + (i * 50)}px;
+                        top: {10 + (getCharStyle('', 0, i, 0, 0), (i * 7)) % 100}%;
+                        left: {10 + (Math.cos(i) * 40 + 40)}%;
+                        transform: translateZ({-i * 300}px);
+                        animation-delay: {i * 0.5}s;
                     "
                 ></div>
             {/each}
         </div>
 
-        <div class="absolute top-8 md:top-16 text-center z-50 px-6 transition-all duration-700" style="opacity: {progress < 0.95 ? 0.3 : 0};">
-            <span class="text-blue-500 font-bold uppercase tracking-[0.4em] text-[8px] md:text-[10px] mb-2 block">Experiência Imersiva</span>
-            <h2 class="text-xl md:text-2xl font-black text-white/20 tracking-tighter uppercase">Laboratório de Acessibilidade</h2>
+        <!-- Section Title (Static/Fading) -->
+        <div class="absolute top-8 md:top-16 text-center z-50 px-6 transition-all duration-1000" style="opacity: {progress < 0.98 ? 0.2 : 0};">
+            <span class="text-blue-500 font-bold uppercase tracking-[0.6em] text-[8px] md:text-[9px] mb-2 block">Imersão de Precisão</span>
+            <h2 class="text-xl md:text-2xl font-black text-white/10 tracking-widest uppercase">Arquitetura de Inclusão</h2>
         </div>
 
-        <div class="relative w-full max-w-6xl flex items-center justify-center perspective-[2500px]">
+        <!-- Main Assembly Viewport -->
+        <div class="relative w-full max-w-7xl flex items-center justify-center perspective-[3000px]">
             {#each blocks as block, i}
                 {@const centerAt = i / blocks.length + (1 / (blocks.length * 2))}
                 {@const dist = progress - centerAt}
                 {@const absDist = Math.abs(dist)}
-                {@const blockActive = absDist < 0.2}
+                
+                <!-- Lock Zone Detection -->
+                {@const isLocked = absDist < 0.06}
+                {@const blockOpacity = Math.max(0, 1 - (absDist * 6))}
 
                 <div 
-                    class="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+                    class="absolute inset-0 flex flex-col items-center justify-center text-center px-6 transition-opacity duration-700"
+                    class:block-locked={isLocked}
                     style="
-                        pointer-events: {blockActive ? 'all' : 'none'};
-                        z-index: {blockActive ? 100 : 10};
+                        pointer-events: {isLocked ? 'all' : 'none'};
+                        z-index: {isLocked ? 100 : 10};
+                        opacity: {blockOpacity};
                         visibility: {absDist > 0.3 ? 'hidden' : 'visible'};
                     "
                 >
-                    <!-- Icon Assembly -->
+                    <!-- Icon Assembly with Motion Blur -->
                     <div 
-                        class="mb-10 transition-all duration-700"
+                        class="mb-12 transition-all duration-[1000ms] cubic-bezier(0.16, 1, 0.3, 1)"
                         style="
-                            transform: translate3d(0, 0, {-dist * 5000}px) rotateY({dist * 360}deg) scale({1 - Math.min(1, absDist * 4)});
-                            opacity: {1 - Math.min(1, absDist * 5)};
-                            filter: blur({absDist * 20}px);
+                            transform: translate3d(0, 0, {-dist * 6000}px) rotateY({dist * 720}deg) scale({1 - Math.min(1, absDist * 5)});
+                            filter: blur({absDist * 15}px);
                         "
                     >
-                        <div class="w-24 h-24 md:w-32 md:h-32 rounded-[2.5rem] bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-3xl shadow-2xl">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={block.color} stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <div class="w-24 h-24 md:w-32 md:h-32 rounded-[3rem] bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-3xl shadow-[0_0_80px_rgba(255,255,255,0.03)] group cursor-help">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={block.color} stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="transition-all duration-700 group-hover:scale-110">
                                 <path d={block.icon} />
                                 {#if i === 0}<circle cx="12" cy="12" r="3" />{/if}
                             </svg>
                         </div>
                     </div>
 
-                    <!-- Title Assembly (Per-Character) -->
-                    <h3 class="text-4xl md:text-8xl font-black text-white mb-10 leading-[0.85] tracking-tighter text-balance">
+                    <!-- Character-Level Title Assembly -->
+                    <h3 class="text-5xl md:text-9xl font-black text-white mb-10 leading-[0.8] tracking-tighter text-balance">
                         {#each block.title.split('') as char, j}
-                            <span style={getCharStyle(char, i, j, absDist, dist)}>{char}</span>
+                            <span class="char-unit" style={getCharStyle(char, i, j, absDist, dist)}>{char}</span>
                         {/each}
                     </h3>
 
-                    <!-- Text Assembly (Per-Character) -->
-                    <p class="text-white/70 text-lg md:text-2xl font-light max-w-4xl leading-relaxed text-balance">
+                    <!-- Character-Level Text Assembly -->
+                    <p class="text-white/60 text-xl md:text-3xl font-light max-w-5xl leading-tight text-balance">
                         {#each block.text.split(' ') as word, j}
                             <span class="inline-block">
                                 {#each word.split('') as char, k}
-                                    <span style={getCharStyle(char, i, j * 20 + k + 100, absDist, dist)}>{char}</span>
+                                    <span class="char-unit" style={getCharStyle(char, i, j * 20 + k + 100, absDist, dist)}>{char}</span>
                                 {/each}
-                                <span class="inline-block">&nbsp;</span>
                             </span>
                         {/each}
                     </p>
 
+                    <!-- Lock state Highlight -->
                     <div 
-                        class="mt-16 flex items-center gap-6 transition-all duration-1000"
-                        style="opacity: {1 - absDist * 8}; transform: translateY({absDist * 150}px) translateZ({-absDist * 1000}px);"
+                        class="mt-16 flex items-center gap-8 transition-all duration-1000"
+                        style="opacity: {isLocked ? 1 : 0}; transform: translateY({isLocked ? 0 : 50}px);"
                     >
-                        <div class="w-16 h-[1px] bg-gradient-to-r from-transparent to-white/20"></div>
-                        <span class="text-[11px] text-blue-400 font-bold uppercase tracking-[.5em]">{block.tag}</span>
-                        <div class="w-16 h-[1px] bg-gradient-to-l from-transparent to-white/20"></div>
+                        <div class="w-20 h-[1px] bg-gradient-to-r from-transparent to-white/20"></div>
+                        <span class="text-[12px] text-blue-500 font-black uppercase tracking-[0.6em] animate-shine">{block.tag}</span>
+                        <div class="w-20 h-[1px] bg-gradient-to-l from-transparent to-white/20"></div>
                     </div>
                 </div>
             {/each}
         </div>
 
-        <!-- Atmospheric Progress Indicator -->
-        <div class="absolute bottom-12 flex flex-col items-center gap-6 transition-opacity duration-700" style="opacity: {progress > 0.02 && progress < 0.98 ? 1 : 0};">
-            <div class="flex items-center gap-4">
+        <!-- Scroll HUD -->
+        <div class="absolute bottom-12 flex flex-col items-center gap-6 transition-all duration-700" style="opacity: {progress > 0.02 && progress < 0.98 ? 1 : 0};">
+            <div class="flex items-center gap-3">
                 {#each blocks as _, idx}
-                    {@const isActive = Math.floor(progress * blocks.length) === idx}
+                    {@const blockProg = progress * blocks.length}
+                    {@const isActive = Math.floor(blockProg) === idx}
                     <div 
                         class="h-1 rounded-full transition-all duration-700"
                         style="
-                            width: {isActive ? '60px' : '20px'};
-                            background: {isActive ? 'rgba(59, 130, 246, 0.8)' : 'rgba(255, 255, 255, 0.1)'};
-                            box-shadow: {isActive ? '0 0 15px rgba(59, 130, 246, 0.4)' : 'none'};
+                            width: {isActive ? '80px' : '24px'};
+                            background: {isActive ? 'rgba(59, 130, 246, 0.8)' : 'rgba(255, 255, 255, 0.05)'};
+                            box-shadow: {isActive ? '0 0 20px rgba(59, 130, 246, 0.3)' : 'none'};
                         "
                     ></div>
                 {/each}
             </div>
-            <span class="text-[10px] uppercase tracking-[0.5em] font-black text-white/20 tabular-nums">Ponto de Convergência {Math.floor(progress * 100)}%</span>
+            <span class="text-[9px] uppercase tracking-[0.6em] font-black text-white/30 tabular-nums">Sincronização {Math.floor(progress * 100)}%</span>
         </div>
     </div>
 </section>
@@ -205,6 +219,40 @@
 <style>
     :global(body) {
         overflow-x: hidden;
-        perspective: 2000px;
+        perspective: 3000px;
+    }
+
+    .char-unit {
+        /* Garante que o navegador trate as letras como objetos individuais para 3D */
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+    }
+
+    .block-locked h3 span {
+        /* Brilho sutil quando está travado no centro */
+        animation: text-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes text-pulse {
+        0%, 100% { opacity: 1; filter: drop-shadow(0 0 0px transparent); }
+        50% { opacity: 0.9; filter: drop-shadow(0 0 8px rgba(255,255,255,0.2)); }
+    }
+
+    @keyframes shine {
+        from { filter: brightness(1); }
+        to { filter: brightness(1.5); }
+    }
+
+    .animate-pulse-slow {
+        animation: pulse-slow 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse-slow {
+        0%, 100% { opacity: 0.02; transform: scale(1); }
+        50% { opacity: 0.05; transform: scale(1.1); }
+    }
+
+    .animate-shine {
+        animation: shine 2s ease-in-out infinite alternate;
     }
 </style>
