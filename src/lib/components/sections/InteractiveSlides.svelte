@@ -8,6 +8,7 @@
 	let sectionHeight = $state(0);
 	let viewportHeight = $state(0);
 	
+	// Progresso global da seção (0 a 1)
 	let globalProgress = $derived.by(() => {
 		if (sectionHeight <= viewportHeight) return 0;
 		const start = sectionTop;
@@ -16,49 +17,40 @@
 		return Math.max(0, Math.min(1, p));
 	});
 
-	// Helper para 3D Character Assembly (Unificado)
-	function getCharStyle(char: string, slideIdx: number, charOffset: number, progress: number, start: number, end: number) {
-		if (char === ' ') return 'display: inline-block; width: 0.25em;';
+	// Helper para calcular a opacidade/transform baseada num range específico
+	// Adicionado 'plateau' para efeito de "stickiness" (o texto fica parado no centro mais tempo)
+	function getInterpolation(progress: number, start: number, end: number) {
+		if (progress < start || progress > end) return { opacity: 0, y: 40, blur: 10, scale: 0.95 };
 		
 		const range = end - start;
 		const localProgress = (progress - start) / range;
 		
-		// Lógica de "Lock" (Plateau): entre 0.3 e 0.7 o texto está estático
-		const plateauStart = 0.3;
-		const plateauEnd = 0.7;
-		
-		let intensity = 0;
-		if (localProgress < plateauStart) {
-			intensity = 1 - (localProgress / plateauStart);
-		} else if (localProgress > plateauEnd) {
-			intensity = (localProgress - plateauEnd) / (1 - plateauEnd);
+		let opacity = 1;
+		let y = 0;
+		let blur = 0;
+		let scale = 1;
+
+		// Efeito Stickiness: o centro (0.3 a 0.7) é estático
+		if (localProgress < 0.3) {
+			const ease = localProgress / 0.3;
+			opacity = ease;
+			y = 40 * (1 - ease);
+			blur = 10 * (1 - ease);
+			scale = 0.95 + (0.05 * ease);
+		} 
+		else if (localProgress > 0.7) {
+			const ease = (1 - localProgress) / 0.3;
+			opacity = ease;
+			y = -40 * (1 - ease);
+			blur = 10 * (1 - ease);
+			scale = 1 + (0.05 * (1 - ease));
 		}
 
-		if (progress < start || progress > end) intensity = 1;
-
-		const seed = (slideIdx * 1000) + charOffset;
-		const random = (s: number) => {
-			const x = Math.sin(s) * 10000;
-			return x - Math.floor(x);
-		};
-
-		const offsetX = (random(seed) - 0.5) * 1500 * intensity;
-		const offsetY = (random(seed + 1) - 0.5) * 1000 * intensity;
-		const offsetZ = (random(seed + 2) - 0.5) * 3000 * intensity;
-		const rotate = (random(seed + 3) - 0.5) * 720 * intensity;
-
-		return `
-			display: inline-block;
-			transform: translate3d(${offsetX}px, ${offsetY}px, ${offsetZ}px) rotate(${rotate}deg);
-			opacity: ${1 - intensity};
-			filter: blur(${intensity * 12}px);
-			transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out;
-			will-change: transform, opacity;
-		`;
+		return { opacity, y, blur, scale };
 	}
 
 	let snapTimeout: number;
-	const snapPoints = [0.15, 0.5, 0.85];
+	const snapPoints = [0.15, 0.5, 0.85]; // Pontos de foco magnético
 
 	onMount(() => {
 		const updateDimensions = () => {
@@ -72,18 +64,26 @@
 
 		const snapToNearest = () => {
 			if (environment.isScrollLocked) return;
+			
+			// Encontrar o ponto magnético mais próximo
 			const nearest = snapPoints.reduce((prev, curr) => 
 				Math.abs(curr - globalProgress) < Math.abs(prev - globalProgress) ? curr : prev
 			);
 
+			// Só snap se estiver perto o suficiente (evitar snaps irritantes se o usuário quer passar direto)
 			if (Math.abs(nearest - globalProgress) < 0.15) {
 				const targetScroll = sectionTop + (nearest * (sectionHeight - viewportHeight));
-				window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+				window.scrollTo({
+					top: targetScroll,
+					behavior: 'smooth'
+				});
 			}
 		};
 
 		const onScroll = () => {
 			scrollY = window.scrollY;
+			
+			// Lógica Magnética: Detectar fim do scroll
 			clearTimeout(snapTimeout);
 			snapTimeout = window.setTimeout(snapToNearest, 150);
 		};
@@ -98,81 +98,72 @@
 		};
 	});
 
-	const slides = [
-		{
-			tag: "Storytelling Digital",
-			title: "Porque a Experiência faz diferença?",
-			color: "from-white to-slate-500",
-			range: [0, 0.35]
-		},
-		{
-			tag: "Autoridade Visual",
-			title: "O primeiro contato com sua marca é o limite entre autoridade e dúvida.",
-			color: "from-white to-blue-400",
-			range: [0.32, 0.68]
-		},
-		{
-			tag: "Tecnologia de Elite",
-			title: "Mais que um artefato técnico.",
-			color: "from-blue-400 to-blue-700",
-			range: [0.65, 1.0]
-		}
-	];
+	const slide1 = $derived(getInterpolation(globalProgress, 0, 0.35));
+	const slide2 = $derived(getInterpolation(globalProgress, 0.32, 0.68));
+	const slide3 = $derived(getInterpolation(globalProgress, 0.65, 1.0));
 </script>
 
 <div bind:this={container} class="relative w-full h-[600vh] bg-black">
+	<!-- Sticky Wrapper -->
 	<div class="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center bg-black">
 		
-		<!-- Fundo Progressivo -->
+		<!-- Fundo Progressivo (Escuro para Claro) -->
 		<div class="absolute inset-0 transition-colors duration-1000"
-			style="background: linear-gradient(180deg, #000 0%, hsl(220, 30%, {10 + (globalProgress * 25)}%) 100%)"
+			style="background: linear-gradient(180deg, 
+				#000 0%, 
+				hsl(220, 30%, {10 + (globalProgress * 25)}%) 100%
+			)"
 		></div>
 		
-		<!-- Brilho Dinâmico Centrado -->
-		<div class="absolute inset-0 opacity-20"
-			style="background: radial-gradient(circle at 50% 50%, #3b82f6 0%, transparent 70%)"
+		<!-- Overlay de Brilho Dinâmico -->
+		<div class="absolute inset-0 opacity-30"
+			style="background: radial-gradient(circle at {50 + (globalProgress * 10)}% {50 - (globalProgress * 10)}%, #3b82f6 0%, transparent 70%)"
 		></div>
 
-		<div class="relative z-10 w-full h-full max-w-7xl px-8 flex flex-col items-center justify-center text-center perspective-[3000px]">
+		<!-- Conteúdo Interpolado -->
+		<div class="relative z-10 w-full h-full max-w-5xl px-8 text-center">
 			
-			{#each slides as slide, i}
-				{@const [start, end] = slide.range}
-				{@const isActive = globalProgress >= start && globalProgress <= end}
+			<!-- Slide 1 -->
+			<div class="absolute inset-x-0 top-1/2 transition-all duration-75 ease-out pointer-events-none px-8"
+				style="opacity: {slide1.opacity}; transform: translate(0, calc(-50% + {slide1.y}px)) scale({slide1.scale}); filter: blur({slide1.blur}px)"
+			>
+				<span class="text-blue-500 font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-8 block">Storytelling Digital</span>
+				<h2 class="text-6xl md:text-9xl font-black text-white leading-[0.9] tracking-tighter">
+					Porque a <br/> <span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-500">Experiência</span> <br/> faz diferença?
+				</h2>
+			</div>
+
+			<!-- Slide 2 -->
+			<div class="absolute inset-x-0 top-1/2 transition-all duration-75 ease-out pointer-events-none px-8"
+				style="opacity: {slide2.opacity}; transform: translate(0, calc(-50% + {slide2.y}px)) scale({slide2.scale}); filter: blur({slide2.blur}px)"
+			>
+				<h2 class="text-4xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight max-w-4xl mx-auto">
+					O primeiro contato com sua marca é o limite entre 
+					<span class="bg-blue-600/20 px-4 py-1 rounded-lg border border-blue-500/30">autoridade</span> e dúvida.
+				</h2>
+				<p class="mt-8 text-xl md:text-3xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+					Dúvidas silenciosas afetam sua credibilidade antes mesmo do primeiro clique.
+				</p>
+			</div>
+
+			<!-- Slide 3 -->
+			<div class="absolute inset-x-0 top-1/2 transition-all duration-75 ease-out pointer-events-none px-8"
+				style="opacity: {slide3.opacity}; transform: translate(0, calc(-50% + {slide3.y}px)) scale({slide3.scale}); filter: blur({slide3.blur}px)"
+			>
+				<h2 class="text-6xl md:text-9xl font-black text-white leading-none tracking-tighter mb-10">
+					Mais que um <br/> <span class="text-blue-500">artefato</span>.
+				</h2>
+				<p class="text-xl md:text-3xl text-slate-300 max-w-3xl mx-auto font-medium leading-relaxed">
+					Usando as mesmas tecnologias que as maiores Big Techs para tornar qualquer projeto uma obra de arte em destaque.
+				</p>
 				
-				<div 
-					class="absolute inset-0 flex flex-col items-center justify-center px-8 transition-opacity duration-500"
-					style="opacity: {isActive ? 1 : 0}; pointer-events: {isActive ? 'all' : 'none'};"
-				>
-					<span class="text-blue-500 font-black tracking-[0.6em] uppercase text-[10px] md:text-sm mb-12 block">
-						{slide.tag}
-					</span>
-
-					<h2 class="text-5xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter text-balance mb-12">
-						{#each slide.title.split(' ') as word, wIdx}
-							<span class="inline-block mr-[0.3em] whitespace-nowrap">
-								{#each word.split('') as char, cIdx}
-									<span style={getCharStyle(char, i, wIdx * 20 + cIdx, globalProgress, start, end)}>{char}</span>
-								{/each}
-							</span>
-						{/each}
-					</h2>
-
-					{#if i === 1}
-						<p class="text-white/40 text-xl md:text-3xl font-light max-w-3xl leading-relaxed mt-4 transition-all duration-1000"
-							style="opacity: {isActive ? 1 : 0}; transform: translateY({isActive ? 0 : 20}px);"
-						>
-							Dúvidas silenciosas afetam sua credibilidade antes mesmo do primeiro clique.
-						</p>
-					{/if}
-
-					{#if i === 2}
-						<div class="mt-16 w-32 h-32 mx-auto relative scale-75 md:scale-100 group">
-							<div class="absolute inset-0 border border-blue-500/50 rounded-full animate-ping"></div>
-							<div class="absolute inset-8 bg-blue-600 rounded-full shadow-[0_0_80px_rgba(37,99,235,0.8)] group-hover:scale-110 transition-transform duration-500"></div>
-						</div>
-					{/if}
+				<!-- Detalhe Visual (Arte) -->
+				<div class="mt-12 w-24 h-24 md:w-32 md:h-32 mx-auto relative scale-75 md:scale-100">
+					<div class="absolute inset-0 border border-blue-500/50 rounded-full animate-ping"></div>
+					<div class="absolute inset-4 border border-blue-400/30 rounded-full animate-pulse delay-75"></div>
+					<div class="absolute inset-8 bg-blue-600 rounded-full shadow-[0_0_50px_rgba(37,99,235,0.6)]"></div>
 				</div>
-			{/each}
+			</div>
 
 		</div>
 	</div>
@@ -182,9 +173,5 @@
 	h2 {
 		text-wrap: balance;
 		word-break: keep-all;
-	}
-	
-	:global(body) {
-		perspective: 2500px;
 	}
 </style>
