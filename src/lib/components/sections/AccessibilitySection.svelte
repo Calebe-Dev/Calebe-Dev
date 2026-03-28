@@ -57,43 +57,13 @@
         return `color-mix(in srgb, ${colors[index+1]}, ${colors[index]} ${100 - localProgress * 100}%)`;
     });
 
-    function getBlockStyle(index: number) {
-        const center = index / blocks.length + (1 / (blocks.length * 2));
-        const distance = Math.abs(progress - center);
-        const activeRange = 0.2; // Ajustado para ser mais focado
-        
-        // Ativo quando progress está perto do center
-        const isActive = distance < activeRange * 0.5;
-        
-        // Opacidade: Pico no centro, fade rápido nas bordas
-        const opacity = Math.max(0, 1 - (distance / (activeRange * 0.8)));
-        
-        // Escala: Vem de 'frente' (grande) para longe (pequeno)
-        const scale = 0.5 + Math.max(0, 1 - distance / activeRange) * 0.5;
-        
-        // Profundidade 3D: Positivo (frente/perto) para Negativo (fundo/longe)
-        // Queremos que venha de frente (positivo) para o plano (0) e suma no fundo (negativo)
-        const translateZ = (center - progress) * 2000; 
-
-        // Blur: Apenas quando sai do foco central
-        const blur = distance > 0.05 ? Math.min(8, (distance - 0.05) * 40) : 0;
-
-        return `
-            opacity: ${opacity};
-            transform: perspective(1200px) translate3d(0, 0, ${translateZ}px) scale(${scale});
-            filter: blur(${blur}px);
-            pointer-events: ${isActive ? 'auto' : 'none'};
-            z-index: ${Math.floor(opacity * 100)};
-            transition: filter 0.3s ease-out; /* Suaviza a saída do blur */
-        `;
-    }
 </script>
 
 <svelte:window bind:scrollY bind:innerHeight />
 
 <section 
     bind:this={container} 
-    class="relative w-full h-[500vh] transition-colors duration-700 ease-linear overflow-hidden"
+    class="relative w-full h-[500vh] transition-colors duration-700 ease-linear"
     style="background-color: {bgColor};"
 >
     <!-- Elemento Sticky Central -->
@@ -105,32 +75,50 @@
             <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-[120px] animate-pulse"></div>
         </div>
 
-        <!-- Cabeçalho da Seção (Sempre visível mas atenuado no final) -->
-        <div class="absolute top-12 md:top-24 text-center z-50 px-6 transition-opacity duration-500" style="opacity: {progress < 0.95 ? 1 : 0};">
-            <span class="text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">Inclusão sem Compromissos</span>
-            <h2 class="text-fluid-section font-black text-white tracking-tighter">Visão Além dos Limites</h2>
+        <!-- Cabeçalho Fixo (Mais sutil e integrado) -->
+        <div class="absolute top-8 md:top-16 text-center z-50 px-6 transition-all duration-700" style="opacity: {progress < 0.9 ? 1 : 0}; transform: translateY({progress * -20}px);">
+            <span class="text-blue-500 font-bold uppercase tracking-[0.4em] text-[8px] md:text-[10px] mb-2 md:mb-4 block">Inclusão sem Compromissos</span>
+            <h2 class="text-fluid-section font-black text-white/90 tracking-tighter mix-blend-screen">Visão Além dos Limites</h2>
         </div>
 
-        <!-- Content Stack -->
-        <div class="relative w-full max-w-5xl h-full flex items-center justify-center">
+        <!-- Content Stack Imersivo -->
+        <div class="relative w-full max-w-5xl aspect-video flex items-center justify-center">
             {#each blocks as block, i}
+                {@const centerAt = i / blocks.length + (1 / (blocks.length * 2))}
+                {@const dist = progress - centerAt}
+                {@const absDist = Math.abs(dist)}
+                
+                <!-- Intensidade da Transição 3D (Z-axis separation) -->
+                {@const isActive = absDist < 0.12}
+                {@const opacity = Math.max(0, 1 - (absDist / 0.15))}
+                {@const scale = 0.6 + (1 - Math.min(1, absDist / 0.15)) * 0.4}
+                {@const translateZ = -dist * 2500} <!-- Profundidade maior para evitar sobreposição -->
+                {@const blur = absDist > 0.04 ? Math.min(12, (absDist - 0.04) * 60) : 0}
+
                 <div 
-                    class="absolute flex flex-col items-center text-center px-8 md:px-0"
-                    style={getBlockStyle(i)}
+                    class="absolute inset-0 flex flex-col items-center justify-center text-center px-10 md:px-0"
+                    style="
+                        opacity: {opacity};
+                        transform: perspective(1500px) translate3d(0, 0, {translateZ}px) scale({scale});
+                        filter: blur({blur}px);
+                        pointer-events: {isActive ? 'all' : 'none'};
+                        z-index: {Math.floor(100 - absDist * 100)};
+                        transition: filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                    "
                 >
-                    <!-- Icon Glass Circle -->
+                    <!-- Icon Glass Premium -->
                     <div 
-                        class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-8 backdrop-blur-xl shadow-2xl"
+                        class="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center mb-10 backdrop-blur-2xl shadow-2xl rotate-3 group-hover:rotate-0 transition-transform duration-700"
                         style="color: {block.color};"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                             <path d={block.icon} />
                             {#if i === 0}<circle cx="12" cy="12" r="3" />{/if}
                         </svg>
                     </div>
 
-                    <span class="text-white/40 text-[10px] font-bold uppercase tracking-[0.3em] mb-4">{block.tag}</span>
-                    <h3 class="text-3xl md:text-5xl font-black text-white mb-6 leading-none text-balance">{block.title}</h3>
+                    <span class="text-white/40 text-[9px] md:text-[11px] font-bold uppercase tracking-[0.4em] mb-4">{block.tag}</span>
+                    <h3 class="text-fluid-title font-black text-white mb-6 leading-[0.9] text-balance">{block.title}</h3>
                     <p class="text-white/70 text-fluid-body font-light max-w-2xl leading-relaxed text-balance">
                         {block.text}
                     </p>
@@ -138,19 +126,18 @@
             {/each}
         </div>
 
-        <!-- Scroll Indicator (Internal) -->
-        <div class="absolute bottom-12 flex flex-col items-center gap-2 transition-opacity" style="opacity: {progress < 0.9 ? 0.4 : 0};">
-            <div class="w-1 h-12 bg-white/10 rounded-full overflow-hidden">
-                <div class="w-full bg-blue-500 transition-all duration-100 ease-linear" style="height: {progress * 100}%;"></div>
+        <!-- Scroll/Progress Indicator -->
+        <div class="absolute bottom-12 flex flex-col items-center gap-3 transition-opacity duration-500" style="opacity: {progress > 0.05 && progress < 0.95 ? 0.6 : 0};">
+            <div class="w-1.5 h-16 bg-white/5 rounded-full overflow-hidden border border-white/5 backdrop-blur-sm">
+                <div class="w-full bg-gradient-to-b from-blue-500 to-indigo-600 transition-all duration-150 ease-linear origin-top" style="height: {progress * 100}%;"></div>
             </div>
-            <span class="text-[8px] uppercase tracking-widest text-white/40">Inclusão {Math.floor(progress * 100)}%</span>
+            <span class="text-[8px] uppercase tracking-[0.3em] font-bold text-white/30 tabular-nums">Inclusão {Math.floor(progress * 100)}%</span>
         </div>
     </div>
 </section>
 
 <style>
     :global(.experience-track) {
-        /* Garante que outras seções não sobreponham durante o sticky */
         z-index: 10;
     }
 </style>
