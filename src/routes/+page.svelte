@@ -23,60 +23,11 @@
 </script>
 
 <svelte:head>
-	<title>Calebe Araujo | Líder Técnico & Desenvolvedor Full Stack</title>
-	<meta name="description" content="Calebe Araujo é Líder Técnico e Engenheiro Full Stack especializado em SvelteKit, infraestrutura Cloudflare e sistemas CRM de alta performance. Focado em UX premium e SEO agressivo." />
-	<link rel="canonical" href="https://calebe.dev" />
-	
-	<!-- Open Graph / Facebook -->
+	<title>Calebe | Desenvolvedor Full Stack</title>
+	<meta name="description" content="Portfólio de Calebe Araujo, Desenvolvedor Full Stack especializado em experiências web de alta performance, UX premium e engenharia de software robusta." />
+	<meta property="og:title" content="Calebe | Desenvolvedor Full Stack" />
+	<meta property="og:description" content="Experiências web de alta performance, UX premium e engenharia de software robusta." />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://calebe.dev" />
-	<meta property="og:title" content="Calebe Araujo | Líder Técnico & Desenvolvedor Full Stack" />
-	<meta property="og:description" content="Engenharia de software robusta, UX premium e otimização para Answer Engines (AEO)." />
-	<meta property="og:image" content="https://calebe.dev/og-image.png" />
-
-	<!-- Twitter -->
-	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:url" content="https://calebe.dev" />
-	<meta property="twitter:title" content="Calebe Araujo | Líder Técnico & Desenvolvedor Full Stack" />
-	<meta property="twitter:description" content="Especialista em ecossistemas Svelte e infraestrutura de alta precisão." />
-	<meta property="twitter:image" content="https://calebe.dev/og-image.png" />
-
-	<!-- Keywords for SEO/ATS -->
-	<meta name="keywords" content="Desenvolvedor Full Stack, Tech Lead, SvelteKit, TypeScript, Node.js, Cloudflare Tunnel, SEO, AEO, CRM Development, Engenheiro de Software" />
-
-	<!-- JSON-LD for AEO/SEO -->
-	<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Person",
-			"name": "Calebe Araujo",
-			"gender": "Male",
-			"jobTitle": "Líder Técnico & Desenvolvedor Full Stack",
-			"knowsAbout": ["SvelteKit", "TypeScript", "Node.js", "SEO", "Cloudflare", "Infrastructure", "CRM Development", "AEO"],
-			"url": "https://calebe.dev",
-			"sameAs": [
-				"https://github.com/calebearaujo"
-			],
-			"worksFor": {
-				"@type": "Organization",
-				"name": "Grupo OC",
-				"description": "Agência de Marketing e Tecnologia"
-			},
-			"description": "Desenvolvedor focado em ecossistemas de alta performance e sincronização de dados complexos."
-		}
-	</script>
-	<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "WebSite",
-			"name": "Calebe Araujo Portfolio",
-			"url": "https://calebe.dev",
-			"publisher": {
-				"@type": "Person",
-				"name": "Calebe Araujo"
-			}
-		}
-	</script>
 </svelte:head>
 
 <section class="h-screen flex flex-col items-center justify-center relative overflow-hidden">

@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<section class="relative py-40 bg-black text-white overflow-hidden" itemscope itemtype="https://schema.org/AboutPage">
+<section class="relative py-40 bg-black text-white overflow-hidden">
     <!-- Abstract background -->
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,_rgba(59,130,246,0.1),_transparent_50%)]"></div>
     <div class="max-w-7xl mx-auto px-8 relative z-10">
@@ -9,7 +9,7 @@
             <!-- Left: Typography -->
             <div class="text-left">
                 <span class="text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] mb-6 block">Resumo Profissional</span>
-                <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-tight text-balance" itemprop="name">
+                <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-tight text-balance">
                     Engenharia de Software & <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">Arte Digital</span>
                 </h2>
                 <div class="h-1 w-24 bg-blue-600 mb-8"></div>
@@ -18,15 +18,15 @@
             <!-- Right: Content Cards -->
             <div class="flex flex-col gap-6">
                 <!-- Resumo -->
-                <article class="p-8 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:border-white/20 transition-all duration-500" itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
-                    <p class="text-slate-300 font-light leading-relaxed text-lg" itemprop="description">
-                        Desenvolvedor Full Stack especializado em ecossistemas **SvelteKit**, **TypeScript** e infraestrutura **Cloudflare**. Atuo na arquitetura de soluções robustas, conectando front-end premium, back-end escalável em **Node.js** e sistemas de **CRM proprietários**. Foco total em performance, **SEO Técnico** e otimização para Answer Engines (**AEO**).
+                <div class="p-8 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:border-white/20 transition-all duration-500">
+                    <p class="text-slate-300 font-light leading-relaxed text-lg">
+                        Desenvolvedor Full Stack com forte foco analítico e experiência prática na construção de aplicações e sistemas web otimizados. Atuo não apenas na codificação, mas na arquitetura de soluções robustas, conectando o front-end, o back-end e a infraestrutura com padrões premium, garantindo performance e escalabilidade de verdade.
                     </p>
-                </article>
+                </div>
                 <!-- Formação -->
-                <div class="p-8 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:border-white/20 transition-all duration-500 flex items-center justify-between" itemprop="hasCredential" itemscope itemtype="https://schema.org/EducationalOccupationalCredential">
+                <div class="p-8 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:border-white/20 transition-all duration-500 flex items-center justify-between">
                     <div>
-                        <h4 class="text-white font-bold text-xl mb-1" itemprop="name">Análise e Desenvolvimento de Sistemas</h4>
+                        <h4 class="text-white font-bold text-xl mb-1">Análise e Desenvolvimento de Sistemas</h4>
                         <p class="text-slate-400 text-sm">Formação Acadêmica (Cursando)</p>
                     </div>
                     <div class="w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">

@@ -9,31 +9,31 @@
         {
             tag: "Perspectiva - CID H54",
             title: "O Olhar Clínico para o Contraste",
-            text: "Ter baixa visão não é uma limitação, mas minha maior ferramenta de QA. Isso me permite projetar com uma obsessão natural pela legibilidade e pelo contraste perfeito em qualquer condição, garantindo interfaces de elite.",
+            text: "Ter baixa visão não é um obstáculo, mas minha maior ferramenta de QA. Isso me força a projetar com uma obsessão natural pela legibilidade e pelo contraste perfeito em qualquer condição de iluminação.",
             icon: "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z",
             color: "#3b82f6",
             bgColor: "#020617" // Deep Blue
         },
         {
             tag: "Arquitetura Semântica",
-            title: "Código que Comunica Valor",
-            text: "Acessibilidade começa na estrutura. Construo aplicações onde a hierarquia de dados e a semântica HTML são priorizadas, garantindo que tecnologias assistivas e robôs de busca naveguem com máxima fluidez.",
+            title: "Código que Fala e se Expressa",
+            text: "Acessibilidade começa no HTML. Construo aplicações onde a estrutura de dados e a semântica são tão priorizadas quanto a interface visual, garantindo que leitores de tela e tecnologias assistivas naveguem com fluidez.",
             icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
             color: "#10b981",
             bgColor: "#06100c" // Deep Emerald
         },
         {
             tag: "UX Universal",
-            title: "Interfaces Sem Barreiras Técnicas",
-            text: "Um design de alta performance é aquele que todos conseguem utilizar. Foco em interfaces que respeitam a diversidade humana através de navegação por teclado rigorosa e padrões de interação universais.",
+            title: "Interfaces Sem Barreiras Digitais",
+            text: "Um design de elite é aquele que todos conseguem usar. Foco em interfaces que respeitam a diversidade humana, com foco em navegação por teclado, hierarquia visual clara e padrões de interação intuitivos.",
             icon: "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z",
             color: "#6366f1",
             bgColor: "#080b1a" // Deep Indigo
         },
         {
             tag: "Inclusão & Velocidade",
-            title: "Acessibilidade é Performance ROI",
-            text: "Código acessível é código otimizado. Ao seguir os padrões W3C, minhas aplicações não são apenas inclusivas, mas também significativamente mais rápidas e fáceis de indexar por Answer Engines (AEO).",
+            title: "Acessibilidade é Performance",
+            text: "Código acessível é código otimizado. Ao seguir rigorosamente os padrões W3C, minhas aplicações não são apenas inclusivas, mas também mais rápidas, fáceis de indexar pelo Google e sustentáveis a longo prazo.",
             icon: "M13 10V3L4 14h7v7l9-11h-7z",
             color: "#f59e0b",
             bgColor: "#100902" // Deep Amber/Charcoal
