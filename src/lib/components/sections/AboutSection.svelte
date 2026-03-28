@@ -71,8 +71,8 @@
             <div class="text-left perspective-[2000px]">
                 <span class="text-blue-500 font-bold uppercase tracking-[0.5em] text-[10px] mb-8 block opacity-40">Resumo Profissional</span>
                 
-                <h2 class="text-fluid-title font-black tracking-tighter mb-10 leading-[0.9] text-balance" itemprop="name">
-                    {#each titleParts as part, i}
+                <h1 class="text-fluid-title font-black tracking-tighter mb-10 leading-[0.9] text-balance" itemprop="name">
+                    {#each ["Líder Técnico", "& Engenheiro Full Stack"] as part, i}
                         <div class="block">
                             {#each part.split(' ') as word, j}
                                 <span class="inline-block">
@@ -84,21 +84,17 @@
                             {/each}
                         </div>
                     {/each}
-                </h2>
+                </h1>
                 
                 <div class="h-1 w-24 bg-blue-600/40 transition-all duration-1000" style="transform: scaleX({1 - assemblyIntensity}); transform-origin: left;"></div>
             </div>
 
-            <!-- Right: Content Cards with elevation -->
-            <div class="flex flex-col gap-8 transition-all duration-1000" style="opacity: {1 - assemblyIntensity}; transform: translateX({assemblyIntensity * 100}px) translateZ({-assemblyIntensity * 500}px) rotateY({assemblyIntensity * 20}deg);">
+            <!-- Right: Content Cards -->
+            <div class="flex flex-col gap-6">
                 <!-- Resumo -->
-                <article 
-                    class="p-10 rounded-[3rem] bg-white/[0.03] border border-white/5 backdrop-blur-3xl shadow-2xl hover:border-white/10 transition-all duration-700 group cursor-default" 
-                    itemprop="mainEntity" itemscope itemtype="https://schema.org/Person"
-                >
-                    <p class="text-slate-400 font-light leading-relaxed text-lg lg:text-xl text-balance" itemprop="description">
-                        Desenvolvedor Full Stack especializado em ecossistemas <strong class="text-white">SvelteKit</strong>, <strong class="text-white">TypeScript</strong> e infraestrutura <strong class="text-white">Cloudflare</strong>. 
-                        Atuo na arquitetura de soluções robustas, conectando front-end premium e sistemas de <strong class="text-blue-400">CRM proprietários</strong>.
+                <article class="p-8 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:border-white/20 transition-all duration-500" itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
+                    <p class="text-slate-300 font-light leading-relaxed text-lg" itemprop="description">
+                        Especialista em ecossistemas <strong>SvelteKit</strong>, <strong>TypeScript</strong> e infraestrutura de alta performance com <strong>Cloudflare Zero Trust</strong>. Atuo como <strong>Tech Lead</strong>, arquitetando soluções escaláveis que conectam interfaces premium a back-ends robustos em <strong>Node.js</strong> e sistemas <strong>CRM proprietários</strong>. Foco total em entregar resultados de negócio através de <strong>SEO Técnico</strong> agressivo e <strong>AEO</strong> (Answer Engine Optimization).
                     </p>
                 </article>
 

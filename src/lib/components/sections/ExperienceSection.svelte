@@ -10,9 +10,9 @@
 			period: '2017 - 2022',
 			startDate: '2017-01-01',
 			endDate: '2022-12-31',
-			role: 'Consultor de TI & Infraestrutura',
+			role: 'Consultor de TI & Infraestrutura Especialista',
 			company: 'Projetos Independentes',
-			desc: 'Liderança técnica em suporte corporativo Nível 2 e 3. Implementação de arquitetura de rede, manutenção de servidores Windows/Linux e consultoria de segurança para clientes finais.',
+			desc: 'Liderança em projetos de infraestrutura crítica e segurança cibernética. Implementação de arquiteturas de rede resilientes e gestão de servidores de alta disponibilidade para o setor corporativo.',
 			color: 'rgba(245, 158, 11, 0.5)', // Amber
 			gradient: 'from-amber-600/30 to-amber-900/10',
 			tag: 'Infra & Sec',
@@ -22,9 +22,9 @@
 			period: 'Mai 2024 - Fev 2025',
 			startDate: '2024-05-01',
 			endDate: '2025-02-01',
-			role: 'Desenvolvedor Full Stack (Intern)',
+			role: 'Full Stack Developer & Landing Specialist',
 			company: 'QIplus',
-			desc: 'Desenvolvimento de interfaces de alta conversão com SvelteKit e TypeScript. Automação de fluxos de marketing e desenvolvimento de plugins personalizados para ecossistemas WordPress.',
+			desc: 'Desenvolvimento de ecossistemas web de alta conversão. Otimização de core web vitals e criação de automações inteligentes integradas a plataformas WordPress e SvelteKit.',
 			color: 'rgba(16, 185, 129, 0.5)', // Emerald
 			gradient: 'from-emerald-600/30 to-emerald-900/10',
 			tag: 'SvelteKit & Bot',
@@ -34,9 +34,9 @@
 			period: 'Fev 2025 - Ago 2025',
 			startDate: '2025-02-01',
 			endDate: '2025-08-01',
-			role: 'Senior Web Developer',
+			role: 'Senior Web Engineering & SEO Tech',
 			company: 'Alpha Company Ads',
-			desc: 'Arquitetura de soluções web focadas em Business Intelligence (BI). Implementação de SEO técnico avançado e integração de APIs de terceiros para monitoramento de métricas em tempo real.',
+			desc: 'Arquitetura de soluções focadas em Business Intelligence e SEO agressivo. Implementação de tracking avançado e estruturas de dados complexas para análise de performance em tempo real.',
 			color: 'rgba(6, 182, 212, 0.5)', // Cyan
 			gradient: 'from-cyan-600/30 to-cyan-900/10',
 			tag: 'SEO & BI',
@@ -45,9 +45,9 @@
 		{
 			period: 'Ago 2025 - Atual',
 			startDate: '2025-08-01',
-			role: 'Chief Technology Officer (CTO) / Lead Developer',
+			role: 'CTO & Tech Lead / Software Architect',
 			company: 'Grupo OC',
-			desc: 'Gestão da arquitetura de sistemas e liderança técnica. Implementação de ecossistema de microserviços em Node.js e integração profunda com CRM proprietário para escala de leads.',
+			desc: 'Liderança da estratégia tecnológica e arquitetura de microserviços. Desenvolvimento de motor CRM proprietário e sincronização massiva de dados para gestão de leads em escala industrial.',
 			color: 'rgba(192, 38, 211, 0.5)', // Fuchsia
 			gradient: 'from-fuchsia-600/30 to-fuchsia-900/10',
 			tag: 'Tech Lead / CRM',
@@ -56,9 +56,9 @@
 		{
 			period: 'Ago 2025 - Atual',
 			startDate: '2025-08-01',
-			role: 'Full Stack Infrastructure Engineer',
+			role: 'Full Stack Infrastructure Engineer & DevOps',
 			company: 'Grupo OC',
-			desc: 'Engenharia de Cloud e On-premise. Deploy e manutenção de servidores Ubuntu com Cloudflare Tunnel (Zero Trust). Desenvolvimento de sistema CRM+CMS robusto com banco de dados PostgreSQL.',
+			desc: 'Engenharia de Cloud e On-premise de alta fidelidade. Setup de servidores Ubuntu resilientes com Túnel Cloudflare (Zero Trust) e arquitetura de banco de dados PostgreSQL escalável.',
 			color: 'rgba(79, 70, 229, 0.5)', // Indigo
 			gradient: 'from-indigo-600/30 to-indigo-900/10',
 			tag: 'DevOps & CRM',
