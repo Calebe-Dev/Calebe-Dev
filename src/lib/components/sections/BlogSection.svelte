@@ -22,28 +22,6 @@
 		const allPosts = await getPosts();
 		posts = allPosts.slice(0, 3);
 	});
-
-    function getCharStyle(char: string, index: number, visible: boolean) {
-        if (char === ' ') return 'display: inline-block; width: 0.25em;';
-        if (visible) return 'display: inline-block;';
-        
-        const seed = index * 27;
-        const random = (s: number) => Math.sin(s) * 10000 - Math.floor(Math.sin(s) * 10000);
-        
-        const intensity = 1;
-        const offsetX = (random(seed) - 0.5) * 1000 * intensity;
-        const offsetY = (random(seed + 1) - 0.5) * 500 * intensity;
-        const offsetZ = -1200 * intensity;
-
-        return `
-            display: inline-block;
-            transform: translate3d(${offsetX}px, ${offsetY}px, ${offsetZ}px) rotate(${random(seed+2)*180}deg);
-            opacity: 0;
-            filter: blur(10px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-            transition-delay: ${index * 0.02}s;
-        `;
-    }
 </script>
 
 <section 
@@ -58,14 +36,16 @@
     >
         
         <!-- Depth Decoration -->
-        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_100%_0%,_rgba(59,130,246,0.03),_transparent_70%)] pointer-events-none"></div>
 
 		<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-12 relative z-10">
-			<div class="max-w-2xl">
-                <!-- System Badges -->
-                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-10 transition-all duration-700 delay-300" style="opacity: {isVisible ? 0.6 : 0};">
+			<div 
+                class="max-w-2xl transition-all duration-1000 cubic-bezier(0.16, 1, 0.3, 1)"
+                style="opacity: {isVisible ? 1 : 0}; filter: blur({isVisible ? 0 : 15}px); transform: translateY({isVisible ? 0 : 30}px);"
+            >
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-10 opacity-60">
                     <span class="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-[9px] font-black text-white/40 tracking-[0.4em] uppercase flex items-center gap-3">
-                        <span class="w-2 h-2 bg-orange-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(249,115,22,0.5)]"></span>
+                        <span class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
                         SvelteKit Logic
                     </span>
                     <span class="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-[9px] font-black text-white/40 tracking-[0.4em] uppercase flex items-center gap-3">
@@ -74,16 +54,8 @@
                     </span>
                 </div>
 
-				<h2 class="text-fluid-section font-black mb-8 tracking-tighter leading-none">
-                    {#each "INSIGHTS &".split('') as char, i}
-                        <span style={getCharStyle(char, i, isVisible)}>{char}</span>
-                    {/each}
-                    <br/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
-                        {#each "ARTIGOS".split('') as char, i}
-                            <span style={getCharStyle(char, i + 12, isVisible)}>{char}</span>
-                        {/each}
-                    </span>
+				<h2 class="text-fluid-section font-black mb-8 tracking-tighter leading-none uppercase">
+                    Insights & <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Artigos</span>
 				</h2>
 				<p class="text-slate-400 text-xl font-light leading-relaxed text-balance transition-all duration-1000 delay-500" style="opacity: {isVisible ? 1 : 0}; transform: translateY({isVisible ? 0 : 20}px);">
 					Arquitetura de software, design premium e estratégias de engenharia validadas em produção.
@@ -91,7 +63,7 @@
 			</div>
 			
 			<div class="transition-all duration-1000 delay-700" style="opacity: {isVisible ? 1 : 0};">
-				<a href="/blog" class="group px-10 py-5 bg-white/5 hover:bg-white text-white hover:text-black rounded-full text-[10px] font-black transition-all duration-500 uppercase tracking-[0.3em] border border-white/10 hover:border-transparent flex items-center gap-4 shadow-2xl">
+				<a href="/blog" class="group px-10 py-5 bg-white text-black rounded-full text-[10px] font-black transition-all duration-500 uppercase tracking-[0.3em] flex items-center gap-4 shadow-2xl">
 					Explorar Blog
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="transform group-hover:translate-x-2 transition-transform duration-300">
 						<line x1="5" y1="12" x2="19" y2="12"></line>
@@ -103,7 +75,7 @@
 
 		{#if posts.length > 0}
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 relative z-10 transition-all duration-1000 delay-[900ms]" style="opacity: {isVisible ? 1 : 0}; transform: translateY({isVisible ? 0 : 40}px);">
-				{#each posts as post, i}
+				{#each posts as post}
 					<div class="h-full">
 						<BlogCard {post} />
 					</div>

@@ -3,14 +3,27 @@
     import { onMount } from 'svelte';
 
 	const projects = [
-		{ name: 'Plano TIM Empresa', url: 'https://planotimempresa.com.br/', desc: 'Arquitetura SvelteKit integrada a CRM proprietário. Otimização SEO agressiva resultando em rankeamento topo para termos de alta competitividade.', tags: ['SvelteKit', 'SEO Tech'], color: 'from-blue-500 to-indigo-600' },
-		{ name: 'Link Dedicada', url: 'https://linkdedicada.com.br/', desc: 'Landings de conversão de alta fidelidade para o setor de Telecom. Foco em UX premium e fluxos de captura de leads otimizados.', tags: ['Performance', 'Lead Gen'], color: 'from-emerald-400 to-teal-600' },
-		{ name: 'Belle Moda Íntima', url: 'https://bellemodaintima.com.br/', desc: 'E-commerce robusto com sincronização dinâmica de catálogo via API e gestão de posts automatizada.', tags: ['WooCommerce', 'API Sync'], color: 'from-pink-500 to-rose-600' },
-		{ name: 'Alpha Company Ads', url: 'https://alphacompanyads.com.br/', desc: 'Plataforma oficial de agência de performance. Design focado em autoridade técnica e carregamento ultra-rápido.', tags: ['Corporate', 'Speed'], color: 'from-slate-700 to-slate-900' },
-		{ name: 'Sorocaba Indica', url: 'https://sorocabaindica.com.br/', desc: 'Portal dinâmico com lógica de busca local e indexação massiva de páginas via CMS proprietário em Node.js.', tags: ['Node.js', 'Geo SEO'], color: 'from-orange-400 to-red-500' },
-		{ name: 'Campinas Indica', url: 'https://campinasindica.com.br/', desc: 'Extensão do cluster de busca local focado em distribuição semântica de entidades regionais.', tags: ['Data Mining', 'B2C'], color: 'from-orange-500 to-red-600' },
-		{ name: 'Prajá Imóveis', url: 'https://prajaimoveis.com.br/', desc: 'Ecossistema imobiliário completo com cruzamento de dados complexos e segmentação inteligente de buscas.', tags: ['Real Estate', 'CRM'], color: 'from-indigo-400 to-purple-600' },
-		{ name: 'Grupo OC', url: 'https://grupooc.com.br/', desc: 'Portal matriz que orquestra toda a rede de sites e infraestrutura do hub tecnológico.', tags: ['Core System', 'Infra'], color: 'from-fuchsia-600 to-purple-800' }
+		{ name: 'Plano TIM Empresa', url: 'https://planotimempresa.com.br/', desc: 'Integração nativa a CRM, sistema interno de gestão e arquitetura otimizada para SEO agressivo.', tags: ['Tech Lead', 'SEO'], color: 'from-blue-500 to-indigo-600' },
+		{ name: 'Link Dedicada', url: 'https://linkdedicada.com.br/', desc: 'Landings de conversão para telecom, desenhadas para captura de leads e pipeline de vendas.', tags: ['Landing Page', 'Lead Gen'], color: 'from-emerald-400 to-teal-600' },
+		{ name: 'Belle Moda Íntima', url: 'https://bellemodaintima.com.br/', desc: 'Plataforma e-commerce. Sincronização avançada de catálogos via CRM para posts.', tags: ['WooCommerce', 'CMS'], color: 'from-pink-500 to-rose-600' },
+		{ name: 'Alpha Company Ads', url: 'https://alphacompanyads.com.br/', desc: 'Site institucional corporativo focado na apresentação e autoridade em performance.', tags: ['Instuticional', 'Agency'], color: 'from-slate-700 to-slate-900' },
+		{ name: 'Buenos Water Tech', url: 'https://buenoswatertechnology.com.br/', desc: 'Aplicações tecnológicas de tratamentos industriais, destacando serviços premium.', tags: ['Web App', 'Industrial'], color: 'from-cyan-400 to-blue-500' },
+		{ name: 'Esquadrias Martins', url: 'https://esquadriasmartins.com.br/', desc: 'Vitrine digital para projetos arquitetônicos de alto padrão focado em experiência unificada.', tags: ['UX/UI', 'Premium'], color: 'from-amber-400 to-orange-500' },
+		{ name: 'TIM Corporativo', url: 'https://timcorporativo.com.br/', desc: 'Otimização com lógica avançada de palavras-chave ranqueando nos principais índices.', tags: ['Performance', 'SEO'], color: 'from-blue-600 to-blue-800' },
+		{ name: 'Internet Fibra Agora', url: 'https://internetfibraagora.com.br/', desc: 'Desenvolvimento e design focado em tráfego qualificado e resposta rápida.', tags: ['Lead Gen', 'Optimization'], color: 'from-violet-500 to-fuchsia-500' },
+		{ name: 'Plano Empresarial TIM', url: 'https://planoempresarialtim.com.br/', desc: 'Reconstrução técnica completa integrando sistemas internos do Grupo OC.', tags: ['Tech Lead', 'Corporate'], color: 'from-blue-500 to-cyan-500' },
+		{ name: 'Plano Empresarial C', url: 'https://planoempresarialc.com.br/', desc: 'Gestão técnica B2B desenhada em sincronia severa e constante com nosso CMS.', tags: ['Full Stack', 'CRM'], color: 'from-teal-400 to-emerald-600' },
+		{ name: 'Plano Empresa C', url: 'https://planoempresac.com.br/', desc: 'Desenvolvimento dinâmico de aquisição em escala e gerenciamento das páginas B2C.', tags: ['Web Design', 'Growth'], color: 'from-emerald-500 to-green-700' },
+		{ name: 'Lead Plano de Saúde', url: 'https://leadplanodesaude.com.br/', desc: 'Sistemas de validação desenhados para filtragem de leads complexos do setor médico.', tags: ['Funnels', 'Health'], color: 'from-cyan-500 to-blue-600' },
+		{ name: 'Grupo OC', url: 'https://grupooc.com.br/', desc: 'Portal oficial matriz espelhando toda a vanguarda e a autoridade técnica do hub.', tags: ['Enterprise', 'Core System'], color: 'from-fuchsia-600 to-purple-800' },
+		{ name: 'Sorocaba Indica', url: 'https://sorocabaindica.com.br/', desc: 'Lógica SEO voltada a buscas locais e categorização de páginas estáticas e dinâmicas.', tags: ['Geo SEO', 'Portal'], color: 'from-orange-400 to-red-500' },
+		{ name: 'Campinas Indica', url: 'https://campinasindica.com.br/', desc: 'Ajuste de performance e distribuição semântica de entidades de busca.', tags: ['B2C', 'Data'], color: 'from-orange-500 to-red-600' },
+		{ name: 'Guarulhos Indica', url: 'https://guarulhosindica.com.br/', desc: 'Plataforma B2C sincronizada com clusters de dados regionais de alto impacto.', tags: ['Scale', 'CMS'], color: 'from-orange-600 to-red-700' },
+		{ name: 'Osasco Indica', url: 'https://osascoindica.com.br/', desc: 'Indexação agressiva de múltiplas rotas garantindo presença topo na região metropolitana.', tags: ['Index Tracking', 'Performance'], color: 'from-red-500 to-rose-700' },
+		{ name: 'SP Indica', url: 'https://saopauloindica.com.br/', desc: 'Core do cluster metropolitano, construído para sustentar volumetria robusta de buscas.', tags: ['High Traffic', 'Infra'], color: 'from-rose-600 to-pink-700' },
+		{ name: 'Prajá Imóveis', url: 'https://prajaimoveis.com.br/', desc: 'Integração imobiliária completa cruzando dados e segmentando lógicas complexas de busca.', tags: ['Real Estate', 'CRM'], color: 'from-indigo-400 to-purple-600' },
+		{ name: 'Plano Vivo Empresarial', url: 'https://planovivoempresarial.com.br/', desc: 'Otimização ponta a ponta focado em vendas dedicadas para pipelines da Vivo.', tags: ['Sales Pipeline', 'Tele'], color: 'from-purple-600 to-violet-800' },
+		{ name: 'Plano TIM Corporativo', url: 'https://planotimcorporativo.com.br/', desc: 'Reconstrução focada e sincronizada diretamente como parte da base de lead systems.', tags: ['Lead Gen', 'Optimization'], color: 'from-blue-700 to-indigo-900' }
 	];
 
 	let selectedProject = $state(projects[0]);
@@ -30,31 +43,6 @@
 	function selectProject(project: typeof projects[0]) {
 		selectedProject = project;
 	}
-
-    function getCharStyle(char: string, index: number, isAssembled: boolean) {
-        if (char === ' ') return 'display: inline-block; width: 0.25em;';
-        if (isAssembled) return 'display: inline-block;';
-        
-        const seed = index * 41;
-        const random = (s: number) => {
-            const x = Math.sin(s) * 10000;
-            return x - Math.floor(x);
-        };
-        
-        const intensity = 1;
-        const offsetX = (random(seed) - 0.5) * 800 * intensity;
-        const offsetY = (random(seed + 1) - 0.5) * 600 * intensity;
-        const offsetZ = -1500 * intensity;
-
-        return `
-            display: inline-block;
-            transform: translate3d(${offsetX}px, ${offsetY}px, ${offsetZ}px) rotateX(${random(seed+2)*360}deg);
-            opacity: 0;
-            filter: blur(15px);
-            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            transition-delay: ${index * 0.02}s;
-        `;
-    }
 </script>
 
 <section 
@@ -62,25 +50,21 @@
     class="relative py-40 bg-black text-white overflow-hidden selection:bg-blue-500/30"
 >
     <!-- Modern Grid Pattern -->
-    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)] pointer-events-none opacity-40"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at:50%_50%,#000_10%,transparent_100%)] pointer-events-none opacity-40"></div>
 
 	<div class="max-w-7xl mx-auto px-8 relative z-10">
 		
-        <!-- Animated Main Title -->
+        <!-- Animated Main Title (Solid Restored) -->
 		<div class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-12">
-			<div class="max-w-2xl">
-				<span class="text-blue-500 font-bold uppercase tracking-[0.8em] text-[10px] mb-8 block transition-all duration-1000" style="opacity: {isVisible ? 0.6 : 0}; transform: translateY({isVisible ? 0 : 20}px);">Portfólio de Elite</span>
+			<div 
+                class="max-w-2xl transition-all duration-1000 cubic-bezier(0.16, 1, 0.3, 1)"
+                style="opacity: {isVisible ? 1 : 0}; filter: blur({isVisible ? 0 : 15}px); transform: translateY({isVisible ? 0 : 30}px);"
+            >
+				<span class="text-blue-500 font-bold uppercase tracking-[0.8em] text-[10px] mb-8 block opacity-50">Portfólio de Elite</span>
 				
-                <h2 class="text-fluid-title font-black tracking-tighter mb-4 leading-none">
-                    {#each "NÍVEL DE".split('') as char, i}
-                        <span style={getCharStyle(char, i, isVisible)}>{char}</span>
-                    {/each}
-                    <br/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                        {#each "PRODUÇÃO".split('') as char, i}
-                            <span style={getCharStyle(char, i + 10, isVisible)}>{char}</span>
-                        {/each}
-                    </span>
+                <h2 class="text-fluid-title font-black tracking-tighter mb-4 leading-none uppercase">
+                    Nível de <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Produção</span>
                 </h2>
 			</div>
 			<p class="text-slate-500 max-w-sm font-light leading-relaxed text-lg transition-all duration-1000 delay-500" style="opacity: {isVisible ? 1 : 0}; transform: translateY({isVisible ? 0 : 30}px);">
@@ -93,7 +77,7 @@
 			
 			<!-- Side Selection Bar -->
 			<div class="lg:col-span-5 flex flex-col gap-4 max-h-[700px] overflow-y-auto pr-6 custom-scrollbar">
-				{#each projects as project, i}
+				{#each projects as project}
 					<button 
 						onclick={() => selectProject(project)}
 						class="w-full text-left p-8 rounded-[2.5rem] transition-all duration-700 flex items-center justify-between group relative overflow-hidden border
@@ -125,7 +109,6 @@
 						class="bg-white/[0.02] backdrop-blur-3xl border border-white/5 rounded-[4rem] p-12 md:p-16 relative shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col justify-between min-h-[600px] lg:min-h-[700px] transition-all duration-1000"
                         itemscope itemtype="https://schema.org/SoftwareApplication"
 					>
-						<!-- Meta / Background Decorations -->
                         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br {selectedProject.color} opacity-10 blur-[150px] rounded-full"></div>
 						
                         <div class="relative z-10 flex flex-col h-full items-start">

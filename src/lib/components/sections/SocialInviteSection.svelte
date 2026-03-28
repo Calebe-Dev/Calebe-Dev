@@ -15,24 +15,14 @@
     });
 
     // Plateau logic for focus
+    const plateauStart = 0.25;
+    const plateauEnd = 0.75;
+
     let intensity = $derived.by(() => {
-        if (progress < 0.25) return (0.25 - progress) * 4;
-        if (progress > 0.75) return (progress - 0.75) * 4;
+        if (progress < plateauStart) return Math.min(1, (plateauStart - progress) * 5);
+        if (progress > plateauEnd) return Math.min(1, (progress - plateauEnd) * 5);
         return 0;
     });
-
-    function getCharStyle(char: string, index: number, intel: number) {
-        if (char === ' ') return 'display: inline-block; width: 0.25em;';
-        const seed = index * 49;
-        const random = (s: number) => Math.sin(s) * 10000 - Math.floor(Math.sin(s) * 10000);
-        return `
-            display: inline-block;
-            transform: translate3d(${(random(seed)-0.5)*1500*intel}px, ${(random(seed+1)-0.5)*1000*intel}px, ${-intel*3000}px) rotate(${(random(seed+2)-0.5)*360*intel}deg);
-            opacity: ${1 - intel};
-            filter: blur(${intel * 15}px);
-            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
-        `;
-    }
 </script>
 
 <svelte:window bind:scrollY bind:innerHeight />
@@ -42,35 +32,31 @@
     class="relative w-full h-[200vh] bg-black text-white overflow-clip border-t border-white/5"
 >
     <!-- Background Depth -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,_rgba(59,130,246,0.05),_transparent_60%)] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,_rgba(59,130,246,0.04),_transparent_60%)] pointer-events-none"></div>
 
     <!-- Sticky Visual Step -->
     <div class="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden px-8">
         
-        <div class="text-center mb-24 z-20">
-            <span class="text-blue-500 font-bold uppercase tracking-[0.6em] text-[9px] mb-8 block opacity-40 transition-all duration-700" style="opacity: {1 - intensity}; transform: translateY({intensity * 20}px);">Networking de Elite</span>
-            <h2 class="text-fluid-title font-black tracking-tighter mb-8 leading-none">
-                {#each "REDES".split('') as char, i}
-                    <span style={getCharStyle(char, i, intensity)}>{char}</span>
-                {/each}
-                <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
-                    {#each "PROFISSIONAIS".split('') as char, i}
-                        <span style={getCharStyle(char, i + 10, intensity)}>{char}</span>
-                    {/each}
-                </span>
+        <!-- Solid Clean Title Header -->
+        <div 
+            class="text-center mb-24 z-20 transition-all duration-1000 cubic-bezier(0.16, 1, 0.3, 1)"
+            style="opacity: {1 - intensity}; filter: blur({intensity * 15}px); transform: translateY({intensity * 30}px);"
+        >
+            <span class="text-blue-500 font-bold uppercase tracking-[0.6em] text-[9px] mb-8 block opacity-40">Networking de Elite</span>
+            <h2 class="text-fluid-title font-black tracking-tighter mb-8 leading-none uppercase">
+                Redes <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Profissionais</span>
             </h2>
-            <p class="text-slate-400 max-w-xl mx-auto text-lg md:text-xl font-light leading-relaxed transition-all duration-1000" style="opacity: {1 - intensity}; transform: translateZ({-intensity * 500}px);">
+            <p class="text-slate-400 max-w-xl mx-auto text-lg md:text-xl font-light leading-relaxed">
                 Acompanhe insights técnicos, bastidores de infraestrutura e meu lifestyle dev em tempo real.
             </p>
         </div>
 
         <!-- Social Cards Bento -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl transition-all duration-1000" style="opacity: {1 - intensity}; transform: translateY({intensity * 100}px) scale({1 - intensity * 0.1});">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl transition-all duration-1000 ease-out" style="opacity: {1 - intensity}; transform: translateY({intensity * 80}px) scale({1 - intensity * 0.1}); filter: blur({intensity * 10}px);">
             
             <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/calebe-dev" target="_blank" rel="noopener noreferrer" class="group relative bg-[#0a66c2]/10 p-12 rounded-[4rem] overflow-hidden flex flex-col justify-between min-h-[380px] border border-white/5 hover:border-blue-500/30 transition-all duration-700 shadow-2xl backdrop-blur-3xl">
-                <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-30"></div>
+            <a href="https://www.linkedin.com/in/calebe-dev" target="_blank" rel="noopener noreferrer" class="group relative bg-white/[0.02] p-12 rounded-[4rem] overflow-hidden flex flex-col justify-between min-h-[380px] border border-white/5 hover:border-blue-500/30 transition-all duration-700 shadow-2xl backdrop-blur-3xl">
+                <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-20"></div>
                 
                 <div class="relative z-10 text-white">
                     <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-10 group-hover:scale-110 transition-transform duration-500">
@@ -91,7 +77,7 @@
 
             <!-- Instagram -->
             <a href="https://www.instagram.com/calebe.dev" target="_blank" rel="noopener noreferrer" class="group relative bg-white/[0.02] p-12 rounded-[4rem] overflow-hidden flex flex-col justify-between min-h-[380px] border border-white/5 hover:border-pink-500/30 transition-all duration-700 shadow-2xl backdrop-blur-3xl">
-                <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] opacity-20"></div>
+                <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] opacity-10"></div>
                 
                 <div class="relative z-10 text-white">
                     <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-10 group-hover:scale-110 transition-transform duration-500">
@@ -111,9 +97,9 @@
             </a>
         </div>
 
-        <div class="absolute bottom-12 flex items-center gap-6 opacity-20">
-            <span class="text-[9px] font-black tracking-widest uppercase tabular-nums">Network Ping: 22ms</span>
-            <div class="w-24 h-[1px] bg-white/10"></div>
+        <div class="absolute bottom-12 flex items-center gap-6 opacity-10">
+            <span class="text-[9px] font-black tracking-widest uppercase tabular-nums">Sync Status: Live</span>
+            <div class="w-24 h-[1px] bg-white/20"></div>
         </div>
     </div>
 </section>
