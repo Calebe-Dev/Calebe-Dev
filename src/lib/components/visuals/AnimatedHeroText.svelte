@@ -125,7 +125,7 @@
 			<h3 
 				in:fade={{ duration: 1500, delay: 200 }}
 				out:fade={{ duration: 800 }}
-				class="absolute text-fluid-hero font-black tracking-tighter text-center px-4 transition-colors duration-1000 whitespace-nowrap blur-none
+				class="absolute text-fluid-hero font-bold tracking-tight text-center px-4 transition-colors duration-1000 whitespace-nowrap blur-none
 					{environment.dayCycle === 'day' ? 'text-slate-900' : 'text-white'}"
 			>
                 {messages[currentIndex]}
@@ -137,8 +137,8 @@
 		<div 
 			bind:this={subtitleElement}
 			in:fade={{ duration: 2000, delay: 600 }}
-			class="mt-8 text-xl md:text-2xl font-black tracking-[0.5em] uppercase text-center transition-all duration-1000 mix-blend-difference
-				{environment.dayCycle === 'day' ? 'text-slate-600' : 'text-blue-500/80'}"
+			class="mt-8 text-lg md:text-xl font-medium tracking-[0.4em] uppercase text-center transition-all duration-1000 mix-blend-difference
+				{environment.dayCycle === 'day' ? 'text-slate-600' : 'text-blue-500/60'}"
 		>
 			Desenvolvedor Fullstack Multi Plataforma
 		</div>
@@ -147,11 +147,11 @@
 		<div 
 			in:fade={{ duration: 1000, delay: 1200 }}
 			class="absolute bottom-[-160px] flex flex-col items-center gap-4 transition-all duration-1000
-				{environment.dayCycle === 'day' ? 'text-slate-900/40' : 'text-white/20'}"
+				{environment.dayCycle === 'day' ? 'text-slate-900/30' : 'text-white/10'}"
 		>
-			<span class="text-[9px] uppercase tracking-[0.6em] font-black opacity-50">Explore a Infraestrutura</span>
-			<div class="w-[1px] h-24 bg-gradient-to-b from-blue-500/40 to-transparent relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-1/2 bg-blue-400/80 animate-scroll-dash"></div>
+			<span class="text-[8px] uppercase tracking-[0.6em] font-medium opacity-50">Explore a Infraestrutura</span>
+			<div class="w-[1px] h-24 bg-gradient-to-b from-blue-500/20 to-transparent relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1/2 bg-blue-400/40 animate-scroll-dash"></div>
             </div>
 		</div>
 	{/if}

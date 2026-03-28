@@ -20,6 +20,59 @@
 		"Eu sou Calebe",
 		"Bem Vindo a meu portfólio!!"
 	];
+
+    // Guided Scroll Magnet Logic
+    import { onMount } from 'svelte';
+
+    onMount(() => {
+        let lastSectionId = '';
+        let isSnapping = false;
+
+        const handleScroll = () => {
+            if (isSnapping) return;
+
+            const sections = document.querySelectorAll('div[id]');
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const sectionTop = rect.top + window.scrollY;
+                const sectionHeight = rect.height;
+                const sectionId = section.id;
+
+                // Only snap to massive scrollytelling sections (> 150vh)
+                if (sectionHeight < window.innerHeight * 1.5) return;
+
+                // Threshold: If we just entered the top 12% of a massive section
+                if (window.scrollY > sectionTop && window.scrollY < sectionTop + sectionHeight * 0.12) {
+                    if (lastSectionId !== sectionId) {
+                        lastSectionId = sectionId;
+                        smoothSnap(sectionTop + sectionHeight * 0.5 - window.innerHeight / 2);
+                    }
+                }
+                
+                // Reset tracking if we leave the section significantly
+                if (window.scrollY < sectionTop - 100 || window.scrollY > sectionTop + sectionHeight) {
+                    if (lastSectionId === sectionId) lastSectionId = '';
+                }
+            });
+        };
+
+        const smoothSnap = (targetY: number) => {
+            isSnapping = true;
+            window.scrollTo({
+                top: targetY,
+                behavior: 'smooth'
+            });
+            
+            // Re-enable after smooth scroll finishes
+            setTimeout(() => {
+                isSnapping = false;
+            }, 1000);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    });
 </script>
 
 <svelte:head>
@@ -79,7 +132,7 @@
 	</script>
 </svelte:head>
 
-<section class="h-screen flex flex-col items-center justify-center relative overflow-hidden">
+<section id="hero" class="h-screen flex flex-col items-center justify-center relative overflow-hidden">
 	<DynamicHeroBackground />
 
 	<!-- Botão para o Blog no Topo -->
@@ -101,7 +154,7 @@
 		<AnimatedHeroText {messages} />
 	</div>
 
-	<!-- Botão de Showcase (Review Experience) - Mais discreto no canto -->
+	<!-- Botão de Showcase (Review Experience) -->
 	<div class="absolute bottom-6 right-6 z-30 flex flex-col items-end gap-3">
 		{#if environment.isShowcaseRunning && environment.showcaseLabel}
 			<div 
@@ -132,24 +185,46 @@
 	</div>
 </section>
 
-<AboutSection />
+<div id="about">
+    <AboutSection />
+</div>
 
-<AccessibilitySection />
+<div id="accessibility">
+    <AccessibilitySection />
+</div>
 
-<ExperienceSection />
+<div id="experience">
+    <ExperienceSection />
+</div>
 
-<InteractiveSlides />
+<div id="slides">
+    <InteractiveSlides />
+</div>
 
-<StackSection />
+<div id="stack">
+    <StackSection />
+</div>
 
-<ProjectsSection />
+<div id="projects">
+    <ProjectsSection />
+</div>
 
-<BlogSection />
+<div id="blog-section">
+    <BlogSection />
+</div>
 
-<GithubStatsSection />
+<div id="stats">
+    <GithubStatsSection />
+</div>
 
-<SocialInviteSection />
+<div id="social">
+    <SocialInviteSection />
+</div>
 
-<ContactSection />
+<div id="contact">
+    <ContactSection />
+</div>
+
+<FloatingWhatsApp />
 
 <FloatingWhatsApp />
