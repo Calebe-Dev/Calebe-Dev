@@ -42,16 +42,16 @@
             <div class="lg:col-span-7" data-aos="fade-left">
                 <span class="text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] mb-6 block">Inclusão & Performance</span>
                 
-                <h2 class="text-4xl md:text-6xl font-black tracking-tight mb-8 leading-[1.1] text-balance">
+                <h2 class="text-fluid-section font-black tracking-tight mb-8 leading-[1.1] text-balance">
                     {title}
                 </h2>
                 
                 <div class="space-y-6 max-w-2xl">
-                    <p class="text-xl md:text-2xl text-slate-200 font-light leading-snug">
+                    <p class="text-fluid-body text-slate-200 font-light leading-snug">
                         {description}
                     </p>
                     
-                    <p class="text-base text-slate-400 font-light leading-relaxed border-l-2 border-blue-500/30 pl-8 py-2">
+                    <p class="text-sm md:text-base text-slate-400 font-light leading-relaxed border-l-2 border-blue-500/30 pl-8 py-2">
                         {secondaryText}
                     </p>
 

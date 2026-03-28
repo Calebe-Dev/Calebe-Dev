@@ -90,45 +90,46 @@
 
 		<div 
 			bind:this={trackRef} 
-			class="flex items-center gap-12 md:gap-32 px-[10vw] md:px-[30vw] min-w-max transition-transform duration-75 ease-out relative z-10" 
-			style="transform: translateX(-{trackWidth > innerWidth ? (trackWidth - innerWidth) * globalProgress : 0}px);"
+			class="experience-track flex items-center gap-12 md:gap-32 px-[10vw] md:px-[30vw] min-w-max relative z-10" 
+			style="--progress: {globalProgress}; --track-diff: {trackWidth > innerWidth ? trackWidth - innerWidth : 0}px;"
 		>
 			{#each experiences as exp, i}
 				<!-- Componente de Card Clean Premium -->
-				<div class="w-[85vw] md:w-[600px] shrink-0 p-10 md:p-14 rounded-[3rem] border border-white/[0.08] backdrop-blur-2xl transition-all duration-[800ms] ease-out shadow-2xl relative overflow-hidden group
-					{i === activeIndex ? 'scale-100 opacity-100 border-white/[0.2] shadow-[' + exp.color + '/40]' : 'scale-90 opacity-40 grayscale-[50%]'}
+				<div 
+					class="experience-card w-[85vw] md:w-[600px] shrink-0 p-10 md:p-14 rounded-[3rem] border border-white/[0.08] backdrop-blur-2xl transition-all duration-700 ease-out shadow-2xl relative overflow-hidden group
+					{i === activeIndex ? 'active scale-100 opacity-100 border-white/[0.2]' : 'scale-90 opacity-40 grayscale-[50%]'}
 				">
-					<!-- Fundo de Gradiente Interno (intensidade baseada no GlobalProgress do scroll) -->
+					<!-- Fundo de Gradiente Interno -->
 					<div 
 						class="absolute inset-0 bg-gradient-to-br {exp.gradient} transition-opacity duration-300"
-						style="opacity: {0.1 + (globalProgress * 0.9)};"
+						style="opacity: {0.05 + (i === activeIndex ? 0.9 : 0)};"
 					></div>
 
-					<!-- Efeito especial do final (Último card com explosão de luz quando atingir 98% do scroll) -->
+					<!-- Efeito especial do final -->
 					{#if i === experiences.length - 1 && globalProgress > 0.98}
-						<div class="absolute inset-0 bg-white/10 mix-blend-overlay animate-pulse blur-md"></div>
+						<div class="absolute inset-0 bg-white/10 mix-blend-overlay animate-pulse blur-md text-fluid-body"></div>
 						<div class="absolute -inset-10 bg-gradient-to-tr from-fuchsia-500/40 via-purple-500/10 to-transparent blur-3xl rounded-full animate-spin-slow pointer-events-none"></div>
 					{/if}
 
 					<!-- Conteúdo em Camada Superior -->
 					<div class="relative z-10">
 						<div class="flex flex-wrap items-center justify-between gap-4 mb-10">
-							<span class="px-4 py-2 rounded-full border border-white/20 text-xs font-bold tracking-widest text-white/90 uppercase bg-black/20 backdrop-blur-md">
+							<span class="px-4 py-2 rounded-full border border-white/20 text-[10px] font-bold tracking-[0.2em] text-white/90 uppercase bg-black/20 backdrop-blur-md">
 								{exp.period}
 							</span>
 							<span class={`w-3 h-3 rounded-full ${exp.color} transition-all duration-300 shadow-[0_0_20px_currentColor] ${i === activeIndex ? 'animate-ping' : ''}`}></span>
 						</div>
 						
-						<h3 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-3 text-balance leading-tight drop-shadow-lg">{exp.role}</h3>
-						<div class="text-white/60 text-base md:text-lg font-bold tracking-widest uppercase mb-8 mix-blend-screen">{exp.company}</div>
+						<h3 class="text-fluid-section font-black text-white mb-3 text-balance leading-tight drop-shadow-lg">{exp.role}</h3>
+						<div class="text-white/60 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-8 mix-blend-screen">{exp.company}</div>
 						
-						<p class="text-white/80 text-lg md:text-xl font-light leading-relaxed text-balance">
+						<p class="text-white/80 text-fluid-body font-light leading-relaxed text-balance">
 							{exp.desc}
 						</p>
 
 						<div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
 							<span class="text-[10px] text-white/40 font-semibold tracking-widest uppercase">Foco Principal: </span>
-							<span class="px-3 py-1 bg-white/10 rounded border border-white/5 text-white/90 text-xs font-bold tracking-wide">{exp.tag}</span>
+							<span class="px-3 py-1 bg-white/10 rounded border border-white/5 text-white/90 text-[10px] font-bold tracking-wide">{exp.tag}</span>
 						</div>
 					</div>
 				</div>
@@ -137,14 +138,28 @@
 
 		<!-- Indicador de progresso no rodapé -->
 		<div class="absolute bottom-12 left-8 right-8 md:left-24 md:right-24 z-20 flex items-center justify-between">
-			<div class="text-white/40 text-xs font-mono font-bold tracking-widest">
+			<div class="text-white/40 text-[10px] font-mono font-bold tracking-[0.2em]">
 				{String(activeIndex + 1).padStart(2, '0')} / {String(experiences.length).padStart(2, '0')}
 			</div>
 			
 			<div class="w-full max-w-sm h-1 bg-white/10 rounded-full overflow-hidden ml-6">
-				<div class="h-full {activeColor} transition-all duration-[50ms] ease-linear" style="width: {globalProgress * 100}%"></div>
+				<div class="h-full {activeColor} transition-all duration-300 ease-out" style="width: {globalProgress * 100}%"></div>
 			</div>
 		</div>
 
 	</div>
 </section>
+
+<style>
+	.experience-track {
+		transform: translateX(calc(-1 * var(--track-diff, 0) * var(--progress, 0)));
+		will-change: transform;
+		/* Smooth interpolation using CSS transition on top of the JS update */
+		transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+	}
+
+	.experience-card {
+		/* Subtile transition for scale/opacity when active */
+		transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+</style>
