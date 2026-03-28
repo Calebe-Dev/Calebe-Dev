@@ -151,13 +151,222 @@ function AnimatedHeroText($$renderer, $$props) {
     let currentIndex = 0;
     $$renderer2.push(`<div class="text-container min-h-[400px] flex flex-col items-center justify-center relative svelte-otm1ho"><canvas class="hidden"></canvas> <div class="relative w-full h-48 flex items-center justify-center"><!---->`);
     {
-      $$renderer2.push(`<h2${attr_class(`absolute text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-center px-4 transition-colors duration-1000 ${stringify(environment.dayCycle === "day" ? "text-slate-900 drop-shadow-sm" : "text-white drop-shadow-2xl")}`)}>${escape_html(messages[currentIndex])}</h2>`);
+      $$renderer2.push(`<h2${attr_class(`absolute text-fluid-hero font-bold tracking-tight text-center px-4 transition-colors duration-1000 ${stringify(environment.dayCycle === "day" ? "text-slate-900 drop-shadow-sm" : "text-white drop-shadow-2xl")}`)}>${escape_html(messages[currentIndex])}</h2>`);
     }
     $$renderer2.push(`<!----></div> `);
     {
       $$renderer2.push("<!--[!-->");
     }
     $$renderer2.push(`<!--]--></div>`);
+  });
+}
+function AboutSection($$renderer) {
+  $$renderer.push(`<section class="relative py-40 bg-black text-white overflow-hidden" itemscope="" itemtype="https://schema.org/AboutPage"><div class="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,_rgba(59,130,246,0.1),_transparent_50%)]"></div> <div class="max-w-7xl mx-auto px-8 relative z-10"><div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center"><div class="text-left"><span class="text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] mb-6 block">Resumo Profissional</span> <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-tight text-balance" itemprop="name">Engenharia de Software &amp; <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">Arte Digital</span></h2> <div class="h-1 w-24 bg-blue-600 mb-8"></div></div> <div class="flex flex-col gap-6"><article class="p-8 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:border-white/20 transition-all duration-500" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Person"><p class="text-slate-300 font-light leading-relaxed text-lg" itemprop="description">Desenvolvedor Full Stack especializado em ecossistemas **SvelteKit**, **TypeScript** e infraestrutura **Cloudflare**. Atuo na arquitetura de soluções robustas, conectando front-end premium, back-end escalável em **Node.js** e sistemas de **CRM proprietários**. Foco total em performance, **SEO Técnico** e otimização para Answer Engines (**AEO**).</p></article> <div class="p-8 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:border-white/20 transition-all duration-500 flex items-center justify-between" itemprop="hasCredential" itemscope="" itemtype="https://schema.org/EducationalOccupationalCredential"><div><h4 class="text-white font-bold text-xl mb-1" itemprop="name">Análise e Desenvolvimento de Sistemas</h4> <p class="text-slate-400 text-sm">Formação Acadêmica (Cursando)</p></div> <div class="w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></div></div></div></div></div></section>`);
+}
+function AccessibilitySection($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const blocks = [
+      {
+        tag: "Perspectiva - CID H54",
+        title: "O Olhar Clínico para o Contraste",
+        text: "Ter baixa visão não é um obstáculo, mas minha maior ferramenta de QA. Isso me força a projetar com uma obsessão natural pela legibilidade e pelo contraste perfeito em qualquer condição de iluminação.",
+        icon: "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z",
+        color: "#3b82f6",
+        bgColor: "#020617"
+      },
+      {
+        tag: "Arquitetura Semântica",
+        title: "Código que Fala e se Expressa",
+        text: "Acessibilidade começa no HTML. Construo aplicações onde a estrutura de dados e a semântica são tão priorizadas quanto a interface visual, garantindo que leitores de tela e tecnologias assistivas naveguem com fluidez.",
+        icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
+        color: "#10b981",
+        bgColor: "#06100c"
+      },
+      {
+        tag: "UX Universal",
+        title: "Interfaces Sem Barreiras Digitais",
+        text: "Um design de elite é aquele que todos conseguem usar. Foco em interfaces que respeitam a diversidade humana, com foco em navegação por teclado, hierarquia visual clara e padrões de interação intuitivos.",
+        icon: "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z",
+        color: "#6366f1",
+        bgColor: "#080b1a"
+      },
+      {
+        tag: "Inclusão & Velocidade",
+        title: "Acessibilidade é Performance",
+        text: "Código acessível é código otimizado. Ao seguir rigorosamente os padrões W3C, minhas aplicações não são apenas inclusivas, mas também mais rápidas, fáceis de indexar pelo Google e sustentáveis a longo prazo.",
+        icon: "M13 10V3L4 14h7v7l9-11h-7z",
+        color: "#f59e0b",
+        bgColor: "#100902"
+      }
+    ];
+    let progress = /* @__PURE__ */ (() => {
+      return 0;
+    })();
+    function getPlateauIntensity(blockIndex, prog) {
+      const step = 1 / blocks.length;
+      const start = blockIndex * step;
+      const end = (blockIndex + 1) * step;
+      const center = start + step / 2;
+      if (prog < start || prog > end) return 1;
+      const dist = Math.abs(prog - center);
+      const normDist = dist / (step / 2);
+      if (normDist < 0.4) return 0;
+      return (normDist - 0.4) / 0.6;
+    }
+    let currentBgColor = (() => {
+      const p = progress;
+      const step = 1 / blocks.length;
+      const index = Math.min(blocks.length - 2, Math.floor(p / step));
+      const localProgress = p % step / step;
+      return `color-mix(in srgb, ${blocks[index + 1].bgColor}, ${blocks[index].bgColor} ${100 - localProgress * 100}%)`;
+    })();
+    let titleIntensity = (() => {
+      const p = progress;
+      if (p < 0.08) return (0.08 - p) / 0.08;
+      if (p > 0.92) return (p - 0.92) / 0.08;
+      return 0;
+    })();
+    function getStableCharVars(charIndex, uniqueSeed = 0) {
+      const seed = (charIndex + uniqueSeed) * 41;
+      const random = (s) => {
+        const x = Math.sin(s) * 1e4;
+        return x - Math.floor(x);
+      };
+      const respMult = 1;
+      return `
+            --ox: ${(random(seed) - 0.5) * 1400 * respMult}px;
+            --oy: ${(random(seed + 1) - 0.5) * 1e3 * respMult}px;
+            --oz: ${(random(seed + 2) - 0.5) * 2e3 * respMult}px;
+            --rot: ${(random(seed + 3) - 0.5) * 720}deg;
+        `;
+    }
+    $$renderer2.push(`<section class="relative w-full h-[500vh]"${attr_style(`background-color: ${stringify(currentBgColor)};`)}><div class="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden px-6"><div class="absolute top-12 md:top-20 text-center z-50"><span class="text-blue-500 font-bold uppercase tracking-[0.6em] text-[8px] md:text-[10px] mb-4 block opacity-50">Inclusion by Design</span> <h2 class="text-fluid-section font-black text-white/90 tracking-tighter perspective-[2000px] transform-style-[preserve-3d]"><!--[-->`);
+    const each_array = ensure_array_like("Visão Além dos Limites".split(""));
+    for (let i = 0, $$length = each_array.length; i < $$length; i++) {
+      let char = each_array[i];
+      $$renderer2.push(`<span class="char svelte-1x8va0i"${attr_style(`${stringify(getStableCharVars(i, 999))} --intensity: ${stringify(titleIntensity)};`)}>${escape_html(char === " " ? " " : char)}</span>`);
+    }
+    $$renderer2.push(`<!--]--></h2></div> <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"><div class="w-full h-full max-w-6xl max-h-[600px] border border-white/[0.03] rounded-[4rem] flex flex-col items-center justify-center opacity-40"><div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div> <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent"></div></div></div> <div class="relative w-full max-w-6xl aspect-video flex items-center justify-center"><!--[-->`);
+    const each_array_1 = ensure_array_like(blocks);
+    for (let i = 0, $$length = each_array_1.length; i < $$length; i++) {
+      let block = each_array_1[i];
+      const intensity = getPlateauIntensity(i, progress);
+      const centerAt = i / blocks.length + 1 / (blocks.length * 2);
+      const dist = progress - centerAt;
+      const absDist = Math.abs(dist);
+      const isActive = absDist < 0.12;
+      $$renderer2.push(`<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 md:p-0"${attr_style(` opacity: ${stringify(1 - intensity)}; transform: perspective(2500px) translate3d(0, 0, ${stringify(-absDist * 4e3)}px); filter: blur(${stringify(intensity * 10)}px); pointer-events: ${stringify(isActive ? "all" : "none")}; z-index: ${stringify(Math.floor(100 - absDist * 100))}; `)}><div class="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center mb-10 backdrop-blur-3xl shadow-2xl transition-all duration-700"${attr_style(`color: ${stringify(block.color)}; transform: rotate(${stringify(intensity * 45)}deg) scale(${stringify(1 - intensity * 0.5)});`)}><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path${attr("d", block.icon)}></path>`);
+      if (i === 0) {
+        $$renderer2.push("<!--[-->");
+        $$renderer2.push(`<circle cx="12" cy="12" r="3"></circle>`);
+      } else {
+        $$renderer2.push("<!--[!-->");
+      }
+      $$renderer2.push(`<!--]--></svg></div> <span class="text-white/40 text-[9px] md:text-[11px] font-bold uppercase tracking-[0.4em] mb-4">${escape_html(block.tag)}</span> <h3 class="text-fluid-title font-black text-white mb-6 leading-[0.9] tracking-tighter perspective-[1500px] transform-style-[preserve-3d]"><!--[-->`);
+      const each_array_2 = ensure_array_like(block.title.split(""));
+      for (let idx = 0, $$length2 = each_array_2.length; idx < $$length2; idx++) {
+        let char = each_array_2[idx];
+        $$renderer2.push(`<span class="char svelte-1x8va0i"${attr_style(`${stringify(getStableCharVars(idx, (i + 1) * 100))} --intensity: ${stringify(intensity)};`)}>${escape_html(char === " " ? " " : char)}</span>`);
+      }
+      $$renderer2.push(`<!--]--></h3> <p class="text-white/70 text-fluid-body font-light max-w-2xl leading-relaxed text-balance transition-all duration-700"${attr_style(`opacity: ${stringify(1 - intensity)}; transform: translateY(${stringify(intensity * 20)}px);`)}>${escape_html(block.text)}</p></div>`);
+    }
+    $$renderer2.push(`<!--]--></div> <div class="absolute bottom-16 flex flex-col items-center gap-4 transition-opacity duration-500"${attr_style(`opacity: ${stringify(progress > 0.05 && progress < 0.95 ? 0.6 : 0)};`)}><div class="w-[1px] h-20 bg-white/5 relative overflow-hidden"><div class="absolute inset-0 bg-blue-500/30 transition-all duration-300 ease-linear shadow-[0_0_15px_#3b82f6]"${attr_style(`height: ${stringify(progress * 100)}%;`)}></div></div> <span class="text-[8px] uppercase tracking-[0.6em] font-black text-white/20 tabular-nums">Inclusão ${escape_html(Math.floor(progress * 100))}%</span></div></div></section>`);
+  });
+}
+function ExperienceSection($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let innerWidth = 1e3;
+    const experiences = [
+      {
+        period: "2017 - 2022",
+        startDate: "2017-01-01",
+        endDate: "2022-12-31",
+        role: "Consultor de TI & Infraestrutura",
+        company: "Projetos Independentes",
+        desc: "Liderança técnica em suporte corporativo Nível 2 e 3. Implementação de arquitetura de rede, manutenção de servidores Windows/Linux e consultoria de segurança para clientes finais.",
+        color: "bg-amber-500",
+        gradient: "from-amber-600/30 to-amber-900/10",
+        tag: "Infra & Sec",
+        skills: "Networking, Server Management, IT Support"
+      },
+      {
+        period: "Mai 2024 - Fev 2025",
+        startDate: "2024-05-01",
+        endDate: "2025-02-01",
+        role: "Desenvolvedor Full Stack (Estagiário)",
+        company: "QIplus",
+        desc: "Desenvolvimento de interfaces de alta conversão com SvelteKit e TypeScript, além da criação de documentação técnica. Automação de fluxos de marketing e desenvolvimento de plugins personalizados para ecossistemas WordPress.",
+        color: "bg-emerald-500",
+        gradient: "from-emerald-600/30 to-emerald-900/10",
+        tag: "SvelteKit & Bot",
+        skills: "SvelteKit, TypeScript, WordPress, Marketing Automation"
+      },
+      {
+        period: "Fev 2025 - Ago 2025",
+        startDate: "2025-02-01",
+        endDate: "2025-08-01",
+        role: "Web Developer",
+        company: "Alpha Company Ads",
+        desc: "Arquitetura de soluções web focadas em Business Intelligence (BI). Implementação de SEO técnico avançado e integração de APIs de terceiros para monitoramento de métricas em tempo real.",
+        color: "bg-cyan-500",
+        gradient: "from-cyan-600/30 to-cyan-900/10",
+        tag: "SEO & BI",
+        skills: "Technical SEO, BI, API Integration, Analytics"
+      },
+      {
+        period: "Ago 2025 - Atual",
+        startDate: "2025-08-01",
+        role: "Chief Technology Officer (CTO) / Lead Developer",
+        company: "Grupo OC",
+        desc: "Gestão da arquitetura de sistemas e liderança técnica. Implementação de ecossistema de microserviços em Node.js e integração profunda com CRM proprietário para escala de leads.",
+        color: "bg-fuchsia-600",
+        gradient: "from-fuchsia-600/30 to-fuchsia-900/10",
+        tag: "Tech Lead / CRM",
+        skills: "Node.js, Microservices, System Architecture, Lead Ops"
+      },
+      {
+        period: "Ago 2025 - Atual",
+        startDate: "2025-08-01",
+        role: "Full Stack Infrastructure Engineer",
+        company: "Grupo OC",
+        desc: "Engenharia de Cloud e On-premise. Deploy e manutenção de servidores Ubuntu com Cloudflare Tunnel (Zero Trust). Desenvolvimento de sistema CRM+CMS robusto com banco de dados PostgreSQL.",
+        color: "bg-indigo-600",
+        gradient: "from-indigo-600/30 to-indigo-900/10",
+        tag: "DevOps & CRM",
+        skills: "Ubuntu Server, Cloudflare Tunnel, Docker, PostgreSQL"
+      }
+    ];
+    let globalProgress = /* @__PURE__ */ (() => {
+      return 0;
+    })();
+    let trackWidth = 2e3;
+    let activeIndex = Math.min(experiences.length - 1, Math.floor(globalProgress * experiences.length));
+    let activeColor = experiences[activeIndex]?.color || "bg-blue-600";
+    $$renderer2.push(`<section class="relative w-full h-[400dvh] bg-neutral-950" itemscope="" itemtype="https://schema.org/Person"><meta itemprop="name" content="Calebe Araujo"/> <div class="sticky top-0 w-full h-[100dvh] overflow-hidden flex flex-col justify-center bg-neutral-950 transition-colors duration-1000"><div${attr_class(`absolute inset-x-0 top-1/2 -translate-y-1/2 h-[600px] w-full max-w-4xl mx-auto ${stringify(activeColor)} opacity-10 blur-[150px] transition-colors duration-[1500ms] rounded-full pointer-events-none`, "svelte-1fm67og")}></div> <div class="absolute top-4 left-6 md:top-12 md:left-24 z-20"><span class="text-white/40 font-bold uppercase tracking-[0.4em] text-[10px] mb-2 block animate-pulse">Evolution</span> <h2 class="text-4xl md:text-5xl lg:text-7xl font-black text-white mix-blend-exclusion">Trajetória</h2></div> <div class="experience-track flex items-center gap-12 md:gap-32 px-[10vw] md:px-[30vw] min-w-max relative z-10 svelte-1fm67og"${attr_style(`--progress: ${stringify(globalProgress)}; --track-diff: ${stringify(trackWidth - innerWidth)}px;`)}><!--[-->`);
+    const each_array = ensure_array_like(experiences);
+    for (let i = 0, $$length = each_array.length; i < $$length; i++) {
+      let exp = each_array[i];
+      $$renderer2.push(`<div${attr_class(
+        `experience-card w-[85vw] md:w-[600px] shrink-0 p-10 md:p-14 rounded-[3rem] border border-white/[0.08] backdrop-blur-2xl transition-all duration-700 ease-out shadow-2xl relative overflow-hidden group ${stringify(i === activeIndex ? "active scale-100 opacity-100 border-white/[0.2]" : "scale-90 opacity-40 grayscale-[50%]")} `,
+        "svelte-1fm67og"
+      )} itemscope="" itemtype="https://schema.org/WorkExperience" itemprop="hasOccupation"><div${attr_class(`absolute inset-0 bg-gradient-to-br ${stringify(exp.gradient)} transition-opacity duration-300`, "svelte-1fm67og")}${attr_style(`opacity: ${stringify(0.05 + (i === activeIndex ? 0.9 : 0))};`)}></div> `);
+      if (i === experiences.length - 1 && globalProgress > 0.98) {
+        $$renderer2.push("<!--[-->");
+        $$renderer2.push(`<div class="absolute inset-0 bg-white/10 mix-blend-overlay animate-pulse blur-md text-fluid-body"></div> <div class="absolute -inset-10 bg-gradient-to-tr from-fuchsia-500/40 via-purple-500/10 to-transparent blur-3xl rounded-full animate-spin-slow pointer-events-none"></div>`);
+      } else {
+        $$renderer2.push("<!--[!-->");
+      }
+      $$renderer2.push(`<!--]--> <div class="relative z-10"><div class="flex flex-wrap items-center justify-between gap-4 mb-10"><span class="px-4 py-2 rounded-full border border-white/20 text-[10px] font-bold tracking-[0.2em] text-white/90 uppercase bg-black/20 backdrop-blur-md"><time${attr("datetime", exp.startDate)}>${escape_html(exp.period.split(" - ")[0])}</time> - `);
+      if (exp.endDate) {
+        $$renderer2.push("<!--[-->");
+        $$renderer2.push(`<time${attr("datetime", exp.endDate)}>${escape_html(exp.period.split(" - ")[1])}</time>`);
+      } else {
+        $$renderer2.push("<!--[!-->");
+        $$renderer2.push(`<span>Atual</span>`);
+      }
+      $$renderer2.push(`<!--]--></span> <span${attr_class(`w-3 h-3 rounded-full ${exp.color} transition-all duration-300 shadow-[0_0_20px_currentColor] ${i === activeIndex ? "animate-ping" : ""}`, "svelte-1fm67og")}></span></div> <h3 class="text-fluid-section font-black text-white mb-3 text-balance leading-tight drop-shadow-lg" itemprop="name">${escape_html(exp.role)}</h3> <div class="text-white/60 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-8 mix-blend-screen" itemprop="hiringOrganization">${escape_html(exp.company)}</div> <p class="text-white/80 text-fluid-body font-light leading-relaxed text-balance" itemprop="description">${escape_html(exp.desc)}</p> <meta itemprop="skills"${attr("content", exp.skills)}/> <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between"><span class="text-[10px] text-white/40 font-semibold tracking-widest uppercase">Foco Principal:</span> <span class="px-3 py-1 bg-white/10 rounded border border-white/5 text-white/90 text-[10px] font-bold tracking-wide">${escape_html(exp.tag)}</span></div></div></div>`);
+    }
+    $$renderer2.push(`<!--]--></div> <div class="absolute bottom-12 left-8 right-8 md:left-24 md:right-24 z-20 flex items-center justify-between"><div class="text-white/40 text-[10px] font-mono font-bold tracking-[0.2em]">${escape_html(String(activeIndex + 1).padStart(2, "0"))} / ${escape_html(String(experiences.length).padStart(2, "0"))}</div> <div class="w-full max-w-sm h-1 bg-white/10 rounded-full overflow-hidden ml-6"><div${attr_class(`h-full ${stringify(activeColor)} transition-all duration-300 ease-out`, "svelte-1fm67og")}${attr_style(`width: ${stringify(globalProgress * 100)}%`)}></div></div></div></div></section>`);
   });
 }
 function InteractiveSlides($$renderer, $$props) {
@@ -316,81 +525,6 @@ function StackSection($$renderer, $$props) {
       $$renderer2.push("<!--[!-->");
     }
     $$renderer2.push(`<!--]--></div></section>`);
-  });
-}
-function AboutSection($$renderer) {
-  $$renderer.push(`<section class="relative py-40 bg-black text-white overflow-hidden"><div class="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,_rgba(59,130,246,0.1),_transparent_50%)]"></div> <div class="max-w-7xl mx-auto px-8 relative z-10"><div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center"><div class="text-left"><span class="text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] mb-6 block">Resumo Profissional</span> <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-tight text-balance">Engenharia de Software &amp; <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">Arte Digital</span></h2> <div class="h-1 w-24 bg-blue-600 mb-8"></div></div> <div class="flex flex-col gap-6"><div class="p-8 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:border-white/20 transition-all duration-500"><p class="text-slate-300 font-light leading-relaxed text-lg">Desenvolvedor Full Stack com forte foco analítico e experiência prática na construção de aplicações e sistemas web otimizados. Atuo não apenas na codificação, mas na arquitetura de soluções robustas, conectando o front-end, o back-end e a infraestrutura com padrões premium, garantindo performance e escalabilidade de verdade.</p></div> <div class="p-8 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:border-white/20 transition-all duration-500 flex items-center justify-between"><div><h4 class="text-white font-bold text-xl mb-1">Análise e Desenvolvimento de Sistemas</h4> <p class="text-slate-400 text-sm">Formação Acadêmica (Cursando)</p></div> <div class="w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></div></div></div></div></div></section>`);
-}
-function ExperienceSection($$renderer, $$props) {
-  $$renderer.component(($$renderer2) => {
-    let innerWidth = 1e3;
-    const experiences = [
-      {
-        period: "2017 - 2022",
-        role: "Freelancer / Profissional Autônomo",
-        company: "Projetos Independentes",
-        desc: "Serviços técnicos imersivos, manutenção de alta precisão e suporte corporativo com atendimento primoroso para clientes finais.",
-        color: "bg-amber-500",
-        gradient: "from-amber-600/30 to-amber-900/10",
-        tag: "Infra & Suporte"
-      },
-      {
-        period: "Mai 2024 - Fev 2025",
-        role: "Estagiário de Desenvolvimento",
-        company: "QIplus",
-        desc: "Criação intensa e gestão de páginas web responsivas. Customização profunda de plugins WordPress e automações.",
-        color: "bg-emerald-500",
-        gradient: "from-emerald-600/30 to-emerald-900/10",
-        tag: "Front-end & Automação"
-      },
-      {
-        period: "Fev 2025 - Ago 2025",
-        role: "Desenvolvedor Web",
-        company: "Alpha Company Ads",
-        desc: "Arquitetura de soluções WordPress otimizadas, focadas em usabilidade corporativa e alicerçadas em métricas de BI.",
-        color: "bg-cyan-500",
-        gradient: "from-cyan-600/30 to-cyan-900/10",
-        tag: "WordPress & Growth"
-      },
-      {
-        period: "Ago 2025 - Atual",
-        role: "Líder Técnico & Full Stack",
-        company: "Grupo OC",
-        desc: "Desenvolvimento corporativo e otimização SEO agressiva. Sincronização avançada de toda a rede de páginas com CRM e CMS proprietários.",
-        color: "bg-fuchsia-600",
-        gradient: "from-fuchsia-600/30 to-fuchsia-900/10",
-        tag: "Tech Lead / SEO"
-      },
-      {
-        period: "Ago 2025 - Atual",
-        role: "Engenheiro de Infraestrutura",
-        company: "Grupo OC",
-        desc: "Setup autônomo de um servidor físico (Ubuntu Server) com IP Fixo público e túnel Cloudflare para hospedagem da rede de sites. Desenvolvimento full-stack de robusto sistema CRM+CMS para a gestão interna dos projetos.",
-        color: "bg-indigo-600",
-        gradient: "from-indigo-600/30 to-indigo-900/10",
-        tag: "Infraestrutura & CRM"
-      }
-    ];
-    let globalProgress = /* @__PURE__ */ (() => {
-      return 0;
-    })();
-    let trackWidth = 2e3;
-    let activeIndex = Math.min(experiences.length - 1, Math.floor(globalProgress * experiences.length));
-    let activeColor = experiences[activeIndex]?.color || "bg-blue-600";
-    $$renderer2.push(`<section class="relative w-full h-[400dvh] bg-neutral-950"><div class="sticky top-0 w-full h-[100dvh] overflow-hidden flex flex-col justify-center bg-neutral-950 transition-colors duration-1000"><div${attr_class(`absolute inset-x-0 top-1/2 -translate-y-1/2 h-[600px] w-full max-w-4xl mx-auto ${stringify(activeColor)} opacity-10 blur-[150px] transition-colors duration-[1500ms] rounded-full pointer-events-none`)}></div> <div class="absolute top-4 left-6 md:top-12 md:left-24 z-20"><span class="text-white/40 font-bold uppercase tracking-[0.4em] text-[10px] mb-2 block animate-pulse">Evolution</span> <h2 class="text-4xl md:text-5xl lg:text-7xl font-black text-white mix-blend-exclusion">Trajetória</h2></div> <div class="flex items-center gap-12 md:gap-32 px-[10vw] md:px-[30vw] min-w-max transition-transform duration-75 ease-out relative z-10"${attr_style(`transform: translateX(-${stringify((trackWidth - innerWidth) * globalProgress)}px);`)}><!--[-->`);
-    const each_array = ensure_array_like(experiences);
-    for (let i = 0, $$length = each_array.length; i < $$length; i++) {
-      let exp = each_array[i];
-      $$renderer2.push(`<div${attr_class(`w-[85vw] md:w-[600px] shrink-0 p-10 md:p-14 rounded-[3rem] border border-white/[0.08] backdrop-blur-2xl transition-all duration-[800ms] ease-out shadow-2xl relative overflow-hidden group ${stringify(i === activeIndex ? "scale-100 opacity-100 border-white/[0.2] shadow-[" + exp.color + "/40]" : "scale-90 opacity-40 grayscale-[50%]")} `)}><div${attr_class(`absolute inset-0 bg-gradient-to-br ${stringify(exp.gradient)} transition-opacity duration-300`)}${attr_style(`opacity: ${stringify(0.1 + globalProgress * 0.9)};`)}></div> `);
-      if (i === experiences.length - 1 && globalProgress > 0.98) {
-        $$renderer2.push("<!--[-->");
-        $$renderer2.push(`<div class="absolute inset-0 bg-white/10 mix-blend-overlay animate-pulse blur-md"></div> <div class="absolute -inset-10 bg-gradient-to-tr from-fuchsia-500/40 via-purple-500/10 to-transparent blur-3xl rounded-full animate-spin-slow pointer-events-none"></div>`);
-      } else {
-        $$renderer2.push("<!--[!-->");
-      }
-      $$renderer2.push(`<!--]--> <div class="relative z-10"><div class="flex flex-wrap items-center justify-between gap-4 mb-10"><span class="px-4 py-2 rounded-full border border-white/20 text-xs font-bold tracking-widest text-white/90 uppercase bg-black/20 backdrop-blur-md">${escape_html(exp.period)}</span> <span${attr_class(`w-3 h-3 rounded-full ${exp.color} transition-all duration-300 shadow-[0_0_20px_currentColor] ${i === activeIndex ? "animate-ping" : ""}`)}></span></div> <h3 class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-3 text-balance leading-tight drop-shadow-lg">${escape_html(exp.role)}</h3> <div class="text-white/60 text-base md:text-lg font-bold tracking-widest uppercase mb-8 mix-blend-screen">${escape_html(exp.company)}</div> <p class="text-white/80 text-lg md:text-xl font-light leading-relaxed text-balance">${escape_html(exp.desc)}</p> <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between"><span class="text-[10px] text-white/40 font-semibold tracking-widest uppercase">Foco Principal:</span> <span class="px-3 py-1 bg-white/10 rounded border border-white/5 text-white/90 text-xs font-bold tracking-wide">${escape_html(exp.tag)}</span></div></div></div>`);
-    }
-    $$renderer2.push(`<!--]--></div> <div class="absolute bottom-12 left-8 right-8 md:left-24 md:right-24 z-20 flex items-center justify-between"><div class="text-white/40 text-xs font-mono font-bold tracking-widest">${escape_html(String(activeIndex + 1).padStart(2, "0"))} / ${escape_html(String(experiences.length).padStart(2, "0"))}</div> <div class="w-full max-w-sm h-1 bg-white/10 rounded-full overflow-hidden ml-6"><div${attr_class(`h-full ${stringify(activeColor)} transition-all duration-[50ms] ease-linear`)}${attr_style(`width: ${stringify(globalProgress * 100)}%`)}></div></div></div></div></section>`);
   });
 }
 function ProjectsSection($$renderer) {
@@ -565,13 +699,13 @@ function ProjectsSection($$renderer) {
   }
   $$renderer.push(`<!--]--></div> <div class="lg:col-span-7 w-full sticky top-32 perspective-1000 svelte-a72wie"><!---->`);
   {
-    $$renderer.push(`<div class="bg-slate-900/40 backdrop-blur-3xl border border-white/5 rounded-[3.5rem] p-8 md:p-14 relative shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col justify-between min-h-[500px] lg:min-h-[640px] transform-3d hover:-translate-y-2 transition-transform duration-700 group svelte-a72wie"><div${attr_class(`absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br ${stringify(selectedProject.color)} opacity-10 blur-[100px] rounded-full pointer-events-none group-hover:opacity-20 transition-opacity duration-700`, "svelte-a72wie")}></div> <div${attr_class(`absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-gradient-to-tr ${stringify(selectedProject.color)} opacity-[0.05] blur-[80px] rounded-full pointer-events-none group-hover:opacity-10 transition-opacity duration-700`, "svelte-a72wie")}></div> <div class="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent pointer-events-none rounded-[3.5rem]"></div> <div class="relative z-10 flex flex-col h-full items-start"><div class="mb-auto flex items-start justify-between w-full"><div${attr_class(`w-20 h-20 md:w-28 md:h-28 rounded-[2rem] bg-gradient-to-br ${stringify(selectedProject.color)} p-[1px] shadow-2xl relative transform group-hover:scale-105 transition-transform duration-500`, "svelte-a72wie")}><div class="w-full h-full rounded-[2rem] bg-slate-950/80 backdrop-blur-2xl flex items-center justify-center border border-white/10"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white drop-shadow-md"><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path></svg></div></div></div> <div class="mt-12 mb-12"><h3 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tighter drop-shadow-lg leading-none">${escape_html(selectedProject.name)}</h3> <p class="text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-md text-balance">${escape_html(selectedProject.desc)}</p></div> <div class="flex flex-wrap gap-3 mb-12"><!--[-->`);
+    $$renderer.push(`<div class="bg-slate-900/40 backdrop-blur-3xl border border-white/5 rounded-[3.5rem] p-8 md:p-14 relative shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col justify-between min-h-[500px] lg:min-h-[640px] transform-3d hover:-translate-y-2 transition-transform duration-700 group svelte-a72wie" itemscope="" itemtype="https://schema.org/SoftwareApplication"><meta itemprop="applicationCategory" content="BusinessApplication"/> <meta itemprop="operatingSystem" content="Web"/> <div${attr_class(`absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br ${stringify(selectedProject.color)} opacity-10 blur-[100px] rounded-full pointer-events-none group-hover:opacity-20 transition-opacity duration-700`, "svelte-a72wie")}></div> <div${attr_class(`absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-gradient-to-tr ${stringify(selectedProject.color)} opacity-[0.05] blur-[80px] rounded-full pointer-events-none group-hover:opacity-10 transition-opacity duration-700`, "svelte-a72wie")}></div> <div class="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent pointer-events-none rounded-[3.5rem]"></div> <div class="relative z-10 flex flex-col h-full items-start"><div class="mb-auto flex items-start justify-between w-full"><div${attr_class(`w-20 h-20 md:w-28 md:h-28 rounded-[2rem] bg-gradient-to-br ${stringify(selectedProject.color)} p-[1px] shadow-2xl relative transform group-hover:scale-105 transition-transform duration-500`, "svelte-a72wie")}><div class="w-full h-full rounded-[2rem] bg-slate-950/80 backdrop-blur-2xl flex items-center justify-center border border-white/10"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white drop-shadow-md"><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path></svg></div></div></div> <div class="mt-12 mb-12"><h3 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tighter drop-shadow-lg leading-none" itemprop="name">${escape_html(selectedProject.name)}</h3> <p class="text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-md text-balance" itemprop="description">${escape_html(selectedProject.desc)}</p></div> <div class="flex flex-wrap gap-3 mb-12"><!--[-->`);
     const each_array_2 = ensure_array_like(selectedProject.tags);
     for (let $$index_2 = 0, $$length = each_array_2.length; $$index_2 < $$length; $$index_2++) {
       let tag = each_array_2[$$index_2];
       $$renderer.push(`<span class="px-5 py-2 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold tracking-widest text-white/80 uppercase shadow-lg backdrop-blur-xl">${escape_html(tag)}</span>`);
     }
-    $$renderer.push(`<!--]--></div> <div class="mt-auto w-full"><a${attr("href", selectedProject.url)} target="_blank" rel="noopener noreferrer" class="relative inline-flex items-center justify-center w-full md:w-auto overflow-hidden rounded-full p-[1px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] group/btn hover:scale-105 transition-transform duration-500"><span${attr_class(`absolute inset-0 bg-gradient-to-r ${stringify(selectedProject.color)} opacity-60 group-hover/btn:opacity-100 transition-opacity duration-500 rounded-full blur-[4px]`, "svelte-a72wie")}></span> <span${attr_class(`absolute inset-0 bg-gradient-to-r ${stringify(selectedProject.color)} rounded-full`, "svelte-a72wie")}></span> <div class="relative bg-slate-950/80 backdrop-blur-2xl px-10 py-5 md:px-12 md:py-6 rounded-full flex items-center gap-4 transition-all duration-500 group-hover/btn:bg-slate-950/40 w-full md:w-auto justify-center"><span class="text-xs md:text-sm font-black uppercase tracking-[0.2em] text-white">Abrir Projeto</span> <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transform group-hover/btn:rotate-45 transition-transform duration-300"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div></div></a></div></div></div>`);
+    $$renderer.push(`<!--]--></div> <div class="mt-auto w-full"><a${attr("href", selectedProject.url)} itemprop="url" target="_blank" rel="noopener noreferrer" class="relative inline-flex items-center justify-center w-full md:w-auto overflow-hidden rounded-full p-[1px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] group/btn hover:scale-105 transition-transform duration-500"><span${attr_class(`absolute inset-0 bg-gradient-to-r ${stringify(selectedProject.color)} opacity-60 group-hover/btn:opacity-100 transition-opacity duration-500 rounded-full blur-[4px]`, "svelte-a72wie")}></span> <span${attr_class(`absolute inset-0 bg-gradient-to-r ${stringify(selectedProject.color)} rounded-full`, "svelte-a72wie")}></span> <div class="relative bg-slate-950/80 backdrop-blur-2xl px-10 py-5 md:px-12 md:py-6 rounded-full flex items-center gap-4 transition-all duration-500 group-hover/btn:bg-slate-950/40 w-full md:w-auto justify-center"><span class="text-xs md:text-sm font-black uppercase tracking-[0.2em] text-white">Abrir Projeto</span> <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transform group-hover/btn:rotate-45 transition-transform duration-300"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div></div></a></div></div></div>`);
   }
   $$renderer.push(`<!----></div></div></div></section>`);
 }
@@ -771,9 +905,28 @@ function _page($$renderer, $$props) {
     ];
     head("1uha8ag", $$renderer2, ($$renderer3) => {
       $$renderer3.title(($$renderer4) => {
-        $$renderer4.push(`<title>Calebe | Desenvolvedor Full Stack</title>`);
+        $$renderer4.push(`<title>Calebe Araujo | Líder Técnico &amp; Desenvolvedor Full Stack</title>`);
       });
-      $$renderer3.push(`<meta name="description" content="Portfólio de Calebe Araujo, Desenvolvedor Full Stack especializado em experiências web de alta performance, UX premium e engenharia de software robusta."/> <meta property="og:title" content="Calebe | Desenvolvedor Full Stack"/> <meta property="og:description" content="Experiências web de alta performance, UX premium e engenharia de software robusta."/> <meta property="og:type" content="website"/>`);
+      $$renderer3.push(`<meta name="description" content="Calebe Araujo é Líder Técnico e Engenheiro Full Stack especializado em SvelteKit, infraestrutura Cloudflare e sistemas CRM de alta performance. Focado em UX premium e SEO agressivo."/> <link rel="canonical" href="https://calebe.dev"/> <meta property="og:type" content="website"/> <meta property="og:url" content="https://calebe.dev"/> <meta property="og:title" content="Calebe Araujo | Líder Técnico &amp; Desenvolvedor Full Stack"/> <meta property="og:description" content="Engenharia de software robusta, UX premium e otimização para Answer Engines (AEO)."/> <meta property="og:image" content="https://calebe.dev/og-image.png"/> <meta property="twitter:card" content="summary_large_image"/> <meta property="twitter:url" content="https://calebe.dev"/> <meta property="twitter:title" content="Calebe Araujo | Líder Técnico &amp; Desenvolvedor Full Stack"/> <meta property="twitter:description" content="Especialista em ecossistemas Svelte e infraestrutura de alta precisão."/> <meta property="twitter:image" content="https://calebe.dev/og-image.png"/> <meta name="keywords" content="Desenvolvedor Full Stack, Tech Lead, SvelteKit, TypeScript, Node.js, Cloudflare Tunnel, SEO, AEO, CRM Development, Engenheiro de Software"/> <script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Calebe Araujo",
+			"gender": "Male",
+			"jobTitle": "Líder Técnico & Desenvolvedor Full Stack",
+			"knowsAbout": ["SvelteKit", "TypeScript", "Node.js", "SEO", "Cloudflare", "Infrastructure", "CRM Development", "AEO"],
+			"url": "https://calebe.dev",
+			"sameAs": [
+				"https://github.com/calebearaujo"
+			],
+			"worksFor": {
+				"@type": "Organization",
+				"name": "Grupo OC",
+				"description": "Agência de Marketing e Tecnologia"
+			},
+			"description": "Desenvolvedor focado em ecossistemas de alta performance e sincronização de dados complexos."
+		}
+	<\/script>`);
     });
     $$renderer2.push(`<section class="h-screen flex flex-col items-center justify-center relative overflow-hidden">`);
     DynamicHeroBackground($$renderer2);
@@ -794,17 +947,19 @@ function _page($$renderer, $$props) {
       $$renderer2.push("<!--[!-->");
       $$renderer2.push(`<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-50 group-hover:opacity-100 group-hover:rotate-90 transition-all duration-500"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> Review Experience`);
     }
-    $$renderer2.push(`<!--]--></button></div></section> `);
+    $$renderer2.push(`<!--]--></button></div></section> <div class="relative z-10 bg-black"><div id="about" data-magnet="">`);
     AboutSection($$renderer2);
-    $$renderer2.push(`<!----> `);
+    $$renderer2.push(`<!----></div> <div id="accessibility" data-magnet="">`);
+    AccessibilitySection($$renderer2);
+    $$renderer2.push(`<!----></div> <div id="experience" data-magnet="">`);
     ExperienceSection($$renderer2);
-    $$renderer2.push(`<!----> `);
+    $$renderer2.push(`<!----></div> `);
     InteractiveSlides($$renderer2);
-    $$renderer2.push(`<!----> `);
+    $$renderer2.push(`<!----> <div id="stack" data-magnet="">`);
     StackSection($$renderer2);
-    $$renderer2.push(`<!----> `);
+    $$renderer2.push(`<!----></div> <div id="projects" data-magnet="">`);
     ProjectsSection($$renderer2);
-    $$renderer2.push(`<!----> `);
+    $$renderer2.push(`<!----></div> `);
     BlogSection($$renderer2);
     $$renderer2.push(`<!----> `);
     GithubStatsSection($$renderer2);
@@ -812,7 +967,7 @@ function _page($$renderer, $$props) {
     SocialInviteSection($$renderer2);
     $$renderer2.push(`<!----> `);
     ContactSection($$renderer2);
-    $$renderer2.push(`<!----> `);
+    $$renderer2.push(`<!----></div> `);
     FloatingWhatsApp($$renderer2);
     $$renderer2.push(`<!---->`);
   });
