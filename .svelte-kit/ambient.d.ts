@@ -55,6 +55,7 @@ declare module '$env/static/private' {
 	export const PAGER: string;
 	export const PATH: string;
 	export const npm_package_json: string;
+	export const _: string;
 	export const npm_config_userconfig: string;
 	export const npm_config_init_module: string;
 	export const __CFBundleIdentifier: string;
@@ -92,8 +93,6 @@ declare module '$env/static/private' {
 	export const npm_node_execpath: string;
 	export const npm_config_prefix: string;
 	export const COLORTERM: string;
-	export const _: string;
-	export const NODE_ENV: string;
 }
 
 /**
@@ -152,6 +151,7 @@ declare module '$env/dynamic/private' {
 		PAGER: string;
 		PATH: string;
 		npm_package_json: string;
+		_: string;
 		npm_config_userconfig: string;
 		npm_config_init_module: string;
 		__CFBundleIdentifier: string;
@@ -189,8 +189,6 @@ declare module '$env/dynamic/private' {
 		npm_node_execpath: string;
 		npm_config_prefix: string;
 		COLORTERM: string;
-		_: string;
-		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}
