@@ -8,48 +8,61 @@
 	const experiences = [
 		{
 			period: '2017 - 2022',
-			role: 'Freelancer / Profissional Autônomo',
+			startDate: '2017-01-01',
+			endDate: '2022-12-31',
+			role: 'Consultor de TI & Infraestrutura',
 			company: 'Projetos Independentes',
-			desc: 'Serviços técnicos imersivos, manutenção de alta precisão e suporte corporativo com atendimento primoroso para clientes finais.',
+			desc: 'Liderança técnica em suporte corporativo Nível 2 e 3. Implementação de arquitetura de rede, manutenção de servidores Windows/Linux e consultoria de segurança para clientes finais.',
 			color: 'bg-amber-500',
 			gradient: 'from-amber-600/30 to-amber-900/10',
-			tag: 'Infra & Suporte'
+			tag: 'Infra & Sec',
+			skills: 'Networking, Server Management, IT Support'
 		},
 		{
 			period: 'Mai 2024 - Fev 2025',
-			role: 'Estagiário de Desenvolvimento',
+			startDate: '2024-05-01',
+			endDate: '2025-02-01',
+			role: 'Desenvolvedor Full Stack (Intern)',
 			company: 'QIplus',
-			desc: 'Criação intensa e gestão de páginas web responsivas. Customização profunda de plugins WordPress e automações.',
+			desc: 'Desenvolvimento de interfaces de alta conversão com SvelteKit e TypeScript. Automação de fluxos de marketing e desenvolvimento de plugins personalizados para ecossistemas WordPress.',
 			color: 'bg-emerald-500',
 			gradient: 'from-emerald-600/30 to-emerald-900/10',
-			tag: 'Front-end & Automação'
+			tag: 'SvelteKit & Bot',
+			skills: 'SvelteKit, TypeScript, WordPress, Marketing Automation'
 		},
 		{
 			period: 'Fev 2025 - Ago 2025',
-			role: 'Desenvolvedor Web',
+			startDate: '2025-02-01',
+			endDate: '2025-08-01',
+			role: 'Senior Web Developer',
 			company: 'Alpha Company Ads',
-			desc: 'Arquitetura de soluções WordPress otimizadas, focadas em usabilidade corporativa e alicerçadas em métricas de BI.',
+			desc: 'Arquitetura de soluções web focadas em Business Intelligence (BI). Implementação de SEO técnico avançado e integração de APIs de terceiros para monitoramento de métricas em tempo real.',
 			color: 'bg-cyan-500',
 			gradient: 'from-cyan-600/30 to-cyan-900/10',
-			tag: 'WordPress & Growth'
+			tag: 'SEO & BI',
+			skills: 'Technical SEO, BI, API Integration, Analytics'
 		},
 		{
 			period: 'Ago 2025 - Atual',
-			role: 'Líder Técnico & Full Stack',
+			startDate: '2025-08-01',
+			role: 'Chief Technology Officer (CTO) / Lead Developer',
 			company: 'Grupo OC',
-			desc: 'Desenvolvimento corporativo e otimização SEO agressiva. Sincronização avançada de toda a rede de páginas com CRM e CMS proprietários.',
+			desc: 'Gestão da arquitetura de sistemas e liderança técnica. Implementação de ecossistema de microserviços em Node.js e integração profunda com CRM proprietário para escala de leads.',
 			color: 'bg-fuchsia-600',
 			gradient: 'from-fuchsia-600/30 to-fuchsia-900/10',
-			tag: 'Tech Lead / SEO'
+			tag: 'Tech Lead / CRM',
+			skills: 'Node.js, Microservices, System Architecture, Lead Ops'
 		},
 		{
 			period: 'Ago 2025 - Atual',
-			role: 'Engenheiro de Infraestrutura',
+			startDate: '2025-08-01',
+			role: 'Full Stack Infrastructure Engineer',
 			company: 'Grupo OC',
-			desc: 'Setup autônomo de um servidor físico (Ubuntu Server) com IP Fixo público e túnel Cloudflare para hospedagem da rede de sites. Desenvolvimento full-stack de robusto sistema CRM+CMS para a gestão interna dos projetos.',
+			desc: 'Engenharia de Cloud e On-premise. Deploy e manutenção de servidores Ubuntu com Cloudflare Tunnel (Zero Trust). Desenvolvimento de sistema CRM+CMS robusto com banco de dados PostgreSQL.',
 			color: 'bg-indigo-600',
 			gradient: 'from-indigo-600/30 to-indigo-900/10',
-			tag: 'Infraestrutura & CRM'
+			tag: 'DevOps & CRM',
+			skills: 'Ubuntu Server, Cloudflare Tunnel, Docker, PostgreSQL'
 		}
 	];
 
@@ -74,7 +87,8 @@
 <svelte:window bind:scrollY bind:innerHeight bind:innerWidth />
 
 <!-- Seção alta (4x a altura da tela) para gerar área de scroll -->
-<section bind:this={container} class="relative w-full h-[400dvh] bg-neutral-950">
+<section bind:this={container} class="relative w-full h-[400dvh] bg-neutral-950" itemscope itemtype="https://schema.org/Person">
+	<meta itemprop="name" content="Calebe Araujo" />
 	
 	<!-- Wrapper Fixo na tela -->
 	<div class="sticky top-0 w-full h-[100dvh] overflow-hidden flex flex-col justify-center bg-neutral-950 transition-colors duration-1000">
@@ -98,7 +112,11 @@
 				<div 
 					class="experience-card w-[85vw] md:w-[600px] shrink-0 p-10 md:p-14 rounded-[3rem] border border-white/[0.08] backdrop-blur-2xl transition-all duration-700 ease-out shadow-2xl relative overflow-hidden group
 					{i === activeIndex ? 'active scale-100 opacity-100 border-white/[0.2]' : 'scale-90 opacity-40 grayscale-[50%]'}
-				">
+				"
+				itemscope 
+				itemtype="https://schema.org/WorkExperience"
+				itemprop="hasOccupation"
+				>
 					<!-- Fundo de Gradiente Interno -->
 					<div 
 						class="absolute inset-0 bg-gradient-to-br {exp.gradient} transition-opacity duration-300"
@@ -115,17 +133,25 @@
 					<div class="relative z-10">
 						<div class="flex flex-wrap items-center justify-between gap-4 mb-10">
 							<span class="px-4 py-2 rounded-full border border-white/20 text-[10px] font-bold tracking-[0.2em] text-white/90 uppercase bg-black/20 backdrop-blur-md">
-								{exp.period}
+								<time datetime={exp.startDate}>{exp.period.split(' - ')[0]}</time> - 
+								{#if exp.endDate}
+									<time datetime={exp.endDate}>{exp.period.split(' - ')[1]}</time>
+								{:else}
+									<span>Atual</span>
+								{/if}
 							</span>
 							<span class={`w-3 h-3 rounded-full ${exp.color} transition-all duration-300 shadow-[0_0_20px_currentColor] ${i === activeIndex ? 'animate-ping' : ''}`}></span>
 						</div>
 						
-						<h3 class="text-fluid-section font-black text-white mb-3 text-balance leading-tight drop-shadow-lg">{exp.role}</h3>
-						<div class="text-white/60 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-8 mix-blend-screen">{exp.company}</div>
+						<h3 class="text-fluid-section font-black text-white mb-3 text-balance leading-tight drop-shadow-lg" itemprop="name">{exp.role}</h3>
+						<div class="text-white/60 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-8 mix-blend-screen" itemprop="hiringOrganization">{exp.company}</div>
 						
-						<p class="text-white/80 text-fluid-body font-light leading-relaxed text-balance">
+						<p class="text-white/80 text-fluid-body font-light leading-relaxed text-balance" itemprop="description">
 							{exp.desc}
 						</p>
+
+						<!-- Hidden skills for ATS/SEO Parsers -->
+						<meta itemprop="skills" content={exp.skills} />
 
 						<div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
 							<span class="text-[10px] text-white/40 font-semibold tracking-widest uppercase">Foco Principal: </span>

@@ -121,7 +121,13 @@
 						in:fly={{ y: 40, duration: 600, delay: 50 }} 
 						out:fade={{ duration: 150 }}
 						class="bg-slate-900/40 backdrop-blur-3xl border border-white/5 rounded-[3.5rem] p-8 md:p-14 relative shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col justify-between min-h-[500px] lg:min-h-[640px] transform-3d hover:-translate-y-2 transition-transform duration-700 group"
+						itemscope 
+						itemtype="https://schema.org/SoftwareApplication"
 					>
+						<!-- Schema Metadata -->
+						<meta itemprop="applicationCategory" content="BusinessApplication" />
+						<meta itemprop="operatingSystem" content="Web" />
+						
 						<!-- Glossy Glow Backgrounds -->
 						<div class="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br {selectedProject.color} opacity-10 blur-[100px] rounded-full pointer-events-none group-hover:opacity-20 transition-opacity duration-700"></div>
 						<div class="absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-gradient-to-tr {selectedProject.color} opacity-[0.05] blur-[80px] rounded-full pointer-events-none group-hover:opacity-10 transition-opacity duration-700"></div>
@@ -143,10 +149,10 @@
 
 							<!-- Body -->
 							<div class="mt-12 mb-12">
-								<h3 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tighter drop-shadow-lg leading-none">
+								<h3 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tighter drop-shadow-lg leading-none" itemprop="name">
 									{selectedProject.name}
 								</h3>
-								<p class="text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-md text-balance">
+								<p class="text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-md text-balance" itemprop="description">
 									{selectedProject.desc}
 								</p>
 							</div>
@@ -163,6 +169,7 @@
 							<div class="mt-auto w-full">
 								<a 
 									href={selectedProject.url} 
+									itemprop="url"
 									target="_blank" 
 									rel="noopener noreferrer" 
 									class="relative inline-flex items-center justify-center w-full md:w-auto overflow-hidden rounded-full p-[1px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] group/btn hover:scale-105 transition-transform duration-500"
