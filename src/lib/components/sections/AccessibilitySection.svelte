@@ -38,6 +38,9 @@
     ];
 
     let progress = $derived.by(() => {
+        // Registrar dependência para o Svelte recomputar no scroll
+        const _ = scrollY;
+        
         if (!container) return 0;
         const rect = container.getBoundingClientRect();
         const maxScroll = rect.height - innerHeight;
@@ -45,8 +48,8 @@
         return Math.max(0, Math.min(1, scrolled / maxScroll));
     });
 
-    // Interpolate background color
-    const colors = ["#050505", "#0a0a0f", "#0f172a", "#050505"];
+    // Interpolate background color - Slate/Indigo Theme
+    const colors = ["#020617", "#0f172a", "#1e1b4b", "#020617"];
     let bgColor = $derived.by(() => {
         const step = 1 / (colors.length - 1);
         const index = Math.min(colors.length - 2, Math.floor(progress / step));
@@ -57,20 +60,31 @@
     function getBlockStyle(index: number) {
         const center = index / blocks.length + (1 / (blocks.length * 2));
         const distance = Math.abs(progress - center);
-        const activeRange = 1 / blocks.length;
+        const activeRange = 0.2; // Ajustado para ser mais focado
         
-        // Intensidade da animação 3D
+        // Ativo quando progress está perto do center
+        const isActive = distance < activeRange * 0.5;
+        
+        // Opacidade: Pico no centro, fade rápido nas bordas
         const opacity = Math.max(0, 1 - (distance / (activeRange * 0.8)));
-        const scale = 0.8 + (1 - distance / activeRange) * 0.4;
-        const translateZ = (progress - center) * 1000; // Efeito de profundidade
-        const blur = distance > activeRange * 0.2 ? Math.min(20, (distance - activeRange * 0.2) * 100) : 0;
+        
+        // Escala: Vem de 'frente' (grande) para longe (pequeno)
+        const scale = 0.5 + Math.max(0, 1 - distance / activeRange) * 0.5;
+        
+        // Profundidade 3D: Positivo (frente/perto) para Negativo (fundo/longe)
+        // Queremos que venha de frente (positivo) para o plano (0) e suma no fundo (negativo)
+        const translateZ = (center - progress) * 2000; 
+
+        // Blur: Apenas quando sai do foco central
+        const blur = distance > 0.05 ? Math.min(8, (distance - 0.05) * 40) : 0;
 
         return `
             opacity: ${opacity};
-            transform: perspective(1000px) translate3d(0, 0, ${-translateZ}px) scale(${scale});
+            transform: perspective(1200px) translate3d(0, 0, ${translateZ}px) scale(${scale});
             filter: blur(${blur}px);
-            pointer-events: ${opacity > 0.5 ? 'auto' : 'none'};
+            pointer-events: ${isActive ? 'auto' : 'none'};
             z-index: ${Math.floor(opacity * 100)};
+            transition: filter 0.3s ease-out; /* Suaviza a saída do blur */
         `;
     }
 </script>
