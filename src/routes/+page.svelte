@@ -4,6 +4,7 @@
 	import InteractiveSlides from '$lib/components/sections/InteractiveSlides.svelte';
 	import StackSection from '$lib/components/sections/StackSection.svelte';
 	import AboutSection from '$lib/components/sections/AboutSection.svelte';
+	import AccessibilitySection from '$lib/components/sections/AccessibilitySection.svelte';
 	import ExperienceSection from '$lib/components/sections/ExperienceSection.svelte';
 	import ProjectsSection from '$lib/components/sections/ProjectsSection.svelte';
 	import BlogSection from '$lib/components/sections/BlogSection.svelte';
@@ -83,6 +84,8 @@
 </section>
 
 <AboutSection />
+
+<AccessibilitySection />
 
 <ExperienceSection />
 
