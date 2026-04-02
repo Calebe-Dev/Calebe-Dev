@@ -73,10 +73,7 @@
 			// Só snap se estiver perto o suficiente (evitar snaps irritantes se o usuário quer passar direto)
 			if (Math.abs(nearest - globalProgress) < 0.15) {
 				const targetScroll = sectionTop + (nearest * (sectionHeight - viewportHeight));
-				window.scrollTo({
-					top: targetScroll,
-					behavior: 'smooth'
-				});
+				environment.scrollTo(targetScroll, 900);
 			}
 		};
 

@@ -43,6 +43,7 @@ class EnvironmentState {
   isScrollLocked = true;
   isShowcaseRunning = false;
   showcaseLabel = "";
+  lenis = null;
   collisionMask = { data: null, width: 0, height: 0 };
   async startShowcase() {
     if (this.isShowcaseRunning) return;
@@ -81,6 +82,19 @@ class EnvironmentState {
   updateCycle() {
     const hour = /* @__PURE__ */ (/* @__PURE__ */ new Date()).getHours();
     this.dayCycle = hour >= 6 && hour < 18 ? "day" : "night";
+  }
+  registerLenis(instance) {
+    this.lenis = instance;
+  }
+  unregisterLenis() {
+    this.lenis = null;
+  }
+  scrollTo(targetY, durationMs = 1e3) {
+    if (this.lenis) {
+      this.lenis.scrollTo(targetY, { duration: Math.max(0.15, durationMs / 1e3) });
+      return;
+    }
+    window.scrollTo({ top: targetY, behavior: "auto" });
   }
 }
 const environment = new EnvironmentState();

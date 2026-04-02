@@ -29,11 +29,8 @@
         if (isSnapping) return;
         isSnapping = true;
         
-        // Slower, cinematic smooth scroll to 'hold' the premium position
-        window.scrollTo({
-            top: targetY,
-            behavior: 'smooth'
-        });
+        // Usa o mesmo motor do scroll principal (Lenis) para evitar jitter
+        environment.scrollTo(targetY, 1200);
 
         // Lock snapping longer to ensure the user 'lands' and stays there
         setTimeout(() => {

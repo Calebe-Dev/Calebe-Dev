@@ -10,6 +10,7 @@
 		const lenis = new Lenis({
 			autoRaf: true,
 		});
+		environment.registerLenis(lenis);
 
 		// Garantir que começamos no topo se o scroll estiver travado (intro)
 		if (environment.isScrollLocked) {
@@ -28,6 +29,7 @@
 		});
 
 		return () => {
+			environment.unregisterLenis();
 			lenis.destroy();
 			document.body.style.overflow = 'auto';
 		};

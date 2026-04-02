@@ -1,4 +1,5 @@
 import { browser } from '$app/environment';
+import type Lenis from 'lenis';
 
 export type WeatherType = 'sunny' | 'rainy' | 'cloudy';
 export type DayCycle = 'day' | 'night';
@@ -14,6 +15,7 @@ class EnvironmentState {
 	isScrollLocked = $state(true);
 	isShowcaseRunning = $state(false);
 	showcaseLabel = $state("");
+	lenis: Lenis | null = null;
 	collisionMask = $state<{
 		data: Uint8ClampedArray | null;
 		width: number;
@@ -91,6 +93,28 @@ class EnvironmentState {
 	updateCycle() {
 		const hour = new Date().getHours();
 		this.dayCycle = (hour >= 6 && hour < 18) ? 'day' : 'night';
+	}
+
+	registerLenis(instance: Lenis) {
+		this.lenis = instance;
+	}
+
+	unregisterLenis() {
+		this.lenis = null;
+	}
+
+	scrollTo(targetY: number, durationMs = 1000) {
+		if (this.lenis) {
+			this.lenis.scrollTo(targetY, {
+				duration: Math.max(0.15, durationMs / 1000)
+			});
+			return;
+		}
+
+		window.scrollTo({
+			top: targetY,
+			behavior: 'auto'
+		});
 	}
 }
 
