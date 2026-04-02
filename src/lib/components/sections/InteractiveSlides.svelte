@@ -50,6 +50,8 @@
 	}
 
 	let snapTimeout: number;
+	let isSectionSnapping = false;
+	let sectionSnapReleaseTimeout: number | undefined;
 	const snapPoints = [0.15, 0.5, 0.85]; // Pontos de foco magnético
 
 	onMount(() => {
@@ -63,7 +65,7 @@
 		};
 
 		const snapToNearest = () => {
-			if (environment.isScrollLocked) return;
+			if (environment.isScrollLocked || isSectionSnapping) return;
 			
 			// Encontrar o ponto magnético mais próximo
 			const nearest = snapPoints.reduce((prev, curr) => 
@@ -73,7 +75,12 @@
 			// Só snap se estiver perto o suficiente (evitar snaps irritantes se o usuário quer passar direto)
 			if (Math.abs(nearest - globalProgress) < 0.15) {
 				const targetScroll = sectionTop + (nearest * (sectionHeight - viewportHeight));
+				isSectionSnapping = true;
 				environment.scrollTo(targetScroll, 900);
+				clearTimeout(sectionSnapReleaseTimeout);
+				sectionSnapReleaseTimeout = window.setTimeout(() => {
+					isSectionSnapping = false;
+				}, 1000);
 			}
 		};
 
@@ -92,6 +99,8 @@
 		return () => {
 			window.removeEventListener('resize', updateDimensions);
 			window.removeEventListener('scroll', onScroll);
+			clearTimeout(snapTimeout);
+			if (sectionSnapReleaseTimeout) clearTimeout(sectionSnapReleaseTimeout);
 		};
 	});
 
@@ -121,7 +130,7 @@
 		<div class="relative z-10 w-full h-full max-w-5xl px-8 text-center">
 			
 			<!-- Slide 1 -->
-			<div class="absolute inset-x-0 top-1/2 transition-all duration-75 ease-out pointer-events-none px-8"
+			<div class="absolute inset-x-0 top-1/2 transition-all duration-150 ease-out pointer-events-none px-8"
 				style="opacity: {slide1.opacity}; transform: translate(0, calc(-50% + {slide1.y}px)) scale({slide1.scale}); filter: blur({slide1.blur}px)"
 			>
 				<span class="text-blue-500 font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-8 block">Storytelling Digital</span>
@@ -131,7 +140,7 @@
 			</div>
 
 			<!-- Slide 2 -->
-			<div class="absolute inset-x-0 top-1/2 transition-all duration-75 ease-out pointer-events-none px-8"
+			<div class="absolute inset-x-0 top-1/2 transition-all duration-150 ease-out pointer-events-none px-8"
 				style="opacity: {slide2.opacity}; transform: translate(0, calc(-50% + {slide2.y}px)) scale({slide2.scale}); filter: blur({slide2.blur}px)"
 			>
 				<h2 class="text-4xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight max-w-4xl mx-auto">
@@ -144,7 +153,7 @@
 			</div>
 
 			<!-- Slide 3 -->
-			<div class="absolute inset-x-0 top-1/2 transition-all duration-75 ease-out pointer-events-none px-8"
+			<div class="absolute inset-x-0 top-1/2 transition-all duration-150 ease-out pointer-events-none px-8"
 				style="opacity: {slide3.opacity}; transform: translate(0, calc(-50% + {slide3.y}px)) scale({slide3.scale}); filter: blur({slide3.blur}px)"
 			>
 				<h2 class="text-6xl md:text-9xl font-black text-white leading-none tracking-tighter mb-10">

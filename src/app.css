@@ -3,7 +3,7 @@
 
 :root {
   color-scheme: dark;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 
   /* Fluid Typography Tokens (Apple Elite Style) */
   --text-hero: clamp(2rem, 10vw + 1rem, 6rem);

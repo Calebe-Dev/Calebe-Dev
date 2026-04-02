@@ -180,8 +180,8 @@
 	.experience-track {
 		transform: translateX(calc(-1 * var(--track-diff, 0) * var(--progress, 0)));
 		will-change: transform;
-		/* Smooth interpolation using CSS transition on top of the JS update */
-		transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+		/* Suavização via CSS para complementar a reatividade do scroll */
+		transition: transform 0.1s linear;
 	}
 
 	.experience-card {

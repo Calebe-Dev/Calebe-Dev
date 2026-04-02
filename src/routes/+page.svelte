@@ -23,6 +23,7 @@
 	];
 
     let isSnapping = false;
+    let snapReleaseTimeout: number | undefined;
     let lastSectionId = '';
 
     function smoothSnap(targetY: number) {
@@ -32,10 +33,11 @@
         // Usa o mesmo motor do scroll principal (Lenis) para evitar jitter
         environment.scrollTo(targetY, 1200);
 
-        // Lock snapping longer to ensure the user 'lands' and stays there
-        setTimeout(() => {
+        // Lock snapping por um período curto para evitar disputa entre seções
+        clearTimeout(snapReleaseTimeout);
+        snapReleaseTimeout = window.setTimeout(() => {
             isSnapping = false;
-        }, 2200); // Increased lock duration
+        }, 1000);
     }
 
     onMount(() => {
@@ -72,7 +74,10 @@
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            if (snapReleaseTimeout) clearTimeout(snapReleaseTimeout);
+        };
     });
 </script>
 
