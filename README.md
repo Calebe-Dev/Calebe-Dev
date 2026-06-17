@@ -1,87 +1,98 @@
-# 👋 Hey, I’m Calebe
+# Calebe Araujo — Full Stack Developer
 
-I’m a **Full Stack Web Developer** and **Systems Analysis and Development** student, focused on building lean, fast and outcome‑driven web applications — from UI to backend, including **SEO**, **Core Web Vitals** and **web analytics**.
+**Full Stack Developer** focused on scalable web systems, microservices architecture, and web performance.
+Independently built a proprietary microservices CRM integrating **25 simultaneous sites**, reducing page load time from **8s to 1s — 90% performance improvement**.
 
-Every repository here is a practical experiment: improving performance, automating workflows and turning ideas into real solutions.
+> 🇧🇷 Based in Sorocaba, Brazil · Open to remote, hybrid or on-site opportunities
 
 ---
 
 ## 🧑‍💻 About Me
 
-- 🎓 **Systems & Web** – Student of Systems Analysis and Development (Fatec), with a background in Web Design and front‑end development.  
-- 💼 **Full Stack Developer** – Experience building web applications with **Angular** and **Node.js**, API integrations and a strong focus on usability, performance and maintainability.  
-- 🚀 **SEO & Digital Analytics** – Hands‑on work with **technical SEO**, **Core Web Vitals**, tracking with **Google Analytics** and **Google Tag Manager**, page‑level optimization and conversion funnels.  
-- 🧠 **Continuous Learner** – I like to understand the “why behind the stack”: architecture, best practices, testing, observability and automation.  
-- 💻 **Dev Environment** – Daily driver on **macOS** and **Linux**, using terminal, Git and a productivity‑oriented setup.
+- 💼 **Full Stack Developer at Grupo OC** — microservices, Angular, Svelte, Node.js, Java, PostgreSQL, Docker and AWS in production.
+- ⚡ **Web Performance & Technical SEO** — Core Web Vitals, Lighthouse, semantic HTML, accessibility (WCAG).
+- 🔗 **Systems Integration** — Headless CMS (Directus), REST APIs, multi-platform data sync.
+- 🎓 **Systems Analysis and Development** — Fatec Itu (2023–2026).
+- 🧠 **Continuous learner** — architecture, testing, observability and AI-powered automations.
 
 ---
 
-## 💼 Professional Experience (summary)
+## 💼 Professional Experience
 
-- **Full Stack Developer – Grupo OC**  
-  Building web applications (front and back end) with **Angular** and **Node.js**, focusing on performance, SEO, Core Web Vitals and user experience. Integrating analytics (GA, GTM), events and conversions, making data‑driven decisions.
+**Full Stack Developer — Grupo OC** *(Aug 2025 – present)*
+> Architected and built a proprietary microservices CRM integrating 25 sites with centralized Headless CMS (Directus) and REST APIs. Migrated legacy stacks to Angular and Svelte — **load time dropped from 8s to 1s (90% improvement)**. Manages Docker and AWS infrastructure.
+> `Angular` `Svelte` `TypeScript` `Node.js` `Java` `PostgreSQL` `Directus` `Docker` `AWS`
 
-- **Web Developer | SEO – Alpha Company ADS**  
-  Developing **WordPress** websites, customizing themes/plugins, implementing **technical SEO**, performance optimization and automation + analytics integrations.
+**Web Developer — Alpha Company ADS** *(Feb–Aug 2025)*
+> Developed 60+ landing pages and institutional sites. Applied technical SEO, performance optimization, and integrated Google Analytics, GTM and conversion pixels. Managed paid campaigns on Meta Ads and Google Ads.
+> `WordPress` `Technical SEO` `Core Web Vitals` `GTM` `Meta Ads` `Google Ads`
 
-- **Web Developer – QI Plus**  
-  Creating and maintaining responsive web applications (HTML, CSS, JS), customizing WordPress and supporting automations and experiments with **Artificial Intelligence**.
-
-> Full details about experience and technologies are in my resume and pinned repositories.
+**Web Developer Intern — QIplus** *(May 2024–Feb 2025)*
+> Built responsive web applications (HTML, CSS, JS). Integrated third-party APIs and developed automation experiments using LLM APIs.
+> `HTML5` `CSS3` `JavaScript` `WordPress` `REST APIs` `AI Automation`
 
 ---
 
 ## 🛠 Tech Stack
 
-### Front-end
+### Frontend
+![Angular](https://img.shields.io/badge/-Angular-DD0031?style=flat-square&logo=angular&logoColor=white)
+![Svelte](https://img.shields.io/badge/-Svelte-FF3E00?style=flat-square&logo=svelte&logoColor=white)
+![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Angular](https://img.shields.io/badge/-Angular-DD0031?style=flat-square&logo=angular&logoColor=white)
 
-### Back-end & Data
+### Backend & Databases
 ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![Java](https://img.shields.io/badge/-Java-007396?style=flat-square&logo=openjdk&logoColor=white)
 ![Express](https://img.shields.io/badge/-Express-000000?style=flat-square&logo=express&logoColor=white)
-![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![SQL](https://img.shields.io/badge/-SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
+![REST API](https://img.shields.io/badge/-REST%20APIs-FF6C37?style=flat-square&logo=postman&logoColor=white)
 
-### DevOps, Tools & Analytics
+### Infra & DevOps
+![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![AWS](https://img.shields.io/badge/-AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/-GitHub%20Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white)
 ![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![Linux](https://img.shields.io/badge/-Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
-![macOS](https://img.shields.io/badge/-macOS-000000?style=flat-square&logo=apple&logoColor=white)
-![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![NGINX](https://img.shields.io/badge/-NGINX-009639?style=flat-square&logo=nginx&logoColor=white)
+
+### CMS & Headless
+![Directus](https://img.shields.io/badge/-Directus-6644FF?style=flat-square&logo=directus&logoColor=white)
+![WordPress](https://img.shields.io/badge/-WordPress-21759B?style=flat-square&logo=wordpress&logoColor=white)
+
+### SEO, Analytics & Performance
+![Lighthouse](https://img.shields.io/badge/-Lighthouse-F44B21?style=flat-square&logo=lighthouse&logoColor=white)
 ![Google Analytics](https://img.shields.io/badge/-Google%20Analytics-E37400?style=flat-square&logo=google-analytics&logoColor=white)
 ![Google Tag Manager](https://img.shields.io/badge/-GTM-246FDB?style=flat-square&logo=google-tag-manager&logoColor=white)
-![WordPress](https://img.shields.io/badge/-WordPress-21759B?style=flat-square&logo=wordpress&logoColor=white)
-![Elementor](https://img.shields.io/badge/-Elementor-92003B?style=flat-square&logo=elementor&logoColor=white)
 
 ---
 
-## 🌱 Currently Focused On
+## 📊 GitHub Stats
 
-- Going deeper into **Angular** (architecture, state management, performance, testing).  
-- Growing as a **Full Stack** developer with **Node.js**, REST APIs, authentication and backend best practices.  
-- Refining **technical SEO** and **Answer Engine Optimization (AEO)** for content that speaks well to humans, search engines and AI.  
-- Experimenting with **AI pipelines** and automations for resume, content and data analysis.
+<div align="center">
 
----
+[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Calebe-Dev&show_icons=true&theme=github_dark&hide_border=true&count_private=true&include_all_commits=true)](https://github.com/Calebe-Dev)
+&nbsp;&nbsp;
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Calebe-Dev&layout=compact&theme=github_dark&hide_border=true&langs_count=8)](https://github.com/Calebe-Dev)
 
-## 📂 What You’ll Find Here
-
-- 🧩 **Full stack web apps** built with Angular + Node.js.  
-- 🌐 **SEO‑optimized landing pages and sites**, focused on Core Web Vitals and conversion.  
-- ⚙️ **API integrations and automations** (analytics, marketing, internal workflows).  
-- 🧪 **Study projects** in Python, data analysis and applied AI.
+</div>
 
 ---
 
-## 🌐 Connect With Me
+## 🌱 Currently Deepening
+
+- Advanced **TypeScript** patterns and architecture
+- Automated testing — unit and e2e
+- **CI/CD** pipelines with GitHub Actions
+- AI-powered automations and LLM integrations
+
+---
+
+## 🌐 Connect
 
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/calebe-dev)
-[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Calebe-Dev)
-
-✉️ **Email**: [calebe.araujo101@gmail.com](mailto:calebe.araujo101@gmail.com)
-
-
+[![Portfolio](https://img.shields.io/badge/-Portfolio-000000?style=flat-square&logo=safari&logoColor=white)](https://calebe-dev.github.io/arvore_de_links/)
+[![Email](https://img.shields.io/badge/-Email-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:calebe.araujo101@gmail.com)
