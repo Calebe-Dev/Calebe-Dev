@@ -7,9 +7,9 @@ declare global {
 		// interface PageData {}
 		// interface PageState {}
 		interface Platform {
-			// Bindings do wrangler.jsonc (KV, D1, vars...). `Env` é gerado por `npm run cf-typegen`.
+			// Bindings do wrangler.jsonc (KV, D1, vars...): tipe aqui ao adicioná-los.
 			// ctx, caches e cf já são tipados pelo @sveltejs/adapter-cloudflare.
-			env: Env;
+			env: Record<string, unknown>;
 		}
 	}
 }

@@ -84,20 +84,20 @@
 <svelte:head>
 	<title>Calebe Araujo | Líder Técnico & Desenvolvedor Full Stack</title>
 	<meta name="description" content="Calebe Araujo é Líder Técnico e Engenheiro Full Stack especializado em SvelteKit, infraestrutura Cloudflare e sistemas CRM de alta performance. Focado em UX premium e SEO agressivo." />
-	<link rel="canonical" href="https://calebe.dev" />
+	<link rel="canonical" href="https://calebearaujo.com.br" />
 	
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://calebe.dev" />
+	<meta property="og:url" content="https://calebearaujo.com.br" />
 	<meta property="og:title" content="Calebe Araujo | Líder Técnico & Desenvolvedor Full Stack" />
 	<meta property="og:description" content="Engenharia de software robusta, UX premium e otimização para Answer Engines (AEO)." />
-	<meta property="og:image" content="https://calebe.dev/og-image.png" />
+	<meta property="og:image" content="https://calebearaujo.com.br/images/profile.png" />
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:url" content="https://calebe.dev" />
+	<meta property="twitter:url" content="https://calebearaujo.com.br" />
 	<meta property="twitter:title" content="Calebe Araujo | Líder Técnico & Desenvolvedor Full Stack" />
 	<meta property="twitter:description" content="Especialista em ecossistemas Svelte e infraestrutura de alta precisão." />
-	<meta property="twitter:image" content="https://calebe.dev/og-image.png" />
+	<meta property="twitter:image" content="https://calebearaujo.com.br/images/profile.png" />
 
 	<!-- Keywords for SEO/ATS -->
 	<meta name="keywords" content="Desenvolvedor Full Stack, Tech Lead, SvelteKit, TypeScript, Node.js, Cloudflare Tunnel, SEO, AEO, CRM Development, Engenheiro de Software" />
@@ -111,7 +111,7 @@
 			"gender": "Male",
 			"jobTitle": "Líder Técnico & Desenvolvedor Full Stack",
 			"knowsAbout": ["SvelteKit", "TypeScript", "Node.js", "SEO", "Cloudflare", "Infrastructure", "CRM Development", "AEO"],
-			"url": "https://calebe.dev",
+			"url": "https://calebearaujo.com.br",
 			"sameAs": [
 				"https://github.com/calebearaujo"
 			],

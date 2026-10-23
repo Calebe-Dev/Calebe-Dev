@@ -1,10 +1,18 @@
 {
 	"$schema": "./node_modules/wrangler/config-schema.json",
-	// Nome do projeto no Cloudflare Pages (define o subdomínio <name>.pages.dev)
+	// Nome do Worker na Cloudflare (no Workers Builds o nome do dashboard prevalece)
 	"name": "calebe-dev",
 	"compatibility_date": "2026-10-01",
 	// AsyncLocalStorage é usado pelo SvelteKit (getRequestEvent)
 	"compatibility_flags": ["nodejs_als"],
-	// Saída gerada pelo @sveltejs/adapter-cloudflare
-	"pages_build_output_dir": ".svelte-kit/cloudflare"
+	// Saída gerada pelo @sveltejs/adapter-cloudflare: o Worker com o servidor do SvelteKit
+	// e os assets estáticos (páginas pré-renderizadas são servidas direto, sem invocar o Worker)
+	"main": ".svelte-kit/cloudflare/_worker.js",
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".svelte-kit/cloudflare"
+	},
+	"observability": {
+		"enabled": true
+	}
 }
