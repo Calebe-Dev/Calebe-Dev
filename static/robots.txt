@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://calebearaujo.com.br/sitemap.xml
