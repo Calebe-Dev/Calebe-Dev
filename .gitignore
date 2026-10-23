@@ -6,6 +6,20 @@
 /out-tsc
 /bazel-out
 
+# SvelteKit (gerado por `svelte-kit sync` / `vite build`)
+/.svelte-kit
+/build
+
+# Cloudflare / Wrangler
+.wrangler
+.dev.vars*
+!.dev.vars.example
+
+# Variáveis locais (o wrangler lê CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID daqui)
+.env
+.env.*
+!.env.example
+
 # Node
 /node_modules
 npm-debug.log

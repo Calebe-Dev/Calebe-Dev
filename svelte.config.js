@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 
@@ -13,16 +13,13 @@ const config = {
 	],
 
 	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: adapter({
-			pages: 'build',
-			assets: 'build',
-			fallback: 'index.html',
-			strict: false
-		}),
+		// Build para Cloudflare Pages. O adapter lê o wrangler.jsonc e gera
+		// .svelte-kit/cloudflare (assets estáticos + _worker.js + _routes.json).
+		// See https://svelte.dev/docs/kit/adapter-cloudflare
+		adapter: adapter(),
 		prerender: {
+			// Origem usada no prerender (ex.: url.origin no sitemap.xml)
+			origin: 'https://calebearaujo.com.br',
 			handleMissingId: 'ignore'
 		}
 	}
