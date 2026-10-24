@@ -1,14 +1,15 @@
 # Headers aplicados pela Cloudflare aos arquivos estáticos (copiado para a saída pelo adapter).
 
-# Segurança: o site não carrega JavaScript nem recursos de terceiros, então a política pode ser fechada
-# (CSS só do próprio domínio; data: para o ícone SVG do botão de WhatsApp)
+# Segurança: o site não tem JavaScript próprio, então a política fica fechada. A única exceção é o
+# beacon do Cloudflare Web Analytics, injetado pela borda (script em static.cloudflareinsights.com,
+# envio das métricas para /cdn-cgi/rum ou cloudflareinsights.com). data: cobre o ícone SVG do WhatsApp.
 /*
   Strict-Transport-Security: max-age=31536000
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
-  Content-Security-Policy: default-src 'none'; img-src 'self' data:; style-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'none'; script-src https://static.cloudflareinsights.com; img-src 'self' data:; style-src 'self'; connect-src 'self' https://cloudflareinsights.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
 
 # Imagens e ícones mudam raramente
 /images/*

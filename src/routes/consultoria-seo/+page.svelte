@@ -114,14 +114,6 @@
 			pontual bem feito costuma resolver a maior parte do problema.
 		</p>
 
-		<h3>Consultoria de SEO para pequenas empresas</h3>
-		<p>
-			Para pequenas empresas, a consultoria começa pelo que traz retorno mais rápido com pouco
-			investimento: Perfil da Empresa no Google completo, uma página para cada serviço principal e uma
-			base técnica sem erros de indexação. Em vez de um acompanhamento mensal longo, um projeto
-			pontual bem feito costuma resolver a maior parte do problema.
-		</p>
-
 		<h3>Quando não é a melhor escolha</h3>
 		<p>
 			Se o site é novo e ainda não tem conteúdo sobre os serviços da empresa, o primeiro passo é
