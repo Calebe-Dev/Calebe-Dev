@@ -28,7 +28,12 @@
 		{
 			question: 'Como medir o retorno do SEO em B2B?',
 			answer:
-				'O indicador principal é o número de leads qualificados gerados por página orgânica, e não o tráfego. Para isso, o formulário e o WhatsApp do site precisam registrar a página de origem no CRM. Com esse dado, dá para cruzar com as vendas fechadas e calcular o retorno de cada página.'
+				'O indicador principal é o número de leads qualificados gerados por página orgânica, e não o tráfego. Para isso, o formulário e o WhatsApp do site precisam registrar a página de origem no CRM. Com esse dado, dá para cruzar com as vendas fechadas, calcular o retorno (ROI) de cada página e comparar o custo de aquisição de cliente (CAC) da busca orgânica com o dos anúncios.'
+		},
+		{
+			question: 'Consultoria de SEO B2B ou agência de SEO B2B?',
+			answer:
+				'Depende de onde está o gargalo. Uma agência de SEO para empresas B2B costuma ser a escolha quando a necessidade é produzir muito conteúdo e campanhas todo mês. Uma consultoria de SEO B2B feita por um desenvolvedor faz mais sentido quando o problema está no site: páginas que não indexam, falta de uma página por solução ou leads que chegam sem origem no CRM. Os dois modelos podem trabalhar juntos, com o consultor cuidando da base técnica.'
 		},
 		{
 			question: 'Vale a pena manter um blog em uma empresa B2B?',
@@ -45,7 +50,7 @@
 		faqs,
 		service: {
 			name: 'SEO para empresas B2B',
-			serviceType: 'SEO B2B e geração de leads',
+			serviceType: 'Consultoria de SEO B2B e geração de leads',
 			description,
 			audience: 'Empresas que vendem produtos e serviços para outras empresas'
 		}
@@ -62,16 +67,20 @@
 
 		<p>
 			SEO para B2B é a estratégia de busca orgânica de empresas que vendem para outras empresas. O ciclo
-			de compra é mais longo, envolve várias pessoas e começa com pesquisas específicas, muitas vezes com
-			pouco volume. Por isso o foco não é atrair muitas visitas, e sim aparecer para quem está
-			comparando fornecedores e transformar essa visita em um lead registrado no CRM.
+			de vendas é mais longo, envolve vários tomadores de decisão e começa com pesquisas específicas,
+			muitas vezes com pouco volume. Por isso o foco não é atrair muitas visitas, e sim aparecer para quem
+			está comparando fornecedores e transformar essa visita em um lead registrado no CRM.
+		</p>
+		<p>
+			Na consultoria de SEO B2B, estruturo as páginas, corrijo a parte técnica do site e ligo cada
+			formulário ao CRM, para que a empresa saiba quais buscas geram oportunidades de venda.
 		</p>
 
 		<WhatsAppCta {...whatsapp} />
 	</header>
 
 	<section aria-labelledby="diferencas-titulo">
-		<h2 id="diferencas-titulo">Diferenças entre SEO B2B e B2C</h2>
+		<h2 id="diferencas-titulo">SEO B2B vs B2C: o que muda</h2>
 		<table>
 			<caption>Como o SEO muda quando o cliente é uma empresa</caption>
 			<thead>
@@ -86,6 +95,11 @@
 					<th scope="row">Volume de buscas</th>
 					<td>Alto, com muitas buscas genéricas</td>
 					<td>Baixo, com buscas técnicas e específicas</td>
+				</tr>
+				<tr>
+					<th scope="row">Jornada de compra</th>
+					<td>Curta, muitas vezes decidida por uma pessoa</td>
+					<td>Longa, com vários tomadores de decisão e etapas no funil de vendas</td>
 				</tr>
 				<tr>
 					<th scope="row">Conversão</th>
@@ -107,11 +121,11 @@
 	</section>
 
 	<section aria-labelledby="estrutura-titulo">
-		<h2 id="estrutura-titulo">Como estruturo o SEO de uma empresa B2B</h2>
+		<h2 id="estrutura-titulo">Como estruturo o SEO para empresas B2B</h2>
 		<ol>
 			<li><strong>Uma página por solução:</strong> cada produto ou serviço vendável ganha sua página comercial, que funciona como página principal do tema.</li>
-			<li><strong>Páginas por segmento:</strong> quando há busca real, a solução é apresentada para setores específicos, como indústria, clínicas ou escritórios.</li>
-			<li><strong>Cauda longa comercial:</strong> buscas como "quanto custa", "como contratar" e comparativos entre alternativas, onde o comprador já está decidindo.</li>
+			<li><strong>Páginas por segmento:</strong> quando há busca real, a solução é apresentada para setores específicos, como indústria, empresas de software (SaaS), clínicas ou escritórios.</li>
+			<li><strong>Cauda longa comercial:</strong> buscas de fundo de funil, como "quanto custa", "como contratar" e comparativos entre alternativas, em que o comprador já está decidindo.</li>
 			<li><strong>Prova e autoria:</strong> casos, números próprios e quem está por trás da empresa, que pesam na confiança do comprador e do Google.</li>
 			<li><strong>Lead com origem:</strong> formulários e WhatsApp registrando no CRM a página que gerou cada contato.</li>
 		</ol>
@@ -137,6 +151,13 @@
 			campanhas, então uma página bem estruturada melhora os dois resultados. Para indústrias e
 			empresas de serviços da região de Sorocaba, que vendem para todo o país, a busca orgânica é um
 			canal de aquisição que não depende de verba de mídia contínua.
+		</p>
+		<h3>Marketing industrial B2B</h3>
+		<p>
+			No marketing industrial, quem pesquisa costuma ser um engenheiro, um comprador técnico ou um
+			gestor de manutenção procurando especificações, normas, aplicações e fornecedores. Páginas com
+			dados técnicos de cada produto, setores atendidos e capacidade de produção respondem a essas buscas
+			melhor que textos institucionais genéricos, e servem também como material para o time comercial.
 		</p>
 	</section>
 

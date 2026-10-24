@@ -34,6 +34,11 @@
 				'Na maioria dos casos, não. Páginas quase iguais trocando só o nome do bairro são tratadas pelo Google como spam e dividem a força do site. Uma página de bairro só se justifica quando há busca real por aquele bairro e algo específico para dizer, como uma unidade física ou um serviço que só existe ali.'
 		},
 		{
+			question: 'Consultor de SEO ou agência de marketing digital em Sorocaba?',
+			answer:
+				'Uma agência de marketing digital em Sorocaba costuma reunir redes sociais, anúncios, design e SEO no mesmo contrato, o que faz sentido para quem quer terceirizar todo o marketing. Se a necessidade é aparecer no Google, com SEO técnico, SEO local e otimização do site, um consultor que também desenvolve resolve direto no código, sem intermediários. Os dois modelos podem trabalhar juntos: a agência cuida das campanhas e o consultor, da base técnica do site.'
+		},
+		{
 			question: 'O trabalho de SEO local inclui o Perfil da Empresa no Google?',
 			answer:
 				'Sim. Categoria, área de atendimento, serviços, fotos e a consistência dos dados entre o perfil e o site fazem parte do SEO local, porque é o perfil que aparece no mapa, acima dos resultados orgânicos, em muitas buscas da cidade.'
@@ -64,10 +69,10 @@
 		<h1>Consultoria de SEO em Sorocaba: SEO local e técnico</h1>
 
 		<p>
-			Como consultor de SEO em Sorocaba, ajudo empresas da cidade a aparecer melhor no Google, tanto no
-			mapa das buscas locais quanto nos resultados orgânicos. A diferença de trabalhar comigo é que,
-			além de diagnosticar, eu desenvolvo: as correções técnicas são feitas no próprio site, sem
-			depender de outro fornecedor.
+			Como consultor de SEO em Sorocaba, ajudo empresas da cidade e de Votorantim a aparecer melhor no
+			Google, tanto no mapa das buscas locais quanto nos resultados orgânicos. A diferença de trabalhar
+			comigo é que, além de diagnosticar, eu desenvolvo: as correções técnicas são feitas no próprio
+			site, sem depender de outro fornecedor.
 		</p>
 
 		<WhatsAppCta {...whatsapp} />
@@ -86,6 +91,11 @@
 			sugestões de um restaurante chamado Seo Barbecue, e não de serviços de marketing. Escolher
 			palavras-chave sem olhar como as pessoas realmente pesquisam leva a páginas otimizadas para a
 			busca errada.
+		</p>
+		<p>
+			Quem procura SEO em Sorocaba também pesquisa por "agência de SEO" e "agência de marketing digital".
+			Para essas empresas, a pergunta certa não é o tipo de fornecedor, e sim quem vai implementar as
+			mudanças no site, porque é lá que a maior parte dos problemas de posicionamento aparece.
 		</p>
 	</section>
 
@@ -126,6 +136,7 @@
 		links={[
 			{ href: services.consultoriaSeo.path, text: 'Como funciona a consultoria de SEO técnico' },
 			{ href: services.auditoriaSeo.path, text: 'Auditoria de SEO do seu site' },
+			{ href: services.otimizacaoDeSites.path, text: 'Otimização de sites para empresas de Sorocaba' },
 			{ href: '/criacao-de-sites-sorocaba', text: 'Um site novo para a sua empresa em Sorocaba' },
 			{ href: '/consultoria-seo-sao-paulo', text: 'SEO para sites da capital paulista' },
 			{ href: regionPage.path, text: 'Cidades atendidas na região' }

@@ -10,7 +10,7 @@ Resultados verificáveis citados no site: CRM proprietário em microsserviços i
 - [Auditoria de SEO](https://calebearaujo.com.br/auditoria-seo): relatório técnico, on-page e de conteúdo, priorizado por impacto.
 - [Criação de sites](https://calebearaujo.com.br/criacao-de-sites): sites institucionais e landing pages rápidos e otimizados.
 - [Otimização de sites](https://calebearaujo.com.br/otimizacao-de-sites): Core Web Vitals e performance.
-- [Sistemas web](https://calebearaujo.com.br/desenvolvimento-de-sistemas-web): CRMs, integrações, APIs REST e headless CMS.
+- [Sistemas web e software sob medida](https://calebearaujo.com.br/desenvolvimento-de-sistemas-web): CRMs, integrações, APIs REST e headless CMS.
 - [SEO para B2B](https://calebearaujo.com.br/seo-para-b2b): geração de leads B2B pela busca orgânica.
 
 ## Guias

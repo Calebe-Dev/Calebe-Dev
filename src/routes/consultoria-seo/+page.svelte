@@ -21,9 +21,9 @@
 
 	const faqs: FaqItem[] = [
 		{
-			question: 'O que faz um consultor de SEO técnico?',
+			question: 'O que faz um consultor ou especialista em SEO técnico?',
 			answer:
-				'Um consultor de SEO técnico identifica e corrige o que impede um site de ser rastreado, indexado e bem posicionado no Google: páginas bloqueadas, conteúdo duplicado, lentidão, redirecionamentos quebrados e dados estruturados incorretos. Diferente de uma ferramenta automática, ele prioriza o que mais afeta o tráfego e as vendas.'
+				'Um especialista em SEO técnico identifica e corrige o que impede um site de ser rastreado, indexado e bem posicionado no Google: páginas bloqueadas, conteúdo duplicado, lentidão, redirecionamentos quebrados e dados estruturados incorretos. Diferente de uma ferramenta automática, ele prioriza o que mais afeta o tráfego e as vendas.'
 		},
 		{
 			question: 'Quanto tempo o SEO leva para dar resultado?',
@@ -88,10 +88,12 @@
 		<ul>
 			<li><strong>Rastreamento e indexação:</strong> robots.txt, sitemap.xml, canonical, redirecionamentos, códigos de status e o relatório de páginas do Search Console.</li>
 			<li><strong>Performance:</strong> Core Web Vitals (LCP, INP e CLS) com dados reais de usuários, peso de páginas e cache.</li>
+			<li><strong>Palavras-chave e SEO on-page:</strong> pesquisa de palavras-chave baseada em como o público realmente busca, com títulos, headings e textos alinhados a cada intenção.</li>
 			<li><strong>Arquitetura de informação:</strong> uma intenção de busca por página, URLs descritivas e links internos que distribuem relevância.</li>
 			<li><strong>Dados estruturados:</strong> Schema.org em JSON-LD coerente com o conteúdo visível, sem dados inventados.</li>
 			<li><strong>Renderização:</strong> conteúdo principal entregue no HTML, que é o que robôs de busca e de IA leem de forma confiável, inclusive em <a href={guides.seoAngular.path}>aplicações Angular</a>.</li>
 			<li><strong>Conteúdo e canibalização:</strong> páginas que disputam a mesma busca, páginas finas e lacunas de intenção.</li>
+			<li><strong>Autoridade (SEO off-page):</strong> análise de backlinks e menções da marca, com foco em links conquistados por conteúdo útil, sem compra de links.</li>
 			<li><strong>Respostas de IA:</strong> estrutura em pergunta e resposta para o site ser citado em AI Overviews e assistentes (veja o guia de <a href={guides.seoParaIa.path}>SEO para IA</a>).</li>
 		</ul>
 	</section>
@@ -114,6 +116,14 @@
 			pontual bem feito costuma resolver a maior parte do problema.
 		</p>
 
+		<h3>Consultoria de SEO para WordPress</h3>
+		<p>
+			Em sites WordPress, os problemas de SEO costumam se repetir: plugins que deixam o site lento,
+			páginas de tag e de autor indexadas sem necessidade, sitemaps duplicados entre plugins e temas com
+			títulos fora de ordem. A consultoria resolve isso na configuração e no tema, sem trocar de
+			plataforma.
+		</p>
+
 		<h3>Quando não é a melhor escolha</h3>
 		<p>
 			Se o site é novo e ainda não tem conteúdo sobre os serviços da empresa, o primeiro passo é
@@ -129,7 +139,7 @@
 			<li><strong>Diagnóstico:</strong> análise do site publicado, do Search Console e, quando houver acesso, do código-fonte ou do CMS.</li>
 			<li><strong>Plano priorizado:</strong> lista de correções ordenada pelo impacto em tráfego e em contatos, com o motivo de cada prioridade.</li>
 			<li><strong>Execução:</strong> implemento as correções diretamente ou oriento o seu time ou fornecedor, com critérios claros de aceite.</li>
-			<li><strong>Acompanhamento:</strong> monitoramento de indexação, Core Web Vitals e consultas no Search Console após cada mudança.</li>
+			<li><strong>Acompanhamento:</strong> métricas de indexação, Core Web Vitals e consultas no Search Console acompanhadas após cada mudança.</li>
 		</ol>
 		<p>
 			Para começar, preciso do endereço do site e de acesso de leitura ao Google Search Console.
@@ -141,8 +151,9 @@
 	<section aria-labelledby="consultor-agencia-titulo">
 		<h2 id="consultor-agencia-titulo">Consultor de SEO ou agência de SEO?</h2>
 		<p>
-			As duas opções funcionam, para necessidades diferentes. A tabela resume onde cada uma se sai
-			melhor:
+			As duas opções funcionam, para necessidades diferentes. Quem procura uma empresa especializada em
+			SEO normalmente compara agências e consultores independentes, às vezes chamados de consultores de
+			SEO freelancer. A tabela resume onde cada modelo se sai melhor:
 		</p>
 		<table>
 			<caption>Comparação entre consultor independente e agência de SEO</caption>
@@ -181,7 +192,7 @@
 	<section aria-labelledby="custo-titulo">
 		<h2 id="custo-titulo">Quanto custa uma consultoria de SEO</h2>
 		<p>
-			O valor de uma consultoria de SEO depende principalmente de quatro fatores: o tamanho do site
+			O preço de uma consultoria de SEO depende principalmente de quatro fatores: o tamanho do site
 			(dez páginas ou dez mil), a plataforma e o acesso ao código, se a implementação das correções
 			está incluída e se o trabalho é pontual ou com acompanhamento mensal. Por isso a proposta é
 			montada depois de uma primeira análise do site, com escopo e entregas definidos por escrito.
@@ -203,8 +214,8 @@
 		links={[
 			{ href: services.auditoriaSeo.path, text: 'Auditoria de SEO: o diagnóstico que abre a consultoria' },
 			{ href: services.otimizacaoDeSites.path, text: 'Otimização de sites lentos e Core Web Vitals' },
-			{ href: services.seoB2b.path, text: 'SEO para empresas B2B e geração de leads' },
-			{ href: '/consultoria-seo-sorocaba', text: 'Consultoria de SEO em Sorocaba' },
+			{ href: services.seoB2b.path, text: 'Consultoria de SEO B2B e geração de leads' },
+			{ href: '/consultoria-seo-sorocaba', text: 'Consultoria de SEO local em Sorocaba' },
 			{ href: '/consultoria-seo-sao-paulo', text: 'Consultoria de SEO para empresas de São Paulo' }
 		]}
 	/>

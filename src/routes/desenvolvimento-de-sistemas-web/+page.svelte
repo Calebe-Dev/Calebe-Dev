@@ -9,9 +9,9 @@
 	import { careerPage, services, type WhatsApp } from '$lib/site';
 
 	const path = services.sistemasWeb.path;
-	const title = 'Desenvolvimento de sistemas web sob medida - Calebe Araujo';
+	const title = 'Desenvolvimento de sistemas web e software sob medida - Calebe Araujo';
 	const description =
-		'Desenvolvimento de sistemas web sob medida: CRMs, integrações entre sites, APIs REST e headless CMS com Angular, Svelte, Node.js, Java e PostgreSQL.';
+		'Desenvolvimento de sistemas web e software sob medida: CRMs, integrações, APIs REST e headless CMS com Angular, Svelte, Node.js, Java e PostgreSQL.';
 	const whatsapp: WhatsApp = {
 		message: 'Olá, Calebe! Vim pela página de sistemas web e quero conversar sobre um sistema sob medida.',
 		label: 'Conversar sobre o meu sistema pelo WhatsApp'
@@ -21,9 +21,19 @@
 
 	const faqs: FaqItem[] = [
 		{
-			question: 'Sistema sob medida ou software pronto (SaaS)?',
+			question: 'Software sob medida ou software de prateleira (SaaS)?',
 			answer:
-				'Se um software pronto atende o processo da empresa, ele quase sempre sai mais barato e mais rápido. O sistema sob medida vale a pena quando o processo é o diferencial do negócio, quando é preciso integrar vários sistemas que não conversam entre si ou quando o custo das licenças cresce mais que o custo de manter um sistema próprio.'
+				'Se um software de prateleira atende o processo da empresa, ele quase sempre sai mais barato e mais rápido. O software sob medida vale a pena quando o processo é o diferencial do negócio, quando é preciso integrar vários sistemas que não conversam entre si ou quando o custo das licenças cresce mais que o custo de manter um sistema próprio.'
+		},
+		{
+			question: 'Quanto custa um software sob medida?',
+			answer:
+				'O custo depende do escopo (quantas telas, perfis de acesso e regras de negócio o sistema tem), das integrações com outros sistemas, dos requisitos de segurança e do prazo. Por isso o orçamento é feito depois de entender o processo. Para reduzir o investimento inicial, o projeto pode começar por um MVP: a menor versão do sistema que já resolve o problema principal e entra em uso real.'
+		},
+		{
+			question: 'Sistema web ou desktop: qual escolher?',
+			answer:
+				'Para a maioria das empresas, sistema web. Ele roda no navegador, não precisa ser instalado em cada computador, funciona para equipes externas e filiais e recebe atualizações em um só lugar. Um sistema desktop só se justifica quando precisa funcionar sem internet ou depende de um equipamento ligado ao computador.'
 		},
 		{
 			question: 'O sistema pode se integrar a um CRM ou ERP que a empresa já usa?',
@@ -44,8 +54,8 @@
 		crumbs,
 		faqs,
 		service: {
-			name: 'Desenvolvimento de sistemas web sob medida',
-			serviceType: 'Desenvolvimento de software web',
+			name: 'Desenvolvimento de sistemas web e software sob medida',
+			serviceType: 'Desenvolvimento de software sob medida',
 			description
 		}
 	});
@@ -57,12 +67,17 @@
 	<header class="hero">
 		<Breadcrumbs {crumbs} />
 
-		<h1>Desenvolvimento de sistemas web sob medida</h1>
+		<h1>Desenvolvimento de sistemas web e software sob medida</h1>
 
 		<p>
-			Desenvolvo sistemas web sob medida para processos que planilhas e softwares prontos não resolvem
-			bem: CRMs, integrações entre sites, APIs REST e painéis de gestão de conteúdo. Trabalho do banco de
-			dados à infraestrutura em nuvem, com Angular, Svelte, Node.js, Java e PostgreSQL.
+			Desenvolvo sistemas web sob medida para processos que planilhas e softwares de prateleira não
+			resolvem bem: CRMs, integrações entre sites, APIs REST e painéis de gestão de conteúdo. Trabalho do
+			banco de dados à infraestrutura em nuvem, com Angular, Svelte, Node.js, Java e PostgreSQL.
+		</p>
+		<p>
+			Software sob medida, ou software personalizado, é um sistema construído a partir do processo da
+			própria empresa: as telas, os perfis de acesso e os relatórios seguem a forma como o time já
+			trabalha, em vez de o time se adaptar a um pacote pronto.
 		</p>
 
 		<WhatsAppCta {...whatsapp} />
@@ -86,8 +101,8 @@
 		<h2 id="solucoes-titulo">O que posso desenvolver</h2>
 		<h3>CRM e gestão de leads</h3>
 		<p>
-			Captura de contatos de sites, formulários e WhatsApp em um só lugar, com origem de cada lead e
-			etapas do funil definidas pelo processo comercial da empresa.
+			Um CRM personalizado que reúne os contatos de sites, formulários e WhatsApp em um só lugar, com a
+			origem de cada lead e as etapas do funil definidas pelo processo comercial da empresa.
 		</p>
 		<h3>Integrações entre sistemas</h3>
 		<p>
@@ -123,10 +138,11 @@
 	<section aria-labelledby="como-titulo">
 		<h2 id="como-titulo">Como conduzo um projeto de sistema</h2>
 		<ol>
-			<li><strong>Entendimento do processo:</strong> quem usa o sistema, quais dados entram e quais decisões ele precisa apoiar.</li>
-			<li><strong>Arquitetura:</strong> a solução mais simples que resolve o problema hoje e permite crescer.</li>
+			<li><strong>Entendimento do processo e requisitos:</strong> quem usa o sistema, quais dados entram, quais decisões ele precisa apoiar e qual é o escopo da primeira entrega.</li>
+			<li><strong>Arquitetura:</strong> a solução mais simples que resolve o problema hoje e permite crescer, com perfis de acesso e cuidado com dados pessoais, como pede a LGPD, desde o início.</li>
 			<li><strong>Entregas incrementais:</strong> partes utilizáveis do sistema publicadas cedo, em vez de uma entrega única no fim.</li>
 			<li><strong>Publicação e monitoramento:</strong> deploy automatizado, backups e acompanhamento de erros.</li>
+			<li><strong>Manutenção e evolução:</strong> correções, atualizações de segurança e novas funções conforme o processo da empresa muda.</li>
 		</ol>
 		<WhatsAppCta {...whatsapp} />
 	</section>

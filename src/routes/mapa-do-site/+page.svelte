@@ -27,7 +27,7 @@
 				{ href: services.auditoriaSeo.path, text: 'Auditoria de SEO', note: 'relatório técnico, on-page e de conteúdo, priorizado por impacto' },
 				{ href: services.criacaoDeSites.path, text: 'Criação de sites profissionais', note: 'sites institucionais e landing pages rápidos e otimizados' },
 				{ href: services.otimizacaoDeSites.path, text: 'Otimização de sites e Core Web Vitals', note: 'como acelerar um site lento' },
-				{ href: services.sistemasWeb.path, text: 'Desenvolvimento de sistemas web', note: 'CRMs, integrações, APIs REST e headless CMS' },
+				{ href: services.sistemasWeb.path, text: 'Desenvolvimento de sistemas web', note: 'Software sob medida: CRMs, integrações, APIs REST e headless CMS' },
 				{ href: services.seoB2b.path, text: 'SEO para empresas B2B', note: 'geração de leads pela busca orgânica' }
 			]
 		},
