@@ -1,6 +1,6 @@
 name: CI - Build & Test
 
-# O deploy é feito pelo Cloudflare Pages (integração com o GitHub), que builda a main
+# O deploy é feito pelo Workers Builds da Cloudflare (integração com o GitHub), que builda a main
 # automaticamente. Este workflow só valida o código em push e PR.
 
 on:
