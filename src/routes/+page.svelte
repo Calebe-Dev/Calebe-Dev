@@ -4,12 +4,12 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import { absolute, faqNode, graph, imageNode, personNode, serviceArea, webPageNode, websiteNode, type Faq as FaqItem } from '$lib/schema';
-	import { careerPage, cityPages, person, regionPage, services, type WhatsApp } from '$lib/site';
+	import { careerPage, cityPages, guides, person, regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/';
 	const title = 'Calebe Araujo: desenvolvedor full stack e consultor de SEO';
 	const description =
-		'Calebe Araujo, desenvolvedor full stack e consultor de SEO técnico baseado em Sorocaba (SP): sites rápidos, auditoria de SEO e sistemas web.';
+		'Calebe Araujo, desenvolvedor full stack e consultor de SEO técnico baseado em Sorocaba (SP): sites rápidos, auditoria de SEO e software sob medida.';
 
 	const whatsapp: WhatsApp = {
 		message: 'Olá, Calebe! Vim pelo seu site e quero uma proposta para o meu projeto.',
@@ -17,6 +17,11 @@
 	};
 
 	const faqs: FaqItem[] = [
+		{
+			question: 'O que é SEO?',
+			answer:
+				'SEO (Search Engine Optimization, ou otimização para mecanismos de busca) é o trabalho de fazer um site aparecer nos resultados orgânicos do Google, os que não são anúncios, para as buscas de quem pode virar cliente. Envolve a parte técnica do site, o conteúdo de cada página e a reputação da marca, e hoje inclui também ser citado por ferramentas de IA, como o ChatGPT.'
+		},
 		{
 			question: 'Quem é Calebe Araujo?',
 			answer:
@@ -99,15 +104,18 @@
 	<section id="servicos" aria-labelledby="servicos-titulo">
 		<h2 id="servicos-titulo">Serviços de SEO, desenvolvimento web e consultoria</h2>
 		<p>
-			Trabalho na interseção entre código e busca orgânica: quem diagnostica o problema de SEO é a
-			mesma pessoa que sabe corrigi-lo no código, sem intermediários.
+			Trabalho na interseção entre código e busca orgânica: como desenvolvedor web e especialista em
+			SEO, quem diagnostica o problema é a mesma pessoa que sabe corrigi-lo no código, sem
+			intermediários.
 		</p>
 
 		<h3>Consultoria de SEO</h3>
 		<p>
 			Diagnóstico e correção do que impede o site de ser rastreado, indexado e bem posicionado:
-			indexação, velocidade, dados estruturados e arquitetura de páginas, com acompanhamento no
-			Search Console. <a href={services.consultoriaSeo.path}>Como funciona a consultoria de SEO</a>.
+			indexação, velocidade, palavras-chave, dados estruturados e arquitetura de páginas, para
+			aumentar o tráfego orgânico com acompanhamento no Search Console. Inclui preparar o site para
+			ser citado por ferramentas de IA, como o ChatGPT (<a href={guides.seoParaIa.path}>SEO para IA</a>).
+			<a href={services.consultoriaSeo.path}>Como funciona a consultoria de SEO</a>.
 		</p>
 
 		<h3>Auditoria de SEO</h3>
@@ -128,10 +136,11 @@
 			infraestrutura. <a href={services.otimizacaoDeSites.path}>Como acelerar um site lento</a>.
 		</p>
 
-		<h3>Desenvolvimento de sistemas web</h3>
+		<h3>Sistemas web e software sob medida</h3>
 		<p>
-			CRMs, integrações entre sites, APIs REST e headless CMS, do banco de dados à nuvem.
-			<a href={services.sistemasWeb.path}>Sistemas web sob medida</a>.
+			CRMs, integrações entre sistemas, APIs REST e headless CMS, construídos a partir do processo da
+			sua empresa, do banco de dados à nuvem.
+			<a href={services.sistemasWeb.path}>Desenvolvimento de software sob medida</a>.
 		</p>
 
 		<h3>SEO para empresas B2B</h3>
@@ -213,7 +222,6 @@
 			{person.city} e região. O histórico completo, com stack, resultados e formas de contato, está
 			no meu <a href={careerPage.path}>perfil de desenvolvedor full stack em Sorocaba</a>.
 		</p>
-		<p><a href={person.cv} download type="application/pdf">Baixar currículo em PDF</a></p>
 		<p><a href={person.cv} download type="application/pdf">Baixar currículo em PDF</a></p>
 	</section>
 

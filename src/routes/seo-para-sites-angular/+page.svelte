@@ -31,7 +31,12 @@
 		{
 			question: 'Preciso reescrever o site para ter renderização no servidor?',
 			answer:
-				'Normalmente não. Nas versões atuais, o comando ng add @angular/ssr adiciona a renderização no servidor a um projeto existente. O trabalho costuma estar em ajustar o código que usa APIs exclusivas do navegador, como window e localStorage, para que ele também rode no servidor.'
+				'Normalmente não. Nas versões atuais, o comando ng add @angular/ssr adiciona a renderização no servidor a um projeto existente. O trabalho costuma estar em ajustar o código que usa APIs exclusivas do navegador, como window e localStorage, para que ele também rode no servidor; o erro mais comum nessa etapa é o "window is not defined".'
+		},
+		{
+			question: 'Angular com SSR ou Next.js: qual é melhor para SEO?',
+			answer:
+				'Para o SEO, os dois chegam ao mesmo resultado quando a página é entregue pronta no HTML. A escolha deve seguir o time e o projeto: se a aplicação já é Angular, ativar a renderização no servidor costuma custar bem menos que reescrever tudo em Next.js, que é baseado em React.'
 		},
 		{
 			question: 'O Google não executa JavaScript?',
@@ -88,8 +93,10 @@
 	<section aria-labelledby="modos-titulo">
 		<h2 id="modos-titulo">SSR, pré-renderização ou renderização no navegador: qual usar</h2>
 		<p>
-			As versões recentes do Angular permitem combinar os modos por rota. A escolha depende do tipo de
-			página:
+			Na comparação Angular SSR vs SPA, a SPA tradicional (renderização no navegador, ou CSR) entrega o
+			HTML vazio; com SSR, o servidor entrega a página pronta e o Angular assume a interatividade
+			depois, pela hidratação. As versões recentes do Angular permitem combinar os modos por rota. A
+			escolha depende do tipo de página:
 		</p>
 		<table>
 			<caption>Modo de renderização recomendado por tipo de página Angular</caption>
@@ -123,8 +130,8 @@
 	<section aria-labelledby="checklist-titulo">
 		<h2 id="checklist-titulo">Checklist de SEO para Angular</h2>
 		<ol>
-			<li>Renderização no servidor ou pré-renderização com <code>@angular/ssr</code>.</li>
-			<li>Title e meta description por rota, com os serviços <code>Title</code> e <code>Meta</code> ou a propriedade <code>title</code> das rotas.</li>
+			<li>Renderização no servidor ou pré-renderização com <code>@angular/ssr</code>, o antigo Angular Universal, incorporado ao Angular a partir da versão 17.</li>
+			<li>Meta tags por rota: title e meta description, com os serviços <code>Title</code> e <code>Meta</code> ou a propriedade <code>title</code> das rotas.</li>
 			<li>Canonical por rota, gerado no servidor.</li>
 			<li>Dados estruturados (JSON-LD) incluídos no HTML renderizado no servidor.</li>
 			<li>Links com <code>&lt;a&gt;</code> e routerLink, e URLs sem <code>#</code>.</li>

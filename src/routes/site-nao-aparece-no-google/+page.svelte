@@ -24,9 +24,9 @@
 
 	const faqs: FaqItem[] = [
 		{
-			question: 'Como indexar meu site no Google?',
+			question: 'Como colocar meu site no Google e pedir a indexação?',
 			answer:
-				'Cadastre o site no Google Search Console, envie o sitemap.xml e use a Inspeção de URL para pedir a indexação das páginas principais. Isso acelera a descoberta, mas a indexação continua dependendo de a página estar liberada para robôs e de o Google considerar o conteúdo útil.'
+				'Cadastre o site no Google Search Console, envie o sitemap.xml e use a Inspeção de URL para solicitar a indexação das páginas principais. Isso acelera a descoberta, mas a indexação continua dependendo de a página estar liberada para robôs e de o Google considerar o conteúdo útil.'
 		},
 		{
 			question: 'Pagar anúncios no Google ajuda o site a aparecer na busca orgânica?',
@@ -59,8 +59,9 @@
 		<h1>Site não aparece no Google: diagnóstico passo a passo</h1>
 
 		<p>
-			Um site não aparece no Google por um destes motivos: ainda não foi descoberto, está bloqueado
-			para o robô do Google, o Google escolheu outra URL como principal, o conteúdo depende de
+			Quando um site não aparece no Google, nem na pesquisa pelo nome da empresa, o motivo é um destes:
+			ainda não foi descoberto, está bloqueado para o robô do Google (o Googlebot), o Google escolheu
+			outra URL como principal, o conteúdo depende de
 			JavaScript que não é processado ou a página está indexada, mas não é relevante o bastante para a
 			busca feita. O diagnóstico abaixo separa cada caso, na ordem em que vale a pena verificar.
 		</p>
@@ -127,6 +128,12 @@
 					<td>Renderização no servidor ou pré-renderização</td>
 				</tr>
 				<tr>
+					<td>Site sumiu do Google de repente</td>
+					<td>Search Console: "Ações manuais" e "Problemas de segurança"</td>
+					<td>Penalidade por spam ou site invadido</td>
+					<td>Corrigir a causa e pedir reconsideração</td>
+				</tr>
+				<tr>
 					<td>Site novo sem nenhuma visita</td>
 					<td>Relatório de desempenho</td>
 					<td>Ainda em descoberta ou sem páginas para as buscas certas</td>
@@ -146,6 +153,37 @@
 		</p>
 	</section>
 
+	<section aria-labelledby="plataformas-titulo">
+		<h2 id="plataformas-titulo">Site na Hostinger, Wix ou Canva que não aparece no Google</h2>
+		<p>
+			Em construtores de site e hospedagens, o roteiro de diagnóstico é o mesmo, mas alguns motivos se
+			repetem em cada plataforma:
+		</p>
+		<table>
+			<caption>O que verificar em cada plataforma quando o site não aparece no Google</caption>
+			<thead>
+				<tr>
+					<th scope="col">Plataforma</th>
+					<th scope="col">O que verificar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">Hostinger, HostGator e outras hospedagens com WordPress</th>
+					<td>Se o site foi publicado no domínio próprio, e não só no endereço temporário da hospedagem, e a opção de visibilidade em Configurações › Leitura.</td>
+				</tr>
+				<tr>
+					<th scope="row">Wix</th>
+					<td>Se a permissão para os mecanismos de busca indexarem o site está ativa nas configurações de SEO e se o site usa um domínio próprio.</td>
+				</tr>
+				<tr>
+					<th scope="row">Canva</th>
+					<td>Se a página tem texto de verdade, e não só imagens com texto, e se está ligada a um domínio próprio. Sites de uma página só costumam aparecer apenas para o nome da empresa.</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
 	<section aria-labelledby="novo-titulo">
 		<h2 id="novo-titulo">Site novo: quanto tempo leva para aparecer no Google?</h2>
 		<p>
@@ -161,7 +199,7 @@
 		<p>
 			Se a página está no índice e mesmo assim não aparece, o problema deixou de ser técnico: falta
 			relevância para aquela busca. Os caminhos são criar uma página específica para o serviço
-			pesquisado, melhorar o conteúdo com informações que a concorrência não tem e conquistar
+			pesquisado, ligá-la com links internos a partir das páginas principais, melhorar o conteúdo com informações que a concorrência não tem e conquistar
 			menções de outros sites. É aqui que uma <a href={services.auditoriaSeo.path}>auditoria de SEO</a>
 			ajuda a decidir o que fazer primeiro.
 		</p>

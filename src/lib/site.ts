@@ -85,7 +85,7 @@ export const sitemapPage = { path: '/mapa-do-site', name: 'Mapa do site' };
 
 // Palavras-chave de cada página (meta keywords e keywords do schema), do mapa de keywords da análise
 export const pageKeywords: Record<string, string[]> = {
-	'/': ['Calebe Araujo', 'desenvolvedor full stack', 'consultor de SEO técnico', 'Sorocaba', 'Angular', 'SvelteKit'],
+	'/': ['Calebe Araujo', 'desenvolvedor full stack', 'consultor de SEO técnico', 'especialista em SEO', 'desenvolvedor web', 'software sob medida', 'Sorocaba'],
 	'/consultoria-seo': ['consultoria de SEO', 'consultor SEO', 'consultoria de SEO técnico', 'especialista em SEO', 'consultoria SEO para pequenas empresas', 'consultoria de SEO para WordPress'],
 	'/auditoria-seo': ['auditoria de SEO', 'auditoria SEO técnica', 'auditoria SEO completa', 'auditoria de SEO online', 'checklist de SEO', 'análise de SEO do site'],
 	'/criacao-de-sites': ['criação de sites', 'criação de sites profissionais', 'desenvolvimento de sites', 'site institucional', 'landing page', 'site para empresa'],
@@ -101,9 +101,9 @@ export const pageKeywords: Record<string, string[]> = {
 	'/criacao-de-sites-jundiai': ['criação de sites Jundiaí', 'site para empresa de logística', 'site industrial Jundiaí'],
 	'/criacao-de-sites-campinas': ['criação de sites Campinas SP', 'desenvolvimento de sites Campinas', 'SEO local Campinas', 'como aparecer no Google em Campinas'],
 	'/consultoria-seo-sao-paulo': ['consultoria de SEO São Paulo', 'consultoria SEO SP', 'consultor de SEO São Paulo', 'SEO técnico São Paulo', 'SEO Osasco'],
-	'/site-nao-aparece-no-google': ['site não aparece no Google', 'como indexar site no Google', 'site WordPress não aparece no Google', 'Google Search Console'],
-	'/seo-para-ia': ['SEO para IA', 'GEO', 'como aparecer no ChatGPT', 'AI Overviews', 'SEO para ChatGPT'],
-	'/seo-para-sites-angular': ['SEO Angular', 'Angular SSR', 'pré-renderização Angular', 'indexação Angular'],
+	'/site-nao-aparece-no-google': ['site não aparece no Google', 'meu site não aparece no Google', 'como indexar site no Google', 'colocar meu site no Google', 'site Hostinger não aparece no Google', 'Google Search Console'],
+	'/seo-para-ia': ['SEO para IA', 'SEO para inteligência artificial', 'GEO', 'GEO vs SEO', 'como aparecer no ChatGPT', 'AI Overviews'],
+	'/seo-para-sites-angular': ['SEO Angular', 'Angular SSR', 'Angular Universal', 'Angular SSR vs SPA', 'pré-renderização Angular', 'indexação Angular'],
 	'/mapa-do-site': ['mapa do site', 'Calebe Araujo', 'páginas do site']
 };
 

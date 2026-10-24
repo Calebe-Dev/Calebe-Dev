@@ -59,8 +59,9 @@
 		<h1>SEO para IA: como aparecer no ChatGPT e no AI Overviews</h1>
 
 		<p>
-			SEO para IA, também chamado de GEO (otimização para motores generativos), é o trabalho de fazer
-			um site ser citado como fonte nas respostas de ferramentas como ChatGPT, Gemini, Perplexity e AI
+			SEO para IA, ou SEO para inteligência artificial, também chamado de GEO (Generative Engine
+			Optimization, otimização para motores generativos), é o trabalho de fazer um site ser citado como
+			fonte nas respostas de ferramentas como ChatGPT, Gemini, Claude, Perplexity, Copilot e os AI
 			Overviews do Google. Na prática, é SEO bem feito com uma ênfase diferente: páginas acessíveis aos
 			robôs, respostas diretas e informação que só a sua empresa tem.
 		</p>
@@ -87,14 +88,29 @@
 		</p>
 	</section>
 
+	<section aria-labelledby="siglas-titulo">
+		<h2 id="siglas-titulo">SEO, GEO e AEO: qual a diferença</h2>
+		<p>
+			SEO é a otimização para aparecer nos resultados de busca e receber cliques. GEO é a otimização
+			para ser usado como fonte nas respostas geradas por IA. AEO (Answer Engine Optimization) é o nome
+			usado para respostas diretas, como trechos em destaque e assistentes de voz. Na comparação GEO vs
+			SEO, a base é a mesma: páginas indexáveis, conteúdo claro e uma fonte confiável por trás.
+		</p>
+		<p>
+			No Google, os AI Overviews são os resumos gerados por IA que aparecem no topo de algumas buscas,
+			com links para as fontes. O Modo IA é uma área separada da busca, em formato de conversa, que
+			também responde com IA e cita páginas. Os dois usam o mesmo índice da busca tradicional.
+		</p>
+	</section>
+
 	<section aria-labelledby="fazer-titulo">
 		<h2 id="fazer-titulo">O que fazer no site para ser citado por IA</h2>
 		<ol>
 			<li><strong>Conteúdo no HTML:</strong> a maioria dos robôs de IA não executa JavaScript. Se o texto só aparece depois que o JavaScript roda, para eles a página está vazia.</li>
-			<li><strong>Robôs liberados:</strong> confira o robots.txt e também o firewall do provedor. A Cloudflare, por exemplo, passou a bloquear robôs de IA por padrão em novos domínios, o que pode impedir a citação sem você perceber.</li>
+			<li><strong>Robôs liberados:</strong> confira o robots.txt (na OpenAI, o OAI-SearchBot é o robô da busca do ChatGPT e o GPTBot, o de treinamento) e também o firewall do provedor. A Cloudflare, por exemplo, passou a bloquear robôs de IA por padrão em novos domínios, o que pode impedir a citação sem você perceber.</li>
 			<li><strong>Respostas diretas:</strong> comece cada seção respondendo à pergunta em duas ou três frases, com o sujeito explícito, e aprofunde depois.</li>
 			<li><strong>Dados próprios:</strong> preços praticados, prazos medidos, resultados de clientes. Conteúdo que qualquer IA geraria não precisa ser citado.</li>
-			<li><strong>Autoria e entidade:</strong> quem escreve, com que experiência, e os mesmos perfis ligados em todo lugar, para a IA saber quem é a fonte.</li>
+			<li><strong>Autoria e entidade (E-E-A-T):</strong> quem escreve, com que experiência, e os mesmos perfis ligados em todo lugar, para a IA saber quem é a fonte. Menções da marca e citações em outros sites confiáveis reforçam essa identificação.</li>
 			<li><strong>Bing indexado:</strong> cadastre o site no Bing Webmaster Tools, já que parte das ferramentas de IA depende desse índice.</li>
 			<li><strong>Dados estruturados:</strong> Schema.org ajuda a descrever a página, mas não é requisito para os recursos de IA; trate como reforço, não como atalho.</li>
 		</ol>
@@ -103,7 +119,7 @@
 	<section aria-labelledby="nao-titulo">
 		<h2 id="nao-titulo">O que não funciona</h2>
 		<ul>
-			<li><strong>Arquivo llms.txt como solução:</strong> o Google já declarou que a busca não o utiliza, e nenhum grande motor de resposta confirmou depender dele. É barato de ter, mas não garante nada.</li>
+			<li><strong>Arquivo llms.txt como solução:</strong> o Google já declarou que a busca não o utiliza, e nenhum grande motor de resposta confirmou depender dele. É barato de ter, mas não garante nada. Diferente do robots.txt, que controla o acesso dos robôs, o llms.txt é só um resumo do site em texto.</li>
 			<li><strong>Repetir palavras-chave:</strong> a IA seleciona trechos que respondem bem, não trechos com mais repetições.</li>
 			<li><strong>Páginas geradas em massa:</strong> texto genérico produzido em escala é exatamente o que o Google classifica como spam e o que a IA não tem motivo para citar.</li>
 		</ul>
