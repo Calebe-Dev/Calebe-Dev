@@ -867,10 +867,13 @@ main > p:last-child {
 
 body > footer {
 	position: relative;
-	padding: 48px var(--gutter) 40px;
-	background: var(--navy-950);
+	padding: 56px var(--gutter) 28px;
+	background:
+		radial-gradient(700px 320px at 0% 0%, rgb(37 99 235 / 0.16), transparent 70%),
+		radial-gradient(600px 300px at 100% 100%, rgb(220 38 38 / 0.12), transparent 70%),
+		var(--navy-950);
 	color: var(--blue-100);
-	text-align: center;
+	font-size: 0.95rem;
 }
 
 body > footer::before {
@@ -884,13 +887,13 @@ body > footer::before {
 }
 
 body > footer p {
-	margin: 0 auto 18px;
-	max-width: 70ch;
+	margin: 0 0 12px;
 }
 
 body > footer a {
 	color: var(--white);
-	text-decoration-color: rgb(255 255 255 / 0.5);
+	text-decoration-color: rgb(255 255 255 / 0.45);
+	text-underline-offset: 3px;
 }
 
 body > footer a:hover {
@@ -898,21 +901,154 @@ body > footer a:hover {
 	text-decoration-color: var(--red-600);
 }
 
-body > footer nav ul {
+.rodape,
+.rodape-base {
+	max-width: var(--container);
+	margin: 0 auto;
+}
+
+.rodape {
+	display: grid;
+	gap: 40px;
+	grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 900px) {
+	.rodape {
+		grid-template-columns: minmax(280px, 1fr) minmax(0, 2.6fr);
+		gap: 56px;
+	}
+}
+
+/* marca e contato */
+.rodape-marca > p:first-child a {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	min-height: 44px;
+	font-size: 1.25rem;
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	text-decoration: none;
+}
+
+.rodape-marca > p:first-child a::before {
+	content: '';
+	width: 44px;
+	height: 44px;
+	flex: none;
+	border-radius: 50%;
+	background: url('/images/logo-calebe-araujo-72.jpg') center / cover;
+	box-shadow: 0 0 0 2px rgb(255 255 255 / 0.85), 0 8px 20px -8px rgb(59 130 246 / 0.8);
+}
+
+.rodape-marca address {
+	margin-top: 20px;
+	font-style: normal;
+}
+
+.rodape-marca a[href^='https://wa.me/'] {
+	white-space: nowrap;
+}
+
+.rodape-marca address a[href^='mailto:'] {
+	display: inline-block;
+	padding: 4px 0;
+	overflow-wrap: anywhere;
+}
+
+/* minimapa do site */
+body > footer nav[aria-label='Mapa do site resumido'] {
+	columns: 2;
+	column-gap: 28px;
+}
+
+@media (min-width: 640px) {
+	body > footer nav[aria-label='Mapa do site resumido'] {
+		columns: 3;
+	}
+}
+
+body > footer nav[aria-label='Mapa do site resumido'] > div {
+	break-inside: avoid;
+	margin-bottom: 28px;
+}
+
+body > footer nav[aria-label='Mapa do site resumido'] h2 {
+	margin: 0 0 10px;
+	color: var(--white);
+	font-size: 0.78rem;
+	font-weight: 800;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+body > footer nav[aria-label='Mapa do site resumido'] ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body > footer nav[aria-label='Mapa do site resumido'] a {
+	display: inline-block;
+	padding: 5px 0;
+	color: var(--blue-100);
+	line-height: 1.45;
+	text-decoration: none;
+	transition: color 0.2s ease, transform 0.2s ease;
+}
+
+body > footer nav[aria-label='Mapa do site resumido'] a[download] {
+	min-height: 0;
+	border: 0;
+	border-radius: 0;
+	font-weight: inherit;
+}
+
+body > footer nav[aria-label='Mapa do site resumido'] a[download]::after {
+	content: ' ↓';
+}
+
+body > footer nav[aria-label='Mapa do site resumido'] a:hover,
+body > footer nav[aria-label='Mapa do site resumido'] a:focus-visible {
+	background: none;
+	color: var(--white);
+	text-decoration: underline;
+	text-decoration-color: var(--red-600);
+	transform: translateX(3px);
+}
+
+/* linha final: direitos e redes sociais */
+.rodape-base {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px 24px;
+	margin-top: 44px;
+	padding-top: 24px;
+	border-top: 1px solid rgb(255 255 255 / 0.14);
+}
+
+.rodape-base > p {
+	margin: 0;
+	font-size: 0.9rem;
+}
+
+body > footer nav[aria-label='Redes sociais'] ul {
+	display: flex;
+	flex-wrap: wrap;
 	gap: 10px;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-body > footer nav p {
+body > footer nav[aria-label='Redes sociais'] p {
 	margin: 0;
 }
 
-body > footer nav a {
+body > footer nav[aria-label='Redes sociais'] a {
 	display: inline-flex;
 	align-items: center;
 	min-height: 40px;
@@ -921,11 +1057,12 @@ body > footer nav a {
 	border-radius: 999px;
 	color: var(--white);
 	font-weight: 600;
+	font-size: 0.9rem;
 	text-decoration: none;
 	transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-body > footer nav a:hover {
+body > footer nav[aria-label='Redes sociais'] a:hover {
 	border-color: var(--white);
 	background: rgb(255 255 255 / 0.08);
 	color: var(--white);

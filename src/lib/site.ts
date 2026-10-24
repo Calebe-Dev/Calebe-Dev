@@ -4,7 +4,7 @@
 export const SITE_URL = 'https://calebearaujo.com.br';
 
 // Data da última revisão do conteúdo (lastmod do sitemap e "atualizado em" das páginas)
-export const UPDATED = '2026-10-23';
+export const UPDATED = '2026-10-24';
 
 export const person = {
 	name: 'Calebe Araujo',
@@ -83,6 +83,54 @@ export const cityPages = [
 ] as const;
 
 export const sitemapPage = { path: '/mapa-do-site', name: 'Mapa do site' };
+
+// Páginas agrupadas por assunto: alimentam o mapa do site e o minimapa do rodapé
+export type SiteEntry = { href: string; text: string; note: string };
+
+export const siteGroups: { id: string; title: string; entries: SiteEntry[] }[] = [
+	{
+		id: 'servicos',
+		title: 'Serviços',
+		entries: [
+			{ href: services.consultoriaSeo.path, text: 'Consultoria de SEO técnico', note: 'diagnóstico, plano priorizado e correções no código' },
+			{ href: services.auditoriaSeo.path, text: 'Auditoria de SEO', note: 'relatório técnico, on-page e de conteúdo, priorizado por impacto' },
+			{ href: services.criacaoDeSites.path, text: 'Criação de sites profissionais', note: 'sites institucionais e landing pages rápidos e otimizados' },
+			{ href: services.otimizacaoDeSites.path, text: 'Otimização de sites e Core Web Vitals', note: 'como acelerar um site lento' },
+			{ href: services.sistemasWeb.path, text: 'Desenvolvimento de sistemas web', note: 'Software sob medida: CRMs, integrações, APIs REST e headless CMS' },
+			{ href: services.seoB2b.path, text: 'SEO para empresas B2B', note: 'geração de leads pela busca orgânica' }
+		]
+	},
+	{
+		id: 'guias',
+		title: 'Guias de SEO',
+		entries: [
+			{ href: guides.comoAparecer.path, text: 'Como colocar minha empresa no Google', note: 'guia sem jargão: Google Meu Negócio, site e primeira página' },
+			{ href: guides.siteNaoAparece.path, text: 'Site não aparece no Google', note: 'diagnóstico de indexação em 7 passos' },
+			{ href: guides.seoParaIa.path, text: 'SEO para IA', note: 'como aparecer no ChatGPT e no AI Overviews' },
+			{ href: guides.seoAngular.path, text: 'SEO para sites Angular', note: 'SSR, pré-renderização e indexação' }
+		]
+	},
+	{
+		id: 'cidades',
+		title: 'Atendimento por cidade',
+		entries: [
+			{ href: regionPage.path, text: 'Sorocaba e região (raio de 90 km)', note: 'atendimento por distância e demanda por cidade' },
+			...cityPages.map((c) => ({
+				href: c.path,
+				text: `${c.service} em ${c.city}`,
+				note: c.km === 0 ? 'sede' : `cerca de ${c.km} km de Sorocaba`
+			}))
+		]
+	},
+	{
+		id: 'perfil',
+		title: 'Perfil profissional',
+		entries: [
+			{ href: careerPage.path, text: 'Desenvolvedor full stack em Sorocaba', note: 'experiência, stack e disponibilidade para vagas' },
+			{ href: person.cv, text: 'Currículo em PDF', note: 'versão para download' }
+		]
+	}
+];
 
 // Palavras-chave de cada página (meta keywords e keywords do schema), do mapa de keywords da análise
 export const pageKeywords: Record<string, string[]> = {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import { careerPage, defaultWhatsApp, person, regionPage, services, sitemapPage, socials, whatsappLink } from '$lib/site';
+	import { careerPage, defaultWhatsApp, person, regionPage, services, siteGroups, sitemapPage, socials, whatsappLink } from '$lib/site';
 
 	let { children } = $props();
 </script>
@@ -27,17 +27,54 @@
 {@render children()}
 
 <footer>
-	<p>
-		© {new Date().getFullYear()} {person.name} · SEO, desenvolvimento web e consultoria ·
-		{person.city} – {person.region}, Brasil
-	</p>
-	<p><a href={whatsappLink(defaultWhatsApp.message)}>WhatsApp {person.phoneDisplay}</a></p>
-	<p><a href={sitemapPage.path}>Mapa do site</a></p>
-	<nav aria-label="Redes sociais">
-		<ul>
-			{#each socials as social (social.url)}
-				<li><p><a href={social.url} rel="me">{social.name}</a></p></li>
+	<div class="rodape">
+		<div class="rodape-marca">
+			<p><a href="/">{person.name}</a></p>
+			<p>
+				Desenvolvedor full stack e consultor de SEO técnico. Sites, sistemas sob medida e SEO para
+				empresas de todo o Brasil.
+			</p>
+			<address>
+				<p><a href={whatsappLink(defaultWhatsApp.message)}>WhatsApp {person.phoneDisplay}</a></p>
+				<p><a href={`mailto:${person.email}`}>{person.email}</a></p>
+				<p>
+					{person.city} – {person.region}, Brasil. Atendimento remoto em todo o país e presencial num
+					raio de {person.serviceRadiusKm} km.
+				</p>
+			</address>
+		</div>
+
+		<nav aria-label="Mapa do site resumido">
+			{#each siteGroups as group (group.id)}
+				<div>
+					<h2>{group.title}</h2>
+					<ul>
+						{#each group.entries as entry (entry.href)}
+							<li>
+								{#if entry.href.endsWith('.pdf')}
+									<a href={entry.href} download type="application/pdf">{entry.text}</a>
+								{:else}
+									<a href={entry.href}>{entry.text}</a>
+								{/if}
+							</li>
+						{/each}
+					</ul>
+				</div>
 			{/each}
-		</ul>
-	</nav>
+		</nav>
+	</div>
+
+	<div class="rodape-base">
+		<p>
+			© {new Date().getFullYear()} {person.name} · SEO, desenvolvimento web e consultoria ·
+			<a href={sitemapPage.path}>Mapa do site completo</a>
+		</p>
+		<nav aria-label="Redes sociais">
+			<ul>
+				{#each socials as social (social.url)}
+					<li><p><a href={social.url} rel="me">{social.name}</a></p></li>
+				{/each}
+			</ul>
+		</nav>
+	</div>
 </footer>
