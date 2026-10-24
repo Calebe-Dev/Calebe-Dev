@@ -64,8 +64,8 @@
 		<h1>Criação de sites em Campinas</h1>
 
 		<p>
-			Faço criação e desenvolvimento de sites em Campinas para empresas que precisam se destacar numa
-			das buscas mais disputadas do interior paulista. A estratégia é competir onde muitas agências não
+			Faço criação e desenvolvimento de sites em Campinas (SP) para empresas que precisam se destacar
+			numa das buscas mais disputadas do interior paulista. A estratégia é competir onde muitas agências não
 			competem: velocidade, estrutura técnica e uma página realmente útil para cada serviço.
 		</p>
 
@@ -81,6 +81,11 @@
 			centenas de páginas de cidade praticamente iguais, trocando só o nome do município. Esse tipo de
 			página é frágil: o Google o classifica como spam quando percebe o padrão.
 		</p>
+		<p>
+			Para quem quer saber como aparecer no Google em Campinas, o SEO local trabalha dois caminhos ao
+			mesmo tempo: o Perfil da Empresa no Google, que aparece no mapa das buscas por perto, e o site,
+			que responde às buscas mais específicas e convence quem chega até ele.
+		</p>
 		<p>O que funciona melhor num mercado assim:</p>
 		<ul>
 			<li><strong>Páginas específicas:</strong> uma página por serviço, respondendo de verdade à busca, em vez de uma página genérica.</li>
@@ -92,8 +97,8 @@
 	<section aria-labelledby="comparar-titulo">
 		<h2 id="comparar-titulo">Como comparar propostas de criação de sites</h2>
 		<p>
-			Com tantas opções em Campinas, as propostas costumam chegar com preços e promessas difíceis de
-			comparar. Estas perguntas ajudam a separar o que importa:
+			Com tantas agências de marketing digital e de criação de sites em Campinas, as propostas costumam
+			chegar com preços e promessas difíceis de comparar. Estas perguntas ajudam a separar o que importa:
 		</p>
 		<ol>
 			<li><strong>Quantas páginas o site terá e por quê?</strong> Uma proposta séria explica quais serviços ganham página própria e que busca cada uma atende.</li>

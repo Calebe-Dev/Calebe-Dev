@@ -26,7 +26,7 @@
 		{
 			question: 'Vale contratar um consultor de SEO de fora da capital?',
 			answer:
-				'Sim, porque SEO técnico é um trabalho feito no site, no Search Console e no código, e não depende de presença física. O que importa é a experiência com sites do porte e do tipo do seu. Para reuniões presenciais, Sorocaba fica ligada à capital pela Rodovia Castello Branco.'
+				'Sim, porque SEO técnico é um trabalho feito no site, no Search Console e no código, e não depende de presença física. O que importa é a experiência com sites do porte e do tipo do seu. Em comparação com uma agência de SEO em SP, a diferença é falar direto com quem implementa as correções. Para reuniões presenciais, Sorocaba fica ligada à capital pela Rodovia Castello Branco.'
 		},
 		{
 			question: 'Páginas por bairro funcionam para SEO em São Paulo?',
@@ -59,7 +59,7 @@
 		<h1>Consultoria de SEO em São Paulo</h1>
 
 		<p>
-			Como consultor de SEO em SP, ofereço consultoria de SEO técnico para empresas da capital cujo site
+			Como consultor de SEO em São Paulo, ofereço consultoria de SEO técnico para empresas da capital cujo site
 			tem problemas que só se resolvem no código: muitas páginas, migrações, lentidão ou conteúdo que depende de JavaScript para
 			aparecer. Sou desenvolvedor full stack, então o diagnóstico e a correção são feitos pela mesma
 			pessoa.
@@ -139,9 +139,10 @@
 	<section aria-labelledby="atendimento-titulo">
 		<h2 id="atendimento-titulo">Atendimento para a capital e a Grande São Paulo</h2>
 		<p>
-			O trabalho é feito de forma remota para empresas da capital e de cidades como Osasco, Barueri e
-			Cotia, com reuniões por vídeo e acesso ao Search Console e ao código. Quando o projeto exige,
-			combino um encontro presencial. O passo a passo está na página de
+			A consultoria de SEO em SP é feita de forma remota, para empresas da capital e da Grande São
+			Paulo, como Osasco, Barueri e Cotia. Os serviços de SEO são os mesmos em todas elas: diagnóstico,
+			correções no site e acompanhamento no Search Console, com reuniões por vídeo. Quando o projeto
+			exige, combino um encontro presencial. O passo a passo está na página de
 			<a href={services.consultoriaSeo.path}>consultoria de SEO técnico</a>.
 		</p>
 	</section>

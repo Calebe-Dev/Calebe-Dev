@@ -65,27 +65,33 @@
 		<h1>Auditoria de SEO técnica e completa</h1>
 
 		<p>
-			Uma auditoria de SEO é um diagnóstico do site em três camadas: técnica, on-page e de conteúdo. O
-			resultado não é uma lista com centenas de alertas de ferramenta, e sim um plano com os problemas
-			que realmente custam tráfego e contatos, cada um com evidência, correção e prioridade.
+			Uma auditoria de SEO é uma análise de SEO do site inteiro, em três camadas: técnica, on-page e de
+			conteúdo. O resultado não é uma lista com centenas de alertas de ferramenta, e sim um plano com os
+			problemas que realmente custam tráfego e contatos, cada um com evidência, correção e prioridade.
 		</p>
 
 		<WhatsAppCta {...whatsapp} />
 	</header>
 
 	<section aria-labelledby="camadas-titulo">
-		<h2 id="camadas-titulo">O que é analisado na auditoria de SEO</h2>
+		<h2 id="camadas-titulo">Checklist da auditoria de SEO: o que é analisado</h2>
+		<p>
+			O checklist abaixo é a base de toda auditoria. Cada item é confirmado no site real antes de entrar
+			no relatório.
+		</p>
 
 		<h3>Camada técnica</h3>
 		<ul>
-			<li>Códigos de status, cadeias de redirecionamento e páginas de erro.</li>
+			<li>Rastreamento: se o Googlebot alcança todas as páginas importantes e quais ele visita sem necessidade.</li>
+			<li>Códigos de status, links quebrados, cadeias de redirecionamento e páginas de erro.</li>
 			<li>robots.txt, sitemap.xml, canonical e diretivas de indexação, como noindex.</li>
 			<li>Renderização: se o conteúdo principal está no HTML ou depende de JavaScript para aparecer.</li>
-			<li>Core Web Vitals com dados de campo (CrUX) e de laboratório (Lighthouse).</li>
+			<li>Core Web Vitals com dados de campo (CrUX) e de laboratório (Lighthouse), com atenção à versão mobile.</li>
 			<li>Peso de imagens, scripts de terceiros e configuração de cache.</li>
 		</ul>
 
 		<h3>Camada on-page</h3>
+		<p>O SEO on-page verifica cada página individualmente:</p>
 		<ul>
 			<li>Title, meta description e H1 de cada página, e se eles correspondem à busca que a página quer atender.</li>
 			<li>Hierarquia de headings, links internos e textos âncora.</li>
@@ -99,14 +105,17 @@
 			<li>Canibalização entre páginas que disputam a mesma palavra-chave.</li>
 			<li>Páginas finas, duplicadas ou geradas em massa, que o Google trata como baixa qualidade.</li>
 			<li>Sinais de experiência e autoria: quem está por trás do site e por que confiar nele.</li>
+			<li>Comparação com os concorrentes que aparecem nas primeiras posições para as mesmas buscas.</li>
+			<li>Backlinks: quais sites apontam para o seu e quais páginas recebem esses links.</li>
 		</ul>
 	</section>
 
 	<section aria-labelledby="relatorio-titulo">
 		<h2 id="relatorio-titulo">Como é o relatório da auditoria</h2>
 		<p>
-			Cada item do relatório segue o mesmo formato, para que qualquer pessoa do time saiba o que fazer
-			e em que ordem. Os exemplos abaixo são ilustrativos:
+			A auditoria de SEO é feita online: com o endereço do site e acesso de leitura ao Search Console,
+			a análise não depende de visita presencial. Cada item do relatório segue o mesmo formato, para
+			que qualquer pessoa do time saiba o que fazer e em que ordem. Os exemplos abaixo são ilustrativos:
 		</p>
 		<table>
 			<caption>Exemplos de itens de um relatório de auditoria de SEO</caption>
@@ -145,8 +154,8 @@
 	<section aria-labelledby="ferramenta-titulo">
 		<h2 id="ferramenta-titulo">Auditoria por ferramenta ou feita por especialista</h2>
 		<p>
-			Ferramentas de SEO são ótimas para levantar sintomas, mas tratam todos os alertas com o mesmo
-			peso. Um título com 61 caracteres e uma página de vendas fora do índice aparecem na mesma lista.
+			Ferramentas de SEO, como Semrush, Screaming Frog e o próprio Search Console, são ótimas para
+			levantar sintomas, mas tratam todos os alertas com o mesmo peso. Um título com 61 caracteres e uma página de vendas fora do índice aparecem na mesma lista.
 			Na auditoria feita por especialista, cada alerta é confirmado no site real, a causa é encontrada
 			no código ou no CMS e a ordem das correções segue o que move o negócio.
 		</p>
@@ -170,6 +179,7 @@
 			{ href: guides.siteNaoAparece.path, text: 'Roteiro para quando o site não aparece no Google' },
 			{ href: services.otimizacaoDeSites.path, text: 'Como resolver um site lento' },
 			{ href: services.criacaoDeSites.path, text: 'Sites que já nascem otimizados para o Google' },
+			{ href: guides.seoParaIa.path, text: 'O que conferir para o site ser citado por IA' },
 			{ href: '/consultoria-seo-sorocaba', text: 'Auditoria e SEO local para empresas de Sorocaba' }
 		]}
 	/>

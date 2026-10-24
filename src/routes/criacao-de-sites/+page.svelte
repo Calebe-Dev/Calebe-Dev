@@ -23,12 +23,17 @@
 		{
 			question: 'Quanto custa criar um site profissional?',
 			answer:
-				'O valor depende do número de páginas, de quem produz os textos e as imagens, das integrações necessárias, como CRM, formulários e catálogo, e da plataforma escolhida. Uma landing page única é bem mais simples que um site institucional com dezenas de páginas de serviço. A proposta é feita depois de entender o objetivo do site.'
+				'O preço depende do número de páginas, de quem produz os textos e as imagens, das integrações necessárias, como CRM, formulários e catálogo, e da plataforma escolhida. Uma landing page única é bem mais simples que um site institucional com dezenas de páginas de serviço. A proposta é feita depois de entender o objetivo do site.'
 		},
 		{
 			question: 'Vou conseguir editar o site depois de pronto?',
 			answer:
 				'Sim. Em sites WordPress, a edição é feita no próprio painel. Em sites estáticos ou feitos com SvelteKit, o conteúdo pode ficar em um CMS headless, como o Directus, que oferece um painel de edição sem mexer no código.'
+		},
+		{
+			question: 'Site feito com IA serve para a minha empresa?',
+			answer:
+				'Criadores de sites com IA montam uma página em minutos e servem para testar uma ideia. Para uma empresa que quer aparecer no Google, eles costumam gerar textos genéricos, uma estrutura de página única e código pesado. A IA pode acelerar partes do trabalho, como rascunhos de texto, mas o que faz o site ser encontrado continua sendo a estrutura de páginas, o conteúdo específico do negócio e a base técnica.'
 		},
 		{
 			question: 'O site já sai otimizado para o Google?',
@@ -60,8 +65,9 @@
 		<h1>Criação de sites profissionais rápidos e otimizados</h1>
 
 		<p>
-			Como desenvolvedor independente (freelancer), crio sites institucionais e landing pages que carregam rápido, funcionam bem no celular e já
-			nascem preparados para o Google: cada página com um objetivo claro, conteúdo no HTML e
+			Como desenvolvedor independente (freelancer), faço a criação e o desenvolvimento de sites
+			profissionais para empresas: sites institucionais e landing pages que carregam rápido, funcionam
+			bem no celular e já nascem preparados para o Google: cada página com um objetivo claro, conteúdo no HTML e
 			mensuração de contatos configurada. Já desenvolvi mais de 60 landing pages e sites
 			institucionais e hoje mantenho uma rede de 25 sites integrados a um CRM.
 		</p>
@@ -74,7 +80,9 @@
 
 		<h3>Site institucional</h3>
 		<p>
-			Apresenta a empresa, os serviços e as formas de contato. A diferença está na estrutura: em vez
+			Site institucional é o site que apresenta a empresa: quem ela é, os serviços, onde atende e as
+			formas de contato. Serve para dar credibilidade e para a empresa ser encontrada por quem pesquisa
+			os seus serviços. A diferença está na estrutura: em vez
 			de uma única página genérica de serviços, cada serviço importante ganha sua própria página, que
 			pode aparecer nas buscas por aquele serviço específico.
 		</p>
@@ -82,7 +90,16 @@
 		<h3>Landing page</h3>
 		<p>
 			Página com um único objetivo de conversão, usada em campanhas de anúncios ou para uma busca
-			muito específica. Precisa ser leve, direta e medir cada contato gerado.
+			muito específica. Uma landing page de alta conversão precisa ser leve, direta e medir cada
+			contato gerado.
+		</p>
+
+		<h3>Site institucional ou landing page?</h3>
+		<p>
+			Depende do objetivo. A landing page funciona para uma oferta ou campanha específica e fica pronta
+			mais rápido. O site institucional é o melhor caminho quando a empresa tem vários serviços e quer
+			aparecer em buscas diferentes, porque cada serviço ganha sua própria página. Muitas empresas
+			começam pela landing page da oferta principal e depois evoluem para o site completo.
 		</p>
 
 		<h3>Sites de conteúdo e portais</h3>
@@ -99,6 +116,8 @@
 			<li>Base técnica de SEO: title, meta description e H1 por página, sitemap, robots.txt e dados estruturados.</li>
 			<li>Performance: páginas geradas de forma estática ou renderizadas no servidor e imagens otimizadas.</li>
 			<li>Layout responsivo, pensado primeiro para o celular.</li>
+			<li>Domínio, hospedagem e certificado SSL (HTTPS) configurados, com tudo registrado no nome da sua empresa.</li>
+			<li>Mapa do Google e Perfil da Empresa no Google ligados ao site, quando a empresa atende clientes na região.</li>
 			<li>Mensuração com Google Analytics, Google Tag Manager e pixels de conversão.</li>
 			<li>Formulários e botões de WhatsApp que podem enviar os contatos direto para o CRM.</li>
 		</ul>

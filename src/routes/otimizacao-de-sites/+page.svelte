@@ -21,6 +21,11 @@
 
 	const faqs: FaqItem[] = [
 		{
+			question: 'Meu site está lento: o que fazer?',
+			answer:
+				'Comece testando as páginas principais no PageSpeed Insights, no celular, para ver o que atrasa o carregamento. Na maioria dos casos, comprimir as imagens que aparecem acima da dobra, remover plugins e scripts sem uso e ativar cache resolvem boa parte do problema. Se o site continua lento para abrir depois disso, o gargalo costuma estar no tema, na plataforma ou no servidor.'
+		},
+		{
 			question: 'A velocidade do site influencia no SEO?',
 			answer:
 				'Sim, mas não sozinha. Os Core Web Vitals fazem parte dos sinais de experiência de página que o Google considera. Eles não superam a relevância do conteúdo, mas funcionam como desempate entre páginas parecidas e afetam diretamente a conversão, porque visitantes abandonam páginas que demoram a carregar.'
@@ -28,17 +33,17 @@
 		{
 			question: 'Como saber se o meu site está lento?',
 			answer:
-				'Teste a página no PageSpeed Insights e veja primeiro o bloco de dados de usuários reais, que mostra os Core Web Vitals medidos no Chrome. No Search Console, o relatório Core Web Vitals lista quais grupos de páginas estão bons, precisam de melhoria ou estão ruins.'
+				'Faça um teste de velocidade do site no PageSpeed Insights e veja primeiro o bloco de dados de usuários reais, que mostra os Core Web Vitals medidos no Chrome. No Search Console, o relatório Core Web Vitals lista quais grupos de páginas estão bons, precisam de melhoria ou estão ruins. Para investigar uma página, o painel Performance do Chrome DevTools mostra as mesmas métricas em tempo real; ele substituiu a antiga extensão Web Vitals, descontinuada em 2025.'
 		},
 		{
 			question: 'Trocar de hospedagem resolve um site lento?',
 			answer:
-				'Só quando o gargalo é o servidor, o que aparece como um tempo alto até o primeiro byte. Na maioria dos sites lentos, o problema está nas imagens pesadas, no excesso de JavaScript e nos scripts de terceiros, e esses continuam lentos em qualquer hospedagem.'
+				'Só quando o gargalo é o servidor, o que aparece como um tempo alto até o primeiro byte (TTFB). Na maioria dos sites lentos, o problema está nas imagens pesadas, no excesso de JavaScript e nos scripts de terceiros, e esses continuam lentos em qualquer hospedagem.'
 		},
 		{
 			question: 'Por que a nota do PageSpeed muda a cada teste?',
 			answer:
-				'A nota vem de um teste de laboratório que varia com a rede, o servidor e o momento da medição. O que o Google usa para avaliar a experiência são os dados de campo, coletados de usuários reais ao longo de 28 dias, por isso eles são mais confiáveis que uma nota isolada.'
+				'A nota vem de um teste de laboratório, feito pelo Lighthouse, que varia com a rede, o servidor e o momento da medição. O que o Google usa para avaliar a experiência são os dados de campo do relatório CrUX, coletados de usuários reais ao longo de 28 dias, por isso eles são mais confiáveis que uma nota isolada.'
 		}
 	];
 
@@ -69,15 +74,19 @@
 			medidos pelos Core Web Vitals do Google. Em um projeto real, a migração de sistemas legados para
 			Angular e Svelte reduziu o carregamento das páginas de 8 para 1 segundo, uma melhora de 90%.
 		</p>
+		<p>
+			A otimização serve ao SEO e, principalmente, a quem acessa pelo celular, onde um site lento para
+			abrir perde visitantes antes mesmo de mostrar o conteúdo.
+		</p>
 
 		<WhatsAppCta {...whatsapp} />
 	</header>
 
 	<section aria-labelledby="causas-titulo">
 		<h2 id="causas-titulo">Por que um site fica lento</h2>
-		<p>As causas mais comuns, em ordem de frequência nos sites que analiso:</p>
+		<p>As causas mais comuns de um site lento para carregar, em ordem de frequência nos sites que analiso:</p>
 		<ol>
-			<li><strong>Imagens pesadas:</strong> fotos enviadas no tamanho original da câmera, sem compressão e sem dimensões definidas.</li>
+			<li><strong>Imagens pesadas:</strong> fotos enviadas no tamanho original da câmera, sem compressão, sem dimensões definidas e sem lazy loading abaixo da dobra.</li>
 			<li><strong>Excesso de JavaScript:</strong> page builders, sliders e plugins que carregam código em todas as páginas.</li>
 			<li><strong>Scripts de terceiros:</strong> chats, pixels de anúncios e widgets que disputam o carregamento com o conteúdo.</li>
 			<li><strong>Servidor sem cache:</strong> cada visita gera a página do zero, sem CDN nem cache de página.</li>
@@ -126,7 +135,7 @@
 		<ol>
 			<li><strong>Medir com dados reais:</strong> Search Console e dados de campo do Chrome mostram onde está o problema de verdade.</li>
 			<li><strong>Encontrar o gargalo:</strong> no laboratório, identifico qual recurso atrasa o LCP ou trava as interações.</li>
-			<li><strong>Corrigir pela causa:</strong> imagens, JavaScript, fontes e terceiros, na ordem do ganho esperado.</li>
+			<li><strong>Corrigir pela causa:</strong> imagens, JavaScript e CSS que bloqueiam a renderização, fontes e terceiros, na ordem do ganho esperado.</li>
 			<li><strong>Infraestrutura:</strong> cache e CDN, como os da Cloudflare, para entregar as páginas perto do visitante.</li>
 			<li><strong>Mudar a arquitetura quando necessário:</strong> páginas estáticas ou renderizadas no servidor quando a stack atual não tem como ser rápida.</li>
 			<li><strong>Validar:</strong> acompanho os dados de campo nas semanas seguintes, porque eles levam 28 dias para refletir a mudança.</li>
@@ -139,7 +148,7 @@
 		<p>
 			Em WordPress, a lentidão quase sempre vem de temas multiuso e plugins demais. As correções que
 			mais resolvem são remover plugins sem uso, trocar page builders pesados quando possível, ativar
-			cache de página, servir imagens em formatos modernos e adiar scripts de terceiros. Quando o tema
+			cache de página, servir imagens em formatos modernos, como WebP e AVIF, e adiar scripts de terceiros. Quando o tema
 			é o gargalo, comparo o custo de otimizá-lo com o de reconstruir as páginas principais.
 		</p>
 	</section>
