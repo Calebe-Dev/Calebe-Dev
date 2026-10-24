@@ -41,12 +41,25 @@
 		}
 	];
 
+	// Passo 1 da página: a mesma lista alimenta o HTML e o HowTo do schema
+	const passosPerfil = [
+		{ nome: 'Crie ou assuma o perfil', texto: 'em business.google.com, com a conta Google da empresa.' },
+		{ nome: 'Escolha a categoria principal certa:', texto: 'é ela que define para quais pesquisas a empresa aparece.' },
+		{ nome: 'Preencha tudo:', texto: 'serviços, horários, área de atendimento, fotos reais e o endereço do site.' },
+		{ nome: 'Verifique o perfil:', texto: 'o Google confirma que a empresa existe pelo método que ele indicar, como vídeo, ligação ou mensagem.' },
+		{ nome: 'Peça avaliações a clientes reais', texto: 'e responda a todas, positivas ou não.' }
+	];
+
 	const jsonLd = pageGraph({
 		path,
 		title,
 		description,
 		crumbs,
 		faqs,
+		howTo: {
+			name: 'Passo 1: Perfil da Empresa no Google (o antigo Google Meu Negócio)',
+			steps: passosPerfil.map((p) => ({ name: p.nome.replace(/:$/, ''), text: `${p.nome} ${p.texto}` }))
+		},
 		article: { headline: 'Como colocar minha empresa no Google e na primeira página', type: 'Article' }
 	});
 </script>
@@ -113,11 +126,9 @@
 	<section aria-labelledby="perfil-titulo">
 		<h2 id="perfil-titulo">Passo 1: Perfil da Empresa no Google (o antigo Google Meu Negócio)</h2>
 		<ol>
-			<li><strong>Crie ou assuma o perfil</strong> em business.google.com, com a conta Google da empresa.</li>
-			<li><strong>Escolha a categoria principal certa:</strong> é ela que define para quais pesquisas a empresa aparece.</li>
-			<li><strong>Preencha tudo:</strong> serviços, horários, área de atendimento, fotos reais e o endereço do site.</li>
-			<li><strong>Verifique o perfil:</strong> o Google confirma que a empresa existe pelo método que ele indicar, como vídeo, ligação ou mensagem.</li>
-			<li><strong>Peça avaliações a clientes reais</strong> e responda a todas, positivas ou não.</li>
+			{#each passosPerfil as passo (passo.nome)}
+				<li><strong>{passo.nome}</strong> {passo.texto}</li>
+			{/each}
 		</ol>
 		<h3>Empresa sem endereço também aparece</h3>
 		<p>

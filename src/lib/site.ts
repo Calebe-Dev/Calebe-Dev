@@ -69,6 +69,18 @@ export const guides = {
 export const careerPage = { path: '/desenvolvedor-full-stack-sorocaba', name: 'Desenvolvedor full stack em Sorocaba' };
 export const regionPage = { path: '/sorocaba-e-regiao', name: 'Atendimento em Sorocaba e região' };
 
+// Menu principal (cabeçalho e SiteNavigationElement do schema)
+export const mainNav = [
+	{ href: services.consultoriaSeo.path, label: 'Consultoria de SEO' },
+	{ href: services.auditoriaSeo.path, label: 'Auditoria de SEO' },
+	{ href: services.criacaoDeSites.path, label: 'Criação de sites' },
+	{ href: services.otimizacaoDeSites.path, label: 'Otimização de sites' },
+	{ href: services.sistemasWeb.path, label: 'Sistemas web' },
+	{ href: services.seoB2b.path, label: 'SEO B2B' },
+	{ href: careerPage.path, label: 'Para recrutadores' },
+	{ href: regionPage.path, label: 'Sorocaba e região' }
+];
+
 // Cidades com página própria: só onde há busca real (autocomplete do Google, out/2026)
 // e conteúdo local genuíno — as demais do raio de 90 km ficam na página regional e no schema.
 export const cityPages = [
@@ -83,6 +95,10 @@ export const cityPages = [
 ] as const;
 
 export const sitemapPage = { path: '/mapa-do-site', name: 'Mapa do site' };
+
+// Card de compartilhamento (Open Graph/Twitter, 1200×630) de cada página: scripts/gerar-cards.mjs
+export const shareCard = (path: string) => `/images/compartilhamento/${path === '/' ? 'home' : path.slice(1)}.jpg`;
+export const logo = { path: '/images/logo-marca-512.png', width: 512, height: 512 };
 
 // Páginas agrupadas por assunto: alimentam o mapa do site e o minimapa do rodapé
 export type SiteEntry = { href: string; text: string; note: string };

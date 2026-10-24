@@ -1,7 +1,8 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/state';
-	import { careerPage, defaultWhatsApp, person, regionPage, services, siteGroups, sitemapPage, socials, whatsappLink } from '$lib/site';
+	import Compartilhar from '$lib/components/Compartilhar.svelte';
+	import { defaultWhatsApp, mainNav, person, siteGroups, sitemapPage, socials, whatsappLink } from '$lib/site';
 
 	let { children } = $props();
 
@@ -15,20 +16,19 @@
 	<p><a href="/">{person.name}</a></p>
 	<nav aria-label="Principal">
 		<ul>
-			<li><p><a href={services.consultoriaSeo.path} aria-current={atual(services.consultoriaSeo.path)}>Consultoria de SEO</a></p></li>
-			<li><p><a href={services.auditoriaSeo.path} aria-current={atual(services.auditoriaSeo.path)}>Auditoria de SEO</a></p></li>
-			<li><p><a href={services.criacaoDeSites.path} aria-current={atual(services.criacaoDeSites.path)}>Criação de sites</a></p></li>
-			<li><p><a href={services.otimizacaoDeSites.path} aria-current={atual(services.otimizacaoDeSites.path)}>Otimização de sites</a></p></li>
-			<li><p><a href={services.sistemasWeb.path} aria-current={atual(services.sistemasWeb.path)}>Sistemas web</a></p></li>
-			<li><p><a href={services.seoB2b.path} aria-current={atual(services.seoB2b.path)}>SEO B2B</a></p></li>
-			<li><p><a href={careerPage.path} aria-current={atual(careerPage.path)}>Para recrutadores</a></p></li>
-			<li><p><a href={regionPage.path} aria-current={atual(regionPage.path)}>Sorocaba e região</a></p></li>
+			{#each mainNav as item (item.href)}
+				<li><p><a href={item.href} aria-current={atual(item.href)}>{item.label}</a></p></li>
+			{/each}
 			<li><p><a href={whatsappLink(defaultWhatsApp.message)}>WhatsApp {person.phoneDisplay}</a></p></li>
 		</ul>
 	</nav>
 </header>
 
 {@render children()}
+
+{#if page.status < 400}
+	<Compartilhar />
+{/if}
 
 <footer>
 	<div class="rodape">

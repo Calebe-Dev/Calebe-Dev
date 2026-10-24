@@ -1,16 +1,19 @@
 // Construtores de JSON-LD (schema.org). Cada página monta um @graph com estes nós;
 // o conteúdo marcado deve ser sempre o mesmo que está visível no HTML.
-import { SITE_URL, UPDATED, pageKeywords, person, socials } from './site';
+import { SITE_URL, UPDATED, logo, mainNav, pageKeywords, person, services, shareCard, socials } from './site';
 
 export type Faq = { question: string; answer: string };
 export type Crumb = { name: string; path: string };
 
 const PERSON_ID = `${SITE_URL}/#pessoa`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
-const IMAGE_ID = `${SITE_URL}/#imagem`;
+const BUSINESS_ID = `${SITE_URL}/#negocio`;
+const LOGO_ID = `${SITE_URL}/#logo`;
+const NAV_ID = `${SITE_URL}/#navegacao`;
 const YEAR = Number(UPDATED.slice(0, 4));
 
 export const absolute = (path: string) => (path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`);
+const imageId = (path: string) => `${absolute(path)}#imagem`;
 
 // Raio de atendimento: 90 km a partir do centro de Sorocaba
 export const serviceArea = {
@@ -49,6 +52,8 @@ export const personNode = () => ({
 		areaServed: 'BR'
 	},
 	worksFor: { '@type': 'Organization', name: 'Grupo OC', url: 'https://grupooc.com.br/' },
+	knowsLanguage: { '@type': 'Language', name: 'Português', alternateName: 'pt-BR' },
+	brand: { '@id': BUSINESS_ID },
 	// Formação em andamento (2023–2026): trocar para alumniOf após a conclusão
 	affiliation: { '@type': 'CollegeOrUniversity', name: 'Fatec Itu' },
 	knowsAbout: [
@@ -95,18 +100,96 @@ export const websiteNode = () => ({
 	copyrightYear: YEAR
 });
 
-// Imagem de compartilhamento (1200×630): imagem principal de todas as páginas
-export const imageNode = () => ({
+// Card de compartilhamento da página (1200×630): imagem principal da página
+export const imageNode = (path: string, caption: string) => ({
 	'@type': 'ImageObject',
-	'@id': IMAGE_ID,
-	url: `${SITE_URL}/images/compartilhamento-calebe-araujo.jpg`,
-	contentUrl: `${SITE_URL}/images/compartilhamento-calebe-araujo.jpg`,
+	'@id': imageId(path),
+	url: absolute(shareCard(path)),
+	contentUrl: absolute(shareCard(path)),
 	width: 1200,
 	height: 630,
 	encodingFormat: 'image/jpeg',
-	caption: 'Calebe Araujo, desenvolvedor full stack e consultor de SEO técnico em Sorocaba',
+	caption,
+	representativeOfPage: true,
 	creator: { '@id': PERSON_ID },
 	copyrightHolder: { '@id': PERSON_ID }
+});
+
+// Monograma da marca
+export const logoNode = () => ({
+	'@type': 'ImageObject',
+	'@id': LOGO_ID,
+	url: absolute(logo.path),
+	contentUrl: absolute(logo.path),
+	width: logo.width,
+	height: logo.height,
+	encodingFormat: 'image/png',
+	caption: `Logotipo de ${person.name}`
+});
+
+// Atividade profissional (marca pessoal): serviços, área de atendimento e contato
+export const businessNode = () => ({
+	'@type': 'ProfessionalService',
+	'@id': BUSINESS_ID,
+	name: person.name,
+	alternateName: `${person.name} — SEO e desenvolvimento web`,
+	description:
+		'Consultoria e auditoria de SEO técnico, criação e otimização de sites e desenvolvimento de sistemas web sob medida, em Sorocaba (SP) e em todo o Brasil.',
+	url: `${SITE_URL}/`,
+	logo: { '@id': LOGO_ID },
+	image: absolute(shareCard('/')),
+	email: person.email,
+	telephone: person.phone,
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: person.city,
+		addressRegion: person.region,
+		addressCountry: person.country
+	},
+	geo: { '@type': 'GeoCoordinates', ...person.geo },
+	areaServed: [serviceArea, { '@type': 'Country', name: 'Brasil' }],
+	founder: { '@id': PERSON_ID },
+	employee: { '@id': PERSON_ID },
+	sameAs: socials.map((s) => s.url),
+	contactPoint: {
+		'@type': 'ContactPoint',
+		contactType: 'sales',
+		telephone: person.phone,
+		email: person.email,
+		url: person.whatsapp,
+		availableLanguage: 'Portuguese',
+		areaServed: 'BR'
+	},
+	hasOfferCatalog: {
+		'@type': 'OfferCatalog',
+		name: 'Serviços de SEO, desenvolvimento web e consultoria',
+		itemListElement: Object.values(services).map((s) => ({
+			'@type': 'Offer',
+			itemOffered: { '@type': 'Service', name: s.name, url: absolute(s.path) }
+		}))
+	}
+});
+
+// Menu principal do site
+export const navNode = () => ({
+	'@type': 'ItemList',
+	'@id': NAV_ID,
+	name: 'Menu principal',
+	itemListElement: mainNav.map((item, i) => ({
+		'@type': 'SiteNavigationElement',
+		position: i + 1,
+		name: item.label,
+		url: absolute(item.href)
+	}))
+});
+
+// Passo a passo visível na página (lista ordenada)
+export const howToNode = (path: string, name: string, steps: { name: string; text: string }[]) => ({
+	'@type': 'HowTo',
+	'@id': `${absolute(path)}#passo-a-passo`,
+	name,
+	inLanguage: 'pt-BR',
+	step: steps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: s.name, text: s.text }))
 });
 
 export const webPageNode = (opts: {
@@ -136,8 +219,11 @@ export const webPageNode = (opts: {
 		copyrightYear: YEAR,
 		datePublished: UPDATED,
 		dateModified: UPDATED,
-		primaryImageOfPage: { '@id': IMAGE_ID },
-		image: { '@id': IMAGE_ID },
+		primaryImageOfPage: { '@id': imageId(opts.path) },
+		image: { '@id': imageId(opts.path) },
+		thumbnailUrl: absolute(shareCard(opts.path)),
+		// trechos indicados para leitura em voz alta por assistentes
+		speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.hero > p:first-of-type'] },
 		...(pageKeywords[opts.path] ? { keywords: pageKeywords[opts.path].join(', ') } : {}),
 		...(main ? { mainEntity: { '@id': main } } : {}),
 		...(opts.aboutPerson ? { about: { '@id': PERSON_ID } } : {}),
@@ -170,7 +256,8 @@ export const serviceNode = (opts: {
 	serviceType: opts.serviceType,
 	description: opts.description,
 	url: absolute(opts.path),
-	provider: { '@id': PERSON_ID },
+	provider: { '@id': BUSINESS_ID },
+	image: { '@id': imageId(opts.path) },
 	areaServed: opts.areaServed ?? [serviceArea, { '@type': 'Country', name: 'Brasil' }],
 	...(opts.audience ? { audience: { '@type': 'BusinessAudience', audienceType: opts.audience } } : {})
 });
@@ -198,7 +285,9 @@ export const articleNode = (
 	inLanguage: 'pt-BR',
 	url: absolute(path),
 	mainEntityOfPage: { '@id': `${absolute(path)}#pagina` },
-	image: { '@id': IMAGE_ID },
+	image: { '@id': imageId(path) },
+	articleSection: 'Guias de SEO',
+	isAccessibleForFree: true,
 	...(pageKeywords[path] ? { keywords: pageKeywords[path].join(', ') } : {}),
 	copyrightHolder: { '@id': PERSON_ID },
 	copyrightYear: YEAR,
@@ -221,12 +310,16 @@ export const pageGraph = (opts: {
 	// guias informativos assinados pela pessoa: TechArticle (técnicos) ou Article (para leigos)
 	article?: { headline: string; type?: 'TechArticle' | 'Article' };
 	faqs?: Faq[];
+	howTo?: { name: string; steps: { name: string; text: string }[] };
 	person?: object;
 	extra?: object[];
 }) =>
 	graph(
 		websiteNode(),
-		imageNode(),
+		navNode(),
+		logoNode(),
+		businessNode(),
+		imageNode(opts.path, opts.title),
 		{ ...personNode(), ...opts.person },
 		webPageNode({
 			path: opts.path,
@@ -240,5 +333,6 @@ export const pageGraph = (opts: {
 		breadcrumbNode(opts.path, opts.crumbs),
 		...(opts.service ? [serviceNode({ path: opts.path, ...opts.service })] : []),
 		...(opts.faqs?.length ? [faqNode(opts.path, opts.faqs)] : []),
+		...(opts.howTo ? [howToNode(opts.path, opts.howTo.name, opts.howTo.steps)] : []),
 		...(opts.extra ?? [])
 	);

@@ -470,16 +470,6 @@ body > main {
 	}
 }
 
-.hero h1 {
-	max-width: 20ch;
-	margin: 0 0 20px;
-	color: var(--white);
-	font-size: clamp(2rem, 5.4vw, 3.6rem);
-	font-weight: 800;
-	line-height: 1.07;
-	letter-spacing: -0.03em;
-}
-
 .hero p {
 	max-width: 64ch;
 	color: var(--white);
@@ -491,10 +481,90 @@ body > main {
 }
 
 /* sombra discreta para o texto continuar legível sobre fotos e vídeo */
-.hero h1,
 .hero p,
 .hero nav {
 	text-shadow: 0 1px 14px rgb(5 15 36 / 0.65);
+}
+
+/* ---------- tipografia moderna do hero (só cor, tamanho e ritmo; os textos não mudam) ---------- */
+
+/* título: maior, mais justo e com gradiente do branco ao azul-gelo, terminando em rosa-claro */
+.hero h1 {
+	max-width: 17ch;
+	margin: 0 0 22px;
+	font-size: clamp(2.25rem, 5.8vw, 4.1rem);
+	font-weight: 800;
+	line-height: 1.02;
+	letter-spacing: -0.045em;
+	background: linear-gradient(100deg, #ffffff 0%, #eef3ff 38%, #b9d0ff 72%, #ffc2c2 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	filter: drop-shadow(0 2px 16px rgb(5 15 36 / 0.55));
+}
+
+/* primeiro parágrafo: abertura em destaque */
+.hero h1 + p {
+	max-width: 58ch;
+	color: #eef3ff;
+	font-size: clamp(1.08rem, 1.75vw, 1.28rem);
+	line-height: 1.62;
+}
+
+/* demais parágrafos: azul-gelo mais suave, criando hierarquia */
+.hero h1 ~ p:not(h1 + p) {
+	max-width: 62ch;
+	color: #c8d6f5;
+	font-size: clamp(0.98rem, 1.4vw, 1.06rem);
+	line-height: 1.7;
+}
+
+.hero strong {
+	color: var(--white);
+	font-weight: 700;
+}
+
+/* links do texto em azul-claro, sublinhado fino que fica vermelho no hover */
+.hero p a:not([href^='https://wa.me/']):not(:only-child) {
+	color: #cfe0ff;
+	text-decoration-color: rgb(147 197 253 / 0.55);
+	text-decoration-thickness: 1.5px;
+	text-underline-offset: 4px;
+}
+
+.hero p a:not([href^='https://wa.me/']):not(:only-child):hover {
+	color: var(--white);
+	text-decoration-color: var(--red-600);
+}
+
+/* respiro antes do botão de conversão */
+.hero p:has(> a[href^='https://wa.me/']) {
+	margin-top: 28px;
+}
+
+/* trilha de navegação como selo de vidro acima do título */
+.hero nav[aria-label='Trilha de navegação'] {
+	display: inline-flex;
+	margin: 0 0 20px;
+	padding: 4px 14px;
+	border: 1px solid rgb(255 255 255 / 0.16);
+	border-radius: 14px;
+	background: rgb(255 255 255 / 0.07);
+	backdrop-filter: blur(8px);
+}
+
+.hero nav[aria-label='Trilha de navegação'] ol {
+	margin: 0;
+	font-size: 0.82rem;
+	letter-spacing: 0.02em;
+}
+
+.hero nav[aria-label='Trilha de navegação'] a {
+	color: #bcd3ff;
+}
+
+.hero nav[aria-label='Trilha de navegação'] span {
+	color: var(--white);
 }
 
 .hero a:not([href^='https://wa.me/']) {
@@ -1252,6 +1322,86 @@ main ul:has(> li > p > a:only-child) a[href^='/']::after {
 		transform: none;
 	}
 }
+
+/* ---------- compartilhar a página ---------- */
+
+.compartilhar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 14px 22px;
+	max-width: var(--container);
+	margin: 0 max(var(--gutter), calc((100% - var(--container)) / 2)) 40px;
+	padding: 20px 24px;
+	border: 1px solid rgb(255 255 255 / 0.9);
+	border-radius: 22px;
+	background: linear-gradient(180deg, rgb(255 255 255 / 0.92), rgb(255 255 255 / 0.76));
+	backdrop-filter: blur(12px);
+	box-shadow: 0 1px 0 #fff inset, 0 14px 32px -18px rgb(10 31 68 / 0.4);
+}
+
+.compartilhar h2 {
+	margin: 0;
+	color: var(--navy-900);
+	font-size: 0.95rem;
+	font-weight: 800;
+	letter-spacing: 0.01em;
+}
+
+.compartilhar h2::before {
+	display: none;
+}
+
+.compartilhar ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.compartilhar a {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	min-height: 40px;
+	padding: 6px 14px;
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	background: var(--white);
+	color: var(--ink);
+	font-size: 0.9rem;
+	font-weight: 600;
+	text-decoration: none;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* ponto na cor de cada rede (sem logotipos de terceiros) */
+.compartilhar a::before {
+	content: '';
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--cor-rede, var(--navy-900));
+}
+
+.compartilhar a:hover {
+	border-color: var(--cor-rede, var(--blue-600));
+	box-shadow: 0 8px 18px -12px rgb(10 31 68 / 0.6);
+	transform: translateY(-2px);
+}
+
+.compartilhar a[data-rede='WhatsApp'] { --cor-rede: #25d366; }
+.compartilhar a[data-rede='LinkedIn'] { --cor-rede: #0a66c2; }
+.compartilhar a[data-rede='Facebook'] { --cor-rede: #1877f2; }
+.compartilhar a[data-rede='X'] { --cor-rede: #0f1419; }
+.compartilhar a[data-rede='Threads'] { --cor-rede: #101010; }
+.compartilhar a[data-rede='Bluesky'] { --cor-rede: #1185fe; }
+.compartilhar a[data-rede='Telegram'] { --cor-rede: #26a5e4; }
+.compartilhar a[data-rede='Reddit'] { --cor-rede: #ff4500; }
+.compartilhar a[data-rede='Pinterest'] { --cor-rede: #e60023; }
+.compartilhar a[data-rede='E-mail'] { --cor-rede: var(--red-600); }
 
 /* ---------- rodapé ---------- */
 

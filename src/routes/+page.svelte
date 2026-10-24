@@ -4,7 +4,7 @@
 	import Faq from '$lib/components/Faq.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
-	import { absolute, faqNode, graph, imageNode, personNode, serviceArea, webPageNode, websiteNode, type Faq as FaqItem } from '$lib/schema';
+	import { absolute, businessNode, faqNode, graph, imageNode, logoNode, navNode, personNode, serviceArea, webPageNode, websiteNode, type Faq as FaqItem } from '$lib/schema';
 	import { careerPage, cityPages, guides, person, regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/';
@@ -60,9 +60,24 @@
 		}
 	}));
 
+	// Sites em produção (mesma lista visível na seção de resultados)
+	const portfolio = [
+		{ name: 'Grupo OC', url: 'https://grupooc.com.br/', description: 'portal institucional do grupo.' },
+		{ name: 'Plano TIM Empresa', url: 'https://planotimempresa.com.br/', description: 'planos corporativos com captação de leads integrada ao CRM.' },
+		{ name: 'Link Dedicada', url: 'https://linkdedicada.com.br/', description: 'landing pages de link dedicado para empresas.' },
+		{ name: 'TIM Corporativo', url: 'https://timcorporativo.com.br/', description: 'site de telefonia empresarial.' },
+		{ name: 'Sorocaba Indica', url: 'https://sorocabaindica.com.br/', description: 'portais de buscas locais.' },
+		{ name: 'Campinas Indica', url: 'https://campinasindica.com.br/', description: 'portais de buscas locais.' },
+		{ name: 'Esquadrias Martins', url: 'https://esquadriasmartins.com.br/', description: 'vitrine de projetos de esquadrias.' },
+		{ name: 'Belle Moda Íntima', url: 'https://bellemodaintima.com.br/', description: 'e-commerce com catálogo sincronizado.' }
+	];
+
 	const jsonLd = graph(
 		websiteNode(),
-		imageNode(),
+		navNode(),
+		logoNode(),
+		businessNode(),
+		imageNode(path, title),
 		webPageNode({ path, title, description, aboutPerson: true }),
 		{
 			...personNode(),
@@ -72,7 +87,23 @@
 				itemListElement: offers
 			}
 		},
-		faqNode(path, faqs)
+		faqNode(path, faqs),
+		{
+			'@type': 'ItemList',
+			'@id': `${absolute(path)}#portfolio`,
+			name: 'Sites em produção em que trabalhei',
+			itemListElement: portfolio.map((site, i) => ({
+				'@type': 'ListItem',
+				position: i + 1,
+				item: {
+					'@type': 'WebSite',
+					name: site.name,
+					url: site.url,
+					description: site.description,
+					contributor: { '@id': `${absolute('/')}#pessoa` }
+				}
+			}))
+		}
 	);
 
 </script>

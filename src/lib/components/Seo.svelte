@@ -1,7 +1,7 @@
 <script lang="ts">
 	// <head> de cada página: title, metadados (autor, publicador, keywords, geo), canonical,
 	// hreflang, Open Graph (site, artigo e perfil), Twitter/X e JSON-LD.
-	import { SITE_URL, UPDATED, careerPage, pageKeywords, person, socials } from '$lib/site';
+	import { SITE_URL, UPDATED, careerPage, pageKeywords, person, shareCard, socials } from '$lib/site';
 	import { absolute } from '$lib/schema';
 
 	let {
@@ -21,9 +21,9 @@
 	const year = UPDATED.slice(0, 4);
 	const published = `${UPDATED}T09:00:00-03:00`;
 
-	// 1200×630: formato recomendado para compartilhamento (WhatsApp, LinkedIn, Facebook, X)
-	const image = `${SITE_URL}/images/compartilhamento-calebe-araujo.jpg`;
-	const imageAlt = 'Calebe Araujo, desenvolvedor full stack e consultor de SEO técnico em Sorocaba';
+	// Card próprio de cada página, 1200×630 (WhatsApp, LinkedIn, Facebook, X, Telegram, Threads)
+	const image = $derived(`${SITE_URL}${shareCard(path)}`);
+	const imageAlt = $derived(`${title.endsWith(BRAND) ? title.slice(0, -BRAND.length) : title} — ${person.name}, calebearaujo.com.br`);
 	const [firstName, ...lastNames] = person.name.split(' ');
 
 	// JSON dentro de <script>: escapa "<" para não fechar a tag por acidente
@@ -56,6 +56,7 @@
 	<link rel="author" href={absolute(careerPage.path)} />
 	<link rel="publisher" href={`${SITE_URL}/`} />
 	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+	<link rel="image_src" href={image} />
 	{#each socials as social (social.url)}
 		<link rel="me" href={social.url} />
 	{/each}
@@ -92,6 +93,7 @@
 
 	<!-- Twitter / X -->
 	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:url" content={url} />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={image} />

@@ -41,12 +41,28 @@
 		}
 	];
 
+	// Diagnóstico em 7 passos: a mesma lista alimenta o HTML e o HowTo do schema
+	const passosDiagnostico = [
+		{ nome: 'Search Console:', html: 'verifique a propriedade do domínio e envie o sitemap.xml. Sem isso, você não tem os dados do próprio Google.' },
+		{ nome: 'Inspeção de URL:', html: 'teste a página inicial e uma página de serviço. O resultado diz se a URL está no Google e, se não estiver, o motivo.' },
+		{ nome: 'noindex:', html: 'procure <code>noindex</code> no código-fonte da página e no cabeçalho HTTP <code>X-Robots-Tag</code>. É comum o tema ou um plugin deixar essa diretiva ligada depois do lançamento.' },
+		{ nome: 'robots.txt:', html: 'abra <code>seudominio.com.br/robots.txt</code> e veja se há <code>Disallow: /</code> ou regras bloqueando as páginas importantes.' },
+		{ nome: 'Canonical:', html: 'confira se a tag canonical aponta para a própria página. Um canonical apontando para outra URL faz o Google ignorar a página atual.' },
+		{ nome: 'JavaScript:', html: 'veja o código-fonte (não o inspecionar do navegador). Se o texto principal não estiver lá, o conteúdo depende de JavaScript, e nem todo robô o processa.' },
+		{ nome: 'Qualidade e duplicação:', html: 'no relatório de indexação, os status "Rastreada, mas não indexada" e "Detectada, mas não indexada" indicam páginas que o Google não considerou úteis ou prioritárias.' }
+	];
+	const semTags = (html: string) => html.replace(/<[^>]+>/g, '');
+
 	const jsonLd = pageGraph({
 		path,
 		title,
 		description,
 		crumbs,
 		faqs,
+		howTo: {
+			name: 'Diagnóstico em 7 passos',
+			steps: passosDiagnostico.map((p) => ({ name: p.nome.replace(/:$/, ''), text: `${p.nome} ${semTags(p.html)}` }))
+		},
 		article: { headline: 'Site não aparece no Google: diagnóstico passo a passo' }
 	});
 </script>
@@ -95,13 +111,9 @@
 	<section aria-labelledby="passos-titulo">
 		<h2 id="passos-titulo">Diagnóstico em 7 passos</h2>
 		<ol>
-			<li><strong>Search Console:</strong> verifique a propriedade do domínio e envie o sitemap.xml. Sem isso, você não tem os dados do próprio Google.</li>
-			<li><strong>Inspeção de URL:</strong> teste a página inicial e uma página de serviço. O resultado diz se a URL está no Google e, se não estiver, o motivo.</li>
-			<li><strong>noindex:</strong> procure <code>noindex</code> no código-fonte da página e no cabeçalho HTTP <code>X-Robots-Tag</code>. É comum o tema ou um plugin deixar essa diretiva ligada depois do lançamento.</li>
-			<li><strong>robots.txt:</strong> abra <code>seudominio.com.br/robots.txt</code> e veja se há <code>Disallow: /</code> ou regras bloqueando as páginas importantes.</li>
-			<li><strong>Canonical:</strong> confira se a tag canonical aponta para a própria página. Um canonical apontando para outra URL faz o Google ignorar a página atual.</li>
-			<li><strong>JavaScript:</strong> veja o código-fonte (não o inspecionar do navegador). Se o texto principal não estiver lá, o conteúdo depende de JavaScript, e nem todo robô o processa.</li>
-			<li><strong>Qualidade e duplicação:</strong> no relatório de indexação, os status "Rastreada, mas não indexada" e "Detectada, mas não indexada" indicam páginas que o Google não considerou úteis ou prioritárias.</li>
+			{#each passosDiagnostico as passo (passo.nome)}
+				<li><strong>{passo.nome}</strong> {@html passo.html}</li>
+			{/each}
 		</ol>
 	</section>
 
