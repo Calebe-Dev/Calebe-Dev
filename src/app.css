@@ -322,6 +322,33 @@ body > main {
 	animation: drift 20s ease-in-out infinite alternate;
 }
 
+/* vídeo de fundo: aurora da marca por baixo das camadas de brilho (só desktop e sem "reduzir movimento") */
+.hero-video {
+	position: absolute;
+	inset: 0;
+	z-index: -3;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	pointer-events: none;
+}
+
+@media (max-width: 759.98px), (prefers-reduced-motion: reduce) {
+	.hero-video {
+		display: none;
+	}
+}
+
+@media (min-width: 760px) and (prefers-reduced-motion: no-preference) {
+	.hero::before {
+		opacity: 0.4;
+	}
+
+	.hero::after {
+		opacity: 0.5;
+	}
+}
+
 .hero h1 {
 	max-width: 20ch;
 	margin: 0 0 20px;
@@ -861,6 +888,235 @@ main > p:last-child {
 	color: var(--muted);
 	font-size: 0.9rem;
 	text-align: center;
+}
+
+/* ---------- camada visual: ícones, cards e capturas, só com CSS (o HTML e os textos não mudam) ---------- */
+
+/* ícone de cada destino: o link (ou o título do serviço na home) recebe a imagem pelo endereço */
+a[href='/consultoria-seo'],
+#servicos > h3:has(+ p a[href='/consultoria-seo']:last-of-type) {
+	--icone: url('/images/icones/consultoria-seo.svg');
+}
+
+a[href='/auditoria-seo'],
+#servicos > h3:has(+ p a[href='/auditoria-seo']:last-of-type) {
+	--icone: url('/images/icones/auditoria-seo.svg');
+}
+
+a[href='/criacao-de-sites'],
+#servicos > h3:has(+ p a[href='/criacao-de-sites']:last-of-type) {
+	--icone: url('/images/icones/criacao-de-sites.svg');
+}
+
+a[href='/otimizacao-de-sites'],
+#servicos > h3:has(+ p a[href='/otimizacao-de-sites']:last-of-type) {
+	--icone: url('/images/icones/otimizacao-de-sites.svg');
+}
+
+a[href='/desenvolvimento-de-sistemas-web'],
+#servicos > h3:has(+ p a[href='/desenvolvimento-de-sistemas-web']:last-of-type) {
+	--icone: url('/images/icones/sistemas-web.svg');
+}
+
+a[href='/seo-para-b2b'],
+#servicos > h3:has(+ p a[href='/seo-para-b2b']:last-of-type) {
+	--icone: url('/images/icones/seo-b2b.svg');
+}
+
+a[href='/como-aparecer-no-google'],
+#servicos > h3:has(+ p a[href='/como-aparecer-no-google']:last-of-type) {
+	--icone: url('/images/icones/aparecer-no-google.svg');
+}
+
+a[href='/site-nao-aparece-no-google'],
+#servicos > h3:has(+ p a[href='/site-nao-aparece-no-google']:last-of-type) {
+	--icone: url('/images/icones/site-nao-aparece.svg');
+}
+
+a[href='/seo-para-ia'],
+#servicos > h3:has(+ p a[href='/seo-para-ia']:last-of-type) {
+	--icone: url('/images/icones/seo-para-ia.svg');
+}
+
+a[href='/seo-para-sites-angular'],
+#servicos > h3:has(+ p a[href='/seo-para-sites-angular']:last-of-type) {
+	--icone: url('/images/icones/seo-angular.svg');
+}
+
+a[href='/desenvolvedor-full-stack-sorocaba'],
+#servicos > h3:has(+ p a[href='/desenvolvedor-full-stack-sorocaba']:last-of-type) {
+	--icone: url('/images/icones/recrutadores.svg');
+}
+
+a[href='/sorocaba-e-regiao'],
+#servicos > h3:has(+ p a[href='/sorocaba-e-regiao']:last-of-type) {
+	--icone: url('/images/icones/regiao.svg');
+}
+
+a[href='/mapa-do-site'],
+#servicos > h3:has(+ p a[href='/mapa-do-site']:last-of-type) {
+	--icone: url('/images/icones/mapa-do-site.svg');
+}
+
+a[href^='/criacao-de-sites-'],
+a[href='/consultoria-seo-sorocaba'],
+a[href='/consultoria-seo-sao-paulo'] {
+	--icone: url('/images/icones/cidade.svg');
+}
+
+/* selo do ícone: gradiente da marca com o traço branco por cima */
+main ul:has(> li > p > a:only-child) a[href^='/']::before,
+#servicos > h3::before {
+	content: '';
+	flex: none;
+	width: 40px;
+	height: 40px;
+	border-radius: 12px;
+	background:
+		var(--icone, none) center / 22px no-repeat,
+		linear-gradient(135deg, var(--blue-700), var(--red-700));
+	box-shadow: 0 8px 18px -10px rgb(29 78 216 / 0.9);
+}
+
+main ul:has(> li > p > a:only-child) a[href^='/'] {
+	justify-content: flex-start;
+}
+
+main ul:has(> li > p > a:only-child) a[href^='/']::after {
+	margin-left: auto;
+}
+
+#servicos > h3 {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+#servicos > h3::before {
+	width: 46px;
+	height: 46px;
+	border-radius: 14px;
+	background-size: 24px, auto;
+}
+
+/* resultados: três números em destaque */
+#resultados > ul:first-of-type {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+	gap: 14px;
+	margin: 0 0 28px;
+	padding: 0;
+	list-style: none;
+}
+
+#resultados > ul:first-of-type > li {
+	position: relative;
+	overflow: hidden;
+	max-width: none;
+	margin: 0;
+	padding: 22px 22px 24px;
+	border-radius: var(--radius);
+	background:
+		radial-gradient(closest-side at 100% 0%, rgb(220 38 38 / 0.35), transparent),
+		linear-gradient(160deg, var(--navy-900), #0f2f78);
+	color: var(--blue-100);
+	box-shadow: var(--shadow);
+}
+
+#resultados > ul:first-of-type > li strong {
+	color: var(--white);
+	font-size: 1.2rem;
+	line-height: 1.35;
+}
+
+/* sites em produção: cards com a captura real de cada projeto */
+#resultados h3 + ul {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+	gap: 16px;
+	padding: 0;
+	list-style: none;
+}
+
+#resultados h3 + ul > li {
+	position: relative;
+	overflow: hidden;
+	max-width: none;
+	margin: 0;
+	padding: 0 18px 18px;
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	background: var(--white);
+	font-size: 0.97rem;
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+#resultados h3 + ul > li::before {
+	content: '';
+	display: block;
+	aspect-ratio: 2 / 1;
+	margin: 0 -18px 14px;
+	border-bottom: 1px solid var(--line);
+	background: var(--captura, none) top center / cover no-repeat, var(--navy-900);
+	transition: transform 0.4s ease;
+}
+
+#resultados h3 + ul > li:hover {
+	border-color: var(--blue-600);
+	box-shadow: var(--shadow);
+	transform: translateY(-3px);
+}
+
+#resultados h3 + ul > li:hover::before {
+	transform: scale(1.03);
+}
+
+#resultados h3 + ul > li:has(> a[href='https://grupooc.com.br/']) {
+	--captura: url('/images/projetos/grupooc.webp');
+}
+
+#resultados h3 + ul > li:has(> a[href='https://planotimempresa.com.br/']) {
+	--captura: url('/images/projetos/planotimempresa.webp');
+}
+
+#resultados h3 + ul > li:has(> a[href='https://linkdedicada.com.br/']) {
+	--captura: url('/images/projetos/linkdedicada.webp');
+}
+
+#resultados h3 + ul > li:has(> a[href='https://timcorporativo.com.br/']) {
+	--captura: url('/images/projetos/timcorporativo.webp');
+}
+
+#resultados h3 + ul > li:has(> a[href='https://sorocabaindica.com.br/']) {
+	--captura: url('/images/projetos/sorocabaindica.webp');
+}
+
+#resultados h3 + ul > li:has(> a[href='https://esquadriasmartins.com.br/']) {
+	--captura: url('/images/projetos/esquadriasmartins.webp');
+}
+
+#resultados h3 + ul > li:has(> a[href='https://bellemodaintima.com.br/']) {
+	--captura: url('/images/projetos/bellemodaintima.webp');
+}
+
+/* seções entram com um leve deslize conforme a rolagem (sem JavaScript; só transform, o contraste não muda) */
+@media (prefers-reduced-motion: no-preference) {
+	@supports (animation-timeline: view()) {
+		main > section {
+			animation: surgir linear both;
+			animation-timeline: view();
+			animation-range: entry 0% entry 40%;
+		}
+	}
+}
+
+@keyframes surgir {
+	from {
+		transform: translateY(36px) scale(0.98);
+	}
+	to {
+		transform: none;
+	}
 }
 
 /* ---------- rodapé ---------- */

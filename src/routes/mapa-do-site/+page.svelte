@@ -1,4 +1,5 @@
 <script lang="ts">
+	import HeroVideo from '$lib/components/HeroVideo.svelte';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
@@ -47,6 +48,7 @@
 
 <main id="conteudo">
 	<header class="hero">
+		<HeroVideo />
 		<Breadcrumbs {crumbs} />
 
 		<h1>Mapa do site</h1>
