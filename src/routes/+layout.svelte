@@ -1,8 +1,12 @@
 <script lang="ts">
 	import '../app.css';
+	import { page } from '$app/state';
 	import { careerPage, defaultWhatsApp, person, regionPage, services, siteGroups, sitemapPage, socials, whatsappLink } from '$lib/site';
 
 	let { children } = $props();
+
+	// marca o link da página atual no menu (acessibilidade e destaque visual)
+	const atual = (href: string) => (page.url.pathname === href ? 'page' : undefined);
 </script>
 
 <a href="#conteudo">Pular para o conteúdo</a>
@@ -11,14 +15,14 @@
 	<p><a href="/">{person.name}</a></p>
 	<nav aria-label="Principal">
 		<ul>
-			<li><p><a href={services.consultoriaSeo.path}>Consultoria de SEO</a></p></li>
-			<li><p><a href={services.auditoriaSeo.path}>Auditoria de SEO</a></p></li>
-			<li><p><a href={services.criacaoDeSites.path}>Criação de sites</a></p></li>
-			<li><p><a href={services.otimizacaoDeSites.path}>Otimização de sites</a></p></li>
-			<li><p><a href={services.sistemasWeb.path}>Sistemas web</a></p></li>
-			<li><p><a href={services.seoB2b.path}>SEO B2B</a></p></li>
-			<li><p><a href={careerPage.path}>Para recrutadores</a></p></li>
-			<li><p><a href={regionPage.path}>Sorocaba e região</a></p></li>
+			<li><p><a href={services.consultoriaSeo.path} aria-current={atual(services.consultoriaSeo.path)}>Consultoria de SEO</a></p></li>
+			<li><p><a href={services.auditoriaSeo.path} aria-current={atual(services.auditoriaSeo.path)}>Auditoria de SEO</a></p></li>
+			<li><p><a href={services.criacaoDeSites.path} aria-current={atual(services.criacaoDeSites.path)}>Criação de sites</a></p></li>
+			<li><p><a href={services.otimizacaoDeSites.path} aria-current={atual(services.otimizacaoDeSites.path)}>Otimização de sites</a></p></li>
+			<li><p><a href={services.sistemasWeb.path} aria-current={atual(services.sistemasWeb.path)}>Sistemas web</a></p></li>
+			<li><p><a href={services.seoB2b.path} aria-current={atual(services.seoB2b.path)}>SEO B2B</a></p></li>
+			<li><p><a href={careerPage.path} aria-current={atual(careerPage.path)}>Para recrutadores</a></p></li>
+			<li><p><a href={regionPage.path} aria-current={atual(regionPage.path)}>Sorocaba e região</a></p></li>
 			<li><p><a href={whatsappLink(defaultWhatsApp.message)}>WhatsApp {person.phoneDisplay}</a></p></li>
 		</ul>
 	</nav>

@@ -54,11 +54,35 @@ body {
 	font-size: 1.0625rem;
 	line-height: 1.7;
 	color: var(--text);
-	background:
-		radial-gradient(1200px 600px at 100% -10%, rgb(37 99 235 / 0.08), transparent 60%),
-		radial-gradient(900px 500px at -10% 10%, rgb(220 38 38 / 0.05), transparent 60%),
-		var(--bg);
+	background: linear-gradient(180deg, #edf2fb 0%, var(--bg) 35%, #eef2f9 100%);
 	text-rendering: optimizeLegibility;
+}
+
+/* profundidade do fundo: luzes difusas da marca e uma malha de pontos (camadas fixas, sem custo de rolagem) */
+body::before,
+body::after {
+	content: '';
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+}
+
+body::before {
+	background:
+		radial-gradient(900px 620px at 105% -8%, rgb(37 99 235 / 0.18), transparent 62%),
+		radial-gradient(760px 560px at -12% 38%, rgb(220 38 38 / 0.09), transparent 62%),
+		radial-gradient(900px 640px at 50% 118%, rgb(29 78 216 / 0.12), transparent 62%);
+}
+
+body::after {
+	background-image:
+		radial-gradient(rgb(10 31 68 / 0.11) 1px, transparent 1.3px),
+		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.04 0 0 0 0 0.12 0 0 0 0 0.27 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+	background-size: 24px 24px, 180px 180px;
+	opacity: 0.55;
+	-webkit-mask-image: linear-gradient(180deg, #000 0%, rgb(0 0 0 / 0.35) 45%, #000 100%);
+	mask-image: linear-gradient(180deg, #000 0%, rgb(0 0 0 / 0.35) 45%, #000 100%);
 }
 
 ::selection {
@@ -156,7 +180,7 @@ body > a:first-child:focus {
 	transform: translateY(0);
 }
 
-/* ---------- cabeçalho do site ---------- */
+/* ---------- cabeçalho do site: barra flutuante de vidro ---------- */
 
 body > header {
 	position: relative;
@@ -164,14 +188,22 @@ body > header {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	gap: 8px 24px;
-	padding: 14px max(var(--gutter), calc((100% - var(--container)) / 2));
-	background: rgb(255 255 255 / 0.88);
-	backdrop-filter: saturate(180%) blur(14px);
-	border-bottom: 1px solid var(--line);
+	gap: 6px 24px;
+	max-width: var(--container);
+	margin: 12px max(12px, calc((100% - var(--container)) / 2)) 0;
+	padding: 12px 16px 10px;
+	overflow: hidden;
+	border: 1px solid rgb(255 255 255 / 0.85);
+	border-radius: 22px;
+	background: linear-gradient(180deg, rgb(255 255 255 / 0.9), rgb(255 255 255 / 0.74));
+	backdrop-filter: saturate(180%) blur(16px);
+	box-shadow:
+		0 1px 0 rgb(255 255 255) inset,
+		0 1px 2px rgb(10 31 68 / 0.06),
+		0 14px 34px -16px rgb(10 31 68 / 0.38);
 }
 
-/* faixa animada azul–vermelho no topo */
+/* faixa animada azul–vermelho no topo da barra */
 body > header::before {
 	content: '';
 	position: absolute;
@@ -186,28 +218,36 @@ body > header > p {
 	margin: 0;
 }
 
-/* marca: logotipo + nome */
+/* marca: monograma + nome */
 body > header > p > a {
 	white-space: nowrap;
 	display: inline-flex;
 	align-items: center;
-	gap: 10px;
+	gap: 11px;
 	min-height: 44px;
 	color: var(--navy-900);
 	font-weight: 800;
-	font-size: 1.15rem;
-	letter-spacing: -0.01em;
+	font-size: 1.18rem;
+	letter-spacing: -0.02em;
 	text-decoration: none;
 }
 
 body > header > p > a::before {
 	content: '';
-	width: 36px;
-	height: 36px;
+	width: 40px;
+	height: 40px;
 	flex: none;
 	border-radius: 50%;
-	background: url('/images/logo-calebe-araujo-72.jpg') center / cover;
-	box-shadow: 0 0 0 2px var(--white), 0 6px 16px -6px rgb(29 78 216 / 0.7);
+	background: url('/images/logo-marca.svg') center / cover;
+	box-shadow:
+		0 0 0 3px rgb(255 255 255 / 0.9),
+		0 8px 18px -6px rgb(29 78 216 / 0.75),
+		0 2px 6px -2px rgb(185 28 28 / 0.4);
+	transition: transform 0.35s ease;
+}
+
+body > header > p > a:hover::before {
+	transform: rotate(-12deg) scale(1.05);
 }
 
 body > header nav {
@@ -217,16 +257,28 @@ body > header nav {
 
 body > header nav ul {
 	display: flex;
-	gap: 4px;
+	gap: 2px;
 	margin: 0;
-	padding: 2px 0 4px;
+	padding: 4px;
 	list-style: none;
 	overflow-x: auto;
 	scrollbar-width: none;
+	border: 1px solid rgb(10 31 68 / 0.06);
+	border-radius: 16px;
+	background: rgb(10 31 68 / 0.035);
+	box-shadow: 0 1px 2px rgb(10 31 68 / 0.05) inset;
 }
 
 body > header nav ul::-webkit-scrollbar {
 	display: none;
+}
+
+/* celular: o menu rola para o lado; o esmaecimento à direita mostra que há mais itens */
+@media (max-width: 759.98px) {
+	body > header nav ul {
+		-webkit-mask-image: linear-gradient(90deg, #000 82%, transparent);
+		mask-image: linear-gradient(90deg, #000 82%, transparent);
+	}
 }
 
 body > header nav li p {
@@ -237,23 +289,35 @@ body > header nav a {
 	display: inline-flex;
 	align-items: center;
 	min-height: 40px;
-	padding: 6px 14px;
-	border-radius: 999px;
+	padding: 6px 13px;
+	border-radius: 12px;
 	color: var(--ink);
-	font-size: 0.93rem;
+	font-size: 0.92rem;
 	font-weight: 600;
 	white-space: nowrap;
 	text-decoration: none;
-	transition: background-color 0.2s ease, color 0.2s ease;
+	transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 body > header nav a:hover {
-	background: var(--blue-50);
+	background: var(--white);
 	color: var(--blue-700);
+	box-shadow: 0 1px 2px rgb(10 31 68 / 0.08), 0 6px 14px -8px rgb(10 31 68 / 0.35);
 }
 
-/* telas largas: menu inteiro visível, quebrando linha se precisar (sem rolagem lateral) */
+/* página atual em destaque */
+body > header nav a[aria-current='page'] {
+	background: linear-gradient(135deg, var(--navy-900), #163a8c);
+	color: var(--white);
+	box-shadow: 0 6px 14px -8px rgb(10 31 68 / 0.8);
+}
+
+/* telas largas: menu inteiro numa trilha e WhatsApp alinhado à marca, à direita */
 @media (min-width: 760px) {
+	body > header {
+		padding: 12px 18px 12px;
+	}
+
 	body > header nav ul {
 		flex-wrap: wrap;
 		overflow: visible;
@@ -261,12 +325,24 @@ body > header nav a:hover {
 
 	body > header nav a {
 		padding: 6px 11px;
-		font-size: 0.9rem;
+		font-size: 0.88rem;
 	}
 
-	/* CTA do WhatsApp sempre no fim, alinhado à direita */
 	body > header nav li:last-child {
-		margin-left: auto;
+		position: absolute;
+		top: 13px;
+		right: 18px;
+	}
+}
+
+@media (min-width: 1100px) {
+	body > header nav ul {
+		flex-wrap: nowrap;
+		justify-content: space-between;
+	}
+
+	body > header nav a {
+		padding: 6px 9px;
 	}
 }
 
@@ -322,15 +398,60 @@ body > main {
 	animation: drift 20s ease-in-out infinite alternate;
 }
 
-/* vídeo de fundo: aurora da marca por baixo das camadas de brilho (só desktop e sem "reduzir movimento") */
+/* mídia do hero (decorativa): vídeo de fundo < foto da página < brilhos */
 .hero-video {
 	position: absolute;
 	inset: 0;
-	z-index: -3;
+	z-index: -5;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	pointer-events: none;
+}
+
+.hero-foto img {
+	position: absolute;
+	z-index: -4;
+	object-fit: cover;
+	pointer-events: none;
+	transform-origin: 70% 50%;
+	animation: zoom-lento 26s ease-in-out infinite alternate;
+}
+
+/* zoom lento na foto (efeito Ken Burns): só transform, sem custo de layout */
+@keyframes zoom-lento {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.07);
+	}
+}
+
+/* celular: a foto vira um fundo suave que some em direção ao texto */
+@media (max-width: 759.98px) {
+	.hero-foto img {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: min(62%, 420px);
+		object-position: 72% center;
+		opacity: 0.6;
+		-webkit-mask-image: linear-gradient(to bottom, #000 0%, rgb(0 0 0 / 0.6) 55%, transparent 100%);
+		mask-image: linear-gradient(to bottom, #000 0%, rgb(0 0 0 / 0.6) 55%, transparent 100%);
+	}
+}
+
+/* computador: a foto ocupa a direita do painel e se dissolve em direção ao texto */
+@media (min-width: 760px) {
+	.hero-foto img {
+		top: 0;
+		right: 0;
+		width: 62%;
+		height: 100%;
+		-webkit-mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.3) 35%, rgb(0 0 0 / 0.75) 60%, #000 80%);
+		mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.3) 35%, rgb(0 0 0 / 0.75) 60%, #000 80%);
+	}
 }
 
 @media (max-width: 759.98px), (prefers-reduced-motion: reduce) {
@@ -367,6 +488,13 @@ body > main {
 
 .hero strong {
 	color: var(--white);
+}
+
+/* sombra discreta para o texto continuar legível sobre fotos e vídeo */
+.hero h1,
+.hero p,
+.hero nav {
+	text-shadow: 0 1px 14px rgb(5 15 36 / 0.65);
 }
 
 .hero a:not([href^='https://wa.me/']) {
@@ -540,12 +668,18 @@ a[download]:hover {
 main > section,
 main > nav[aria-labelledby] {
 	position: relative;
-	margin: 0 0 24px;
+	margin: 0 0 26px;
 	padding: clamp(22px, 4.5vw, 48px);
-	border: 1px solid var(--line);
+	border: 1px solid transparent;
 	border-radius: var(--radius-lg);
-	background: var(--white);
-	box-shadow: var(--shadow);
+	background:
+		linear-gradient(180deg, #ffffff 0%, #fbfcff 100%) padding-box,
+		linear-gradient(150deg, rgb(255 255 255 / 0.95), rgb(37 99 235 / 0.18) 55%, rgb(220 38 38 / 0.14)) border-box;
+	box-shadow:
+		0 1px 0 rgb(255 255 255) inset,
+		0 1px 2px rgb(10 31 68 / 0.05),
+		0 14px 28px -14px rgb(10 31 68 / 0.22),
+		0 44px 80px -44px rgb(10 31 68 / 0.32);
 }
 
 main > section > :last-child,
@@ -1194,7 +1328,7 @@ body > footer a:hover {
 	height: 44px;
 	flex: none;
 	border-radius: 50%;
-	background: url('/images/logo-calebe-araujo-72.jpg') center / cover;
+	background: url('/images/logo-marca.svg') center / cover;
 	box-shadow: 0 0 0 2px rgb(255 255 255 / 0.85), 0 8px 20px -8px rgb(59 130 246 / 0.8);
 }
 

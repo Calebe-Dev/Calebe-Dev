@@ -1,5 +1,5 @@
 <script lang="ts">
-	import HeroVideo from '$lib/components/HeroVideo.svelte';
+	import HeroMidia from '$lib/components/HeroMidia.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Seo from '$lib/components/Seo.svelte';
@@ -81,7 +81,7 @@
 
 <main id="conteudo">
 	<header class="hero">
-		<HeroVideo />
+		<HeroMidia foto="home" video="rede" />
 		<h1>Desenvolvedor full stack e consultor de SEO técnico</h1>
 
 		<p>

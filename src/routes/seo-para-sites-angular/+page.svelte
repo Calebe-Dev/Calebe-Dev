@@ -1,5 +1,5 @@
 <script lang="ts">
-	import HeroVideo from '$lib/components/HeroVideo.svelte';
+	import HeroMidia from '$lib/components/HeroMidia.svelte';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
@@ -60,7 +60,7 @@
 
 <main id="conteudo">
 	<header class="hero">
-		<HeroVideo />
+		<HeroMidia foto="seo-angular" />
 		<Breadcrumbs {crumbs} />
 
 		<h1>SEO para sites Angular: SSR, pré-renderização e indexação</h1>

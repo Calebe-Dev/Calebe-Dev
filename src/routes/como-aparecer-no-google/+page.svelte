@@ -1,5 +1,5 @@
 <script lang="ts">
-	import HeroVideo from '$lib/components/HeroVideo.svelte';
+	import HeroMidia from '$lib/components/HeroMidia.svelte';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
@@ -55,7 +55,7 @@
 
 <main id="conteudo">
 	<header class="hero">
-		<HeroVideo />
+		<HeroMidia foto="como-aparecer-no-google" />
 		<Breadcrumbs {crumbs} />
 
 		<h1>Como colocar minha empresa no Google e na primeira página</h1>
