@@ -2,13 +2,19 @@
 	import Contact from '$lib/components/Contact.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Seo from '$lib/components/Seo.svelte';
-	import { absolute, faqNode, graph, personNode, serviceArea, webPageNode, websiteNode, type Faq as FaqItem } from '$lib/schema';
-	import { careerPage, cityPages, person, regionPage, services } from '$lib/site';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
+	import { absolute, faqNode, graph, imageNode, personNode, serviceArea, webPageNode, websiteNode, type Faq as FaqItem } from '$lib/schema';
+	import { careerPage, cityPages, person, regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/';
-	const title = 'Desenvolvedor full stack e consultor de SEO técnico - Calebe Araujo';
+	const title = 'Calebe Araujo: desenvolvedor full stack e consultor de SEO';
 	const description =
-		'Calebe Araujo, desenvolvedor full stack e consultor de SEO técnico em Sorocaba (SP): sites rápidos, auditoria de SEO e sistemas web para empresas.';
+		'Calebe Araujo, desenvolvedor full stack e consultor de SEO técnico baseado em Sorocaba (SP): sites rápidos, auditoria de SEO e sistemas web.';
+
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Vim pelo seu site e quero uma proposta para o meu projeto.',
+		label: 'Pedir uma proposta pelo WhatsApp'
+	};
 
 	const faqs: FaqItem[] = [
 		{
@@ -40,12 +46,18 @@
 
 	const offers = Object.values(services).map((s) => ({
 		'@type': 'Offer',
-		itemOffered: { '@type': 'Service', name: s.name, url: absolute(s.path), areaServed: serviceArea }
+		itemOffered: {
+			'@type': 'Service',
+			name: s.name,
+			url: absolute(s.path),
+			areaServed: [serviceArea, { '@type': 'Country', name: 'Brasil' }]
+		}
 	}));
 
 	const jsonLd = graph(
 		websiteNode(),
-		webPageNode({ path, title, description, type: 'ProfilePage', mainEntity: 'pessoa' }),
+		imageNode(),
+		webPageNode({ path, title, description, aboutPerson: true }),
 		{
 			...personNode(),
 			hasOfferCatalog: {
@@ -57,29 +69,32 @@
 		faqNode(path, faqs)
 	);
 
-	const regional = cityPages.filter((c) => c.city !== 'Sorocaba');
 </script>
 
 <Seo {title} {description} {path} {jsonLd} ogType="profile" />
 
 <main id="conteudo">
-	<h1>Desenvolvedor full stack e consultor de SEO técnico</h1>
+	<header class="hero">
+		<h1>Desenvolvedor full stack e consultor de SEO técnico</h1>
 
-	<p>
-		Sou <strong>{person.name}</strong>, desenvolvedor full stack e consultor de SEO técnico em
-		{person.city} ({person.region}). Construo sites e sistemas web rápidos, fáceis de indexar e
-		pensados para gerar contatos, e atendo empresas de todo o Brasil de forma remota.
-	</p>
-	<p>
-		No Grupo OC, arquitetei um CRM em microsserviços que integra 25 sites e, ao migrar sistemas
-		legados para Angular e Svelte, reduzi o tempo de carregamento das páginas de 8 para 1 segundo.
-		Antes disso, desenvolvi mais de 60 landing pages e sites institucionais com SEO técnico aplicado
-		desde o código.
-	</p>
-	<p>
-		<a href="#contato">Peça uma proposta</a>, <a href={person.whatsapp}>fale comigo pelo WhatsApp</a> ou,
-		se você é recrutador, veja meu <a href={careerPage.path}>perfil profissional completo</a>.
-	</p>
+		<p>
+			Sou <strong>{person.name}</strong>, desenvolvedor full stack e consultor de SEO técnico baseado em
+			{person.city} ({person.region}). Construo sites e sistemas web rápidos, fáceis de indexar e
+			pensados para gerar contatos, e atendo empresas de todo o Brasil de forma remota, da
+			<a href={services.consultoriaSeo.path}>consultoria de SEO técnico</a> ao desenvolvimento do site.
+		</p>
+		<p>
+			No Grupo OC, arquitetei um CRM em microsserviços que integra 25 sites e, ao migrar sistemas
+			legados para Angular e Svelte, reduzi o tempo de carregamento das páginas de 8 para 1 segundo.
+			Antes disso, desenvolvi mais de 60 landing pages e sites institucionais com SEO técnico aplicado
+			desde o código.
+		</p>
+		<WhatsAppCta {...whatsapp} />
+		<p>
+			Se você é recrutador, veja meu <a href={careerPage.path}>perfil profissional completo</a> ou
+			<a href={person.cv} download type="application/pdf">baixe o currículo em PDF</a>.
+		</p>
+	</header>
 
 	<section id="servicos" aria-labelledby="servicos-titulo">
 		<h2 id="servicos-titulo">Serviços de SEO, desenvolvimento web e consultoria</h2>
@@ -198,6 +213,8 @@
 			{person.city} e região. O histórico completo, com stack, resultados e formas de contato, está
 			no meu <a href={careerPage.path}>perfil de desenvolvedor full stack em Sorocaba</a>.
 		</p>
+		<p><a href={person.cv} download type="application/pdf">Baixar currículo em PDF</a></p>
+		<p><a href={person.cv} download type="application/pdf">Baixar currículo em PDF</a></p>
 	</section>
 
 	<section id="regiao" aria-labelledby="regiao-titulo">
@@ -208,10 +225,8 @@
 			paulista. Para empresas de outras regiões, todo o trabalho é feito de forma remota.
 		</p>
 		<ul>
-			<li><a href="/criacao-de-sites-sorocaba">Criação de sites em Sorocaba</a></li>
-			<li><a href="/consultoria-seo-sorocaba">Consultoria de SEO em Sorocaba</a></li>
-			{#each regional as page (page.path)}
-				<li><a href={page.path}>{page.service} em {page.city}</a></li>
+			{#each cityPages as page (page.path)}
+				<li><p><a href={page.path}>{page.anchor[0].toUpperCase() + page.anchor.slice(1)}</a></p></li>
 			{/each}
 		</ul>
 		<p><a href={regionPage.path}>Veja como funciona o atendimento por distância e as cidades atendidas</a>.</p>
@@ -220,7 +235,8 @@
 	<Faq {faqs} />
 
 	<Contact
+		{whatsapp}
 		title="Contato"
-		intro="Para propostas de consultoria, auditoria de SEO ou desenvolvimento, e também para oportunidades de vaga, fale comigo por e-mail ou WhatsApp."
+		intro="Para propostas de consultoria, auditoria de SEO ou desenvolvimento, e também para oportunidades de vaga, fale comigo pelo WhatsApp."
 	/>
 </main>

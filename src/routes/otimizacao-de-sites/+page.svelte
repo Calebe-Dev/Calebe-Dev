@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { services } from '$lib/site';
+	import { services, type WhatsApp } from '$lib/site';
 
 	const path = services.otimizacaoDeSites.path;
 	const title = 'Otimização de sites lentos e Core Web Vitals - Calebe Araujo';
 	const description =
 		'Otimização de sites lentos: diagnóstico de Core Web Vitals, imagens, scripts e infraestrutura. Caso real com carregamento reduzido de 8 s para 1 s.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Meu site está lento. O endereço é: ',
+		label: 'Pedir diagnóstico de velocidade pelo WhatsApp'
+	};
+
 	const crumbs = [{ name: 'Otimização de sites', path }];
 
 	const faqs: FaqItem[] = [
@@ -53,15 +59,19 @@
 <Seo {title} {description} {path} {jsonLd} />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>Otimização de sites lentos e Core Web Vitals</h1>
+		<h1>Otimização de sites lentos e Core Web Vitals</h1>
 
-	<p>
-		Otimização de sites é o trabalho de reduzir o tempo de carregamento e a instabilidade das páginas,
-		medidos pelos Core Web Vitals do Google. Em um projeto real, a migração de sistemas legados para
-		Angular e Svelte reduziu o carregamento das páginas de 8 para 1 segundo, uma melhora de 90%.
-	</p>
+		<p>
+			Otimização de sites é o trabalho de reduzir o tempo de carregamento e a instabilidade das páginas,
+			medidos pelos Core Web Vitals do Google. Em um projeto real, a migração de sistemas legados para
+			Angular e Svelte reduziu o carregamento das páginas de 8 para 1 segundo, uma melhora de 90%.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+	</header>
 
 	<section aria-labelledby="causas-titulo">
 		<h2 id="causas-titulo">Por que um site fica lento</h2>
@@ -121,6 +131,7 @@
 			<li><strong>Mudar a arquitetura quando necessário:</strong> páginas estáticas ou renderizadas no servidor quando a stack atual não tem como ser rápida.</li>
 			<li><strong>Validar:</strong> acompanho os dados de campo nas semanas seguintes, porque eles levam 28 dias para refletir a mudança.</li>
 		</ol>
+		<WhatsAppCta {...whatsapp} />
 	</section>
 
 	<section aria-labelledby="wordpress-titulo">
@@ -144,5 +155,5 @@
 		]}
 	/>
 
-	<Contact title="Descubra por que o seu site está lento" intro="Envie o endereço do site e as páginas que mais importam para o seu negócio." />
+	<Contact {whatsapp} title="Descubra por que o seu site está lento" intro="Envie o endereço do site e as páginas que mais importam para o seu negócio." />
 </main>

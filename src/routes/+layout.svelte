@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { careerPage, person, regionPage, services } from '$lib/site';
+	import '../app.css';
+	import { careerPage, defaultWhatsApp, person, regionPage, services, sitemapPage, socials, whatsappLink } from '$lib/site';
 
 	let { children } = $props();
 </script>
@@ -10,15 +11,15 @@
 	<p><a href="/">{person.name}</a></p>
 	<nav aria-label="Principal">
 		<ul>
-			<li><a href={services.consultoriaSeo.path}>Consultoria de SEO</a></li>
-			<li><a href={services.auditoriaSeo.path}>Auditoria de SEO</a></li>
-			<li><a href={services.criacaoDeSites.path}>Criação de sites</a></li>
-			<li><a href={services.otimizacaoDeSites.path}>Otimização de sites</a></li>
-			<li><a href={services.sistemasWeb.path}>Sistemas web</a></li>
-			<li><a href={services.seoB2b.path}>SEO B2B</a></li>
-			<li><a href={careerPage.path}>Para recrutadores</a></li>
-			<li><a href={regionPage.path}>Sorocaba e região</a></li>
-			<li><a href="/#contato">Contato</a></li>
+			<li><p><a href={services.consultoriaSeo.path}>Consultoria de SEO</a></p></li>
+			<li><p><a href={services.auditoriaSeo.path}>Auditoria de SEO</a></p></li>
+			<li><p><a href={services.criacaoDeSites.path}>Criação de sites</a></p></li>
+			<li><p><a href={services.otimizacaoDeSites.path}>Otimização de sites</a></p></li>
+			<li><p><a href={services.sistemasWeb.path}>Sistemas web</a></p></li>
+			<li><p><a href={services.seoB2b.path}>SEO B2B</a></p></li>
+			<li><p><a href={careerPage.path}>Para recrutadores</a></p></li>
+			<li><p><a href={regionPage.path}>Sorocaba e região</a></p></li>
+			<li><p><a href={whatsappLink(defaultWhatsApp.message)}>WhatsApp {person.phoneDisplay}</a></p></li>
 		</ul>
 	</nav>
 </header>
@@ -30,10 +31,13 @@
 		© {new Date().getFullYear()} {person.name} · SEO, desenvolvimento web e consultoria ·
 		{person.city} – {person.region}, Brasil
 	</p>
-	<ul>
-		<li><a href={`mailto:${person.email}`}>E-mail</a></li>
-		<li><a href={person.whatsapp}>WhatsApp</a></li>
-		<li><a href={person.linkedin}>LinkedIn</a></li>
-		<li><a href={person.github}>GitHub</a></li>
-	</ul>
+	<p><a href={whatsappLink(defaultWhatsApp.message)}>WhatsApp {person.phoneDisplay}</a></p>
+	<p><a href={sitemapPage.path}>Mapa do site</a></p>
+	<nav aria-label="Redes sociais">
+		<ul>
+			{#each socials as social (social.url)}
+				<li><p><a href={social.url} rel="me">{social.name}</a></p></li>
+			{/each}
+		</ul>
+	</nav>
 </footer>

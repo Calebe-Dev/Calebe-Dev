@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { city, pageGraph, serviceArea, type Faq as FaqItem } from '$lib/schema';
-	import { cityPages, person, regionPage, services } from '$lib/site';
+	import { cityPages, person, regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = regionPage.path;
 	const title = 'Sites e SEO em Sorocaba e região (raio de 90 km) - Calebe Araujo';
 	const description =
 		'Criação de sites e SEO para empresas de Sorocaba e de um raio de 90 km: Itu, Indaiatuba, Jundiaí, Campinas e São Paulo. Veja como funciona o atendimento.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Vim pela página de Sorocaba e região e quero conversar sobre um projeto.',
+		label: 'Falar comigo no WhatsApp'
+	};
+
 	const crumbs = [{ name: 'Sorocaba e região', path }];
 
 	// Cidades citadas no texto da página (o raio completo vai no GeoCircle)
@@ -52,15 +58,19 @@
 <Seo {title} {description} {path} {jsonLd} />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>Sites e SEO em Sorocaba e região (raio de 90 km)</h1>
+		<h1>Sites e SEO em Sorocaba e região (raio de 90 km)</h1>
 
-	<p>
-		Moro em {person.city} e atendo empresas da cidade e de um raio de cerca de 90 km, que vai do eixo
-		de Itu e Indaiatuba até Jundiaí, Campinas e a capital paulista. Dentro desse raio, combino
-		reuniões presenciais quando o projeto pede; fora dele, o trabalho é todo remoto.
-	</p>
+		<p>
+			Moro em {person.city} e atendo empresas da cidade e de um raio de cerca de 90 km, que vai do eixo
+			de Itu e Indaiatuba até Jundiaí, Campinas e a capital paulista. Dentro desse raio, combino
+			reuniões presenciais quando o projeto pede; fora dele, o trabalho é todo remoto.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+	</header>
 
 	<section aria-labelledby="distancia-titulo">
 		<h2 id="distancia-titulo">Como funciona o atendimento por distância</h2>
@@ -163,5 +173,5 @@
 		]}
 	/>
 
-	<Contact />
+	<Contact {whatsapp} />
 </main>

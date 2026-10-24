@@ -1,0 +1,983 @@
+/*
+ * Design do site: autoridade (azul-marinho), ação (vermelho) e clareza (branco).
+ * Só CSS, sem JavaScript: animações em transform/background, desligadas com prefers-reduced-motion.
+ * O conteúdo de SEO é o HTML semântico das páginas; este arquivo só define a aparência.
+ */
+
+:root {
+	--navy-950: #050f24;
+	--navy-900: #0a1f44;
+	--navy-800: #11295a;
+	--blue-700: #1d4ed8;
+	--blue-600: #2563eb;
+	--blue-500: #3b82f6;
+	--blue-100: #dbe6ff;
+	--blue-50: #eff4ff;
+	--red-800: #991b1b;
+	--red-700: #b91c1c;
+	--red-600: #dc2626;
+	--white: #ffffff;
+	--ink: #0f172a;
+	--text: #1e293b;
+	--muted: #475569;
+	--line: #e2e8f0;
+	--bg: #f4f7fc;
+
+	--radius-sm: 12px;
+	--radius: 18px;
+	--radius-lg: 28px;
+	--shadow: 0 1px 2px rgb(15 23 42 / 0.05), 0 18px 40px -22px rgb(15 23 42 / 0.28);
+	--shadow-red: 0 10px 28px -10px rgb(185 28 28 / 0.65);
+	--container: 1120px;
+	--gutter: clamp(16px, 4vw, 32px);
+	--font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+	color-scheme: light;
+}
+
+/* ---------- base ---------- */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font);
+	font-size: 1.0625rem;
+	line-height: 1.7;
+	color: var(--text);
+	background:
+		radial-gradient(1200px 600px at 100% -10%, rgb(37 99 235 / 0.08), transparent 60%),
+		radial-gradient(900px 500px at -10% 10%, rgb(220 38 38 / 0.05), transparent 60%),
+		var(--bg);
+	text-rendering: optimizeLegibility;
+}
+
+::selection {
+	background: var(--red-600);
+	color: var(--white);
+}
+
+h1,
+h2,
+h3 {
+	color: var(--navy-900);
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	text-wrap: balance;
+}
+
+h2 {
+	font-size: clamp(1.45rem, 2.6vw, 2rem);
+	margin: 0 0 0.75em;
+}
+
+/* barra de destaque em gradiente acima de cada H2 */
+h2::before {
+	content: '';
+	display: block;
+	width: 52px;
+	height: 4px;
+	margin-bottom: 14px;
+	border-radius: 4px;
+	background: linear-gradient(90deg, var(--red-600), var(--blue-600));
+}
+
+h3 {
+	font-size: 1.18rem;
+	margin: 1.6em 0 0.4em;
+	color: var(--navy-800);
+}
+
+p {
+	margin: 0 0 1em;
+	text-wrap: pretty;
+}
+
+a {
+	color: var(--blue-700);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+	transition: color 0.2s ease;
+}
+
+a:hover {
+	color: var(--red-700);
+}
+
+:focus-visible {
+	outline: 3px solid var(--blue-500);
+	outline-offset: 3px;
+	border-radius: 6px;
+}
+
+strong {
+	color: var(--ink);
+}
+
+code {
+	overflow-wrap: anywhere;
+	padding: 0.1em 0.4em;
+	border-radius: 6px;
+	background: var(--blue-50);
+	color: var(--navy-800);
+	font-size: 0.9em;
+}
+
+[id] {
+	scroll-margin-top: 96px;
+}
+
+/* ---------- link "pular para o conteúdo" ---------- */
+
+body > a:first-child {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	z-index: 100;
+	padding: 10px 16px;
+	border-radius: 999px;
+	background: var(--navy-900);
+	color: var(--white);
+	font-weight: 600;
+	transform: translateY(-160%);
+	transition: transform 0.2s ease;
+}
+
+body > a:first-child:focus {
+	transform: translateY(0);
+}
+
+/* ---------- cabeçalho do site ---------- */
+
+body > header {
+	position: relative;
+	z-index: 50;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px 24px;
+	padding: 14px max(var(--gutter), calc((100% - var(--container)) / 2));
+	background: rgb(255 255 255 / 0.88);
+	backdrop-filter: saturate(180%) blur(14px);
+	border-bottom: 1px solid var(--line);
+}
+
+/* faixa animada azul–vermelho no topo */
+body > header::before {
+	content: '';
+	position: absolute;
+	inset: 0 0 auto;
+	height: 3px;
+	background: linear-gradient(90deg, var(--blue-700), var(--red-600), var(--blue-700), var(--red-600));
+	background-size: 300% 100%;
+	animation: flow-x 10s linear infinite;
+}
+
+body > header > p {
+	margin: 0;
+}
+
+/* marca: logotipo + nome */
+body > header > p > a {
+	white-space: nowrap;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	min-height: 44px;
+	color: var(--navy-900);
+	font-weight: 800;
+	font-size: 1.15rem;
+	letter-spacing: -0.01em;
+	text-decoration: none;
+}
+
+body > header > p > a::before {
+	content: '';
+	width: 36px;
+	height: 36px;
+	flex: none;
+	border-radius: 50%;
+	background: url('/images/logo-calebe-araujo-72.jpg') center / cover;
+	box-shadow: 0 0 0 2px var(--white), 0 6px 16px -6px rgb(29 78 216 / 0.7);
+}
+
+body > header nav {
+	flex: 1 1 100%;
+	min-width: 0;
+}
+
+body > header nav ul {
+	display: flex;
+	gap: 4px;
+	margin: 0;
+	padding: 2px 0 4px;
+	list-style: none;
+	overflow-x: auto;
+	scrollbar-width: none;
+}
+
+body > header nav ul::-webkit-scrollbar {
+	display: none;
+}
+
+body > header nav li p {
+	margin: 0;
+}
+
+body > header nav a {
+	display: inline-flex;
+	align-items: center;
+	min-height: 40px;
+	padding: 6px 14px;
+	border-radius: 999px;
+	color: var(--ink);
+	font-size: 0.93rem;
+	font-weight: 600;
+	white-space: nowrap;
+	text-decoration: none;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body > header nav a:hover {
+	background: var(--blue-50);
+	color: var(--blue-700);
+}
+
+/* telas largas: menu inteiro visível, quebrando linha se precisar (sem rolagem lateral) */
+@media (min-width: 760px) {
+	body > header nav ul {
+		flex-wrap: wrap;
+		overflow: visible;
+	}
+
+	body > header nav a {
+		padding: 6px 11px;
+		font-size: 0.9rem;
+	}
+
+	/* CTA do WhatsApp sempre no fim, alinhado à direita */
+	body > header nav li:last-child {
+		margin-left: auto;
+	}
+}
+
+/* ---------- área principal ---------- */
+
+body > main {
+	max-width: calc(var(--container) + 2 * var(--gutter));
+	margin: 0 auto;
+	padding: 24px var(--gutter) 56px;
+}
+
+/* ---------- hero: painel com gradiente em movimento ---------- */
+
+.hero {
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+	margin: 0 0 28px;
+	padding: clamp(28px, 6vw, 72px) clamp(22px, 5vw, 64px);
+	border-radius: var(--radius-lg);
+	background: linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 45%, #0f2f78 100%);
+	color: var(--white);
+	box-shadow: 0 30px 60px -30px rgb(10 31 68 / 0.75);
+}
+
+/* camada de gradiente que desliza (composta na GPU) */
+.hero::before {
+	content: '';
+	position: absolute;
+	inset: -40% -60%;
+	z-index: -2;
+	background: linear-gradient(
+		115deg,
+		transparent 20%,
+		rgb(37 99 235 / 0.55) 35%,
+		rgb(153 27 27 / 0.6) 50%,
+		rgb(29 78 216 / 0.5) 65%,
+		transparent 80%
+	);
+	animation: sweep 16s ease-in-out infinite alternate;
+}
+
+/* brilhos difusos vermelho e azul que flutuam */
+.hero::after {
+	content: '';
+	position: absolute;
+	inset: -30%;
+	z-index: -1;
+	background:
+		radial-gradient(closest-side at 80% 20%, rgb(220 38 38 / 0.45), transparent),
+		radial-gradient(closest-side at 15% 85%, rgb(59 130 246 / 0.4), transparent);
+	filter: blur(30px);
+	animation: drift 20s ease-in-out infinite alternate;
+}
+
+.hero h1 {
+	max-width: 20ch;
+	margin: 0 0 20px;
+	color: var(--white);
+	font-size: clamp(2rem, 5.4vw, 3.6rem);
+	font-weight: 800;
+	line-height: 1.07;
+	letter-spacing: -0.03em;
+}
+
+.hero p {
+	max-width: 64ch;
+	color: var(--white);
+	font-size: clamp(1.02rem, 1.6vw, 1.15rem);
+}
+
+.hero strong {
+	color: var(--white);
+}
+
+.hero a:not([href^='https://wa.me/']) {
+	color: var(--white);
+	text-decoration-color: rgb(255 255 255 / 0.6);
+	text-decoration-thickness: 2px;
+}
+
+.hero a:not([href^='https://wa.me/']):hover {
+	text-decoration-color: var(--red-600);
+}
+
+.hero code {
+	background: rgb(255 255 255 / 0.14);
+	color: var(--white);
+}
+
+/* trilha de navegação dentro do hero */
+.hero nav[aria-label='Trilha de navegação'] ol {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px 0;
+	margin: 0 0 18px;
+	padding: 0;
+	list-style: none;
+	font-size: 0.9rem;
+}
+
+.hero nav[aria-label='Trilha de navegação'] li {
+	display: flex;
+	align-items: center;
+}
+
+.hero nav[aria-label='Trilha de navegação'] li + li::before {
+	content: '›';
+	margin: 0 10px;
+	color: rgb(255 255 255 / 0.7);
+}
+
+.hero nav[aria-label='Trilha de navegação'] p {
+	margin: 0;
+	font-size: inherit;
+}
+
+.hero nav[aria-label='Trilha de navegação'] a,
+.hero nav[aria-label='Trilha de navegação'] span {
+	display: inline-flex;
+	align-items: center;
+	min-height: 28px;
+	color: var(--white);
+	font-weight: 600;
+}
+
+.hero nav[aria-label='Trilha de navegação'] a {
+	text-decoration: none;
+}
+
+/* ---------- botões de conversão (WhatsApp) ---------- */
+
+a[href^='https://wa.me/'] {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	min-height: 48px;
+	padding: 12px 24px;
+	border-radius: 999px;
+	background: linear-gradient(120deg, var(--red-800), var(--red-600), var(--red-700), var(--red-800));
+	background-size: 300% 100%;
+	color: var(--white);
+	font-weight: 700;
+	line-height: 1.3;
+	text-decoration: none;
+	box-shadow: var(--shadow-red);
+	animation: flow-x 7s ease-in-out infinite;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a[href^='https://wa.me/']::before {
+	content: '';
+	width: 20px;
+	height: 20px;
+	flex: none;
+	background: currentColor;
+	-webkit-mask: var(--icon-whatsapp) center / contain no-repeat;
+	mask: var(--icon-whatsapp) center / contain no-repeat;
+}
+
+a[href^='https://wa.me/']:hover {
+	color: var(--white);
+	transform: translateY(-2px);
+	box-shadow: 0 16px 34px -12px rgb(185 28 28 / 0.75);
+}
+
+:root {
+	--icon-whatsapp: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.94.95-3.48-.22-.36a9.42 9.42 0 0 1-1.45-5.03c0-5.2 4.24-9.44 9.46-9.44a9.4 9.4 0 0 1 6.68 2.77 9.38 9.38 0 0 1 2.77 6.68c0 5.21-4.24 9.45-9.46 9.45m8.05-17.5A11.32 11.32 0 0 0 12.05.66C5.77.66.66 5.77.66 12.04c0 2 .53 3.96 1.52 5.69L.57 23.6l6.02-1.58a11.35 11.35 0 0 0 5.45 1.39h.01c6.27 0 11.38-5.1 11.38-11.38 0-3.04-1.18-5.9-3.33-8.05'/%3E%3C/svg%3E");
+}
+
+/* botão do WhatsApp no menu: versão compacta */
+body > header nav a[href^='https://wa.me/'] {
+	min-height: 40px;
+	padding: 6px 16px;
+	font-size: 0.9rem;
+	box-shadow: 0 8px 18px -10px rgb(185 28 28 / 0.8);
+}
+
+body > header nav a[href^='https://wa.me/']::before {
+	width: 16px;
+	height: 16px;
+}
+
+/* ---------- download do currículo ---------- */
+
+a[download] {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	min-height: 44px;
+	padding: 10px 20px;
+	border: 2px solid var(--blue-700);
+	border-radius: 999px;
+	color: var(--blue-700);
+	font-weight: 700;
+	text-decoration: none;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+a[download]::after {
+	content: '↓';
+}
+
+a[download]:hover {
+	background: var(--blue-700);
+	color: var(--white);
+}
+
+/* no hero o download aparece no meio da frase: vira link sublinhado com ícone */
+.hero a[download] {
+	display: inline;
+	min-height: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	color: var(--white);
+	text-decoration: underline;
+	text-decoration-color: rgb(255 255 255 / 0.6);
+	text-decoration-thickness: 2px;
+}
+
+.hero a[download]:hover {
+	background: none;
+}
+
+/* parágrafo que contém só o link de download (página de recrutadores) */
+.hero p:has(> a[download]:only-child) a[download] {
+	display: inline-flex;
+	min-height: 44px;
+	padding: 10px 20px;
+	border: 2px solid rgb(255 255 255 / 0.85);
+	border-radius: 999px;
+	text-decoration: none;
+}
+
+.hero p:has(> a[download]:only-child) a[download]:hover {
+	background: var(--white);
+	color: var(--navy-900);
+}
+
+/* ---------- seções como cartões ---------- */
+
+main > section,
+main > nav[aria-labelledby] {
+	position: relative;
+	margin: 0 0 24px;
+	padding: clamp(22px, 4.5vw, 48px);
+	border: 1px solid var(--line);
+	border-radius: var(--radius-lg);
+	background: var(--white);
+	box-shadow: var(--shadow);
+}
+
+main > section > :last-child,
+main > nav[aria-labelledby] > :last-child {
+	margin-bottom: 0;
+}
+
+main section p,
+main section li {
+	max-width: 75ch;
+}
+
+/* listas com marcador vermelho */
+main section ul {
+	padding-left: 1.2em;
+}
+
+main section ul > li {
+	margin: 0.35em 0;
+}
+
+main section ul > li::marker {
+	color: var(--red-600);
+}
+
+/* passos numerados com selo em gradiente */
+main section ol {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 12px;
+	margin: 0 0 1em;
+	padding: 0;
+	list-style: none;
+	counter-reset: passo;
+}
+
+main section ol > li {
+	position: relative;
+	max-width: none;
+	padding: 14px 18px 14px 64px;
+	border-radius: var(--radius);
+	background: var(--blue-50);
+	counter-increment: passo;
+}
+
+main section ol > li::before {
+	content: counter(passo);
+	position: absolute;
+	top: 12px;
+	left: 16px;
+	display: grid;
+	place-items: center;
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, var(--blue-700), var(--red-600));
+	color: var(--white);
+	font-weight: 800;
+	font-size: 0.95rem;
+}
+
+/* listas só de links: viram cartões clicáveis */
+main ul:has(> li > p > a:only-child) {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+	gap: 12px;
+	margin: 0 0 1em;
+	padding: 0;
+	list-style: none;
+}
+
+main ul:has(> li > p > a:only-child) > li {
+	max-width: none;
+	margin: 0;
+}
+
+main ul:has(> li > p > a:only-child) p {
+	height: 100%;
+	margin: 0;
+}
+
+main ul:has(> li > p > a:only-child) a {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	height: 100%;
+	min-height: 56px;
+	padding: 14px 18px;
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	background: var(--white);
+	color: var(--navy-900);
+	font-weight: 650;
+	line-height: 1.35;
+	text-decoration: none;
+	transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+main ul:has(> li > p > a:only-child) a::after {
+	content: '→';
+	flex: none;
+	color: var(--red-600);
+	font-weight: 800;
+	transition: transform 0.2s ease;
+}
+
+main ul:has(> li > p > a:only-child) a:hover {
+	border-color: var(--blue-600);
+	box-shadow: var(--shadow);
+	transform: translateY(-2px);
+}
+
+main ul:has(> li > p > a:only-child) a:hover::after {
+	transform: translateX(4px);
+}
+
+/* listas de definição (tecnologias) */
+main dl {
+	display: grid;
+	gap: 0;
+	margin: 0;
+}
+
+main dt {
+	padding-top: 14px;
+	color: var(--navy-900);
+	font-weight: 700;
+}
+
+main dd {
+	margin: 0;
+	padding-bottom: 14px;
+	border-bottom: 1px solid var(--line);
+}
+
+main dd:last-of-type {
+	border-bottom: 0;
+}
+
+@media (min-width: 760px) {
+	main dl {
+		grid-template-columns: minmax(180px, 1fr) 3fr;
+	}
+
+	main dt,
+	main dd {
+		padding: 14px 0;
+		border-bottom: 1px solid var(--line);
+	}
+
+	main dt:last-of-type {
+		border-bottom: 0;
+	}
+}
+
+/* experiências (página de recrutadores) */
+main article {
+	margin: 16px 0;
+	padding: 20px 22px;
+	border: 1px solid var(--line);
+	border-left: 4px solid var(--blue-700);
+	border-radius: var(--radius);
+	background: #fbfcff;
+}
+
+main article h3 {
+	margin-top: 0;
+}
+
+main article > p:first-of-type {
+	color: var(--muted);
+	font-size: 0.95rem;
+}
+
+/* serviços da home: título à esquerda, descrição à direita */
+@media (min-width: 860px) {
+	#servicos {
+		display: grid;
+		grid-template-columns: minmax(220px, 1fr) 2fr;
+		column-gap: 40px;
+	}
+
+	#servicos > h2,
+	#servicos > p:first-of-type {
+		grid-column: 1 / -1;
+	}
+
+	#servicos > h3 {
+		grid-column: 1;
+		margin: 0;
+		padding: 22px 0;
+		border-top: 1px solid var(--line);
+	}
+
+	#servicos > h3 ~ p {
+		grid-column: 2;
+		max-width: none;
+		margin: 0;
+		padding: 22px 0;
+		border-top: 1px solid var(--line);
+	}
+}
+
+/* ---------- tabelas ---------- */
+
+main table {
+	width: 100%;
+	margin: 0 0 1em;
+	border: 1px solid var(--line);
+	border-collapse: separate;
+	border-spacing: 0;
+	border-radius: var(--radius);
+	overflow: hidden;
+	font-size: 0.96rem;
+	line-height: 1.5;
+}
+
+main caption {
+	padding: 0 0 10px;
+	caption-side: top;
+	color: var(--muted);
+	font-weight: 600;
+	text-align: left;
+}
+
+main thead th {
+	padding: 14px 16px;
+	background: var(--navy-900);
+	color: var(--white);
+	text-align: left;
+}
+
+main tbody th,
+main tbody td {
+	padding: 14px 16px;
+	border-top: 1px solid var(--line);
+	text-align: left;
+	vertical-align: top;
+}
+
+main tbody th {
+	color: var(--navy-900);
+}
+
+main tbody tr:nth-child(even) {
+	background: #f8faff;
+}
+
+@media (max-width: 720px) {
+	main table {
+		display: block;
+		overflow-x: auto;
+	}
+}
+
+/* ---------- perguntas frequentes ---------- */
+
+#perguntas-frequentes h3 {
+	margin: 18px 0 0;
+	padding: 18px 20px 4px;
+	border-left: 4px solid var(--red-600);
+	border-radius: var(--radius) var(--radius) 0 0;
+	background: var(--blue-50);
+	font-size: 1.08rem;
+}
+
+#perguntas-frequentes h3 + p {
+	max-width: none;
+	margin: 0;
+	padding: 4px 20px 18px;
+	border-left: 4px solid var(--red-600);
+	border-radius: 0 0 var(--radius) var(--radius);
+	background: var(--blue-50);
+}
+
+/* ---------- contato: painel escuro com brilho girando ---------- */
+
+#contato {
+	isolation: isolate;
+	overflow: hidden;
+	border: 0;
+	background: linear-gradient(140deg, var(--navy-950), var(--navy-900) 60%, #14306f);
+	color: var(--white);
+}
+
+#contato::before {
+	content: '';
+	position: absolute;
+	inset: -60%;
+	z-index: -1;
+	background: conic-gradient(
+		from 0deg,
+		transparent 0deg,
+		rgb(220 38 38 / 0.32) 60deg,
+		transparent 120deg,
+		rgb(37 99 235 / 0.38) 200deg,
+		transparent 280deg
+	);
+	animation: spin 18s linear infinite;
+}
+
+#contato h2,
+#contato p,
+#contato strong {
+	color: var(--white);
+}
+
+#contato h2::before {
+	background: linear-gradient(90deg, var(--red-600), var(--white));
+}
+
+#contato address {
+	margin-top: 20px;
+	padding-top: 18px;
+	border-top: 1px solid rgb(255 255 255 / 0.18);
+	font-style: normal;
+}
+
+#contato address p {
+	margin-bottom: 6px;
+	font-weight: 700;
+}
+
+#contato address ul {
+	display: grid;
+	gap: 4px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#contato address a {
+	color: var(--white);
+}
+
+/* data de atualização */
+main > p:last-child {
+	margin: 8px 0 0;
+	color: var(--muted);
+	font-size: 0.9rem;
+	text-align: center;
+}
+
+/* ---------- rodapé ---------- */
+
+body > footer {
+	position: relative;
+	padding: 48px var(--gutter) 40px;
+	background: var(--navy-950);
+	color: var(--blue-100);
+	text-align: center;
+}
+
+body > footer::before {
+	content: '';
+	position: absolute;
+	inset: 0 0 auto;
+	height: 3px;
+	background: linear-gradient(90deg, var(--red-600), var(--blue-600), var(--red-600));
+	background-size: 300% 100%;
+	animation: flow-x 12s linear infinite;
+}
+
+body > footer p {
+	margin: 0 auto 18px;
+	max-width: 70ch;
+}
+
+body > footer a {
+	color: var(--white);
+	text-decoration-color: rgb(255 255 255 / 0.5);
+}
+
+body > footer a:hover {
+	color: var(--white);
+	text-decoration-color: var(--red-600);
+}
+
+body > footer nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body > footer nav p {
+	margin: 0;
+}
+
+body > footer nav a {
+	display: inline-flex;
+	align-items: center;
+	min-height: 40px;
+	padding: 6px 16px;
+	border: 1px solid rgb(255 255 255 / 0.25);
+	border-radius: 999px;
+	color: var(--white);
+	font-weight: 600;
+	text-decoration: none;
+	transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+body > footer nav a:hover {
+	border-color: var(--white);
+	background: rgb(255 255 255 / 0.08);
+	color: var(--white);
+}
+
+/* ---------- animações ---------- */
+
+@keyframes flow-x {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes sweep {
+	from {
+		transform: translate3d(-18%, -6%, 0) rotate(0deg);
+	}
+	to {
+		transform: translate3d(18%, 6%, 0) rotate(8deg);
+	}
+}
+
+@keyframes drift {
+	from {
+		transform: translate3d(-6%, 4%, 0) scale(1);
+	}
+	to {
+		transform: translate3d(6%, -6%, 0) scale(1.12);
+	}
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(1turn);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation: none !important;
+		transition: none !important;
+	}
+
+	html {
+		scroll-behavior: auto;
+	}
+}

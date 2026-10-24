@@ -1,0 +1,18 @@
+# URLs do site antigo (Legacy/OLD/static/sitemap.xml) → equivalente mais próximo no site atual.
+# Posts antigos e /blog ficam em 404: não têm equivalente (redirecionar para a home vira soft 404).
+/sobre /desenvolvedor-full-stack-sorocaba 301
+/experiencia /desenvolvedor-full-stack-sorocaba 301
+/cases/alphacompanyads /desenvolvedor-full-stack-sorocaba 301
+/servicos / 301
+/projetos / 301
+/contato / 301
+/solicitar-projeto / 301
+/solicitar-projeto/redirect / 301
+/cases/grupooc /seo-para-b2b 301
+/cases/linkdedicada /seo-para-b2b 301
+/cases/planotimempresa /seo-para-b2b 301
+/cases/meupabxemnuvem /seo-para-b2b 301
+/cases/internetfibraagora /seo-para-b2b 301
+/cases/leadplanodesaude /seo-para-b2b 301
+/cases/esquadriasmartins /criacao-de-sites-sorocaba 301
+/cases/buenoswatertechnology /criacao-de-sites 301

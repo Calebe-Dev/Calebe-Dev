@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { cityPages, services } from '$lib/site';
+	import { cityPages, services, type WhatsApp } from '$lib/site';
 
 	const path = services.criacaoDeSites.path;
 	const title = 'Criação de sites profissionais rápidos e otimizados - Calebe Araujo';
 	const description =
 		'Criação de sites profissionais e landing pages rápidos, acessíveis e otimizados para o Google desde o código, com mensuração de contatos.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Vim pela página de criação de sites e quero um orçamento de site.',
+		label: 'Pedir orçamento de site pelo WhatsApp'
+	};
+
 	const crumbs = [{ name: 'Criação de sites', path }];
 
 	const faqs: FaqItem[] = [
@@ -48,16 +54,20 @@
 <Seo {title} {description} {path} {jsonLd} />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>Criação de sites profissionais rápidos e otimizados</h1>
+		<h1>Criação de sites profissionais rápidos e otimizados</h1>
 
-	<p>
-		Crio sites institucionais e landing pages que carregam rápido, funcionam bem no celular e já
-		nascem preparados para o Google: cada página com um objetivo claro, conteúdo no HTML e
-		mensuração de contatos configurada. Já desenvolvi mais de 60 landing pages e sites
-		institucionais e hoje mantenho uma rede de 25 sites integrados a um CRM.
-	</p>
+		<p>
+			Como desenvolvedor independente (freelancer), crio sites institucionais e landing pages que carregam rápido, funcionam bem no celular e já
+			nascem preparados para o Google: cada página com um objetivo claro, conteúdo no HTML e
+			mensuração de contatos configurada. Já desenvolvi mais de 60 landing pages e sites
+			institucionais e hoje mantenho uma rede de 25 sites integrados a um CRM.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+	</header>
 
 	<section aria-labelledby="tipos-titulo">
 		<h2 id="tipos-titulo">Tipos de site que desenvolvo</h2>
@@ -136,17 +146,18 @@
 			<li><strong>Publicação:</strong> domínio, Search Console, sitemap e mensuração configurados.</li>
 			<li><strong>Acompanhamento:</strong> indexação das páginas e primeiras consultas no Search Console.</li>
 		</ol>
+		<WhatsAppCta {...whatsapp} />
 	</section>
 
 	<section aria-labelledby="regiao-titulo">
-		<h2 id="regiao-titulo">Criação de sites em Sorocaba e região</h2>
+		<h2 id="regiao-titulo">Atendimento por cidade na região de Sorocaba</h2>
 		<p>
 			Atendo empresas de todo o Brasil de forma remota. Para a região de Sorocaba, há páginas com o
 			contexto de cada cidade:
 		</p>
 		<ul>
 			{#each cityPages.filter((c) => c.service.startsWith('Criação')) as page (page.path)}
-				<li><a href={page.path}>Criação de sites em {page.city}</a></li>
+				<li><p><a href={page.path}>{page.anchor[0].toUpperCase() + page.anchor.slice(1)}</a></p></li>
 			{/each}
 		</ul>
 	</section>
@@ -162,5 +173,5 @@
 		]}
 	/>
 
-	<Contact title="Peça uma proposta de site" intro="Conte o que a sua empresa faz e qual o objetivo do site; eu respondo com uma proposta de estrutura e os próximos passos." />
+	<Contact {whatsapp} title="Peça uma proposta de site" intro="Conte o que a sua empresa faz e qual o objetivo do site; eu respondo com uma proposta de estrutura e os próximos passos." />
 </main>

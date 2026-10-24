@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { careerPage, services } from '$lib/site';
+	import { careerPage, services, type WhatsApp } from '$lib/site';
 
 	const path = services.sistemasWeb.path;
 	const title = 'Desenvolvimento de sistemas web sob medida - Calebe Araujo';
 	const description =
 		'Desenvolvimento de sistemas web sob medida: CRMs, integrações entre sites, APIs REST e headless CMS com Angular, Svelte, Node.js, Java e PostgreSQL.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Vim pela página de sistemas web e quero conversar sobre um sistema sob medida.',
+		label: 'Conversar sobre o meu sistema pelo WhatsApp'
+	};
+
 	const crumbs = [{ name: 'Desenvolvimento de sistemas web', path }];
 
 	const faqs: FaqItem[] = [
@@ -48,15 +54,19 @@
 <Seo {title} {description} {path} {jsonLd} />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>Desenvolvimento de sistemas web sob medida</h1>
+		<h1>Desenvolvimento de sistemas web sob medida</h1>
 
-	<p>
-		Desenvolvo sistemas web sob medida para processos que planilhas e softwares prontos não resolvem
-		bem: CRMs, integrações entre sites, APIs REST e painéis de gestão de conteúdo. Trabalho do banco de
-		dados à infraestrutura em nuvem, com Angular, Svelte, Node.js, Java e PostgreSQL.
-	</p>
+		<p>
+			Desenvolvo sistemas web sob medida para processos que planilhas e softwares prontos não resolvem
+			bem: CRMs, integrações entre sites, APIs REST e painéis de gestão de conteúdo. Trabalho do banco de
+			dados à infraestrutura em nuvem, com Angular, Svelte, Node.js, Java e PostgreSQL.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+	</header>
 
 	<section aria-labelledby="caso-titulo">
 		<h2 id="caso-titulo">Caso real: CRM em microsserviços para 25 sites</h2>
@@ -118,6 +128,7 @@
 			<li><strong>Entregas incrementais:</strong> partes utilizáveis do sistema publicadas cedo, em vez de uma entrega única no fim.</li>
 			<li><strong>Publicação e monitoramento:</strong> deploy automatizado, backups e acompanhamento de erros.</li>
 		</ol>
+		<WhatsAppCta {...whatsapp} />
 	</section>
 
 	<Faq {faqs} title="Perguntas frequentes sobre sistemas web" />
@@ -131,5 +142,5 @@
 		]}
 	/>
 
-	<Contact title="Converse sobre o seu sistema" intro="Descreva o processo que você quer automatizar ou os sistemas que precisam conversar entre si." />
+	<Contact {whatsapp} title="Converse sobre o seu sistema" intro="Descreva o processo que você quer automatizar ou os sistemas que precisam conversar entre si." />
 </main>

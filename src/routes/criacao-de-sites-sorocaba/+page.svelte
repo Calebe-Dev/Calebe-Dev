@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { city, pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { regionPage, services } from '$lib/site';
+	import { regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/criacao-de-sites-sorocaba';
 	const title = 'Criação de sites em Sorocaba - Calebe Araujo';
 	const description =
 		'Criação de sites em Sorocaba (SP) com um desenvolvedor da cidade: sites rápidos, preparados para o Google e integrados ao WhatsApp e ao CRM.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Sou de Sorocaba e quero um orçamento de criação de site.',
+		label: 'Pedir orçamento de site em Sorocaba pelo WhatsApp'
+	};
+
 	const crumbs = [
 		{ name: 'Criação de sites', path: services.criacaoDeSites.path },
 		{ name: 'Sorocaba', path }
@@ -52,16 +58,20 @@
 <Seo {title} {description} {path} {jsonLd} />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>Criação de sites em Sorocaba</h1>
+		<h1>Criação de sites em Sorocaba</h1>
 
-	<p>
-		Faço criação de sites em Sorocaba para empresas que querem ser encontradas no Google e receber
-		contatos pelo site. Sou desenvolvedor full stack e moro na cidade: o projeto começa com uma
-		conversa presencial e o site é entregue rápido, preparado para as buscas e com cada contato
-		medido.
-	</p>
+		<p>
+			Faço criação de sites em Sorocaba para empresas que querem ser encontradas no Google e receber
+			contatos pelo site. Sou desenvolvedor full stack e moro na cidade: o projeto começa com uma
+			conversa presencial e o site é entregue rápido, preparado para as buscas e com cada contato
+			medido.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+	</header>
 
 	<section aria-labelledby="dois-tipos-titulo">
 		<h2 id="dois-tipos-titulo">Dois tipos de empresa, dois tipos de site</h2>
@@ -119,12 +129,12 @@
 
 	<Related
 		links={[
-			{ href: '/consultoria-seo-sorocaba', text: 'Consultoria de SEO em Sorocaba' },
+			{ href: '/consultoria-seo-sorocaba', text: 'SEO local para o site da sua empresa' },
 			{ href: services.otimizacaoDeSites.path, text: 'Otimização de um site que já existe' },
-			{ href: '/criacao-de-sites-itu', text: 'Criação de sites em Itu' },
+			{ href: '/criacao-de-sites-itu', text: 'Projetos de site na região de Itu' },
 			{ href: regionPage.path, text: 'Atendimento em Sorocaba e região' }
 		]}
 	/>
 
-	<Contact title="Peça uma proposta de site em Sorocaba" intro="Conte o que a sua empresa faz e marque uma conversa presencial ou por vídeo." />
+	<Contact {whatsapp} title="Peça uma proposta de site em Sorocaba" intro="Conte o que a sua empresa faz e marque uma conversa presencial ou por vídeo." />
 </main>

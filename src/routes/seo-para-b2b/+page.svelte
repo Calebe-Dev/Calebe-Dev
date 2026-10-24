@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { services } from '$lib/site';
+	import { services, type WhatsApp } from '$lib/site';
 
 	const path = services.seoB2b.path;
 	const title = 'SEO para B2B: geração de leads pela busca orgânica - Calebe Araujo';
 	const description =
 		'SEO para empresas B2B: páginas por solução e por segmento, cauda longa comercial e leads medidos no CRM. Experiência com rede de sites de telecom.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Vim pela página de SEO para B2B e quero gerar mais leads para a minha empresa.',
+		label: 'Falar sobre SEO B2B pelo WhatsApp'
+	};
+
 	const crumbs = [{ name: 'SEO para B2B', path }];
 
 	const faqs: FaqItem[] = [
@@ -49,16 +55,20 @@
 <Seo {title} {description} {path} {jsonLd} />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>SEO para B2B: geração de leads pela busca orgânica</h1>
+		<h1>SEO para B2B: geração de leads pela busca orgânica</h1>
 
-	<p>
-		SEO para B2B é a estratégia de busca orgânica de empresas que vendem para outras empresas. O ciclo
-		de compra é mais longo, envolve várias pessoas e começa com pesquisas específicas, muitas vezes com
-		pouco volume. Por isso o foco não é atrair muitas visitas, e sim aparecer para quem está
-		comparando fornecedores e transformar essa visita em um lead registrado no CRM.
-	</p>
+		<p>
+			SEO para B2B é a estratégia de busca orgânica de empresas que vendem para outras empresas. O ciclo
+			de compra é mais longo, envolve várias pessoas e começa com pesquisas específicas, muitas vezes com
+			pouco volume. Por isso o foco não é atrair muitas visitas, e sim aparecer para quem está
+			comparando fornecedores e transformar essa visita em um lead registrado no CRM.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+	</header>
 
 	<section aria-labelledby="diferencas-titulo">
 		<h2 id="diferencas-titulo">Diferenças entre SEO B2B e B2C</h2>
@@ -105,6 +115,7 @@
 			<li><strong>Prova e autoria:</strong> casos, números próprios e quem está por trás da empresa, que pesam na confiança do comprador e do Google.</li>
 			<li><strong>Lead com origem:</strong> formulários e WhatsApp registrando no CRM a página que gerou cada contato.</li>
 		</ol>
+		<WhatsAppCta {...whatsapp} />
 	</section>
 
 	<section aria-labelledby="experiencia-titulo">
@@ -136,9 +147,9 @@
 			{ href: services.consultoriaSeo.path, text: 'Consultoria de SEO técnico' },
 			{ href: services.sistemasWeb.path, text: 'CRM e integrações para leads B2B' },
 			{ href: services.criacaoDeSites.path, text: 'Sites com páginas por solução e segmento' },
-			{ href: '/criacao-de-sites-jundiai', text: 'Sites para indústria e logística em Jundiaí' }
+			{ href: '/criacao-de-sites-jundiai', text: 'Exemplo de estrutura B2B para logística' }
 		]}
 	/>
 
-	<Contact title="Converse sobre SEO para a sua empresa B2B" intro="Conte o que a sua empresa vende, para quem e como os leads chegam hoje." />
+	<Contact {whatsapp} title="Converse sobre SEO para a sua empresa B2B" intro="Conte o que a sua empresa vende, para quem e como os leads chegam hoje." />
 </main>

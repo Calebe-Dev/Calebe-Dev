@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { city, pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { regionPage, services } from '$lib/site';
+	import { regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/consultoria-seo-sao-paulo';
 	const title = 'Consultoria de SEO em São Paulo - Calebe Araujo';
 	const description =
 		'Consultoria de SEO técnico para empresas de São Paulo: sites com muitas páginas, migrações e performance, com um consultor que também desenvolve.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Sou de São Paulo e quero melhorar o SEO do meu site. Meu site é: ',
+		label: 'Falar sobre SEO em São Paulo pelo WhatsApp'
+	};
+
 	const crumbs = [
 		{ name: 'Consultoria de SEO', path: services.consultoriaSeo.path },
 		{ name: 'São Paulo', path }
@@ -47,16 +53,20 @@
 <Seo {title} {description} {path} {jsonLd} />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>Consultoria de SEO em São Paulo</h1>
+		<h1>Consultoria de SEO em São Paulo</h1>
 
-	<p>
-		Ofereço consultoria de SEO técnico para empresas de São Paulo cujo site tem problemas que só se
-		resolvem no código: muitas páginas, migrações, lentidão ou conteúdo que depende de JavaScript para
-		aparecer. Sou desenvolvedor full stack, então o diagnóstico e a correção são feitos pela mesma
-		pessoa.
-	</p>
+		<p>
+			Como consultor de SEO em SP, ofereço consultoria de SEO técnico para empresas da capital cujo site
+			tem problemas que só se resolvem no código: muitas páginas, migrações, lentidão ou conteúdo que depende de JavaScript para
+			aparecer. Sou desenvolvedor full stack, então o diagnóstico e a correção são feitos pela mesma
+			pessoa.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+	</header>
 
 	<section aria-labelledby="disputa-titulo">
 		<h2 id="disputa-titulo">Por que o SEO em São Paulo é mais disputado</h2>
@@ -143,10 +153,10 @@
 			{ href: services.auditoriaSeo.path, text: 'Auditoria de SEO técnica e completa' },
 			{ href: services.otimizacaoDeSites.path, text: 'Otimização de Core Web Vitals' },
 			{ href: services.seoB2b.path, text: 'SEO para empresas B2B' },
-			{ href: '/consultoria-seo-sorocaba', text: 'Consultoria de SEO em Sorocaba' },
+			{ href: '/consultoria-seo-sorocaba', text: 'SEO local para empresas do interior' },
 			{ href: regionPage.path, text: 'Atendimento na região de Sorocaba' }
 		]}
 	/>
 
-	<Contact title="Fale sobre o SEO do seu site" intro="Envie o endereço do site e conte o principal problema: queda de tráfego, migração ou lentidão." />
+	<Contact {whatsapp} title="Fale sobre o SEO do seu site" intro="Envie o endereço do site e conte o principal problema: queda de tráfego, migração ou lentidão." />
 </main>

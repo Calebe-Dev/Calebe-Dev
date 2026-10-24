@@ -7,7 +7,7 @@
 	<h2 id="veja-tambem-titulo">{title}</h2>
 	<ul>
 		{#each links as link (link.href)}
-			<li><a href={link.href}>{link.text}</a></li>
+			<li><p><a href={link.href}>{link.text}</a></p></li>
 		{/each}
 	</ul>
 </nav>

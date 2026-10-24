@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { services } from '$lib/site';
+	import { guides, services, type WhatsApp } from '$lib/site';
 
 	const path = services.consultoriaSeo.path;
 	const title = 'Consultoria de SEO técnico para empresas - Calebe Araujo';
 	const description =
 		'Consultoria de SEO técnico para empresas: diagnóstico, plano priorizado e correções no código para o seu site ser indexado e gerar contatos.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Vim pela página de consultoria de SEO. Meu site é: ',
+		label: 'Pedir uma análise do meu site pelo WhatsApp'
+	};
+
 	const crumbs = [{ name: 'Consultoria de SEO', path }];
 
 	const faqs: FaqItem[] = [
@@ -54,20 +60,24 @@
 <Seo {title} {description} {path} {jsonLd} />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>Consultoria de SEO técnico para empresas</h1>
+		<h1>Consultoria de SEO técnico para empresas</h1>
 
-	<p>
-		Consultoria de SEO técnico é o trabalho de encontrar e corrigir o que impede um site de aparecer
-		bem no Google: problemas de rastreamento, indexação, velocidade, estrutura de páginas e dados
-		estruturados. Como sou desenvolvedor full stack, não entrego só um relatório: implemento as
-		correções no código ou oriento o seu time a fazê-las.
-	</p>
-	<p>
-		A experiência vem de projetos em produção: uma rede de 25 sites integrada a um CRM próprio e mais
-		de 60 landing pages construídas com SEO técnico desde a primeira linha de código.
-	</p>
+		<p>
+			Consultoria de SEO técnico é o trabalho de encontrar e corrigir o que impede um site de aparecer
+			bem no Google: problemas de rastreamento, indexação, velocidade, estrutura de páginas e dados
+			estruturados. Como sou desenvolvedor full stack, não entrego só um relatório: implemento as
+			correções no código ou oriento o seu time a fazê-las.
+		</p>
+		<p>
+			A experiência vem de projetos em produção: uma rede de 25 sites integrada a um CRM próprio e mais
+			de 60 landing pages construídas com SEO técnico desde a primeira linha de código.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+	</header>
 
 	<section aria-labelledby="incluido-titulo">
 		<h2 id="incluido-titulo">O que a consultoria de SEO inclui</h2>
@@ -80,9 +90,9 @@
 			<li><strong>Performance:</strong> Core Web Vitals (LCP, INP e CLS) com dados reais de usuários, peso de páginas e cache.</li>
 			<li><strong>Arquitetura de informação:</strong> uma intenção de busca por página, URLs descritivas e links internos que distribuem relevância.</li>
 			<li><strong>Dados estruturados:</strong> Schema.org em JSON-LD coerente com o conteúdo visível, sem dados inventados.</li>
-			<li><strong>Renderização:</strong> conteúdo principal entregue no HTML, que é o que robôs de busca e de IA leem de forma confiável.</li>
+			<li><strong>Renderização:</strong> conteúdo principal entregue no HTML, que é o que robôs de busca e de IA leem de forma confiável, inclusive em <a href={guides.seoAngular.path}>aplicações Angular</a>.</li>
 			<li><strong>Conteúdo e canibalização:</strong> páginas que disputam a mesma busca, páginas finas e lacunas de intenção.</li>
-			<li><strong>Respostas de IA:</strong> estrutura em pergunta e resposta para o site ser citado em AI Overviews e assistentes.</li>
+			<li><strong>Respostas de IA:</strong> estrutura em pergunta e resposta para o site ser citado em AI Overviews e assistentes (veja o guia de <a href={guides.seoParaIa.path}>SEO para IA</a>).</li>
 		</ul>
 	</section>
 
@@ -96,6 +106,22 @@
 			<li>O site tem muitas páginas, como portais, redes de sites ou catálogos, e problemas que se repetem em escala.</li>
 			<li>O time de marketing produz conteúdo, mas não tem um desenvolvedor para resolver a parte técnica.</li>
 		</ul>
+		<h3>Consultoria de SEO para pequenas empresas</h3>
+		<p>
+			Para pequenas empresas, a consultoria começa pelo que traz retorno mais rápido com pouco
+			investimento: Perfil da Empresa no Google completo, uma página para cada serviço principal e uma
+			base técnica sem erros de indexação. Em vez de um acompanhamento mensal longo, um projeto
+			pontual bem feito costuma resolver a maior parte do problema.
+		</p>
+
+		<h3>Consultoria de SEO para pequenas empresas</h3>
+		<p>
+			Para pequenas empresas, a consultoria começa pelo que traz retorno mais rápido com pouco
+			investimento: Perfil da Empresa no Google completo, uma página para cada serviço principal e uma
+			base técnica sem erros de indexação. Em vez de um acompanhamento mensal longo, um projeto
+			pontual bem feito costuma resolver a maior parte do problema.
+		</p>
+
 		<h3>Quando não é a melhor escolha</h3>
 		<p>
 			Se o site é novo e ainda não tem conteúdo sobre os serviços da empresa, o primeiro passo é
@@ -117,6 +143,7 @@
 			Para começar, preciso do endereço do site e de acesso de leitura ao Google Search Console.
 			Acesso ao Google Analytics e ao código ou CMS acelera o diagnóstico, mas não é obrigatório.
 		</p>
+		<WhatsAppCta {...whatsapp} />
 	</section>
 
 	<section aria-labelledby="consultor-agencia-titulo">
@@ -147,7 +174,7 @@
 				</tr>
 				<tr>
 					<th scope="row">Ponto forte</th>
-					<td>SEO técnico, performance, migrações e arquitetura</td>
+					<td>Especialista em SEO técnico, performance, migrações e arquitetura</td>
 					<td>Produção de conteúdo e link building em grande volume</td>
 				</tr>
 				<tr>
@@ -169,6 +196,15 @@
 		</p>
 	</section>
 
+	<section aria-labelledby="guias-titulo">
+		<h2 id="guias-titulo">Guias sobre SEO técnico</h2>
+		<ul>
+			<li><a href={guides.siteNaoAparece.path}>Por que um site não aparece no Google</a>: diagnóstico em 7 passos.</li>
+			<li><a href={guides.seoParaIa.path}>Como aparecer no ChatGPT e no AI Overviews</a>: SEO para IA na prática.</li>
+			<li><a href={guides.seoAngular.path}>SEO para sites Angular</a>: SSR, pré-renderização e indexação.</li>
+		</ul>
+	</section>
+
 	<Faq {faqs} title="Perguntas frequentes sobre consultoria de SEO" />
 
 	<Related
@@ -181,5 +217,5 @@
 		]}
 	/>
 
-	<Contact title="Solicite uma análise do seu site" intro="Envie o endereço do seu site por e-mail ou WhatsApp e conte o que você quer melhorar no Google." />
+	<Contact {whatsapp} title="Solicite uma análise do seu site" intro="Envie o endereço do seu site pelo WhatsApp e conte o que você quer melhorar no Google." />
 </main>

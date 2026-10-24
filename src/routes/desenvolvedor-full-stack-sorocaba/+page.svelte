@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { city, pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { careerPage, person, services } from '$lib/site';
+	import { careerPage, guides, person, services, type WhatsApp } from '$lib/site';
 
 	const path = careerPage.path;
 	const title = 'Desenvolvedor full stack em Sorocaba: Angular e Node.js - Calebe Araujo';
 	const description =
 		'Calebe Araujo, desenvolvedor full stack em Sorocaba (SP): Angular, Svelte, Node.js, Java, Docker e AWS. Aberto a vagas remotas, híbridas e presenciais.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Vi seu perfil de desenvolvedor full stack e tenho uma oportunidade de vaga.',
+		label: 'Falar sobre uma vaga pelo WhatsApp'
+	};
+
 	const crumbs = [{ name: 'Desenvolvedor full stack em Sorocaba', path }];
 
 	const skills = [
@@ -71,16 +77,21 @@
 <Seo {title} {description} {path} {jsonLd} ogType="profile" />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>Desenvolvedor full stack em Sorocaba: Angular e Node.js</h1>
+		<h1>Desenvolvedor full stack em Sorocaba: Angular e Node.js</h1>
 
-	<p>
-		Sou {person.name}, desenvolvedor full stack em {person.city} (SP), com experiência em produção em
-		Angular, Svelte, Node.js, Java, PostgreSQL, Docker e AWS. Estou aberto a vagas de desenvolvedor
-		full stack, front-end e desenvolvedor web com foco em SEO técnico e performance, nos modelos
-		remoto, híbrido ou presencial.
-	</p>
+		<p>
+			Sou {person.name}, desenvolvedor full stack em {person.city} (SP), com experiência em produção em
+			Angular, Svelte, Node.js, Java, PostgreSQL, Docker e AWS. Estou aberto a vagas de desenvolvedor
+			full stack, front-end e desenvolvedor web com foco em SEO técnico e performance, nos modelos
+			remoto, híbrido ou presencial.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+		<p><a href={person.cv} download type="application/pdf">Baixar currículo em PDF</a></p>
+	</header>
 
 	<section aria-labelledby="resumo-titulo">
 		<h2 id="resumo-titulo">Resumo profissional</h2>
@@ -159,7 +170,7 @@
 			<li>Desenvolvedor Full Stack (Angular ou Svelte com Node.js ou Java).</li>
 			<li>Desenvolvedor Front-end Angular.</li>
 			<li>Desenvolvedor Front-end Svelte e SvelteKit.</li>
-			<li>Desenvolvedor Web com foco em SEO técnico.</li>
+			<li>Desenvolvedor Web em Sorocaba, com foco em SEO técnico.</li>
 			<li>Engenheiro de performance web (Core Web Vitals).</li>
 		</ul>
 		<p>
@@ -183,12 +194,14 @@
 			{ href: '/', text: 'Página inicial com resultados e sites em produção' },
 			{ href: services.sistemasWeb.path, text: 'Projetos de sistemas web e microsserviços' },
 			{ href: services.otimizacaoDeSites.path, text: 'Trabalho com performance e Core Web Vitals' },
+			{ href: guides.seoAngular.path, text: 'Artigo técnico: SEO em aplicações Angular' },
 			{ href: person.github, text: 'Repositórios no GitHub' }
 		]}
 	/>
 
 	<Contact
+		{whatsapp}
 		title="Contato para oportunidades"
-		intro="Para propostas de vaga, escreva por e-mail ou me chame no LinkedIn; respondo com disponibilidade para entrevista."
+		intro="Para propostas de vaga, me chame no WhatsApp; respondo com disponibilidade para entrevista."
 	/>
 </main>

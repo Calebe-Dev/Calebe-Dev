@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { services } from '$lib/site';
+	import { guides, services, type WhatsApp } from '$lib/site';
 
 	const path = services.auditoriaSeo.path;
 	const title = 'Auditoria de SEO técnica e completa - Calebe Araujo';
 	const description =
 		'Auditoria de SEO técnica, on-page e de conteúdo, com cada problema priorizado pelo impacto no negócio e a correção recomendada para o seu site.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Quero uma auditoria de SEO. Meu site é: ',
+		label: 'Solicitar auditoria de SEO pelo WhatsApp'
+	};
+
 	const crumbs = [{ name: 'Auditoria de SEO', path }];
 
 	const faqs: FaqItem[] = [
@@ -53,15 +59,19 @@
 <Seo {title} {description} {path} {jsonLd} />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>Auditoria de SEO técnica e completa</h1>
+		<h1>Auditoria de SEO técnica e completa</h1>
 
-	<p>
-		Uma auditoria de SEO é um diagnóstico do site em três camadas: técnica, on-page e de conteúdo. O
-		resultado não é uma lista com centenas de alertas de ferramenta, e sim um plano com os problemas
-		que realmente custam tráfego e contatos, cada um com evidência, correção e prioridade.
-	</p>
+		<p>
+			Uma auditoria de SEO é um diagnóstico do site em três camadas: técnica, on-page e de conteúdo. O
+			resultado não é uma lista com centenas de alertas de ferramenta, e sim um plano com os problemas
+			que realmente custam tráfego e contatos, cada um com evidência, correção e prioridade.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+	</header>
 
 	<section aria-labelledby="camadas-titulo">
 		<h2 id="camadas-titulo">O que é analisado na auditoria de SEO</h2>
@@ -129,6 +139,7 @@
 				</tr>
 			</tbody>
 		</table>
+		<WhatsAppCta {...whatsapp} />
 	</section>
 
 	<section aria-labelledby="ferramenta-titulo">
@@ -156,11 +167,12 @@
 	<Related
 		links={[
 			{ href: services.consultoriaSeo.path, text: 'Consultoria de SEO técnico com implementação' },
+			{ href: guides.siteNaoAparece.path, text: 'Roteiro para quando o site não aparece no Google' },
 			{ href: services.otimizacaoDeSites.path, text: 'Como resolver um site lento' },
 			{ href: services.criacaoDeSites.path, text: 'Sites que já nascem otimizados para o Google' },
-			{ href: '/consultoria-seo-sorocaba', text: 'SEO para empresas de Sorocaba' }
+			{ href: '/consultoria-seo-sorocaba', text: 'Auditoria e SEO local para empresas de Sorocaba' }
 		]}
 	/>
 
-	<Contact title="Peça a auditoria do seu site" intro="Envie o endereço do site e conte o que mudou recentemente: queda de tráfego, migração ou um projeto novo." />
+	<Contact {whatsapp} title="Peça a auditoria do seu site" intro="Envie o endereço do site e conte o que mudou recentemente: queda de tráfego, migração ou um projeto novo." />
 </main>

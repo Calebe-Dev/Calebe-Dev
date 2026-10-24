@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { city, pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { careerPage, regionPage, services } from '$lib/site';
+	import { careerPage, regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/criacao-de-sites-campinas';
 	const title = 'Criação de sites em Campinas - Calebe Araujo';
 	const description =
 		'Criação e desenvolvimento de sites em Campinas (SP) com foco em performance e SEO técnico para se destacar num mercado com muitas agências.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Sou de Campinas e quero um orçamento de criação de site.',
+		label: 'Pedir orçamento de site em Campinas pelo WhatsApp'
+	};
+
 	const crumbs = [
 		{ name: 'Criação de sites', path: services.criacaoDeSites.path },
 		{ name: 'Campinas', path }
@@ -52,15 +58,19 @@
 <Seo {title} {description} {path} {jsonLd} />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>Criação de sites em Campinas</h1>
+		<h1>Criação de sites em Campinas</h1>
 
-	<p>
-		Faço criação e desenvolvimento de sites em Campinas para empresas que precisam se destacar numa
-		das buscas mais disputadas do interior paulista. A estratégia é competir onde muitas agências não
-		competem: velocidade, estrutura técnica e uma página realmente útil para cada serviço.
-	</p>
+		<p>
+			Faço criação e desenvolvimento de sites em Campinas para empresas que precisam se destacar numa
+			das buscas mais disputadas do interior paulista. A estratégia é competir onde muitas agências não
+			competem: velocidade, estrutura técnica e uma página realmente útil para cada serviço.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+	</header>
 
 	<section aria-labelledby="mercado-titulo">
 		<h2 id="mercado-titulo">Como se destacar no Google num mercado concorrido</h2>
@@ -122,12 +132,12 @@
 	<Related
 		links={[
 			{ href: services.criacaoDeSites.path, text: 'Como é o processo de criação de um site' },
-			{ href: '/criacao-de-sites-indaiatuba', text: 'Sites e SEO em Indaiatuba' },
-			{ href: '/criacao-de-sites-jundiai', text: 'Criação de sites em Jundiaí' },
+			{ href: '/criacao-de-sites-indaiatuba', text: 'Sites e SEO para empresas perto de Viracopos' },
+			{ href: '/criacao-de-sites-jundiai', text: 'Sites para logística em Jundiaí' },
 			{ href: services.otimizacaoDeSites.path, text: 'Otimização de sites lentos' },
 			{ href: regionPage.path, text: 'Atendimento na região de Sorocaba' }
 		]}
 	/>
 
-	<Contact title="Peça uma proposta de site em Campinas" intro="Conte o que a sua empresa faz e quais serviços você quer que apareçam no Google." />
+	<Contact {whatsapp} title="Peça uma proposta de site em Campinas" intro="Conte o que a sua empresa faz e quais serviços você quer que apareçam no Google." />
 </main>

@@ -11,7 +11,8 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"deploy": "npm run build && wrangler deploy",
-		"rollback": "wrangler rollback"
+		"rollback": "wrangler rollback",
+		"materiais": "sh ./scripts/gerar-materiais.sh"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-cloudflare": "^7.2.9",

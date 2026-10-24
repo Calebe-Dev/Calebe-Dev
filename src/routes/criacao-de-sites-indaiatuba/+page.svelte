@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { city, pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { regionPage, services } from '$lib/site';
+	import { regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/criacao-de-sites-indaiatuba';
 	const title = 'Criação de sites e SEO em Indaiatuba - Calebe Araujo';
 	const description =
 		'Criação de sites e SEO em Indaiatuba (SP): sites rápidos, páginas por serviço e SEO local para empresas da cidade e da região de Viracopos.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Sou de Indaiatuba e quero um orçamento de site e SEO.',
+		label: 'Pedir orçamento em Indaiatuba pelo WhatsApp'
+	};
+
 	const crumbs = [
 		{ name: 'Criação de sites', path: services.criacaoDeSites.path },
 		{ name: 'Indaiatuba', path }
@@ -47,15 +53,19 @@
 <Seo {title} {description} {path} {jsonLd} />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>Criação de sites e SEO em Indaiatuba</h1>
+		<h1>Criação de sites e SEO em Indaiatuba</h1>
 
-	<p>
-		Desenvolvo sites e faço SEO para empresas de Indaiatuba que querem ser encontradas no Google e
-		receber contatos qualificados. A cidade fica a cerca de 50 km de Sorocaba, onde moro, e o
-		atendimento combina reuniões presenciais nas etapas principais com o trabalho remoto no dia a dia.
-	</p>
+		<p>
+			Desenvolvo sites e faço SEO para empresas de Indaiatuba que querem ser encontradas no Google e
+			receber contatos qualificados. A cidade fica a cerca de 50 km de Sorocaba, onde moro, e o
+			atendimento combina reuniões presenciais nas etapas principais com o trabalho remoto no dia a dia.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+	</header>
 
 	<section aria-labelledby="agencia-titulo">
 		<h2 id="agencia-titulo">Agência de marketing digital ou especialista em site e SEO?</h2>
@@ -142,12 +152,12 @@
 
 	<Related
 		links={[
-			{ href: '/criacao-de-sites-campinas', text: 'Criação de sites em Campinas' },
-			{ href: '/criacao-de-sites-itu', text: 'Criação de sites em Itu' },
+			{ href: '/criacao-de-sites-campinas', text: 'Sites para empresas da região de Campinas' },
+			{ href: '/criacao-de-sites-itu', text: 'Sites para turismo e comércio em Itu' },
 			{ href: services.seoB2b.path, text: 'SEO para indústrias e empresas B2B' },
 			{ href: regionPage.path, text: 'Atendimento na região de Sorocaba' }
 		]}
 	/>
 
-	<Contact title="Fale sobre o site da sua empresa em Indaiatuba" intro="Conte o que a sua empresa faz e como os clientes chegam até você hoje." />
+	<Contact {whatsapp} title="Fale sobre o site da sua empresa em Indaiatuba" intro="Conte o que a sua empresa faz e como os clientes chegam até você hoje." />
 </main>

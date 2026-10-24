@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { city, pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { regionPage, services } from '$lib/site';
+	import { regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/criacao-de-sites-jundiai';
 	const title = 'Criação de sites em Jundiaí - Calebe Araujo';
 	const description =
 		'Criação de sites em Jundiaí (SP) para indústria, logística e serviços: páginas por solução, SEO técnico e contatos integrados ao CRM.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Sou de Jundiaí e quero um orçamento de criação de site.',
+		label: 'Pedir orçamento de site em Jundiaí pelo WhatsApp'
+	};
+
 	const crumbs = [
 		{ name: 'Criação de sites', path: services.criacaoDeSites.path },
 		{ name: 'Jundiaí', path }
@@ -47,16 +53,20 @@
 <Seo {title} {description} {path} {jsonLd} />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>Criação de sites em Jundiaí</h1>
+		<h1>Criação de sites em Jundiaí</h1>
 
-	<p>
-		Faço criação de sites em Jundiaí com foco em empresas que vendem para outras empresas: indústrias,
-		operadores logísticos e prestadores de serviço. O site é estruturado para aparecer nas buscas de
-		quem está comparando fornecedores e para entregar cada contato ao time comercial com a página de
-		origem registrada.
-	</p>
+		<p>
+			Faço criação de sites em Jundiaí com foco em empresas que vendem para outras empresas: indústrias,
+			operadores logísticos e prestadores de serviço. O site é estruturado para aparecer nas buscas de
+			quem está comparando fornecedores e para entregar cada contato ao time comercial com a página de
+			origem registrada.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+	</header>
 
 	<section aria-labelledby="logistica-titulo">
 		<h2 id="logistica-titulo">Sites para indústria e logística em Jundiaí</h2>
@@ -143,10 +153,10 @@
 		links={[
 			{ href: services.seoB2b.path, text: 'SEO para empresas B2B' },
 			{ href: services.sistemasWeb.path, text: 'Integração do site com CRM e ERP' },
-			{ href: '/criacao-de-sites-campinas', text: 'Criação de sites em Campinas' },
+			{ href: '/criacao-de-sites-campinas', text: 'Projetos de site em Campinas' },
 			{ href: regionPage.path, text: 'Atendimento na região de Sorocaba' }
 		]}
 	/>
 
-	<Contact title="Peça uma proposta de site em Jundiaí" intro="Conte quais soluções a sua empresa oferece e para quem você vende." />
+	<Contact {whatsapp} title="Peça uma proposta de site em Jundiaí" intro="Conte quais soluções a sua empresa oferece e para quem você vende." />
 </main>

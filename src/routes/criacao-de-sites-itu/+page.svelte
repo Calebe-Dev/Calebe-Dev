@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { city, pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { regionPage, services } from '$lib/site';
+	import { regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/criacao-de-sites-itu';
 	const title = 'Criação de sites em Itu - Calebe Araujo';
 	const description =
 		'Criação de sites em Itu (SP) para turismo, comércio e indústria: sites rápidos e preparados para o Google, com um desenvolvedor da região de Sorocaba.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Sou de Itu e quero um orçamento de criação de site.',
+		label: 'Pedir orçamento de site em Itu pelo WhatsApp'
+	};
+
 	const crumbs = [
 		{ name: 'Criação de sites', path: services.criacaoDeSites.path },
 		{ name: 'Itu', path }
@@ -47,15 +53,19 @@
 <Seo {title} {description} {path} {jsonLd} />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>Criação de sites em Itu</h1>
+		<h1>Criação de sites em Itu</h1>
 
-	<p>
-		Faço criação de sites em Itu para pousadas, restaurantes, lojas e indústrias que querem ser
-		encontrados no Google. Moro em Sorocaba, a cerca de 30 km, e tenho uma ligação direta com a cidade:
-		minha formação em Análise e Desenvolvimento de Sistemas é na Fatec Itu.
-	</p>
+		<p>
+			Faço criação de sites em Itu para pousadas, restaurantes, lojas e indústrias que querem ser
+			encontrados no Google. Moro em Sorocaba, a cerca de 30 km, e tenho uma ligação direta com a cidade:
+			minha formação em Análise e Desenvolvimento de Sistemas é na Fatec Itu.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+	</header>
 
 	<section aria-labelledby="perfil-titulo">
 		<h2 id="perfil-titulo">O que as empresas de Itu precisam no site</h2>
@@ -116,12 +126,12 @@
 
 	<Related
 		links={[
-			{ href: '/criacao-de-sites-sorocaba', text: 'Criação de sites em Sorocaba' },
-			{ href: '/criacao-de-sites-indaiatuba', text: 'Sites e SEO em Indaiatuba' },
+			{ href: '/criacao-de-sites-sorocaba', text: 'Sites para indústria e comércio de Sorocaba' },
+			{ href: '/criacao-de-sites-indaiatuba', text: 'Site e SEO na vizinha Indaiatuba' },
 			{ href: services.consultoriaSeo.path, text: 'Consultoria de SEO para um site que já existe' },
 			{ href: regionPage.path, text: 'Atendimento na região de Sorocaba' }
 		]}
 	/>
 
-	<Contact title="Peça uma proposta de site em Itu" intro="Conte o que a sua empresa faz e qual público o site precisa atrair." />
+	<Contact {whatsapp} title="Peça uma proposta de site em Itu" intro="Conte o que a sua empresa faz e qual público o site precisa atrair." />
 </main>

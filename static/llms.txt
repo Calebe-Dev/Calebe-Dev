@@ -1,0 +1,33 @@
+# Calebe Araujo
+
+> Calebe Araujo (Calebe Sousa de Araujo) é desenvolvedor full stack e consultor de SEO técnico baseado em Sorocaba (SP), Brasil. Constrói sites e sistemas web rápidos e indexáveis (Angular, Svelte, Node.js, Java, PostgreSQL, Docker, AWS, Cloudflare) e presta consultoria e auditoria de SEO para empresas de todo o Brasil, com atendimento presencial possível num raio de 90 km de Sorocaba. Contato: WhatsApp +55 11 98838-5247 (https://wa.me/5511988385247).
+
+Resultados verificáveis citados no site: CRM proprietário em microsserviços integrando 25 sites (Grupo OC); migração de sistemas legados para Angular e Svelte com carregamento reduzido de 8 s para 1 s; mais de 60 landing pages e sites institucionais com SEO técnico (Alpha Company ADS).
+
+## Serviços
+
+- [Consultoria de SEO técnico](https://calebearaujo.com.br/consultoria-seo): diagnóstico, plano priorizado e correções implementadas no código.
+- [Auditoria de SEO](https://calebearaujo.com.br/auditoria-seo): relatório técnico, on-page e de conteúdo, priorizado por impacto.
+- [Criação de sites](https://calebearaujo.com.br/criacao-de-sites): sites institucionais e landing pages rápidos e otimizados.
+- [Otimização de sites](https://calebearaujo.com.br/otimizacao-de-sites): Core Web Vitals e performance.
+- [Sistemas web](https://calebearaujo.com.br/desenvolvimento-de-sistemas-web): CRMs, integrações, APIs REST e headless CMS.
+- [SEO para B2B](https://calebearaujo.com.br/seo-para-b2b): geração de leads B2B pela busca orgânica.
+
+## Guias
+
+- [Site não aparece no Google](https://calebearaujo.com.br/site-nao-aparece-no-google): diagnóstico de indexação em 7 passos.
+- [SEO para IA](https://calebearaujo.com.br/seo-para-ia): como ser citado por ChatGPT, Gemini e AI Overviews.
+- [SEO para sites Angular](https://calebearaujo.com.br/seo-para-sites-angular): SSR, pré-renderização e indexação.
+
+## Atendimento regional
+
+- [Sorocaba e região (raio de 90 km)](https://calebearaujo.com.br/sorocaba-e-regiao): como funciona o atendimento por distância e dados de demanda por cidade.
+
+## Perfil profissional
+
+- [Desenvolvedor full stack em Sorocaba](https://calebearaujo.com.br/desenvolvedor-full-stack-sorocaba): experiência, stack e disponibilidade para vagas.
+- [Currículo em PDF](https://calebearaujo.com.br/curriculo-calebe-araujo.pdf)
+
+## Navegação
+
+- [Mapa do site](https://calebearaujo.com.br/mapa-do-site): todas as páginas, agrupadas por assunto.

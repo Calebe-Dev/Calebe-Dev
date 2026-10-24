@@ -6,14 +6,16 @@
 
 <nav aria-label="Trilha de navegação">
 	<ol>
-		<li><a href="/">Início</a></li>
+		<li><p><a href="/">Início</a></p></li>
 		{#each crumbs as crumb, i (crumb.path)}
 			<li>
-				{#if i === crumbs.length - 1}
-					<span aria-current="page">{crumb.name}</span>
-				{:else}
-					<a href={crumb.path}>{crumb.name}</a>
-				{/if}
+				<p>
+					{#if i === crumbs.length - 1}
+						<span aria-current="page">{crumb.name}</span>
+					{:else}
+						<a href={crumb.path}>{crumb.name}</a>
+					{/if}
+				</p>
 			</li>
 		{/each}
 	</ol>

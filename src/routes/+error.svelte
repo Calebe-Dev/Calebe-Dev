@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import { careerPage, regionPage, services } from '$lib/site';
 </script>
 
@@ -17,10 +18,12 @@
 		<p>Ocorreu um erro ao carregar esta página. Tente novamente ou acesse um dos conteúdos abaixo:</p>
 	{/if}
 	<ul>
-		<li><a href="/">Página inicial</a></li>
-		<li><a href={services.consultoriaSeo.path}>Consultoria de SEO</a></li>
-		<li><a href={services.criacaoDeSites.path}>Criação de sites</a></li>
-		<li><a href={careerPage.path}>Perfil profissional para recrutadores</a></li>
-		<li><a href={regionPage.path}>Atendimento em Sorocaba e região</a></li>
+		<li><p><a href="/">Página inicial</a></p></li>
+		<li><p><a href={services.consultoriaSeo.path}>Consultoria de SEO</a></p></li>
+		<li><p><a href={services.criacaoDeSites.path}>Criação de sites</a></p></li>
+		<li><p><a href={careerPage.path}>Perfil profissional para recrutadores</a></p></li>
+		<li><p><a href={regionPage.path}>Atendimento em Sorocaba e região</a></p></li>
 	</ul>
+	<p>Se preferir, fale direto comigo:</p>
+	<WhatsAppCta />
 </main>

@@ -1,16 +1,22 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { city, pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { regionPage, services } from '$lib/site';
+	import { regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/consultoria-seo-sorocaba';
-	const title = 'Consultoria de SEO em Sorocaba - Calebe Araujo';
+	const title = 'Consultoria de SEO em Sorocaba: SEO local e técnico - Calebe Araujo';
 	const description =
 		'Consultoria de SEO em Sorocaba (SP): SEO técnico, SEO local e Perfil da Empresa no Google com um consultor que também desenvolve e corrige o site.';
+	const whatsapp: WhatsApp = {
+		message: 'Olá, Calebe! Sou de Sorocaba e quero melhorar o SEO do meu site. Meu site é: ',
+		label: 'Falar sobre SEO em Sorocaba pelo WhatsApp'
+	};
+
 	const crumbs = [
 		{ name: 'Consultoria de SEO', path: services.consultoriaSeo.path },
 		{ name: 'Sorocaba', path }
@@ -52,16 +58,20 @@
 <Seo {title} {description} {path} {jsonLd} />
 
 <main id="conteudo">
-	<Breadcrumbs {crumbs} />
+	<header class="hero">
+		<Breadcrumbs {crumbs} />
 
-	<h1>Consultoria de SEO em Sorocaba</h1>
+		<h1>Consultoria de SEO em Sorocaba: SEO local e técnico</h1>
 
-	<p>
-		Ofereço consultoria de SEO em Sorocaba para empresas que querem aparecer melhor no Google, tanto
-		no mapa das buscas locais quanto nos resultados orgânicos. A diferença de trabalhar comigo é que,
-		além de diagnosticar, eu desenvolvo: as correções técnicas são feitas no próprio site, sem
-		depender de outro fornecedor.
-	</p>
+		<p>
+			Como consultor de SEO em Sorocaba, ajudo empresas da cidade a aparecer melhor no Google, tanto no
+			mapa das buscas locais quanto nos resultados orgânicos. A diferença de trabalhar comigo é que,
+			além de diagnosticar, eu desenvolvo: as correções técnicas são feitas no próprio site, sem
+			depender de outro fornecedor.
+		</p>
+
+		<WhatsAppCta {...whatsapp} />
+	</header>
 
 	<section aria-labelledby="busca-titulo">
 		<h2 id="busca-titulo">Como as empresas de Sorocaba são encontradas no Google</h2>
@@ -116,11 +126,11 @@
 		links={[
 			{ href: services.consultoriaSeo.path, text: 'Como funciona a consultoria de SEO técnico' },
 			{ href: services.auditoriaSeo.path, text: 'Auditoria de SEO do seu site' },
-			{ href: '/criacao-de-sites-sorocaba', text: 'Criação de sites em Sorocaba' },
-			{ href: '/consultoria-seo-sao-paulo', text: 'Consultoria de SEO em São Paulo' },
+			{ href: '/criacao-de-sites-sorocaba', text: 'Um site novo para a sua empresa em Sorocaba' },
+			{ href: '/consultoria-seo-sao-paulo', text: 'SEO para sites da capital paulista' },
 			{ href: regionPage.path, text: 'Cidades atendidas na região' }
 		]}
 	/>
 
-	<Contact title="Fale sobre o SEO da sua empresa" intro="Envie o endereço do site e do Perfil da Empresa no Google e conte quais serviços você quer destacar." />
+	<Contact {whatsapp} title="Fale sobre o SEO da sua empresa" intro="Envie o endereço do site e do Perfil da Empresa no Google e conte quais serviços você quer destacar." />
 </main>
