@@ -62,7 +62,8 @@ export const services = {
 export const guides = {
 	siteNaoAparece: { path: '/site-nao-aparece-no-google', name: 'Site não aparece no Google' },
 	seoParaIa: { path: '/seo-para-ia', name: 'SEO para IA' },
-	seoAngular: { path: '/seo-para-sites-angular', name: 'SEO para sites Angular' }
+	seoAngular: { path: '/seo-para-sites-angular', name: 'SEO para sites Angular' },
+	comoAparecer: { path: '/como-aparecer-no-google', name: 'Como aparecer no Google' }
 } as const;
 
 export const careerPage = { path: '/desenvolvedor-full-stack-sorocaba', name: 'Desenvolvedor full stack em Sorocaba' };
@@ -104,6 +105,7 @@ export const pageKeywords: Record<string, string[]> = {
 	'/site-nao-aparece-no-google': ['site não aparece no Google', 'meu site não aparece no Google', 'como indexar site no Google', 'colocar meu site no Google', 'site Hostinger não aparece no Google', 'Google Search Console'],
 	'/seo-para-ia': ['SEO para IA', 'SEO para inteligência artificial', 'GEO', 'GEO vs SEO', 'como aparecer no ChatGPT', 'AI Overviews'],
 	'/seo-para-sites-angular': ['SEO Angular', 'Angular SSR', 'Angular Universal', 'Angular SSR vs SPA', 'pré-renderização Angular', 'indexação Angular'],
+	'/como-aparecer-no-google': ['como colocar minha empresa no Google', 'como aparecer no Google', 'como ficar em primeiro no Google', 'primeira página do Google', 'Google Meu Negócio', 'Perfil da Empresa no Google'],
 	'/mapa-do-site': ['mapa do site', 'Calebe Araujo', 'páginas do site']
 };
 

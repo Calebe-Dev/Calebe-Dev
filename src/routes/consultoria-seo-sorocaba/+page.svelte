@@ -6,7 +6,7 @@
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { city, pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { regionPage, services, type WhatsApp } from '$lib/site';
+	import { guides, regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/consultoria-seo-sorocaba';
 	const title = 'Consultoria de SEO em Sorocaba: SEO local e técnico - Calebe Araujo';
@@ -82,7 +82,7 @@
 		<h2 id="busca-titulo">Como as empresas de Sorocaba são encontradas no Google</h2>
 		<p>
 			Numa busca local, o Google costuma mostrar primeiro o mapa com três empresas, que vêm do Perfil
-			da Empresa no Google, e depois os resultados orgânicos, que vêm dos sites. Uma estratégia de SEO
+			da Empresa no Google (o antigo Google Meu Negócio), e depois os resultados orgânicos, que vêm dos sites. Uma estratégia de SEO
 			local trabalha os dois ao mesmo tempo: o perfil para o mapa, o site para as buscas mais
 			específicas e para convencer quem chega.
 		</p>
@@ -137,6 +137,7 @@
 			{ href: services.consultoriaSeo.path, text: 'Como funciona a consultoria de SEO técnico' },
 			{ href: services.auditoriaSeo.path, text: 'Auditoria de SEO do seu site' },
 			{ href: services.otimizacaoDeSites.path, text: 'Otimização de sites para empresas de Sorocaba' },
+			{ href: guides.comoAparecer.path, text: 'Guia: como colocar sua empresa no Google' },
 			{ href: '/criacao-de-sites-sorocaba', text: 'Um site novo para a sua empresa em Sorocaba' },
 			{ href: '/consultoria-seo-sao-paulo', text: 'SEO para sites da capital paulista' },
 			{ href: regionPage.path, text: 'Cidades atendidas na região' }

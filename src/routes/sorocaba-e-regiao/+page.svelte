@@ -156,7 +156,7 @@
 	<section aria-labelledby="local-titulo">
 		<h2 id="local-titulo">O que muda no SEO de uma empresa local</h2>
 		<ul>
-			<li><strong>Perfil da Empresa no Google:</strong> categoria correta, área de atendimento, fotos e horários atualizados.</li>
+			<li><strong>Perfil da Empresa no Google (o antigo Google Meu Negócio):</strong> categoria correta, área de atendimento, fotos e horários atualizados.</li>
 			<li><strong>Dados consistentes:</strong> nome, endereço e telefone idênticos no site, no perfil do Google e em diretórios.</li>
 			<li><strong>Uma página por serviço:</strong> cada serviço importante com sua própria página, que pode aparecer na busca específica.</li>
 			<li><strong>Páginas de cidade só com demanda:</strong> quando há busca real e algo local para dizer, não como lista de municípios.</li>

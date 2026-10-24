@@ -66,8 +66,9 @@
 		<h1>SEO para B2B: geração de leads pela busca orgânica</h1>
 
 		<p>
-			SEO para B2B é a estratégia de busca orgânica de empresas que vendem para outras empresas. O ciclo
-			de vendas é mais longo, envolve vários tomadores de decisão e começa com pesquisas específicas,
+			SEO para B2B é a estratégia de busca orgânica de empresas que vendem para outras empresas: na
+			prática, a forma de divulgar a sua empresa para outras empresas pelo Google, aparecendo quando um
+			comprador pesquisa o que você vende. O ciclo de vendas é mais longo, envolve vários tomadores de decisão e começa com pesquisas específicas,
 			muitas vezes com pouco volume. Por isso o foco não é atrair muitas visitas, e sim aparecer para quem
 			está comparando fornecedores e transformar essa visita em um lead registrado no CRM.
 		</p>

@@ -83,7 +83,7 @@
 		</p>
 		<p>
 			Para quem quer saber como aparecer no Google em Campinas, o SEO local trabalha dois caminhos ao
-			mesmo tempo: o Perfil da Empresa no Google, que aparece no mapa das buscas por perto, e o site,
+			mesmo tempo: o Perfil da Empresa no Google (o antigo Google Meu Negócio), que aparece no mapa das buscas por perto, e o site,
 			que responde às buscas mais específicas e convence quem chega até ele.
 		</p>
 		<p>O que funciona melhor num mercado assim:</p>

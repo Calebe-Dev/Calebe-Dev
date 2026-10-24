@@ -94,7 +94,7 @@
 
 		<h3>Sites para comércio e serviços locais</h3>
 		<p>
-			Aqui o site trabalha junto com o Perfil da Empresa no Google: mesmos dados de contato, uma
+			Aqui o site trabalha junto com o Perfil da Empresa no Google (o antigo Google Meu Negócio): mesmos dados de contato, uma
 			página para cada serviço e informações que ajudam o cliente a decidir, como região atendida,
 			horários e formas de pagamento. O botão de WhatsApp registra de qual página veio a conversa.
 		</p>

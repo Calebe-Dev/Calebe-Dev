@@ -63,7 +63,14 @@
 			ainda não foi descoberto, está bloqueado para o robô do Google (o Googlebot), o Google escolheu
 			outra URL como principal, o conteúdo depende de
 			JavaScript que não é processado ou a página está indexada, mas não é relevante o bastante para a
-			busca feita. O diagnóstico abaixo separa cada caso, na ordem em que vale a pena verificar.
+			busca feita. O diagnóstico abaixo separa cada caso, na ordem em que vale a pena verificar. Se o
+			seu site sumiu do Google de repente, depois de já aparecer, veja também as ações manuais na
+			tabela de sintomas.
+		</p>
+		<p>
+			Se o problema é que a sua empresa não aparece no Google Maps, o caminho é outro: o Perfil da
+			Empresa no Google, explicado no guia
+			<a href={guides.comoAparecer.path}>como colocar minha empresa no Google</a>.
 		</p>
 		<p>
 			Este guia faz parte do meu trabalho de <a href={services.consultoriaSeo.path}>consultoria de SEO técnico</a>:

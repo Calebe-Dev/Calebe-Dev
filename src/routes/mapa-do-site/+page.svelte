@@ -35,6 +35,7 @@
 			id: 'guias',
 			title: 'Guias de SEO',
 			entries: [
+				{ href: guides.comoAparecer.path, text: 'Como colocar minha empresa no Google', note: 'guia sem jargão: Google Meu Negócio, site e primeira página' },
 				{ href: guides.siteNaoAparece.path, text: 'Site não aparece no Google', note: 'diagnóstico de indexação em 7 passos' },
 				{ href: guides.seoParaIa.path, text: 'SEO para IA', note: 'como aparecer no ChatGPT e no AI Overviews' },
 				{ href: guides.seoAngular.path, text: 'SEO para sites Angular', note: 'SSR, pré-renderização e indexação' }

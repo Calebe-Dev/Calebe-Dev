@@ -77,7 +77,7 @@
 		</p>
 		<ul>
 			<li><strong>Turismo e gastronomia:</strong> fotos reais, horários, como chegar e reservas visíveis logo no início, com páginas para cada atração ou experiência.</li>
-			<li><strong>Comércio e serviços:</strong> site ligado ao Perfil da Empresa no Google, com os mesmos dados de contato e uma página para cada serviço.</li>
+			<li><strong>Comércio e serviços:</strong> site ligado ao Perfil da Empresa no Google (o antigo Google Meu Negócio), com os mesmos dados de contato e uma página para cada serviço.</li>
 			<li><strong>Indústria:</strong> páginas por produto e por segmento atendido, com especificações e pedido de cotação.</li>
 		</ul>
 	</section>

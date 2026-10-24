@@ -23,7 +23,7 @@
 		{
 			question: 'Meu site está lento: o que fazer?',
 			answer:
-				'Comece testando as páginas principais no PageSpeed Insights, no celular, para ver o que atrasa o carregamento. Na maioria dos casos, comprimir as imagens que aparecem acima da dobra, remover plugins e scripts sem uso e ativar cache resolvem boa parte do problema. Se o site continua lento para abrir depois disso, o gargalo costuma estar no tema, na plataforma ou no servidor.'
+				'Se o seu site demora para abrir, está pesado ou travando, comece testando as páginas principais no PageSpeed Insights, no celular, para ver o que atrasa o carregamento. Na maioria dos casos, comprimir as imagens que aparecem acima da dobra, remover plugins e scripts sem uso e ativar cache resolvem boa parte do problema. Se o site continua lento para abrir depois disso, o gargalo costuma estar no tema, na plataforma ou no servidor.'
 		},
 		{
 			question: 'A velocidade do site influencia no SEO?',

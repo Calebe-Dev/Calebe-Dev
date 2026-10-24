@@ -36,6 +36,11 @@
 				'Criadores de sites com IA montam uma página em minutos e servem para testar uma ideia. Para uma empresa que quer aparecer no Google, eles costumam gerar textos genéricos, uma estrutura de página única e código pesado. A IA pode acelerar partes do trabalho, como rascunhos de texto, mas o que faz o site ser encontrado continua sendo a estrutura de páginas, o conteúdo específico do negócio e a base técnica.'
 		},
 		{
+			question: 'Quem faz site: web designer, programador ou agência?',
+			answer:
+				'Os três fazem sites, com focos diferentes. O web designer cuida principalmente do visual; o programador, ou desenvolvedor web, da construção e das integrações; a agência reúne vários profissionais e costuma cuidar também do marketing. No meu caso, como desenvolvedor, o mesmo profissional planeja as páginas, programa o site e prepara tudo para ele aparecer no Google.'
+		},
+		{
 			question: 'O site já sai otimizado para o Google?',
 			answer:
 				'O site sai com a base técnica de SEO pronta: títulos e descrições por página, URLs descritivas, sitemap, dados estruturados, boa performance e conteúdo no HTML. A posição no Google depois disso depende da concorrência e da qualidade do conteúdo de cada página.'
@@ -70,6 +75,12 @@
 			bem no celular e já nascem preparados para o Google: cada página com um objetivo claro, conteúdo no HTML e
 			mensuração de contatos configurada. Já desenvolvi mais de 60 landing pages e sites
 			institucionais e hoje mantenho uma rede de 25 sites integrados a um CRM.
+		</p>
+		<p>
+			Para empresas que querem um site de alto padrão, moderno e confiável, cada projeto é planejado do
+			zero: estrutura de páginas, textos e visual pensados para o seu público, e não um modelo pronto
+			com o logotipo trocado. O objetivo é um site que gera clientes, e não só um cartão de visita
+			online.
 		</p>
 
 		<WhatsAppCta {...whatsapp} />
@@ -109,6 +120,17 @@
 		</p>
 	</section>
 
+	<section aria-labelledby="desatualizado-titulo">
+		<h2 id="desatualizado-titulo">Site desatualizado: modernizar ou refazer</h2>
+		<p>
+			Um site antigo costuma dar sinais: demora para abrir, não funciona bem no celular, tem informações
+			velhas ou não aparece no Google. Às vezes, reformular o site, com visual e textos novos, resolve.
+			Quando o problema está na base técnica, refazer do zero sai mais barato do que remendar. Nos dois
+			casos, a troca precisa manter os endereços das páginas que já aparecem no Google, com
+			redirecionamentos, para o site novo não perder o que o antigo conquistou.
+		</p>
+	</section>
+
 	<section aria-labelledby="incluido-titulo">
 		<h2 id="incluido-titulo">O que vem incluído em todo site</h2>
 		<ul>
@@ -117,7 +139,7 @@
 			<li>Performance: páginas geradas de forma estática ou renderizadas no servidor e imagens otimizadas.</li>
 			<li>Layout responsivo, pensado primeiro para o celular.</li>
 			<li>Domínio, hospedagem e certificado SSL (HTTPS) configurados, com tudo registrado no nome da sua empresa.</li>
-			<li>Mapa do Google e Perfil da Empresa no Google ligados ao site, quando a empresa atende clientes na região.</li>
+			<li>Mapa do Google e Perfil da Empresa no Google (o antigo Google Meu Negócio) ligados ao site, quando a empresa atende clientes na região.</li>
 			<li>Mensuração com Google Analytics, Google Tag Manager e pixels de conversão.</li>
 			<li>Formulários e botões de WhatsApp que podem enviar os contatos direto para o CRM.</li>
 		</ul>

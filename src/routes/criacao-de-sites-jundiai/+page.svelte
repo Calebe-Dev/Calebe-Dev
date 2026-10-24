@@ -131,7 +131,7 @@
 		<h2 id="local-titulo">Comércio e serviços para o público de Jundiaí</h2>
 		<p>
 			Para empresas que atendem o morador da cidade e das vizinhas, como Itupeva, Louveira e Várzea
-			Paulista, o site trabalha junto com o Perfil da Empresa no Google: mesmos dados de contato, uma
+			Paulista, o site trabalha junto com o Perfil da Empresa no Google (o antigo Google Meu Negócio): mesmos dados de contato, uma
 			página para cada serviço e carregamento rápido no celular, de onde vem a maior parte das buscas
 			locais.
 		</p>

@@ -131,7 +131,7 @@
 		</p>
 		<ul>
 			<li><strong>Indústria, logística e B2B:</strong> compradores de outras empresas pesquisam por solução, especificação e capacidade de atendimento. O site precisa de páginas por solução e de um pedido de cotação simples.</li>
-			<li><strong>Serviços e comércio local:</strong> o cliente está na cidade e decide pelo mapa do Google e pelo celular. O site precisa estar alinhado ao Perfil da Empresa no Google, com uma página para cada serviço.</li>
+			<li><strong>Serviços e comércio local:</strong> o cliente está na cidade e decide pelo mapa do Google e pelo celular. O site precisa estar alinhado ao Perfil da Empresa no Google (o antigo Google Meu Negócio), com uma página para cada serviço.</li>
 		</ul>
 	</section>
 

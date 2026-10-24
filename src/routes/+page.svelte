@@ -84,8 +84,9 @@
 
 		<p>
 			Sou <strong>{person.name}</strong>, desenvolvedor full stack e consultor de SEO técnico baseado em
-			{person.city} ({person.region}). Construo sites e sistemas web rápidos, fáceis de indexar e
-			pensados para gerar contatos, e atendo empresas de todo o Brasil de forma remota, da
+			{person.city} ({person.region}). Em palavras simples: ajudo empresas a
+			<a href={guides.comoAparecer.path}>aparecer no Google</a> e construo sites e sistemas sob medida,
+			rápidos e pensados para trazer clientes. Atendo empresas de todo o Brasil de forma remota, da
 			<a href={services.consultoriaSeo.path}>consultoria de SEO técnico</a> ao desenvolvimento do site.
 		</p>
 		<p>

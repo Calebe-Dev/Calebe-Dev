@@ -185,8 +185,13 @@ export const faqNode = (path: string, faqs: Faq[]) => ({
 	}))
 });
 
-export const articleNode = (path: string, headline: string, description: string) => ({
-	'@type': 'TechArticle',
+export const articleNode = (
+	path: string,
+	headline: string,
+	description: string,
+	type: 'TechArticle' | 'Article' = 'TechArticle'
+) => ({
+	'@type': type,
 	'@id': `${absolute(path)}#artigo`,
 	headline,
 	description,
@@ -213,8 +218,8 @@ export const pageGraph = (opts: {
 	crumbs: Crumb[];
 	type?: 'WebPage' | 'ProfilePage' | 'CollectionPage';
 	service?: Omit<Parameters<typeof serviceNode>[0], 'path'>;
-	// guias informativos: TechArticle assinado pela pessoa
-	article?: { headline: string };
+	// guias informativos assinados pela pessoa: TechArticle (técnicos) ou Article (para leigos)
+	article?: { headline: string; type?: 'TechArticle' | 'Article' };
 	faqs?: Faq[];
 	person?: object;
 	extra?: object[];
@@ -231,7 +236,7 @@ export const pageGraph = (opts: {
 			breadcrumb: true,
 			mainEntity: opts.service ? 'servico' : opts.type === 'ProfilePage' ? 'pessoa' : undefined
 		}),
-		...(opts.article ? [articleNode(opts.path, opts.article.headline, opts.description)] : []),
+		...(opts.article ? [articleNode(opts.path, opts.article.headline, opts.description, opts.article.type)] : []),
 		breadcrumbNode(opts.path, opts.crumbs),
 		...(opts.service ? [serviceNode({ path: opts.path, ...opts.service })] : []),
 		...(opts.faqs?.length ? [faqNode(opts.path, opts.faqs)] : []),

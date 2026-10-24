@@ -79,6 +79,11 @@
 			própria empresa: as telas, os perfis de acesso e os relatórios seguem a forma como o time já
 			trabalha, em vez de o time se adaptar a um pacote pronto.
 		</p>
+		<p>
+			Na prática, é o sistema para a empresa que substitui planilhas de Excel e controles soltos:
+			estoque, vendas, clientes e ordens de serviço num só lugar, com acesso pelo navegador, inclusive
+			no celular. Um sistema de gestão personalizado segue o jeito que a sua empresa já trabalha.
+		</p>
 
 		<WhatsAppCta {...whatsapp} />
 	</header>

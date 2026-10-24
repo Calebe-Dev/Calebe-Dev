@@ -31,9 +31,9 @@
 				'Segundo o próprio Google, na maioria dos casos são necessários de quatro meses a um ano para implementar as melhorias e começar a ver os benefícios. Correções técnicas graves, como páginas importantes fora do índice, costumam mostrar efeito antes; ganhos em buscas concorridas levam mais tempo.'
 		},
 		{
-			question: 'Uma consultoria de SEO garante a primeira posição no Google?',
+			question: 'Uma consultoria de SEO garante o primeiro lugar no Google?',
 			answer:
-				'Não. O Google avisa que ninguém pode garantir a primeira posição, e promessas desse tipo são um sinal de alerta. O que uma consultoria séria garante é um diagnóstico claro, correções bem feitas e acompanhamento dos indicadores no Search Console.'
+				'Não. O Google avisa que ninguém pode garantir a primeira posição, e promessas de primeiro lugar ou de primeira página garantida são um sinal de alerta. O que uma consultoria séria garante é um diagnóstico claro, correções bem feitas e acompanhamento dos indicadores no Search Console.'
 		},
 		{
 			question: 'Preciso trocar de plataforma para melhorar o SEO?',
@@ -111,7 +111,7 @@
 		<h3>Consultoria de SEO para pequenas empresas</h3>
 		<p>
 			Para pequenas empresas, a consultoria começa pelo que traz retorno mais rápido com pouco
-			investimento: Perfil da Empresa no Google completo, uma página para cada serviço principal e uma
+			investimento: Perfil da Empresa no Google (o antigo Google Meu Negócio) bem preenchido, uma página para cada serviço principal e uma
 			base técnica sem erros de indexação. Em vez de um acompanhamento mensal longo, um projeto
 			pontual bem feito costuma resolver a maior parte do problema.
 		</p>
@@ -202,6 +202,7 @@
 	<section aria-labelledby="guias-titulo">
 		<h2 id="guias-titulo">Guias sobre SEO técnico</h2>
 		<ul>
+			<li><a href={guides.comoAparecer.path}>Como colocar a sua empresa no Google</a>: guia sem jargão para donos de empresa.</li>
 			<li><a href={guides.siteNaoAparece.path}>Por que um site não aparece no Google</a>: diagnóstico em 7 passos.</li>
 			<li><a href={guides.seoParaIa.path}>Como aparecer no ChatGPT e no AI Overviews</a>: SEO para IA na prática.</li>
 			<li><a href={guides.seoAngular.path}>SEO para sites Angular</a>: SSR, pré-renderização e indexação.</li>
