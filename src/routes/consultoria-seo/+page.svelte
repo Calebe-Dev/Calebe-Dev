@@ -218,6 +218,7 @@
 			{ href: services.auditoriaSeo.path, text: 'Auditoria de SEO: o diagnóstico que abre a consultoria' },
 			{ href: services.otimizacaoDeSites.path, text: 'Otimização de sites lentos e Core Web Vitals' },
 			{ href: services.seoB2b.path, text: 'Consultoria de SEO B2B e geração de leads' },
+			{ href: services.guestPost.path, text: 'Guest posts e backlinks de qualidade' },
 			{ href: '/consultoria-seo-sorocaba', text: 'Consultoria de SEO local em Sorocaba' },
 			{ href: '/consultoria-seo-sao-paulo', text: 'Consultoria de SEO para empresas de São Paulo' }
 		]}

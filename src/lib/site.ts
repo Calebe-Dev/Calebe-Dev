@@ -55,7 +55,8 @@ export const services = {
 	criacaoDeSites: { path: '/criacao-de-sites', name: 'Criação de sites' },
 	otimizacaoDeSites: { path: '/otimizacao-de-sites', name: 'Otimização de sites' },
 	sistemasWeb: { path: '/desenvolvimento-de-sistemas-web', name: 'Desenvolvimento de sistemas web' },
-	seoB2b: { path: '/seo-para-b2b', name: 'SEO para empresas B2B' }
+	seoB2b: { path: '/seo-para-b2b', name: 'SEO para empresas B2B' },
+	guestPost: { path: '/guest-post', name: 'Guest post para SEO' }
 } as const;
 
 // Guias (cluster pages) da consultoria de SEO: respondem dúvidas reais e levam à auditoria/consultoria
@@ -67,18 +68,58 @@ export const guides = {
 } as const;
 
 export const careerPage = { path: '/desenvolvedor-full-stack-sorocaba', name: 'Desenvolvedor full stack em Sorocaba' };
+export const copywriterPage = { path: '/copywriter-seo', name: 'Copywriter SEO' };
 export const regionPage = { path: '/sorocaba-e-regiao', name: 'Atendimento em Sorocaba e região' };
 
-// Menu principal (cabeçalho e SiteNavigationElement do schema)
-export const mainNav = [
-	{ href: services.consultoriaSeo.path, label: 'Consultoria de SEO' },
-	{ href: services.auditoriaSeo.path, label: 'Auditoria de SEO' },
-	{ href: services.criacaoDeSites.path, label: 'Criação de sites' },
-	{ href: services.otimizacaoDeSites.path, label: 'Otimização de sites' },
-	{ href: services.sistemasWeb.path, label: 'Sistemas web' },
-	{ href: services.seoB2b.path, label: 'SEO B2B' },
-	{ href: careerPage.path, label: 'Para recrutadores' },
-	{ href: regionPage.path, label: 'Sorocaba e região' }
+// Menu principal em grupos com subitens (cabeçalho e SiteNavigationElement do schema)
+export type MenuItem = { href: string; label: string };
+export const menu: (MenuItem & { itens: MenuItem[] })[] = [
+	{
+		href: '/#servicos',
+		label: 'Serviços',
+		itens: [
+			{ href: services.consultoriaSeo.path, label: 'Consultoria de SEO' },
+			{ href: services.auditoriaSeo.path, label: 'Auditoria de SEO' },
+			{ href: services.criacaoDeSites.path, label: 'Criação de sites' },
+			{ href: services.otimizacaoDeSites.path, label: 'Otimização de sites' },
+			{ href: services.sistemasWeb.path, label: 'Sistemas web' },
+			{ href: services.seoB2b.path, label: 'SEO B2B' },
+			{ href: services.guestPost.path, label: 'Guest post' }
+		]
+	},
+	{
+		href: '/mapa-do-site#guias-titulo',
+		label: 'Guias',
+		itens: [
+			{ href: '/como-aparecer-no-google', label: 'Como aparecer no Google' },
+			{ href: '/site-nao-aparece-no-google', label: 'Site não aparece no Google' },
+			{ href: '/seo-para-ia', label: 'SEO para IA' },
+			{ href: '/seo-para-sites-angular', label: 'SEO para sites Angular' }
+		]
+	},
+	{
+		href: regionPage.path,
+		label: 'Sorocaba e região',
+		itens: [
+			{ href: regionPage.path, label: 'Atendimento no raio de 90 km' },
+			{ href: '/criacao-de-sites-sorocaba', label: 'Criação de sites em Sorocaba' },
+			{ href: '/consultoria-seo-sorocaba', label: 'Consultoria de SEO em Sorocaba' },
+			{ href: '/criacao-de-sites-itu', label: 'Criação de sites em Itu' },
+			{ href: '/criacao-de-sites-indaiatuba', label: 'Sites e SEO em Indaiatuba' },
+			{ href: '/criacao-de-sites-jundiai', label: 'Criação de sites em Jundiaí' },
+			{ href: '/criacao-de-sites-campinas', label: 'Criação de sites em Campinas' },
+			{ href: '/consultoria-seo-sao-paulo', label: 'Consultoria de SEO em São Paulo' }
+		]
+	},
+	{
+		href: careerPage.path,
+		label: 'Para recrutadores',
+		itens: [
+			{ href: careerPage.path, label: 'Desenvolvedor full stack' },
+			{ href: copywriterPage.path, label: 'Copywriter SEO' },
+			{ href: person.cv, label: 'Currículo em PDF' }
+		]
+	}
 ];
 
 // Cidades com página própria: só onde há busca real (autocomplete do Google, out/2026)
@@ -113,7 +154,8 @@ export const siteGroups: { id: string; title: string; entries: SiteEntry[] }[] =
 			{ href: services.criacaoDeSites.path, text: 'Criação de sites profissionais', note: 'sites institucionais e landing pages rápidos e otimizados' },
 			{ href: services.otimizacaoDeSites.path, text: 'Otimização de sites e Core Web Vitals', note: 'como acelerar um site lento' },
 			{ href: services.sistemasWeb.path, text: 'Desenvolvimento de sistemas web', note: 'Software sob medida: CRMs, integrações, APIs REST e headless CMS' },
-			{ href: services.seoB2b.path, text: 'SEO para empresas B2B', note: 'geração de leads pela busca orgânica' }
+			{ href: services.seoB2b.path, text: 'SEO para empresas B2B', note: 'geração de leads pela busca orgânica' },
+			{ href: services.guestPost.path, text: 'Guest post para SEO', note: 'artigos convidados e backlinks dentro das regras do Google' }
 		]
 	},
 	{
@@ -143,6 +185,7 @@ export const siteGroups: { id: string; title: string; entries: SiteEntry[] }[] =
 		title: 'Perfil profissional',
 		entries: [
 			{ href: careerPage.path, text: 'Desenvolvedor full stack em Sorocaba', note: 'experiência, stack e disponibilidade para vagas' },
+			{ href: copywriterPage.path, text: 'Copywriter SEO', note: 'redação para sites e landing pages; vagas de copywriter e redator SEO' },
 			{ href: person.cv, text: 'Currículo em PDF', note: 'versão para download' }
 		]
 	}
@@ -170,6 +213,8 @@ export const pageKeywords: Record<string, string[]> = {
 	'/seo-para-ia': ['SEO para IA', 'SEO para inteligência artificial', 'GEO', 'GEO vs SEO', 'como aparecer no ChatGPT', 'AI Overviews'],
 	'/seo-para-sites-angular': ['SEO Angular', 'Angular SSR', 'Angular Universal', 'Angular SSR vs SPA', 'pré-renderização Angular', 'indexação Angular'],
 	'/como-aparecer-no-google': ['como colocar minha empresa no Google', 'como aparecer no Google', 'como ficar em primeiro no Google', 'primeira página do Google', 'Google Meu Negócio', 'Perfil da Empresa no Google'],
+	'/guest-post': ['guest post', 'guest post para SEO', 'artigo convidado', 'backlinks', 'link building', 'guest post e publieditorial'],
+	'/copywriter-seo': ['copywriter SEO', 'redator SEO', 'vaga de copywriter', 'copywriter remoto', 'redação para landing pages', 'copywriter Sorocaba'],
 	'/mapa-do-site': ['mapa do site', 'Calebe Araujo', 'páginas do site']
 };
 

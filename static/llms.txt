@@ -12,6 +12,7 @@ Resultados verificáveis citados no site: CRM proprietário em microsserviços i
 - [Otimização de sites](https://calebearaujo.com.br/otimizacao-de-sites): Core Web Vitals e performance.
 - [Sistemas web e software sob medida](https://calebearaujo.com.br/desenvolvimento-de-sistemas-web): CRMs, integrações, APIs REST e headless CMS.
 - [SEO para B2B](https://calebearaujo.com.br/seo-para-b2b): geração de leads B2B pela busca orgânica.
+- [Guest post para SEO](https://calebearaujo.com.br/guest-post): artigos convidados em sites do nicho, com backlinks dentro das regras do Google.
 
 ## Guias
 
@@ -27,6 +28,7 @@ Resultados verificáveis citados no site: CRM proprietário em microsserviços i
 ## Perfil profissional
 
 - [Desenvolvedor full stack em Sorocaba](https://calebearaujo.com.br/desenvolvedor-full-stack-sorocaba): experiência, stack e disponibilidade para vagas.
+- [Copywriter SEO](https://calebearaujo.com.br/copywriter-seo): redação para sites e landing pages; aberto a vagas de copywriter e redator SEO.
 - [Currículo em PDF](https://calebearaujo.com.br/curriculo-calebe-araujo.pdf)
 
 ## Navegação

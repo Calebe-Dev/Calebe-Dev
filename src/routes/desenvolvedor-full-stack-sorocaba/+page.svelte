@@ -7,7 +7,7 @@
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { city, pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { careerPage, guides, person, services, type WhatsApp } from '$lib/site';
+	import { careerPage, copywriterPage, guides, person, services, type WhatsApp } from '$lib/site';
 
 	const path = careerPage.path;
 	const title = 'Desenvolvedor full stack em Sorocaba: Angular e Node.js - Calebe Araujo';
@@ -197,6 +197,7 @@
 			{ href: services.sistemasWeb.path, text: 'Projetos de sistemas web e microsserviços' },
 			{ href: services.otimizacaoDeSites.path, text: 'Trabalho com performance e Core Web Vitals' },
 			{ href: guides.seoAngular.path, text: 'Artigo técnico: SEO em aplicações Angular' },
+			{ href: copywriterPage.path, text: 'Perfil de copywriter SEO' },
 			{ href: person.github, text: 'Repositórios no GitHub' }
 		]}
 	/>

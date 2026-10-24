@@ -169,6 +169,7 @@
 	<Related
 		links={[
 			{ href: services.consultoriaSeo.path, text: 'Consultoria de SEO técnico' },
+			{ href: services.guestPost.path, text: 'Guest posts em portais do seu setor' },
 			{ href: services.sistemasWeb.path, text: 'CRM e integrações para leads B2B' },
 			{ href: services.criacaoDeSites.path, text: 'Sites com páginas por solução e segmento' },
 			{ href: '/criacao-de-sites-jundiai', text: 'Exemplo de estrutura B2B para logística' }

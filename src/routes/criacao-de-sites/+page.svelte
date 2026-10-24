@@ -7,7 +7,7 @@
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { cityPages, services, type WhatsApp } from '$lib/site';
+	import { cityPages, copywriterPage, services, type WhatsApp } from '$lib/site';
 
 	const path = services.criacaoDeSites.path;
 	const title = 'Criação de sites profissionais rápidos e otimizados - Calebe Araujo';
@@ -212,6 +212,7 @@
 			{ href: services.otimizacaoDeSites.path, text: 'Otimização de sites que já existem' },
 			{ href: services.sistemasWeb.path, text: 'Sistemas web e integrações com CRM' },
 			{ href: services.auditoriaSeo.path, text: 'Auditoria de SEO antes de refazer o site' },
+			{ href: copywriterPage.path, text: 'Textos dos sites escritos para SEO' },
 			{ href: '/sorocaba-e-regiao', text: 'Cidades atendidas no raio de 90 km de Sorocaba' }
 		]}
 	/>

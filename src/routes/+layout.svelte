@@ -2,24 +2,51 @@
 	import '../app.css';
 	import { page } from '$app/state';
 	import Compartilhar from '$lib/components/Compartilhar.svelte';
-	import { defaultWhatsApp, mainNav, person, siteGroups, sitemapPage, socials, whatsappLink } from '$lib/site';
+	import { defaultWhatsApp, menu, person, siteGroups, sitemapPage, socials, whatsappLink } from '$lib/site';
 
 	let { children } = $props();
 
 	// marca o link da página atual no menu (acessibilidade e destaque visual)
 	const atual = (href: string) => (page.url.pathname === href ? 'page' : undefined);
+	// grupo que contém a página atual (destaque do item principal)
+	const grupoAtual = (itens: { href: string }[]) => itens.some((item) => item.href === page.url.pathname);
+
+	// botão flutuante: a mensagem identifica a página de origem do contato
+	const mensagemFlutuante = $derived(
+		`Olá, Calebe! Vim pelo seu site (página ${page.url.pathname}) e quero conversar sobre um projeto.`
+	);
 </script>
 
 <a href="#conteudo">Pular para o conteúdo</a>
 
 <header>
 	<p><a href="/">{person.name}</a></p>
+
+	<!-- menu sanduíche do celular, sem JavaScript: a caixa de seleção abre e fecha o painel -->
+	<input type="checkbox" id="menu-abrir" class="menu-controle" />
+	<label for="menu-abrir" class="menu-botao"><span>Menu</span></label>
+
 	<nav aria-label="Principal">
 		<ul>
-			{#each mainNav as item (item.href)}
-				<li><p><a href={item.href} aria-current={atual(item.href)}>{item.label}</a></p></li>
+			{#each menu as grupo (grupo.label)}
+				<li class="menu-grupo" class:menu-grupo-atual={grupoAtual(grupo.itens)}>
+					<p><a href={grupo.href} aria-current={atual(grupo.href)}>{grupo.label}</a></p>
+					<ul>
+						{#each grupo.itens as item (item.href)}
+							<li>
+								<p>
+									{#if item.href.endsWith('.pdf')}
+										<a href={item.href} download type="application/pdf">{item.label}</a>
+									{:else}
+										<a href={item.href} aria-current={atual(item.href)}>{item.label}</a>
+									{/if}
+								</p>
+							</li>
+						{/each}
+					</ul>
+				</li>
 			{/each}
-			<li><p><a href={whatsappLink(defaultWhatsApp.message)}>WhatsApp {person.phoneDisplay}</a></p></li>
+			<li class="menu-cta"><p><a href={whatsappLink(defaultWhatsApp.message)}>WhatsApp {person.phoneDisplay}</a></p></li>
 		</ul>
 	</nav>
 </header>
@@ -82,3 +109,5 @@
 		</nav>
 	</div>
 </footer>
+
+<a class="whatsapp-flutuante" href={whatsappLink(mensagemFlutuante)}><span>Fale comigo no WhatsApp</span></a>

@@ -11,7 +11,13 @@ const config = {
 		adapter: adapter(),
 		prerender: {
 			// Origem usada no prerender (ex.: url.origin no sitemap.xml)
-			origin: 'https://calebearaujo.com.br'
+			origin: 'https://calebearaujo.com.br',
+			// Os cards de compartilhamento são gerados a partir do build (npm run cards): numa página
+			// nova o card ainda não existe no primeiro build. Só esse caso vira aviso; o resto é erro.
+			handleHttpError: ({ path, message }) => {
+				if (path.startsWith('/images/compartilhamento/')) return console.warn(`aviso: ${message}`);
+				throw new Error(message);
+			}
 		}
 	}
 };

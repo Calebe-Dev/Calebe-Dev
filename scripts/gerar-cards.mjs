@@ -19,7 +19,7 @@ const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 // rótulo do card por tipo de página
 const rotulo = (slug) => {
 	if (slug === 'home') return 'Sorocaba (SP) · atendimento em todo o Brasil';
-	if (slug === 'desenvolvedor-full-stack-sorocaba') return 'Para recrutadores';
+	if (slug === 'desenvolvedor-full-stack-sorocaba' || slug === 'copywriter-seo') return 'Para recrutadores';
 	if (slug === 'mapa-do-site') return 'Mapa do site';
 	if (slug === 'sorocaba-e-regiao') return 'Atendimento regional · raio de 90 km';
 	if (/^(criacao-de-sites|consultoria-seo)-/.test(slug)) return 'Sorocaba e região';
