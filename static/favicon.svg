@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="disco" cx="35%" cy="28%" r="80%">
+      <stop offset="0" stop-color="#16348a"/>
+      <stop offset="0.55" stop-color="#0a1f44"/>
+      <stop offset="1" stop-color="#050f24"/>
+    </radialGradient>
+    <linearGradient id="traco" x1="0.15" y1="0.1" x2="0.85" y2="0.95">
+      <stop offset="0" stop-color="#93c5fd"/>
+      <stop offset="0.45" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+    <filter id="brilho" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <circle cx="32" cy="32" r="31" fill="url(#disco)"/>
+  <circle cx="32" cy="32" r="30.25" fill="none" stroke="#fff" stroke-opacity=".14" stroke-width="1.5"/>
+  <path d="M47.61 17.95A21 21 0 1 0 47.61 46.05L40.92 40.03A12 12 0 1 1 40.92 23.97Z" fill="none" stroke="url(#traco)" stroke-width="3" stroke-linejoin="round" filter="url(#brilho)"/>
+</svg>
