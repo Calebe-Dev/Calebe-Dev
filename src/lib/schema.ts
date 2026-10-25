@@ -51,7 +51,11 @@ export const personNode = () => ({
 		availableLanguage: 'Portuguese',
 		areaServed: 'BR'
 	},
-	worksFor: { '@type': 'Organization', name: 'Grupo OC', url: 'https://grupooc.com.br/' },
+	// Emprego atual e a consultoria em inglês (rankingfixer.com), que usa este mesmo @id como autor
+	worksFor: [
+		{ '@type': 'Organization', name: 'Grupo OC', url: 'https://grupooc.com.br/' },
+		{ '@type': 'Organization', '@id': 'https://rankingfixer.com/#organization', name: 'Ranking Fixer', url: 'https://rankingfixer.com/' }
+	],
 	knowsLanguage: { '@type': 'Language', name: 'Português', alternateName: 'pt-BR' },
 	brand: { '@id': BUSINESS_ID },
 	// Formação em andamento (2023–2026): trocar para alumniOf após a conclusão
