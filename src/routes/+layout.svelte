@@ -62,7 +62,7 @@
 		<div class="rodape-marca">
 			<p><a href="/">{person.name}</a></p>
 			<p>
-				Desenvolvedor full stack e consultor de SEO técnico. Sites, sistemas sob medida e SEO para
+				Tech lead, desenvolvedor full stack e consultor de SEO técnico. Sites, sistemas sob medida e SEO para
 				empresas de todo o Brasil.
 			</p>
 			<address>

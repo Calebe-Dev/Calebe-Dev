@@ -62,6 +62,8 @@ export const personNode = () => ({
 		'Dados estruturados',
 		'Criação de sites',
 		'Desenvolvimento full stack',
+		'Liderança técnica',
+		'Coordenação de times de TI',
 		'Angular',
 		'Svelte',
 		'SvelteKit',

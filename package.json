@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "vite build && node scripts/gravar-versao.mjs",
 		"preview": "npm run build && wrangler dev",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -13,7 +13,8 @@
 		"deploy": "npm run build && wrangler deploy",
 		"rollback": "wrangler rollback",
 		"materiais": "sh ./scripts/gerar-materiais.sh",
-		"cards": "node scripts/gerar-cards.mjs"
+		"cards": "node scripts/gerar-cards.mjs",
+		"indexnow": "node scripts/indexnow.mjs"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-cloudflare": "^7.2.9",

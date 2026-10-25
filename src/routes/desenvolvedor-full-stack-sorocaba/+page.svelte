@@ -12,7 +12,7 @@
 	const path = careerPage.path;
 	const title = 'Desenvolvedor full stack em Sorocaba: Angular e Node.js - Calebe Araujo';
 	const description =
-		'Calebe Araujo, desenvolvedor full stack em Sorocaba (SP): Angular, Svelte, Node.js, Java, Docker e AWS. Aberto a vagas remotas, híbridas e presenciais.';
+		'Calebe Araujo, tech lead e desenvolvedor full stack em Sorocaba (SP): Angular, Svelte, Node.js, Java, Docker e AWS. Aberto a vagas remotas e híbridas.';
 	const whatsapp: WhatsApp = {
 		message: 'Olá, Calebe! Vi seu perfil de desenvolvedor full stack e tenho uma oportunidade de vaga.',
 		label: 'Falar sobre uma vaga pelo WhatsApp'
@@ -65,12 +65,20 @@
 		faqs,
 		type: 'ProfilePage',
 		person: {
-			hasOccupation: {
-				'@type': 'Occupation',
-				name: 'Desenvolvedor Full Stack',
-				occupationLocation: city(person.city),
-				skills: skills.join(', ')
-			}
+			hasOccupation: [
+				{
+					'@type': 'Occupation',
+					name: 'Tech Lead',
+					occupationLocation: city(person.city),
+					skills: 'Liderança técnica, Coordenação de times de TI, Arquitetura de software, Code review'
+				},
+				{
+					'@type': 'Occupation',
+					name: 'Desenvolvedor Full Stack',
+					occupationLocation: city(person.city),
+					skills: skills.join(', ')
+				}
+			]
 		}
 	});
 </script>
@@ -85,10 +93,10 @@
 		<h1>Desenvolvedor full stack em Sorocaba: Angular e Node.js</h1>
 
 		<p>
-			Sou {person.name}, desenvolvedor full stack em {person.city} (SP), com experiência em produção em
-			Angular, Svelte, Node.js, Java, PostgreSQL, Docker e AWS. Estou aberto a vagas de desenvolvedor
-			full stack, front-end e desenvolvedor web com foco em SEO técnico e performance, nos modelos
-			remoto, híbrido ou presencial.
+			Sou {person.name}, desenvolvedor full stack e tech lead em {person.city} (SP): no Grupo OC,
+			coordeno o time de TI e trabalho em produção com Angular, Svelte, Node.js, Java, PostgreSQL,
+			Docker e AWS. Estou aberto a vagas de tech lead, desenvolvedor full stack, front-end e
+			desenvolvedor web com foco em SEO técnico e performance, nos modelos remoto, híbrido ou presencial.
 		</p>
 
 		<WhatsAppCta {...whatsapp} />
@@ -98,6 +106,7 @@
 	<section aria-labelledby="resumo-titulo">
 		<h2 id="resumo-titulo">Resumo profissional</h2>
 		<ul>
+			<li>Atuo como tech lead no Grupo OC, coordenando o time de TI.</li>
 			<li>Arquitetei e construí um CRM proprietário em microsserviços que integra 25 sites.</li>
 			<li>Reduzi o carregamento de páginas de 8 para 1 segundo migrando sistemas legados para Angular e Svelte.</li>
 			<li>Desenvolvi mais de 60 landing pages e sites institucionais com SEO técnico e mensuração de conversões.</li>
@@ -109,9 +118,10 @@
 		<h2 id="experiencia-titulo">Experiência profissional</h2>
 
 		<article>
-			<h3>Desenvolvedor Full Stack — Grupo OC</h3>
+			<h3>Tech Lead e Desenvolvedor Full Stack — Grupo OC</h3>
 			<p><time datetime="2025-08">Agosto de 2025</time> até o momento · {person.city} (SP)</p>
 			<ul>
+				<li>Liderança técnica e coordenação do time de TI.</li>
 				<li>Arquitetura e desenvolvimento de um CRM proprietário em microsserviços integrando 25 sites, com headless CMS (Directus) e APIs REST.</li>
 				<li>Migração de sistemas legados para Angular e Svelte, com o tempo de carregamento caindo de 8 para 1 segundo.</li>
 				<li>Infraestrutura com Docker, PostgreSQL, servidores Ubuntu com Cloudflare Tunnel e serviços da AWS.</li>
@@ -169,6 +179,7 @@
 		<h2 id="modelos-titulo">Cargos, modelos de trabalho e localização</h2>
 		<p>Cargos em que atuo:</p>
 		<ul>
+			<li>Tech Lead (liderança técnica e coordenação de times de desenvolvimento).</li>
 			<li>Desenvolvedor Full Stack (Angular ou Svelte com Node.js ou Java).</li>
 			<li>Desenvolvedor Front-end Angular.</li>
 			<li>Desenvolvedor Front-end Svelte e SvelteKit.</li>

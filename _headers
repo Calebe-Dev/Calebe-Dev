@@ -26,6 +26,10 @@
 /apple-touch-icon.png
   Cache-Control: public, max-age=2592000
 
+# Versão publicada (usada pelo workflow do IndexNow): nunca em cache
+/versao.txt
+  Cache-Control: no-store
+
 # Currículo: consolida os sinais de busca na página de recrutadores
 /curriculo-calebe-araujo.pdf
   Cache-Control: public, max-age=86400

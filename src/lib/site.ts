@@ -21,7 +21,7 @@ export const dateModified = `${UPDATED}${HORARIO}`;
 export const person = {
 	name: 'Calebe Araujo',
 	fullName: 'Calebe Sousa de Araujo',
-	jobTitle: 'Desenvolvedor Full Stack e Consultor de SEO Técnico',
+	jobTitle: 'Tech Lead, Desenvolvedor Full Stack e Consultor de SEO Técnico',
 	city: 'Sorocaba',
 	region: 'SP',
 	country: 'BR',
@@ -205,14 +205,14 @@ export const siteGroups: { id: string; title: string; entries: SiteEntry[] }[] =
 
 // Palavras-chave de cada página (meta keywords e keywords do schema), do mapa de keywords da análise
 export const pageKeywords: Record<string, string[]> = {
-	'/': ['Calebe Araujo', 'desenvolvedor full stack', 'consultor de SEO técnico', 'especialista em SEO', 'desenvolvedor web', 'software sob medida', 'Sorocaba'],
+	'/': ['Calebe Araujo', 'desenvolvedor full stack', 'tech lead', 'consultor de SEO técnico', 'especialista em SEO', 'desenvolvedor web', 'software sob medida', 'Sorocaba'],
 	'/consultoria-seo': ['consultoria de SEO', 'consultor SEO', 'consultoria de SEO técnico', 'especialista em SEO', 'consultoria SEO para pequenas empresas', 'consultoria de SEO para WordPress'],
 	'/auditoria-seo': ['auditoria de SEO', 'auditoria SEO técnica', 'auditoria SEO completa', 'auditoria de SEO online', 'checklist de SEO', 'análise de SEO do site'],
 	'/criacao-de-sites': ['criação de sites', 'criação de sites profissionais', 'desenvolvimento de sites', 'site institucional', 'landing page', 'site para empresa'],
 	'/otimizacao-de-sites': ['otimização de sites', 'site lento', 'Core Web Vitals', 'teste de velocidade do site', 'PageSpeed Insights'],
 	'/desenvolvimento-de-sistemas-web': ['desenvolvimento de sistemas web', 'software sob medida', 'software personalizado', 'CRM personalizado', 'integração de sistemas', 'APIs REST'],
 	'/seo-para-b2b': ['SEO B2B', 'SEO para empresas B2B', 'consultoria de SEO B2B', 'marketing B2B', 'geração de leads B2B', 'marketing industrial B2B'],
-	'/desenvolvedor-full-stack-sorocaba': ['desenvolvedor full stack Sorocaba', 'desenvolvedor Angular', 'desenvolvedor Node.js', 'desenvolvedor web Sorocaba', 'currículo desenvolvedor full stack'],
+	'/desenvolvedor-full-stack-sorocaba': ['desenvolvedor full stack Sorocaba', 'tech lead Sorocaba', 'desenvolvedor Angular', 'desenvolvedor Node.js', 'desenvolvedor web Sorocaba', 'currículo desenvolvedor full stack'],
 	'/sorocaba-e-regiao': ['criação de sites região de Sorocaba', 'SEO interior de São Paulo', 'atendimento em Sorocaba e região'],
 	'/criacao-de-sites-sorocaba': ['criação de sites Sorocaba', 'site para empresa em Sorocaba', 'desenvolvedor web Sorocaba'],
 	'/consultoria-seo-sorocaba': ['consultoria de SEO Sorocaba', 'consultor de SEO Sorocaba', 'SEO em Sorocaba', 'SEO local Sorocaba', 'agência de SEO Sorocaba', 'Perfil da Empresa no Google Sorocaba'],

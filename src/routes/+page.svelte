@@ -26,7 +26,7 @@
 		{
 			question: 'Quem é Calebe Araujo?',
 			answer:
-				'Calebe Araujo é desenvolvedor full stack e consultor de SEO técnico, baseado em Sorocaba (SP). Trabalha no Grupo OC, onde arquitetou um CRM em microsserviços que integra 25 sites, e cursa Análise e Desenvolvimento de Sistemas na Fatec Itu.'
+				'Calebe Araujo é tech lead, desenvolvedor full stack e consultor de SEO técnico, baseado em Sorocaba (SP). No Grupo OC, coordena o time de TI e arquitetou um CRM em microsserviços que integra 25 sites. Cursa Análise e Desenvolvimento de Sistemas na Fatec Itu.'
 		},
 		{
 			question: 'Qual a diferença entre contratar um consultor e uma agência de SEO?',
@@ -46,7 +46,7 @@
 		{
 			question: 'Você está disponível para vagas de emprego?',
 			answer:
-				'Sim. Estou aberto a vagas de desenvolvedor full stack, front-end Angular ou Svelte e desenvolvedor web com foco em SEO técnico, nos modelos remoto, híbrido ou presencial em Sorocaba e região.'
+				'Sim. Estou aberto a vagas de tech lead, desenvolvedor full stack, front-end Angular ou Svelte e desenvolvedor web com foco em SEO técnico, nos modelos remoto, híbrido ou presencial em Sorocaba e região.'
 		}
 	];
 
@@ -123,8 +123,9 @@
 			<a href={services.consultoriaSeo.path}>consultoria de SEO técnico</a> ao desenvolvimento do site.
 		</p>
 		<p>
-			No Grupo OC, arquitetei um CRM em microsserviços que integra 25 sites e, ao migrar sistemas
-			legados para Angular e Svelte, reduzi o tempo de carregamento das páginas de 8 para 1 segundo.
+			No Grupo OC, atuo como tech lead e coordeno o time de TI. Lá, arquitetei um CRM em microsserviços
+			que integra 25 sites e, ao migrar sistemas legados para Angular e Svelte, reduzi o tempo de
+			carregamento das páginas de 8 para 1 segundo.
 			Antes disso, desenvolvi mais de 60 landing pages e sites institucionais com SEO técnico aplicado
 			desde o código.
 		</p>
@@ -217,8 +218,9 @@
 		<h2 id="experiencia-titulo">Experiência profissional</h2>
 		<ul>
 			<li>
-				<strong>Desenvolvedor Full Stack, Grupo OC</strong> (<time datetime="2025-08">agosto de 2025</time> até o
-				momento): CRM em microsserviços, migração para Angular e Svelte, infraestrutura com Docker e AWS.
+				<strong>Tech Lead e Desenvolvedor Full Stack, Grupo OC</strong> (<time datetime="2025-08">agosto de 2025</time> até o
+				momento): coordenação do time de TI, CRM em microsserviços, migração para Angular e Svelte,
+				infraestrutura com Docker e AWS.
 			</li>
 			<li>
 				<strong>Desenvolvedor Web, Alpha Company ADS</strong> (<time datetime="2025-02">fevereiro</time> a
@@ -251,8 +253,8 @@
 	<section id="vagas" aria-labelledby="vagas-titulo">
 		<h2 id="vagas-titulo">Para recrutadores: disponível para vagas de desenvolvedor</h2>
 		<p>
-			Estou aberto a vagas de desenvolvedor full stack, front-end Angular ou Svelte e desenvolvedor web
-			com foco em SEO técnico e performance, nos modelos remoto, híbrido ou presencial em
+			Estou aberto a vagas de tech lead, desenvolvedor full stack, front-end Angular ou Svelte e
+			desenvolvedor web com foco em SEO técnico e performance, nos modelos remoto, híbrido ou presencial em
 			{person.city} e região. O histórico completo, com stack, resultados e formas de contato, está
 			no meu <a href={careerPage.path}>perfil de desenvolvedor full stack em Sorocaba</a>.
 		</p>

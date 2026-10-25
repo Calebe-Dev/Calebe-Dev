@@ -1,0 +1,38 @@
+name: IndexNow
+
+# Depois de cada push na main, espera a Cloudflare (Workers Builds) publicar o commit e avisa os
+# buscadores compatíveis com IndexNow (Bing, Yandex, Seznam, Naver, Yep) sobre as páginas alteradas.
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  indexnow:
+    name: Avisar o IndexNow
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Esperar a publicação deste commit
+        run: |
+          for i in $(seq 1 60); do
+            versao=$(curl -fsS "https://calebearaujo.com.br/versao.txt?c=$i" || true)
+            if [ "$versao" = "$GITHUB_SHA" ]; then echo "Commit $GITHUB_SHA publicado."; exit 0; fi
+            sleep 10
+          done
+          echo "::warning::Publicação do commit não confirmada em 10 minutos; enviando mesmo assim."
+
+      - name: Enviar páginas alteradas
+        run: node scripts/indexnow.mjs --desde "${{ github.event.before }}"

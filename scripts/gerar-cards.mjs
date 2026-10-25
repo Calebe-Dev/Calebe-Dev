@@ -57,7 +57,7 @@ for (const f of paginas) {
 		${foto ? `<img class="foto" src="file://${ROOT}/static/images/fotos/${foto}-1376.webp">` : ''}
 		<div class="luz"></div><div class="pontos"></div>
 		<div class="conteudo">
-			<div class="marca"><img src="file://${ROOT}/static/images/logo-marca.svg"><div>Calebe Araujo<small>Desenvolvedor full stack · Consultor de SEO técnico</small></div></div>
+			<div class="marca"><img src="file://${ROOT}/static/images/logo-marca.svg"><div>Calebe Araujo<small>Tech lead · Desenvolvedor full stack · SEO técnico</small></div></div>
 			<div class="rotulo">${esc(rotulo(slug))}</div>
 			<h1>${esc(h1)}</h1>
 			<div class="rodape"><b>calebearaujo.com.br</b> · WhatsApp (11) 98838-5247</div>

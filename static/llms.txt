@@ -1,6 +1,6 @@
 # Calebe Araujo
 
-> Calebe Araujo (Calebe Sousa de Araujo) é desenvolvedor full stack e consultor de SEO técnico baseado em Sorocaba (SP), Brasil. Constrói sites e sistemas web rápidos e indexáveis (Angular, Svelte, Node.js, Java, PostgreSQL, Docker, AWS, Cloudflare) e presta consultoria e auditoria de SEO para empresas de todo o Brasil, com atendimento presencial possível num raio de 90 km de Sorocaba. Contato: WhatsApp +55 11 98838-5247 (https://wa.me/5511988385247).
+> Calebe Araujo (Calebe Sousa de Araujo) é tech lead, desenvolvedor full stack e consultor de SEO técnico baseado em Sorocaba (SP), Brasil. Constrói sites e sistemas web rápidos e indexáveis (Angular, Svelte, Node.js, Java, PostgreSQL, Docker, AWS, Cloudflare) e presta consultoria e auditoria de SEO para empresas de todo o Brasil, com atendimento presencial possível num raio de 90 km de Sorocaba. Contato: WhatsApp +55 11 98838-5247 (https://wa.me/5511988385247).
 
 Resultados verificáveis citados no site: CRM proprietário em microsserviços integrando 25 sites (Grupo OC); migração de sistemas legados para Angular e Svelte com carregamento reduzido de 8 s para 1 s; mais de 60 landing pages e sites institucionais com SEO técnico (Alpha Company ADS).
 
