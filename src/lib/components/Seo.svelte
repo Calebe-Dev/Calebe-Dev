@@ -1,7 +1,7 @@
 <script lang="ts">
 	// <head> de cada página: title, metadados (autor, publicador, keywords, geo), canonical,
 	// hreflang, Open Graph (site, artigo e perfil), Twitter/X e JSON-LD.
-	import { SITE_URL, UPDATED, careerPage, pageKeywords, person, shareCard, socials } from '$lib/site';
+	import { SITE_URL, UPDATED, careerPage, dateModified, datePublished, pageKeywords, person, shareCard, socials } from '$lib/site';
 	import { absolute } from '$lib/schema';
 
 	let {
@@ -19,7 +19,7 @@
 	const pageTitle = $derived(title.length > 60 && title.endsWith(BRAND) ? title.slice(0, -BRAND.length) : title);
 	const keywords = $derived(pageKeywords[path] ?? []);
 	const year = UPDATED.slice(0, 4);
-	const published = `${UPDATED}T09:00:00-03:00`;
+	const published = $derived(datePublished(path));
 
 	// Card próprio de cada página, 1200×630 (WhatsApp, LinkedIn, Facebook, X, Telegram, Threads)
 	const image = $derived(`${SITE_URL}${shareCard(path)}`);
@@ -68,7 +68,7 @@
 	<meta property="og:url" content={url} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
-	<meta property="og:updated_time" content={published} />
+	<meta property="og:updated_time" content={dateModified} />
 	<meta property="og:image" content={image} />
 	<meta property="og:image:secure_url" content={image} />
 	<meta property="og:image:type" content="image/jpeg" />
@@ -79,7 +79,7 @@
 		<meta property="article:author" content={absolute(careerPage.path)} />
 		<meta property="article:publisher" content={`${SITE_URL}/`} />
 		<meta property="article:published_time" content={published} />
-		<meta property="article:modified_time" content={published} />
+		<meta property="article:modified_time" content={dateModified} />
 		<meta property="article:section" content="SEO técnico" />
 		{#each keywords as tag (tag)}
 			<meta property="article:tag" content={tag} />

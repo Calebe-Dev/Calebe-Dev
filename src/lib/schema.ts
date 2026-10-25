@@ -1,6 +1,6 @@
 // Construtores de JSON-LD (schema.org). Cada página monta um @graph com estes nós;
 // o conteúdo marcado deve ser sempre o mesmo que está visível no HTML.
-import { SITE_URL, UPDATED, logo, menu, pageKeywords, person, services, shareCard, socials } from './site';
+import { SITE_URL, UPDATED, dateModified, datePublished, logo, menu, pageKeywords, person, services, shareCard, socials } from './site';
 
 export type Faq = { question: string; answer: string };
 export type Crumb = { name: string; path: string };
@@ -220,8 +220,8 @@ export const webPageNode = (opts: {
 		publisher: { '@id': PERSON_ID },
 		copyrightHolder: { '@id': PERSON_ID },
 		copyrightYear: YEAR,
-		datePublished: UPDATED,
-		dateModified: UPDATED,
+		datePublished: datePublished(opts.path),
+		dateModified,
 		primaryImageOfPage: { '@id': imageId(opts.path) },
 		image: { '@id': imageId(opts.path) },
 		thumbnailUrl: absolute(shareCard(opts.path)),
@@ -296,8 +296,8 @@ export const articleNode = (
 	copyrightYear: YEAR,
 	author: { '@id': PERSON_ID },
 	publisher: { '@id': PERSON_ID },
-	datePublished: UPDATED,
-	dateModified: UPDATED
+	datePublished: datePublished(path),
+	dateModified
 });
 
 export const graph = (...nodes: object[]) => ({ '@context': 'https://schema.org', '@graph': nodes });

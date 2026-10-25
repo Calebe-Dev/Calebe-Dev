@@ -6,6 +6,18 @@ export const SITE_URL = 'https://calebearaujo.com.br';
 // Data da última revisão do conteúdo (lastmod do sitemap e "atualizado em" das páginas)
 export const UPDATED = '2026-10-24';
 
+// Datas completas (ISO 8601 com fuso de Brasília), formato que o Google pede nos dados estruturados
+const HORARIO = 'T09:00:00-03:00';
+// Publicação: relançamento do site em 23/10/2026; páginas criadas depois têm a própria data
+const RELANCAMENTO = '2026-10-23';
+const publicadaEm: Record<string, string> = {
+	'/como-aparecer-no-google': '2026-10-24',
+	'/guest-post': '2026-10-24',
+	'/copywriter-seo': '2026-10-24'
+};
+export const datePublished = (path: string) => `${publicadaEm[path] ?? RELANCAMENTO}${HORARIO}`;
+export const dateModified = `${UPDATED}${HORARIO}`;
+
 export const person = {
 	name: 'Calebe Araujo',
 	fullName: 'Calebe Sousa de Araujo',
