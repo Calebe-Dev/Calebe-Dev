@@ -34,3 +34,4 @@ Resultados verificáveis citados no site: CRM proprietário em microsserviços i
 ## Navegação
 
 - [Mapa do site](https://calebearaujo.com.br/mapa-do-site): todas as páginas, agrupadas por assunto.
+- [Política de privacidade](https://calebearaujo.com.br/politica-de-privacidade): dados tratados pelo site e direitos pela LGPD.

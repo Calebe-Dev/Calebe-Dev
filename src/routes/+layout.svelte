@@ -2,7 +2,7 @@
 	import '../app.css';
 	import { page } from '$app/state';
 	import Compartilhar from '$lib/components/Compartilhar.svelte';
-	import { defaultWhatsApp, menu, person, siteGroups, sitemapPage, socials, whatsappLink } from '$lib/site';
+	import { defaultWhatsApp, menu, person, privacyPage, siteGroups, sitemapPage, socials, whatsappLink } from '$lib/site';
 
 	let { children } = $props();
 
@@ -98,7 +98,8 @@
 	<div class="rodape-base">
 		<p>
 			© {new Date().getFullYear()} {person.name} · SEO, desenvolvimento web e consultoria ·
-			<a href={sitemapPage.path}>Mapa do site completo</a>
+			<a href={sitemapPage.path}>Mapa do site completo</a> ·
+			<a href={privacyPage.path}>Política de privacidade</a>
 		</p>
 		<nav aria-label="Redes sociais">
 			<ul>

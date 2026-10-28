@@ -5,7 +5,7 @@
 	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { absolute, pageGraph } from '$lib/schema';
-	import { siteGroups, sitemapPage, type WhatsApp } from '$lib/site';
+	import { privacyPage, siteGroups, sitemapPage, type WhatsApp } from '$lib/site';
 
 	const path = sitemapPage.path;
 	const title = 'Mapa do site - Calebe Araujo';
@@ -19,7 +19,11 @@
 
 	const groups = siteGroups;
 
-	const all = [{ href: '/', text: 'Página inicial', note: '' }, ...groups.flatMap((g) => g.entries)];
+	const all = [
+		{ href: '/', text: 'Página inicial', note: '' },
+		...groups.flatMap((g) => g.entries),
+		{ href: privacyPage.path, text: privacyPage.name, note: '' }
+	];
 
 	const jsonLd = pageGraph({
 		path,
@@ -78,6 +82,13 @@
 			</ul>
 		</section>
 	{/each}
+
+	<section aria-labelledby="institucional-titulo">
+		<h2 id="institucional-titulo">Institucional</h2>
+		<ul>
+			<li><a href={privacyPage.path}>{privacyPage.name}</a>: como o site trata dados pessoais, pela LGPD.</li>
+		</ul>
+	</section>
 
 	<section aria-labelledby="arquivos-titulo">
 		<h2 id="arquivos-titulo">Arquivos para buscadores</h2>

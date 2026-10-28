@@ -4,7 +4,7 @@
 export const SITE_URL = 'https://calebearaujo.com.br';
 
 // Data da última revisão do conteúdo (lastmod do sitemap e "atualizado em" das páginas)
-export const UPDATED = '2026-10-24';
+export const UPDATED = '2026-10-28';
 
 // Datas completas (ISO 8601 com fuso de Brasília), formato que o Google pede nos dados estruturados
 const HORARIO = 'T09:00:00-03:00';
@@ -13,7 +13,8 @@ const RELANCAMENTO = '2026-10-23';
 const publicadaEm: Record<string, string> = {
 	'/como-aparecer-no-google': '2026-10-24',
 	'/guest-post': '2026-10-24',
-	'/copywriter-seo': '2026-10-24'
+	'/copywriter-seo': '2026-10-24',
+	'/politica-de-privacidade': '2026-10-28'
 };
 export const datePublished = (path: string) => `${publicadaEm[path] ?? RELANCAMENTO}${HORARIO}`;
 export const dateModified = `${UPDATED}${HORARIO}`;
@@ -148,6 +149,7 @@ export const cityPages = [
 ] as const;
 
 export const sitemapPage = { path: '/mapa-do-site', name: 'Mapa do site' };
+export const privacyPage = { path: '/politica-de-privacidade', name: 'Política de privacidade' };
 
 // Card de compartilhamento (Open Graph/Twitter, 1200×630) de cada página: scripts/gerar-cards.mjs
 export const shareCard = (path: string) => `/images/compartilhamento/${path === '/' ? 'home' : path.slice(1)}.jpg`;
@@ -227,6 +229,7 @@ export const pageKeywords: Record<string, string[]> = {
 	'/como-aparecer-no-google': ['como colocar minha empresa no Google', 'como aparecer no Google', 'como ficar em primeiro no Google', 'primeira página do Google', 'Google Meu Negócio', 'Perfil da Empresa no Google'],
 	'/guest-post': ['guest post', 'guest post para SEO', 'artigo convidado', 'backlinks', 'link building', 'guest post e publieditorial'],
 	'/copywriter-seo': ['copywriter SEO', 'redator SEO', 'vaga de copywriter', 'copywriter remoto', 'redação para landing pages', 'copywriter Sorocaba'],
-	'/mapa-do-site': ['mapa do site', 'Calebe Araujo', 'páginas do site']
+	'/mapa-do-site': ['mapa do site', 'Calebe Araujo', 'páginas do site'],
+	'/politica-de-privacidade': ['política de privacidade', 'LGPD', 'proteção de dados', 'Calebe Araujo']
 };
 
