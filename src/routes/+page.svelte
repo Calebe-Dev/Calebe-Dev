@@ -165,6 +165,13 @@
 			acessibilidade e mensuração de conversões. <a href={services.criacaoDeSites.path}>Criação de sites profissionais</a>.
 		</p>
 
+		<h3>Site grátis para empresas</h3>
+		<p>
+			Para empresas de qualquer nicho: crio e hospedo um site de até 5 páginas, otimizado para o Google,
+			e a empresa paga só o domínio. São até 5 sites gratuitos por mês.
+			<a href={services.siteGratis.path}>Como funciona o site grátis</a>.
+		</p>
+
 		<h3>Otimização de sites</h3>
 		<p>
 			Para sites lentos ou instáveis: melhoria de Core Web Vitals (LCP, INP e CLS), peso de páginas e

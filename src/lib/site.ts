@@ -18,7 +18,12 @@ const publicadaEm: Record<string, string> = {
 	'/criacao-de-landing-page': '2026-10-29',
 	'/seo-para-pequenas-empresas': '2026-10-29',
 	'/migracao-de-site-sem-perder-seo': '2026-10-29',
-	'/crm-personalizado': '2026-10-29'
+	'/crm-personalizado': '2026-10-29',
+	'/site-gratis-para-empresas': '2026-10-29',
+	'/site-para-advogado': '2026-10-29',
+	'/site-para-imobiliaria': '2026-10-29',
+	'/site-para-arquiteto': '2026-10-29',
+	'/site-para-nutricionista': '2026-10-29'
 };
 export const datePublished = (path: string) => `${publicadaEm[path] ?? RELANCAMENTO}${HORARIO}`;
 export const dateModified = `${UPDATED}${HORARIO}`;
@@ -71,6 +76,7 @@ export const services = {
 	auditoriaSeo: { path: '/auditoria-seo', name: 'Auditoria de SEO' },
 	criacaoDeSites: { path: '/criacao-de-sites', name: 'Criação de sites' },
 	landingPage: { path: '/criacao-de-landing-page', name: 'Criação de landing page' },
+	siteGratis: { path: '/site-gratis-para-empresas', name: 'Site grátis para empresas' },
 	otimizacaoDeSites: { path: '/otimizacao-de-sites', name: 'Otimização de sites' },
 	sistemasWeb: { path: '/desenvolvimento-de-sistemas-web', name: 'Desenvolvimento de sistemas web' },
 	crmPersonalizado: { path: '/crm-personalizado', name: 'CRM personalizado' },
@@ -103,6 +109,7 @@ export const menu: (MenuItem & { itens: MenuItem[] })[] = [
 			{ href: services.auditoriaSeo.path, label: 'Auditoria de SEO' },
 			{ href: services.criacaoDeSites.path, label: 'Criação de sites' },
 			{ href: services.landingPage.path, label: 'Landing pages' },
+			{ href: services.siteGratis.path, label: 'Site grátis para empresas' },
 			{ href: services.otimizacaoDeSites.path, label: 'Otimização de sites' },
 			{ href: services.sistemasWeb.path, label: 'Sistemas web' },
 			{ href: services.crmPersonalizado.path, label: 'CRM personalizado' },
@@ -160,6 +167,22 @@ export const cityPages = [
 	{ path: '/consultoria-seo-sao-paulo', city: 'São Paulo', service: 'Consultoria de SEO', km: 84, anchor: 'SEO técnico para empresas da capital paulista' }
 ] as const;
 
+// Oferta de site grátis: termos decididos (até 5 páginas, até 5 sites por mês, cliente cuida do domínio).
+// Páginas por segmento só onde há busca real (Keyword Planner, out/2026) e regras próprias do conselho profissional.
+export const freeSite = {
+	maxPages: 5,
+	maxSitesPerMonth: 5,
+	ownershipAnchor: '/site-gratis-para-empresas#propriedade',
+	whatsappLabel: 'Consultar disponibilidade pelo WhatsApp'
+} as const;
+
+export const nichePages = [
+	{ path: '/site-para-advogado', name: 'Site para advogado', anchor: 'site para advogado dentro das regras da OAB' },
+	{ path: '/site-para-imobiliaria', name: 'Site para imobiliária', anchor: 'site para imobiliária e corretor de imóveis' },
+	{ path: '/site-para-arquiteto', name: 'Site para arquiteto', anchor: 'site para arquiteto com portfólio de projetos' },
+	{ path: '/site-para-nutricionista', name: 'Site para nutricionista', anchor: 'site para nutricionista dentro do código de ética' }
+] as const;
+
 export const sitemapPage = { path: '/mapa-do-site', name: 'Mapa do site' };
 export const privacyPage = { path: '/politica-de-privacidade', name: 'Política de privacidade' };
 
@@ -184,6 +207,14 @@ export const siteGroups: { id: string; title: string; entries: SiteEntry[] }[] =
 			{ href: services.crmPersonalizado.path, text: 'CRM personalizado', note: 'quando um CRM sob medida vale mais que um CRM pronto' },
 			{ href: services.seoB2b.path, text: 'SEO para empresas B2B', note: 'geração de leads pela busca orgânica' },
 			{ href: services.guestPost.path, text: 'Guest post para SEO', note: 'artigos convidados e backlinks dentro das regras do Google' }
+		]
+	},
+	{
+		id: 'site-gratis',
+		title: 'Site grátis para empresas',
+		entries: [
+			{ href: services.siteGratis.path, text: 'Site grátis para empresas', note: 'crio e hospedo até 5 páginas; você registra o domínio' },
+			...nichePages.map((p) => ({ href: p.path, text: p.name, note: p.anchor }))
 		]
 	},
 	{
@@ -230,6 +261,11 @@ export const pageKeywords: Record<string, string[]> = {
 	'/criacao-de-landing-page': ['criação de landing page', 'landing page profissional', 'landing page de alta conversão', 'landing page para empresas', 'landing page preço', 'landing page para Google Ads'],
 	'/otimizacao-de-sites': ['otimização de sites', 'site lento', 'Core Web Vitals', 'teste de velocidade do site', 'PageSpeed Insights'],
 	'/desenvolvimento-de-sistemas-web': ['desenvolvimento de sistemas web', 'software sob medida', 'software personalizado', 'sistema personalizado para empresa', 'integração de sistemas', 'APIs REST'],
+	'/site-gratis-para-empresas': ['site grátis para empresas', 'site gratuito para empresa', 'criar site grátis', 'site profissional grátis', 'site grátis com domínio próprio', 'hospedagem de site grátis'],
+	'/site-para-advogado': ['site para advogado', 'site para escritório de advocacia', 'Provimento 205/2021', 'publicidade na advocacia', 'site de advocacia grátis'],
+	'/site-para-imobiliaria': ['site para imobiliária', 'site para corretor de imóveis', 'número do CRECI no anúncio', 'site imobiliário grátis', 'Lei 6.530/1978'],
+	'/site-para-arquiteto': ['site para arquiteto', 'site para arquitetos', 'portfólio de arquitetura', 'Resolução CAU/BR 75/2014', 'site de arquitetura grátis'],
+	'/site-para-nutricionista': ['site para nutricionista', 'site para nutricionistas', 'código de ética do nutricionista', 'antes e depois nutricionista', 'site de nutrição grátis'],
 	'/crm-personalizado': ['CRM personalizado', 'CRM sob medida', 'quanto custa um CRM', 'CRM pronto ou personalizado', 'desenvolvimento de CRM', 'integração com CRM'],
 	'/seo-para-b2b': ['SEO B2B', 'SEO para empresas B2B', 'consultoria de SEO B2B', 'marketing B2B', 'geração de leads B2B', 'marketing industrial B2B'],
 	'/desenvolvedor-full-stack-sorocaba': ['desenvolvedor full stack Sorocaba', 'tech lead Sorocaba', 'desenvolvedor Angular', 'desenvolvedor Node.js', 'desenvolvedor web Sorocaba', 'currículo desenvolvedor full stack'],

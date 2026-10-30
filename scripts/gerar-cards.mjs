@@ -24,6 +24,7 @@ const rotulo = (slug) => {
 	if (slug === 'politica-de-privacidade') return 'Institucional';
 	if (slug === 'sorocaba-e-regiao') return 'Atendimento regional · raio de 90 km';
 	if (/^(criacao-de-sites|consultoria-seo)-/.test(slug)) return 'Sorocaba e região';
+	if (slug === 'site-gratis-para-empresas' || slug.startsWith('site-para-')) return 'Site grátis';
 	if (['site-nao-aparece-no-google', 'seo-para-ia', 'seo-para-sites-angular', 'como-aparecer-no-google', 'seo-para-pequenas-empresas', 'migracao-de-site-sem-perder-seo'].includes(slug)) return 'Guia';
 	return 'Serviço';
 };

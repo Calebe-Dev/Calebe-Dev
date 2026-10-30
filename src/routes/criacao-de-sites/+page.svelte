@@ -24,7 +24,7 @@
 		{
 			question: 'Quanto custa criar um site profissional?',
 			answer:
-				'O preço depende do número de páginas, de quem produz os textos e as imagens, das integrações necessárias, como CRM, formulários e catálogo, e da plataforma escolhida. Uma landing page única é bem mais simples que um site institucional com dezenas de páginas de serviço. A proposta é feita depois de entender o objetivo do site.'
+				'O preço depende do número de páginas, de quem produz os textos e as imagens, das integrações necessárias, como CRM, formulários e catálogo, e da plataforma escolhida. Uma landing page única é bem mais simples que um site institucional com dezenas de páginas de serviço. A proposta é feita depois de entender o objetivo do site. Para empresas que precisam de um site de até 5 páginas, há também a oferta de site grátis, em que a empresa paga só o domínio.'
 		},
 		{
 			question: 'Vou conseguir editar o site depois de pronto?',
@@ -83,6 +83,11 @@
 			zero: estrutura de páginas, textos e visual pensados para o seu público, e não um modelo pronto
 			com o logotipo trocado. O objetivo é um site que gera clientes, e não só um cartão de visita
 			online.
+		</p>
+		<p>
+			Se a sua empresa precisa de um site de até 5 páginas, veja também o
+			<a href={services.siteGratis.path}>site grátis para empresas</a>: eu crio e hospedo, e a empresa paga
+			só o domínio.
 		</p>
 
 		<WhatsAppCta {...whatsapp} />
@@ -212,6 +217,7 @@
 	<Related
 		links={[
 			{ href: services.landingPage.path, text: 'Landing pages para anúncios e campanhas' },
+			{ href: services.siteGratis.path, text: 'Site grátis de até 5 páginas para empresas' },
 			{ href: services.otimizacaoDeSites.path, text: 'Otimização de sites que já existem' },
 			{ href: services.sistemasWeb.path, text: 'Sistemas web e integrações com CRM' },
 			{ href: services.auditoriaSeo.path, text: 'Auditoria de SEO antes de refazer o site' },

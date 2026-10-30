@@ -258,6 +258,8 @@ export const serviceNode = (opts: {
 	serviceType: string;
 	areaServed?: object | object[];
 	audience?: string;
+	// Oferta do serviço (só com condições reais e visíveis na página)
+	offers?: object;
 }) => ({
 	'@type': 'Service',
 	'@id': `${absolute(opts.path)}#servico`,
@@ -268,7 +270,19 @@ export const serviceNode = (opts: {
 	provider: { '@id': BUSINESS_ID },
 	image: { '@id': imageId(opts.path) },
 	areaServed: opts.areaServed ?? [serviceArea, { '@type': 'Country', name: 'Brasil' }],
-	...(opts.audience ? { audience: { '@type': 'BusinessAudience', audienceType: opts.audience } } : {})
+	...(opts.audience ? { audience: { '@type': 'BusinessAudience', audienceType: opts.audience } } : {}),
+	...(opts.offers ? { offers: opts.offers } : {})
+});
+
+// Oferta gratuita de criação e hospedagem de site (termos decididos; vagas limitadas por mês)
+export const freeSiteOffer = (path: string) => ({
+	'@type': 'Offer',
+	price: '0',
+	priceCurrency: 'BRL',
+	url: absolute(path),
+	availability: 'https://schema.org/LimitedAvailability',
+	description:
+		'Criação e hospedagem gratuitas de um site com até 5 páginas, para empresas de qualquer nicho e porte. O cliente registra e paga o próprio domínio. Até 5 sites gratuitos por mês.'
 });
 
 export const faqNode = (path: string, faqs: Faq[]) => ({

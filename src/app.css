@@ -1341,6 +1341,12 @@ a[href='/criacao-de-sites'],
 	--icone: url('/images/icones/criacao-de-sites.svg');
 }
 
+a[href='/site-gratis-para-empresas'],
+a[href^='/site-para-'],
+#servicos > h3:has(+ p a[href='/site-gratis-para-empresas']:last-of-type) {
+	--icone: url('/images/icones/site-gratis.svg');
+}
+
 a[href='/criacao-de-landing-page'] {
 	--icone: url('/images/icones/landing-page.svg');
 }
