@@ -109,7 +109,8 @@
 		<h3>CRM e gestão de leads</h3>
 		<p>
 			Um CRM personalizado que reúne os contatos de sites, formulários e WhatsApp em um só lugar, com a
-			origem de cada lead e as etapas do funil definidas pelo processo comercial da empresa.
+			origem de cada lead e as etapas do funil definidas pelo processo comercial da empresa. Veja
+			<a href={services.crmPersonalizado.path}>quando um CRM personalizado vale mais que um CRM pronto</a>.
 		</p>
 		<h3>Integrações entre sistemas</h3>
 		<p>
@@ -158,6 +159,7 @@
 
 	<Related
 		links={[
+			{ href: services.crmPersonalizado.path, text: 'CRM personalizado ou CRM pronto: quando vale a pena' },
 			{ href: services.seoB2b.path, text: 'Leads B2B do site direto para o CRM' },
 			{ href: services.criacaoDeSites.path, text: 'Criação de sites integrados ao CRM' },
 			{ href: services.otimizacaoDeSites.path, text: 'Performance de sites e aplicações' },

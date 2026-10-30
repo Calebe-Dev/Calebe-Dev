@@ -17,7 +17,8 @@ const publicadaEm: Record<string, string> = {
 	'/politica-de-privacidade': '2026-10-28',
 	'/criacao-de-landing-page': '2026-10-29',
 	'/seo-para-pequenas-empresas': '2026-10-29',
-	'/migracao-de-site-sem-perder-seo': '2026-10-29'
+	'/migracao-de-site-sem-perder-seo': '2026-10-29',
+	'/crm-personalizado': '2026-10-29'
 };
 export const datePublished = (path: string) => `${publicadaEm[path] ?? RELANCAMENTO}${HORARIO}`;
 export const dateModified = `${UPDATED}${HORARIO}`;
@@ -72,6 +73,7 @@ export const services = {
 	landingPage: { path: '/criacao-de-landing-page', name: 'Criação de landing page' },
 	otimizacaoDeSites: { path: '/otimizacao-de-sites', name: 'Otimização de sites' },
 	sistemasWeb: { path: '/desenvolvimento-de-sistemas-web', name: 'Desenvolvimento de sistemas web' },
+	crmPersonalizado: { path: '/crm-personalizado', name: 'CRM personalizado' },
 	seoB2b: { path: '/seo-para-b2b', name: 'SEO para empresas B2B' },
 	guestPost: { path: '/guest-post', name: 'Guest post para SEO' }
 } as const;
@@ -103,6 +105,7 @@ export const menu: (MenuItem & { itens: MenuItem[] })[] = [
 			{ href: services.landingPage.path, label: 'Landing pages' },
 			{ href: services.otimizacaoDeSites.path, label: 'Otimização de sites' },
 			{ href: services.sistemasWeb.path, label: 'Sistemas web' },
+			{ href: services.crmPersonalizado.path, label: 'CRM personalizado' },
 			{ href: services.seoB2b.path, label: 'SEO B2B' },
 			{ href: services.guestPost.path, label: 'Guest post' }
 		]
@@ -178,6 +181,7 @@ export const siteGroups: { id: string; title: string; entries: SiteEntry[] }[] =
 			{ href: services.landingPage.path, text: 'Criação de landing page', note: 'páginas de uma oferta só, para anúncios e para a busca orgânica' },
 			{ href: services.otimizacaoDeSites.path, text: 'Otimização de sites e Core Web Vitals', note: 'como acelerar um site lento' },
 			{ href: services.sistemasWeb.path, text: 'Desenvolvimento de sistemas web', note: 'Software sob medida: CRMs, integrações, APIs REST e headless CMS' },
+			{ href: services.crmPersonalizado.path, text: 'CRM personalizado', note: 'quando um CRM sob medida vale mais que um CRM pronto' },
 			{ href: services.seoB2b.path, text: 'SEO para empresas B2B', note: 'geração de leads pela busca orgânica' },
 			{ href: services.guestPost.path, text: 'Guest post para SEO', note: 'artigos convidados e backlinks dentro das regras do Google' }
 		]
@@ -225,7 +229,8 @@ export const pageKeywords: Record<string, string[]> = {
 	'/criacao-de-sites': ['criação de sites', 'criação de sites profissionais', 'desenvolvimento de sites', 'site institucional', 'site para empresa'],
 	'/criacao-de-landing-page': ['criação de landing page', 'landing page profissional', 'landing page de alta conversão', 'landing page para empresas', 'landing page preço', 'landing page para Google Ads'],
 	'/otimizacao-de-sites': ['otimização de sites', 'site lento', 'Core Web Vitals', 'teste de velocidade do site', 'PageSpeed Insights'],
-	'/desenvolvimento-de-sistemas-web': ['desenvolvimento de sistemas web', 'software sob medida', 'software personalizado', 'CRM personalizado', 'integração de sistemas', 'APIs REST'],
+	'/desenvolvimento-de-sistemas-web': ['desenvolvimento de sistemas web', 'software sob medida', 'software personalizado', 'sistema personalizado para empresa', 'integração de sistemas', 'APIs REST'],
+	'/crm-personalizado': ['CRM personalizado', 'CRM sob medida', 'quanto custa um CRM', 'CRM pronto ou personalizado', 'desenvolvimento de CRM', 'integração com CRM'],
 	'/seo-para-b2b': ['SEO B2B', 'SEO para empresas B2B', 'consultoria de SEO B2B', 'marketing B2B', 'geração de leads B2B', 'marketing industrial B2B'],
 	'/desenvolvedor-full-stack-sorocaba': ['desenvolvedor full stack Sorocaba', 'tech lead Sorocaba', 'desenvolvedor Angular', 'desenvolvedor Node.js', 'desenvolvedor web Sorocaba', 'currículo desenvolvedor full stack'],
 	'/sorocaba-e-regiao': ['criação de sites região de Sorocaba', 'SEO interior de São Paulo', 'atendimento em Sorocaba e região'],

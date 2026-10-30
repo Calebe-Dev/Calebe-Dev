@@ -1355,6 +1355,10 @@ a[href='/desenvolvimento-de-sistemas-web'],
 	--icone: url('/images/icones/sistemas-web.svg');
 }
 
+a[href='/crm-personalizado'] {
+	--icone: url('/images/icones/crm-personalizado.svg');
+}
+
 a[href='/seo-para-b2b'],
 #servicos > h3:has(+ p a[href='/seo-para-b2b']:last-of-type) {
 	--icone: url('/images/icones/seo-b2b.svg');

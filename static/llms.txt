@@ -12,6 +12,7 @@ Resultados verificáveis citados no site: CRM proprietário em microsserviços i
 - [Criação de landing page](https://calebearaujo.com.br/criacao-de-landing-page): páginas de uma oferta só, para anúncios e para a busca orgânica, com contatos medidos.
 - [Otimização de sites](https://calebearaujo.com.br/otimizacao-de-sites): Core Web Vitals e performance.
 - [Sistemas web e software sob medida](https://calebearaujo.com.br/desenvolvimento-de-sistemas-web): CRMs, integrações, APIs REST e headless CMS.
+- [CRM personalizado](https://calebearaujo.com.br/crm-personalizado): quando um CRM sob medida vale mais que um CRM pronto, o que define o custo e o caso do CRM que integra 25 sites.
 - [SEO para B2B](https://calebearaujo.com.br/seo-para-b2b): geração de leads B2B pela busca orgânica.
 - [Guest post para SEO](https://calebearaujo.com.br/guest-post): artigos convidados em sites do nicho, com backlinks dentro das regras do Google.
 
