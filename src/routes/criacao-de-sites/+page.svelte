@@ -12,7 +12,7 @@
 	const path = services.criacaoDeSites.path;
 	const title = 'Criação de sites profissionais rápidos e otimizados - Calebe Araujo';
 	const description =
-		'Criação de sites profissionais e landing pages rápidos, acessíveis e otimizados para o Google desde o código, com mensuração de contatos.';
+		'Criação de sites profissionais rápidos, acessíveis e otimizados para o Google desde o código, com uma página por serviço e mensuração de contatos.';
 	const whatsapp: WhatsApp = {
 		message: 'Olá, Calebe! Vim pela página de criação de sites e quero um orçamento de site.',
 		label: 'Pedir orçamento de site pelo WhatsApp'
@@ -104,7 +104,8 @@
 		<p>
 			Página com um único objetivo de conversão, usada em campanhas de anúncios ou para uma busca
 			muito específica. Uma landing page de alta conversão precisa ser leve, direta e medir cada
-			contato gerado.
+			contato gerado. Veja como funciona a <a href={services.landingPage.path}>criação de landing page</a>,
+			do texto à medição dos contatos.
 		</p>
 
 		<h3>Site institucional ou landing page?</h3>
@@ -209,6 +210,7 @@
 
 	<Related
 		links={[
+			{ href: services.landingPage.path, text: 'Landing pages para anúncios e campanhas' },
 			{ href: services.otimizacaoDeSites.path, text: 'Otimização de sites que já existem' },
 			{ href: services.sistemasWeb.path, text: 'Sistemas web e integrações com CRM' },
 			{ href: services.auditoriaSeo.path, text: 'Auditoria de SEO antes de refazer o site' },

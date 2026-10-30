@@ -14,7 +14,8 @@ const publicadaEm: Record<string, string> = {
 	'/como-aparecer-no-google': '2026-10-24',
 	'/guest-post': '2026-10-24',
 	'/copywriter-seo': '2026-10-24',
-	'/politica-de-privacidade': '2026-10-28'
+	'/politica-de-privacidade': '2026-10-28',
+	'/criacao-de-landing-page': '2026-10-29'
 };
 export const datePublished = (path: string) => `${publicadaEm[path] ?? RELANCAMENTO}${HORARIO}`;
 export const dateModified = `${UPDATED}${HORARIO}`;
@@ -66,6 +67,7 @@ export const services = {
 	consultoriaSeo: { path: '/consultoria-seo', name: 'Consultoria de SEO' },
 	auditoriaSeo: { path: '/auditoria-seo', name: 'Auditoria de SEO' },
 	criacaoDeSites: { path: '/criacao-de-sites', name: 'Criação de sites' },
+	landingPage: { path: '/criacao-de-landing-page', name: 'Criação de landing page' },
 	otimizacaoDeSites: { path: '/otimizacao-de-sites', name: 'Otimização de sites' },
 	sistemasWeb: { path: '/desenvolvimento-de-sistemas-web', name: 'Desenvolvimento de sistemas web' },
 	seoB2b: { path: '/seo-para-b2b', name: 'SEO para empresas B2B' },
@@ -94,6 +96,7 @@ export const menu: (MenuItem & { itens: MenuItem[] })[] = [
 			{ href: services.consultoriaSeo.path, label: 'Consultoria de SEO' },
 			{ href: services.auditoriaSeo.path, label: 'Auditoria de SEO' },
 			{ href: services.criacaoDeSites.path, label: 'Criação de sites' },
+			{ href: services.landingPage.path, label: 'Landing pages' },
 			{ href: services.otimizacaoDeSites.path, label: 'Otimização de sites' },
 			{ href: services.sistemasWeb.path, label: 'Sistemas web' },
 			{ href: services.seoB2b.path, label: 'SEO B2B' },
@@ -166,6 +169,7 @@ export const siteGroups: { id: string; title: string; entries: SiteEntry[] }[] =
 			{ href: services.consultoriaSeo.path, text: 'Consultoria de SEO técnico', note: 'diagnóstico, plano priorizado e correções no código' },
 			{ href: services.auditoriaSeo.path, text: 'Auditoria de SEO', note: 'relatório técnico, on-page e de conteúdo, priorizado por impacto' },
 			{ href: services.criacaoDeSites.path, text: 'Criação de sites profissionais', note: 'sites institucionais e landing pages rápidos e otimizados' },
+			{ href: services.landingPage.path, text: 'Criação de landing page', note: 'páginas de uma oferta só, para anúncios e para a busca orgânica' },
 			{ href: services.otimizacaoDeSites.path, text: 'Otimização de sites e Core Web Vitals', note: 'como acelerar um site lento' },
 			{ href: services.sistemasWeb.path, text: 'Desenvolvimento de sistemas web', note: 'Software sob medida: CRMs, integrações, APIs REST e headless CMS' },
 			{ href: services.seoB2b.path, text: 'SEO para empresas B2B', note: 'geração de leads pela busca orgânica' },
@@ -210,7 +214,8 @@ export const pageKeywords: Record<string, string[]> = {
 	'/': ['Calebe Araujo', 'desenvolvedor full stack', 'tech lead', 'consultor de SEO técnico', 'especialista em SEO', 'desenvolvedor web', 'software sob medida', 'Sorocaba'],
 	'/consultoria-seo': ['consultoria de SEO', 'consultor SEO', 'consultoria de SEO técnico', 'especialista em SEO', 'consultoria SEO para pequenas empresas', 'consultoria de SEO para WordPress'],
 	'/auditoria-seo': ['auditoria de SEO', 'auditoria SEO técnica', 'auditoria SEO completa', 'auditoria de SEO online', 'checklist de SEO', 'análise de SEO do site'],
-	'/criacao-de-sites': ['criação de sites', 'criação de sites profissionais', 'desenvolvimento de sites', 'site institucional', 'landing page', 'site para empresa'],
+	'/criacao-de-sites': ['criação de sites', 'criação de sites profissionais', 'desenvolvimento de sites', 'site institucional', 'site para empresa'],
+	'/criacao-de-landing-page': ['criação de landing page', 'landing page profissional', 'landing page de alta conversão', 'landing page para empresas', 'landing page preço', 'landing page para Google Ads'],
 	'/otimizacao-de-sites': ['otimização de sites', 'site lento', 'Core Web Vitals', 'teste de velocidade do site', 'PageSpeed Insights'],
 	'/desenvolvimento-de-sistemas-web': ['desenvolvimento de sistemas web', 'software sob medida', 'software personalizado', 'CRM personalizado', 'integração de sistemas', 'APIs REST'],
 	'/seo-para-b2b': ['SEO B2B', 'SEO para empresas B2B', 'consultoria de SEO B2B', 'marketing B2B', 'geração de leads B2B', 'marketing industrial B2B'],
