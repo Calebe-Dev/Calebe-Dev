@@ -20,6 +20,7 @@ Resultados verificáveis citados no site: CRM proprietário em microsserviços i
 - [Como colocar minha empresa no Google](https://calebearaujo.com.br/como-aparecer-no-google): guia sem jargão sobre Perfil da Empresa no Google (antigo Google Meu Negócio), site e primeira página.
 - [SEO para pequenas empresas](https://calebearaujo.com.br/seo-para-pequenas-empresas): o que fazer sozinho, o que contratar e um plano de 90 dias.
 - [Site não aparece no Google](https://calebearaujo.com.br/site-nao-aparece-no-google): diagnóstico de indexação em 7 passos.
+- [Migração de site sem perder SEO](https://calebearaujo.com.br/migracao-de-site-sem-perder-seo): inventário de URLs, redirecionamentos 301 e o que testar antes e depois.
 - [SEO para IA](https://calebearaujo.com.br/seo-para-ia): como ser citado por ChatGPT, Gemini e AI Overviews.
 - [SEO para sites Angular](https://calebearaujo.com.br/seo-para-sites-angular): SSR, pré-renderização e indexação.
 

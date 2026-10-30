@@ -181,7 +181,7 @@
 			<li><strong>Blog genérico:</strong> textos sobre temas amplos, que qualquer site poderia publicar, antes de existirem as páginas de serviço.</li>
 			<li><strong>Compra de links:</strong> pacotes de backlinks violam as regras do Google e podem fazer o site perder posições.</li>
 			<li><strong>Uma página por bairro:</strong> páginas iguais trocando só o nome do bairro são tratadas como spam e dividem a força do site.</li>
-			<li><strong>Trocar de site sem planejamento:</strong> um site novo que muda os endereços das páginas sem redirecionar os antigos perde o que o anterior já tinha conquistado.</li>
+			<li><strong>Trocar de site sem planejamento:</strong> um site novo que muda os endereços das páginas sem redirecionar os antigos perde o que o anterior já tinha conquistado. Veja como fazer a <a href={guides.migracao.path}>migração de site sem perder SEO</a>.</li>
 			<li><strong>Promessa de primeiro lugar:</strong> ninguém controla a posição no Google; quem garante o primeiro lugar está falando de anúncio ou não está sendo honesto.</li>
 		</ul>
 	</section>

@@ -4,7 +4,7 @@
 export const SITE_URL = 'https://calebearaujo.com.br';
 
 // Data da última revisão do conteúdo (lastmod do sitemap e "atualizado em" das páginas)
-export const UPDATED = '2026-10-29';
+export const UPDATED = '2026-11-12';
 
 // Datas completas (ISO 8601 com fuso de Brasília), formato que o Google pede nos dados estruturados
 const HORARIO = 'T09:00:00-03:00';
@@ -16,7 +16,8 @@ const publicadaEm: Record<string, string> = {
 	'/copywriter-seo': '2026-10-24',
 	'/politica-de-privacidade': '2026-10-28',
 	'/criacao-de-landing-page': '2026-10-29',
-	'/seo-para-pequenas-empresas': '2026-10-29'
+	'/seo-para-pequenas-empresas': '2026-10-29',
+	'/migracao-de-site-sem-perder-seo': '2026-11-12'
 };
 export const datePublished = (path: string) => `${publicadaEm[path] ?? RELANCAMENTO}${HORARIO}`;
 export const dateModified = `${UPDATED}${HORARIO}`;
@@ -81,7 +82,8 @@ export const guides = {
 	seoParaIa: { path: '/seo-para-ia', name: 'SEO para IA' },
 	seoAngular: { path: '/seo-para-sites-angular', name: 'SEO para sites Angular' },
 	comoAparecer: { path: '/como-aparecer-no-google', name: 'Como aparecer no Google' },
-	pequenasEmpresas: { path: '/seo-para-pequenas-empresas', name: 'SEO para pequenas empresas' }
+	pequenasEmpresas: { path: '/seo-para-pequenas-empresas', name: 'SEO para pequenas empresas' },
+	migracao: { path: '/migracao-de-site-sem-perder-seo', name: 'Migração de site sem perder SEO' }
 } as const;
 
 export const careerPage = { path: '/desenvolvedor-full-stack-sorocaba', name: 'Desenvolvedor full stack em Sorocaba' };
@@ -112,6 +114,7 @@ export const menu: (MenuItem & { itens: MenuItem[] })[] = [
 			{ href: '/como-aparecer-no-google', label: 'Como aparecer no Google' },
 			{ href: '/seo-para-pequenas-empresas', label: 'SEO para pequenas empresas' },
 			{ href: '/site-nao-aparece-no-google', label: 'Site não aparece no Google' },
+			{ href: '/migracao-de-site-sem-perder-seo', label: 'Migração de site sem perder SEO' },
 			{ href: '/seo-para-ia', label: 'SEO para IA' },
 			{ href: '/seo-para-sites-angular', label: 'SEO para sites Angular' }
 		]
@@ -186,6 +189,7 @@ export const siteGroups: { id: string; title: string; entries: SiteEntry[] }[] =
 			{ href: guides.comoAparecer.path, text: 'Como colocar minha empresa no Google', note: 'guia sem jargão: Google Meu Negócio, site e primeira página' },
 			{ href: guides.pequenasEmpresas.path, text: 'SEO para pequenas empresas', note: 'o que fazer sozinho, o que contratar e um plano de 90 dias' },
 			{ href: guides.siteNaoAparece.path, text: 'Site não aparece no Google', note: 'diagnóstico de indexação em 7 passos' },
+			{ href: guides.migracao.path, text: 'Migração de site sem perder SEO', note: 'inventário de URLs, redirecionamentos 301 e o que testar antes e depois' },
 			{ href: guides.seoParaIa.path, text: 'SEO para IA', note: 'como aparecer no ChatGPT e no AI Overviews' },
 			{ href: guides.seoAngular.path, text: 'SEO para sites Angular', note: 'SSR, pré-renderização e indexação' }
 		]
@@ -233,6 +237,7 @@ export const pageKeywords: Record<string, string[]> = {
 	'/criacao-de-sites-campinas': ['criação de sites Campinas SP', 'desenvolvimento de sites Campinas', 'SEO local Campinas', 'como aparecer no Google em Campinas'],
 	'/consultoria-seo-sao-paulo': ['consultoria de SEO São Paulo', 'consultoria SEO SP', 'consultor de SEO São Paulo', 'SEO técnico São Paulo', 'SEO Osasco'],
 	'/site-nao-aparece-no-google': ['site não aparece no Google', 'meu site não aparece no Google', 'como indexar site no Google', 'colocar meu site no Google', 'site Hostinger não aparece no Google', 'Google Search Console'],
+	'/migracao-de-site-sem-perder-seo': ['migração de site', 'migração de site sem perder SEO', 'redirecionamento 301', 'redesign de site', 'migração de site WordPress', 'troca de domínio SEO'],
 	'/seo-para-ia': ['SEO para IA', 'SEO para inteligência artificial', 'GEO', 'GEO vs SEO', 'como aparecer no ChatGPT', 'AI Overviews'],
 	'/seo-para-sites-angular': ['SEO Angular', 'Angular SSR', 'Angular Universal', 'Angular SSR vs SPA', 'pré-renderização Angular', 'indexação Angular'],
 	'/seo-para-pequenas-empresas': ['SEO para pequenas empresas', 'consultoria SEO para pequenas empresas', 'SEO para empresas', 'plano de SEO', 'SEO local para pequenas empresas', 'quanto investir em SEO'],

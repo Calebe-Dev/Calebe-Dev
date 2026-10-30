@@ -106,7 +106,7 @@
 		<ul>
 			<li>O site existe há meses, mas não aparece para as buscas que importam.</li>
 			<li>O tráfego orgânico caiu depois de uma migração, um redesign ou uma atualização do Google.</li>
-			<li>A empresa vai trocar de plataforma e não quer perder as posições conquistadas.</li>
+			<li>A empresa vai trocar de plataforma e não quer perder as posições conquistadas (veja o checklist de <a href={guides.migracao.path}>migração de site sem perder SEO</a>).</li>
 			<li>O site tem muitas páginas, como portais, redes de sites ou catálogos, e problemas que se repetem em escala.</li>
 			<li>O time de marketing produz conteúdo, mas não tem um desenvolvedor para resolver a parte técnica.</li>
 		</ul>

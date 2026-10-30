@@ -7,7 +7,7 @@
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { cityPages, copywriterPage, services, type WhatsApp } from '$lib/site';
+	import { cityPages, copywriterPage, guides, services, type WhatsApp } from '$lib/site';
 
 	const path = services.criacaoDeSites.path;
 	const title = 'Criação de sites profissionais rápidos e otimizados - Calebe Araujo';
@@ -130,7 +130,8 @@
 			velhas ou não aparece no Google. Às vezes, reformular o site, com visual e textos novos, resolve.
 			Quando o problema está na base técnica, refazer do zero sai mais barato do que remendar. Nos dois
 			casos, a troca precisa manter os endereços das páginas que já aparecem no Google, com
-			redirecionamentos, para o site novo não perder o que o antigo conquistou.
+			redirecionamentos, para o site novo não perder o que o antigo conquistou. O passo a passo está no
+			checklist de <a href={guides.migracao.path}>migração de site sem perder SEO</a>.
 		</p>
 	</section>
 
