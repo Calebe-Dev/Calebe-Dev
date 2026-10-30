@@ -219,6 +219,7 @@
 		links={[
 			{ href: services.criacaoDeSites.path, text: 'Criação de sites profissionais para empresas' },
 			{ href: '/consultoria-seo-sorocaba', text: 'Google Meu Negócio e SEO local em Sorocaba' },
+			{ href: guides.pequenasEmpresas.path, text: 'Plano de SEO de 90 dias para pequenas empresas' },
 			{ href: guides.siteNaoAparece.path, text: 'Meu site sumiu do Google: o que fazer' },
 			{ href: guides.seoParaIa.path, text: 'Como a empresa aparece também no ChatGPT' }
 		]}

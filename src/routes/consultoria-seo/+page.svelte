@@ -115,7 +115,8 @@
 			Para pequenas empresas, a consultoria começa pelo que traz retorno mais rápido com pouco
 			investimento: Perfil da Empresa no Google (o antigo Google Meu Negócio) bem preenchido, uma página para cada serviço principal e uma
 			base técnica sem erros de indexação. Em vez de um acompanhamento mensal longo, um projeto
-			pontual bem feito costuma resolver a maior parte do problema.
+			pontual bem feito costuma resolver a maior parte do problema. O passo a passo está no guia de
+			<a href={guides.pequenasEmpresas.path}>SEO para pequenas empresas</a>, com um plano de 90 dias.
 		</p>
 
 		<h3>Consultoria de SEO para WordPress</h3>
@@ -205,6 +206,7 @@
 		<h2 id="guias-titulo">Guias sobre SEO técnico</h2>
 		<ul>
 			<li><a href={guides.comoAparecer.path}>Como colocar a sua empresa no Google</a>: guia sem jargão para donos de empresa.</li>
+			<li><a href={guides.pequenasEmpresas.path}>SEO para pequenas empresas</a>: o que fazer sozinho, o que contratar e um plano de 90 dias.</li>
 			<li><a href={guides.siteNaoAparece.path}>Por que um site não aparece no Google</a>: diagnóstico em 7 passos.</li>
 			<li><a href={guides.seoParaIa.path}>Como aparecer no ChatGPT e no AI Overviews</a>: SEO para IA na prática.</li>
 			<li><a href={guides.seoAngular.path}>SEO para sites Angular</a>: SSR, pré-renderização e indexação.</li>

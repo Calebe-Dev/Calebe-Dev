@@ -1365,6 +1365,10 @@ a[href='/como-aparecer-no-google'],
 	--icone: url('/images/icones/aparecer-no-google.svg');
 }
 
+a[href='/seo-para-pequenas-empresas'] {
+	--icone: url('/images/icones/pequenas-empresas.svg');
+}
+
 a[href='/site-nao-aparece-no-google'],
 #servicos > h3:has(+ p a[href='/site-nao-aparece-no-google']:last-of-type) {
 	--icone: url('/images/icones/site-nao-aparece.svg');
