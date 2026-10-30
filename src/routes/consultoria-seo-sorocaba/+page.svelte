@@ -10,9 +10,9 @@
 	import { guides, regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/consultoria-seo-sorocaba';
-	const title = 'Consultoria de SEO em Sorocaba: SEO local e técnico - Calebe Araujo';
+	const title = 'SEO em Sorocaba: consultoria de SEO local e técnico - Calebe Araujo';
 	const description =
-		'Consultoria de SEO em Sorocaba (SP): SEO técnico, SEO local e Perfil da Empresa no Google com um consultor que também desenvolve e corrige o site.';
+		'SEO em Sorocaba: consultoria de SEO local e técnico, Google Meu Negócio e site corrigido no código por um consultor que atende a cidade e a região.';
 	const whatsapp: WhatsApp = {
 		message: 'Olá, Calebe! Sou de Sorocaba e quero melhorar o SEO do meu site. Meu site é: ',
 		label: 'Falar sobre SEO em Sorocaba pelo WhatsApp'
@@ -68,7 +68,7 @@
 		<HeroMidia foto="consultoria-seo" />
 		<Breadcrumbs {crumbs} />
 
-		<h1>Consultoria de SEO em Sorocaba: SEO local e técnico</h1>
+		<h1>SEO em Sorocaba: consultoria de SEO local e técnico</h1>
 
 		<p>
 			Como consultor de SEO em Sorocaba, ajudo empresas da cidade e de Votorantim a aparecer melhor no
@@ -102,7 +102,7 @@
 	</section>
 
 	<section aria-labelledby="ordem-titulo">
-		<h2 id="ordem-titulo">SEO local: o que fazer primeiro</h2>
+		<h2 id="ordem-titulo">SEO local e Google Meu Negócio em Sorocaba: o que fazer primeiro</h2>
 		<ol>
 			<li><strong>Perfil da Empresa no Google completo:</strong> categoria principal correta, serviços, área de atendimento, fotos e horários.</li>
 			<li><strong>Dados idênticos em todo lugar:</strong> nome, endereço e telefone iguais no site, no perfil e nos diretórios.</li>

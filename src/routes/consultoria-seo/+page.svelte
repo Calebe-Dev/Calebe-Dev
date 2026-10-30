@@ -10,9 +10,9 @@
 	import { guides, services, type WhatsApp } from '$lib/site';
 
 	const path = services.consultoriaSeo.path;
-	const title = 'Consultoria de SEO técnico para empresas - Calebe Araujo';
+	const title = 'Consultoria de SEO técnico: consultor SEO para empresas - Calebe Araujo';
 	const description =
-		'Consultoria de SEO técnico para empresas: diagnóstico, plano priorizado e correções no código para o seu site ser indexado e gerar contatos.';
+		'Consultoria de SEO técnico para empresas: diagnóstico, plano priorizado e correções no código por um especialista em SEO, para o site gerar contatos.';
 	const whatsapp: WhatsApp = {
 		message: 'Olá, Calebe! Vim pela página de consultoria de SEO. Meu site é: ',
 		label: 'Pedir uma análise do meu site pelo WhatsApp'
@@ -65,7 +65,7 @@
 		<HeroMidia foto="consultoria-seo" />
 		<Breadcrumbs {crumbs} />
 
-		<h1>Consultoria de SEO técnico para empresas</h1>
+		<h1>Consultoria de SEO técnico: consultor SEO para empresas</h1>
 
 		<p>
 			Consultoria de SEO técnico é o trabalho de encontrar e corrigir o que impede um site de aparecer

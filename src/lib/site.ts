@@ -4,7 +4,7 @@
 export const SITE_URL = 'https://calebearaujo.com.br';
 
 // Data da última revisão do conteúdo (lastmod do sitemap e "atualizado em" das páginas)
-export const UPDATED = '2026-10-28';
+export const UPDATED = '2026-10-29';
 
 // Datas completas (ISO 8601 com fuso de Brasília), formato que o Google pede nos dados estruturados
 const HORARIO = 'T09:00:00-03:00';

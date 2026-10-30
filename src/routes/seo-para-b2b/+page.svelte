@@ -10,9 +10,9 @@
 	import { services, type WhatsApp } from '$lib/site';
 
 	const path = services.seoB2b.path;
-	const title = 'SEO para B2B: geração de leads pela busca orgânica - Calebe Araujo';
+	const title = 'SEO B2B: consultoria para gerar leads de empresas B2B - Calebe Araujo';
 	const description =
-		'SEO para empresas B2B: páginas por solução e por segmento, cauda longa comercial e leads medidos no CRM. Experiência com rede de sites de telecom.';
+		'SEO B2B para quem vende para empresas: páginas por solução e segmento, cauda longa comercial e leads medidos no CRM, com quem implementa no código.';
 	const whatsapp: WhatsApp = {
 		message: 'Olá, Calebe! Vim pela página de SEO para B2B e quero gerar mais leads para a minha empresa.',
 		label: 'Falar sobre SEO B2B pelo WhatsApp'
@@ -65,17 +65,17 @@
 		<HeroMidia foto="seo-b2b" />
 		<Breadcrumbs {crumbs} />
 
-		<h1>SEO para B2B: geração de leads pela busca orgânica</h1>
+		<h1>SEO B2B: consultoria para gerar leads de empresas B2B</h1>
 
 		<p>
-			SEO para B2B é a estratégia de busca orgânica de empresas que vendem para outras empresas: na
+			SEO B2B, ou SEO para B2B, é a estratégia de busca orgânica de empresas que vendem para outras empresas: na
 			prática, a forma de divulgar a sua empresa para outras empresas pelo Google, aparecendo quando um
 			comprador pesquisa o que você vende. O ciclo de vendas é mais longo, envolve vários tomadores de decisão e começa com pesquisas específicas,
 			muitas vezes com pouco volume. Por isso o foco não é atrair muitas visitas, e sim aparecer para quem
 			está comparando fornecedores e transformar essa visita em um lead registrado no CRM.
 		</p>
 		<p>
-			Na consultoria de SEO B2B, estruturo as páginas, corrijo a parte técnica do site e ligo cada
+			Na consultoria de SEO para empresas B2B, estruturo as páginas, corrijo a parte técnica do site e ligo cada
 			formulário ao CRM, para que a empresa saiba quais buscas geram oportunidades de venda.
 		</p>
 
