@@ -78,7 +78,7 @@
 			Urbanismo (CAU) exige em toda peça publicitária.
 		</p>
 		<p>
-			Crio e hospedo esse site de graça, com até 5 páginas, dentro da oferta de
+			Crio e hospedo esse site de graça no primeiro ano, com até 5 páginas, dentro da oferta de
 			<a href={services.siteGratis.path}>site grátis para empresas</a>. O escritório registra e paga o
 			próprio domínio.
 		</p>
@@ -169,7 +169,7 @@
 	<section aria-labelledby="oferta-titulo">
 		<h2 id="oferta-titulo">Site grátis para o seu escritório de arquitetura</h2>
 		<p>
-			Um site com esse trabalho de SEO sai por mais de R$ 1.000 quando é contratado comigo. Aqui, é
+			Um site com esse trabalho de SEO sai por mais de R$ 1.000 quando é contratado comigo. Aqui, o primeiro ano é
 			grátis: eu crio o site, com até 5 páginas, hospedo na rede global da Cloudflare, com HTTPS e páginas
 			estáticas que abrem rápido, e configuro o Google Search Console. O escritório registra e paga o
 			domínio. Em troca, você autoriza o uso do site como case no meu portfólio e dá um depoimento sobre o
@@ -177,7 +177,8 @@
 		</p>
 		<p>
 			O código, o design, os textos que escrevo e o trabalho de SEO continuam meus; as fotos e os
-			projetos são seus. Veja <a href={freeSite.ownershipAnchor}>o que é seu e o que é meu no site grátis</a>.
+			projetos são seus. Veja <a href={freeSite.ownershipAnchor}>o que é seu e o que é meu no site grátis</a>. Prazo de entrega, ajustes e o que acontece depois do primeiro ano estão nas
+			<a href={freeSite.conditionsAnchor}>condições do site grátis</a>.
 		</p>
 		<WhatsAppCta {...whatsapp} />
 	</section>

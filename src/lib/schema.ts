@@ -281,8 +281,9 @@ export const freeSiteOffer = (path: string) => ({
 	priceCurrency: 'BRL',
 	url: absolute(path),
 	availability: 'https://schema.org/LimitedAvailability',
+	eligibleDuration: { '@type': 'QuantitativeValue', value: 1, unitCode: 'ANN' },
 	description:
-		'Criação e hospedagem gratuitas de um site com até 5 páginas, para empresas de qualquer nicho e porte. O cliente registra e paga o próprio domínio. Até 5 sites gratuitos por mês.'
+		'Criação e hospedagem gratuitas, durante o primeiro ano, de um site com até 5 páginas, para empresas de qualquer nicho e porte, entregue em até 7 dias. O cliente registra e paga o próprio domínio. Até 5 sites gratuitos por mês.'
 });
 
 export const faqNode = (path: string, faqs: Faq[]) => ({

@@ -173,6 +173,7 @@ export const freeSite = {
 	maxPages: 5,
 	maxSitesPerMonth: 5,
 	ownershipAnchor: '/site-gratis-para-empresas#propriedade',
+	conditionsAnchor: '/site-gratis-para-empresas#condicoes',
 	whatsappLabel: 'Consultar disponibilidade pelo WhatsApp'
 } as const;
 

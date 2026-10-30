@@ -86,8 +86,8 @@
 		</p>
 		<p>
 			Se a sua empresa precisa de um site de até 5 páginas, veja também o
-			<a href={services.siteGratis.path}>site grátis para empresas</a>: eu crio e hospedo, e a empresa paga
-			só o domínio.
+			<a href={services.siteGratis.path}>site grátis para empresas</a>: eu crio e hospedo sem custo no primeiro
+			ano, e a empresa paga só o domínio.
 		</p>
 
 		<WhatsAppCta {...whatsapp} />

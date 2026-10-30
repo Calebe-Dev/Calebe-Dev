@@ -12,7 +12,7 @@
 	const path = services.siteGratis.path;
 	const title = 'Site grátis para empresas: eu crio e hospedo o seu site - Calebe Araujo';
 	const description =
-		'Site grátis para empresas de qualquer nicho: crio e hospedo até 5 páginas otimizadas para o Google. Você só registra o domínio. Até 5 sites por mês.';
+		'Site grátis por 1 ano para empresas de qualquer nicho: crio e hospedo até 5 páginas otimizadas para o Google, em até 7 dias. Você só registra o domínio.';
 	const whatsapp: WhatsApp = {
 		message: 'Olá, Calebe! Vim pela página de site grátis para empresas e quero consultar a disponibilidade. Minha empresa é: ',
 		label: freeSite.whatsappLabel
@@ -24,12 +24,22 @@
 		{
 			question: 'O site grátis é grátis mesmo?',
 			answer:
-				'Sim. A criação e a hospedagem do site, com até 5 páginas, não têm custo. O único gasto é o domínio, que fica no nome da sua empresa e é pago por você diretamente ao órgão de registro. Em troca, você autoriza que o site entre no meu portfólio como case e dá um depoimento sobre o trabalho depois de 30 dias.'
+				'Sim, durante o primeiro ano. A criação e a hospedagem do site, com até 5 páginas, não têm custo nos primeiros 12 meses. O único gasto é o domínio, que fica no nome da sua empresa e é pago por você diretamente ao órgão de registro. Em troca, você autoriza que o site entre no meu portfólio como case e dá um depoimento sobre o trabalho depois de 30 dias.'
 		},
 		{
 			question: 'O site fica sendo da minha empresa?',
 			answer:
 				'Não. O código, o design, os textos que eu escrevo e todo o trabalho de SEO são de minha propriedade, com todos os direitos reservados. A sua empresa recebe o uso do site enquanto a parceria durar. O que você fornece continua seu: marca, logo, fotos próprias, as informações do negócio e o domínio. Se a parceria terminar, você mantém o domínio e o seu material, mas não leva o site.'
+		},
+		{
+			question: 'O que acontece depois do primeiro ano?',
+			answer:
+				'As condições são renegociadas. Se o site estiver trazendo contatos e clientes para a sua empresa, ofereço a continuidade a um preço acessível, sob proposta. Qualquer uma das partes pode encerrar a parceria com aviso prévio de 3 meses.'
+		},
+		{
+			question: 'Em quanto tempo o site fica pronto?',
+			answer:
+				'Em até 7 dias, contados a partir do momento em que recebo as informações do negócio e o material que você quiser usar, como logo e fotos. Depois da entrega, você tem uma rodada de ajustes incluída; alterações além dela são feitas sob proposta.'
 		},
 		{
 			question: 'Minha empresa é de um nicho diferente. Posso participar?',
@@ -76,11 +86,12 @@
 			Site grátis para empresas é a minha oferta para quem precisa de um site profissional e não quer
 			montar sozinho em um construtor: eu planejo, escrevo, desenvolvo e hospedo um site de até 5
 			páginas, e a sua empresa só registra e paga o próprio domínio. Vale para qualquer nicho e qualquer
-			porte de empresa, com um limite de até 5 sites gratuitos por mês.
+			porte de empresa, com um limite de até 5 sites gratuitos por mês. O site fica pronto em até 7 dias
+			e é gratuito durante o primeiro ano.
 		</p>
 		<p>
-			Um site com esse trabalho de SEO sai por mais de R$ 1.000 quando é contratado comigo. Aqui, é
-			grátis: você paga só o domínio.
+			Um site com esse trabalho de SEO sai por mais de R$ 1.000 quando é contratado comigo. Aqui, o
+			primeiro ano é grátis: você paga só o domínio.
 		</p>
 		<p>
 			Não é um modelo pronto com o logotipo trocado. As páginas seguem as mesmas práticas de SEO que uso
@@ -98,9 +109,11 @@
 			<li><strong>Conversa sobre o negócio:</strong> o que a empresa faz, quais serviços vende, para quem e em que região atende.</li>
 			<li><strong>Domínio:</strong> você registra o domínio da empresa no seu nome.</li>
 			<li><strong>Planejamento das páginas:</strong> defino quais serão as até 5 páginas a partir de como os seus clientes pesquisam no Google.</li>
-			<li><strong>Textos e desenvolvimento:</strong> escrevo os textos com as informações que você passar e desenvolvo o site.</li>
+			<li><strong>Textos e desenvolvimento:</strong> escrevo os textos com as informações que você passar e desenvolvo o site em até 7 dias, contados do recebimento das informações e do material.</li>
+			<li><strong>Ajustes:</strong> você revisa o site pronto e pede uma rodada de ajustes, incluída na oferta.</li>
 			<li><strong>Publicação:</strong> o site é publicado na Cloudflare, você aponta o DNS do domínio e eu configuro o Google Search Console.</li>
 			<li><strong>Depois de 30 dias:</strong> você dá um depoimento sobre o trabalho, e o site passa a fazer parte do meu portfólio.</li>
+			<li><strong>Depois de 1 ano:</strong> conversamos sobre a continuidade, nas condições descritas abaixo.</li>
 		</ol>
 	</section>
 
@@ -112,7 +125,8 @@
 			<li><strong>Dados estruturados</strong> que descrevem o negócio para o Google, no tipo adequado ao seu segmento.</li>
 			<li><strong>Velocidade:</strong> páginas geradas de forma estática e imagens em formatos leves.</li>
 			<li><strong>Google Search Console</strong> configurado, para acompanhar se o site aparece e para quais pesquisas.</li>
-			<li><strong>Hospedagem na Cloudflare</strong>, com HTTPS (detalhes abaixo).</li>
+			<li><strong>Hospedagem na Cloudflare</strong>, com HTTPS (detalhes abaixo), sem custo no primeiro ano.</li>
+			<li><strong>Uma rodada de ajustes</strong> depois da entrega.</li>
 		</ul>
 	</section>
 
@@ -179,24 +193,73 @@
 		<p>
 			Na prática: enquanto a parceria durar, o site funciona no seu domínio, com o seu conteúdo. Se a
 			sua empresa decidir encerrar, ela mantém o domínio e todo o material que forneceu, mas não leva o
-			site. O rodapé de cada site traz o aviso "© Calebe Araujo. Todos os direitos reservados." e o
+			site. Depois do encerramento, o site pode continuar publicado em um domínio meu, como projeto do
+			meu portfólio, identificado como tal e fora dos resultados do Google. O rodapé de cada site traz o aviso "© Calebe Araujo. Todos os direitos reservados." e o
 			crédito de quem fez o site, com link nofollow.
+		</p>
+	</section>
+
+	<section id="condicoes" aria-labelledby="condicoes-titulo">
+		<h2 id="condicoes-titulo">Condições do site grátis</h2>
+		<table>
+			<caption>Condições da oferta de site grátis para empresas</caption>
+			<thead>
+				<tr>
+					<th scope="col">Item</th>
+					<th scope="col">Condição</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">Período gratuito</th>
+					<td>12 meses de criação e hospedagem sem custo, contados da publicação do site</td>
+				</tr>
+				<tr>
+					<th scope="row">Prazo de entrega</th>
+					<td>Até 7 dias, contados do recebimento das informações e do material</td>
+				</tr>
+				<tr>
+					<th scope="row">Ajustes</th>
+					<td>Uma rodada de ajustes incluída depois da entrega; outras alterações, sob proposta</td>
+				</tr>
+				<tr>
+					<th scope="row">Serviços extras</th>
+					<td>Sob proposta, com condições exclusivas para quem tem o site grátis</td>
+				</tr>
+				<tr>
+					<th scope="row">Depois do primeiro ano</th>
+					<td>Renegociação: se o site estiver trazendo contatos e clientes, a continuidade é oferecida a um preço acessível, sob proposta</td>
+				</tr>
+				<tr>
+					<th scope="row">Encerramento</th>
+					<td>Por qualquer uma das partes, com aviso prévio de 3 meses</td>
+				</tr>
+				<tr>
+					<th scope="row">Depois do encerramento</th>
+					<td>O domínio e o seu material continuam seus; o site pode seguir publicado em um domínio meu, como projeto de portfólio, fora dos resultados do Google</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>
+			As condições completas ficam em um termo de uso que a sua empresa recebe e aceita antes do início
+			do trabalho.
 		</p>
 	</section>
 
 	<section aria-labelledby="gratis-titulo">
 		<h2 id="gratis-titulo">Por que é grátis</h2>
 		<p>
-			Um site com esse trabalho de SEO sai por mais de R$ 1.000 quando é contratado comigo. É grátis
-			porque cada site entregue vira um case real no meu portfólio e traz um depoimento de quem usou o
+			Um site com esse trabalho de SEO sai por mais de R$ 1.000 quando é contratado comigo. O primeiro
+			ano é grátis porque cada site entregue vira um case real no meu portfólio e traz um depoimento de quem usou o
 			serviço, e isso vale mais para mim, neste momento, do que cobrar pelos primeiros sites. O limite
 			de 5 sites por mês existe para eu manter a qualidade.
 		</p>
 		<p>
 			Também ofereço serviços pagos, todos opcionais: SEO local e configuração do Perfil da Empresa no
 			Google (o antigo Google Meu Negócio), <a href={services.landingPage.path}>landing pages</a> para
-			anúncios e <a href={services.sistemasWeb.path}>sistemas web</a>. Contratar qualquer um deles não é
-			condição para receber o site grátis.
+			anúncios e <a href={services.sistemasWeb.path}>sistemas web</a>, sob proposta e com condições
+			exclusivas para quem tem o site grátis. Contratar qualquer um deles não é condição para receber o
+			site.
 		</p>
 	</section>
 

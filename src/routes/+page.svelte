@@ -168,7 +168,7 @@
 		<h3>Site grátis para empresas</h3>
 		<p>
 			Para empresas de qualquer nicho: crio e hospedo um site de até 5 páginas, otimizado para o Google,
-			e a empresa paga só o domínio. São até 5 sites gratuitos por mês.
+			sem custo no primeiro ano, e a empresa paga só o domínio. São até 5 sites gratuitos por mês.
 			<a href={services.siteGratis.path}>Como funciona o site grátis</a>.
 		</p>
 
