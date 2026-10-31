@@ -211,6 +211,7 @@
 		</ul>
 
 		<h3>Sites em produção em que trabalhei</h3>
+		<p>Cada site tem um case com o que foi feito, a stack e o resultado no Google: <a href="/portfolio">veja o portfólio completo, com 21 sites</a>.</p>
 		<ul>
 			<li><a href="https://grupooc.com.br/">Grupo OC</a>: portal institucional do grupo.</li>
 			<li><a href="https://planotimempresa.com.br/">Plano TIM Empresa</a>: planos corporativos com captação de leads integrada ao CRM.</li>

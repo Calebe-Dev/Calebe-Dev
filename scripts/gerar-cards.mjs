@@ -21,6 +21,8 @@ const rotulo = (slug) => {
 	if (slug === 'home') return 'Sorocaba (SP) · atendimento em todo o Brasil';
 	if (slug === 'desenvolvedor-full-stack-sorocaba' || slug === 'copywriter-seo') return 'Para recrutadores';
 	if (slug === 'mapa-do-site') return 'Mapa do site';
+	if (slug === 'portfolio') return 'Portfólio · para recrutadores';
+	if (slug.startsWith('portfolio/')) return 'Case do portfólio';
 	if (slug === 'politica-de-privacidade') return 'Institucional';
 	if (slug === 'sorocaba-e-regiao') return 'Atendimento regional · raio de 90 km';
 	if (/^(criacao-de-sites|consultoria-seo)-/.test(slug)) return 'Sorocaba e região';
@@ -29,7 +31,11 @@ const rotulo = (slug) => {
 	return 'Serviço';
 };
 
-const paginas = fs.readdirSync(BUILD).filter((f) => f.endsWith('.html') && f !== '404.html');
+// páginas de primeiro nível e de subpastas (ex.: portfolio/esquadriasmartins.html)
+const paginas = fs
+	.readdirSync(BUILD, { recursive: true })
+	.map(String)
+	.filter((f) => f.endsWith('.html') && f !== '404.html' && !f.startsWith('_app'));
 for (const f of paginas) {
 	const html = fs.readFileSync(path.join(BUILD, f), 'utf8');
 	const slug = f === 'index.html' ? 'home' : f.replace(/\.html$/, '');
@@ -66,11 +72,12 @@ for (const f of paginas) {
 		</div>
 		<div class="barra"></div>
 	</body></html>`;
-	const htmlFile = path.join(TMP, `${slug}.html`);
-	const png = path.join(TMP, `${slug}.png`);
+	const htmlFile = path.join(TMP, `${slug.replace(/\//g, '-')}.html`);
+	const png = path.join(TMP, `${slug.replace(/\//g, '-')}.png`);
 	fs.writeFileSync(htmlFile, card);
 	execFileSync(CHROME, ['--headless=new', '--disable-gpu', '--hide-scrollbars', '--force-device-scale-factor=1', '--allow-file-access-from-files',
 		'--window-size=1200,630', `--user-data-dir=${path.join(TMP, 'perfil')}`, `--screenshot=${png}`, `file://${htmlFile}`], { stdio: 'ignore' });
+	fs.mkdirSync(path.dirname(path.join(OUT, `${slug}.jpg`)), { recursive: true });
 	execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', png, '-q:v', '3', path.join(OUT, `${slug}.jpg`)]);
 	console.log(`${slug}.jpg  ${Math.round(fs.statSync(path.join(OUT, `${slug}.jpg`)).size / 1024)} KB  "${h1}"`);
 }

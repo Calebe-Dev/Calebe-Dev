@@ -107,6 +107,7 @@
 		<h2 id="resumo-titulo">Resumo profissional</h2>
 		<ul>
 			<li>Atuo como tech lead no Grupo OC, coordenando o time de TI.</li>
+			<li>Mantenho 21 sites em produção, a maioria migrada de WordPress para SvelteKit na Cloudflare: <a href="/portfolio">veja os cases no portfólio</a>.</li>
 			<li>Arquitetei e construí um CRM proprietário em microsserviços que integra 25 sites.</li>
 			<li>Reduzi o carregamento de páginas de 8 para 1 segundo migrando sistemas legados para Angular e Svelte.</li>
 			<li>Desenvolvi mais de 60 landing pages e sites institucionais com SEO técnico e mensuração de conversões.</li>
