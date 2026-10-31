@@ -6,6 +6,7 @@
 	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import { absolute, businessNode, faqNode, graph, imageNode, logoNode, navNode, personNode, serviceArea, webPageNode, websiteNode, type Faq as FaqItem } from '$lib/schema';
 	import ProjetoRankingFixer from '$lib/components/ProjetoRankingFixer.svelte';
+	import { casePath, cases, portfolioPage } from '$lib/portfolio';
 	import { careerPage, cityPages, guides, person, regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/';
@@ -61,17 +62,8 @@
 		}
 	}));
 
-	// Sites em produção (mesma lista visível na seção de resultados)
-	const portfolio = [
-		{ name: 'Grupo OC', url: 'https://grupooc.com.br/', description: 'portal institucional do grupo.' },
-		{ name: 'Plano TIM Empresa', url: 'https://planotimempresa.com.br/', description: 'planos corporativos com captação de leads integrada ao CRM.' },
-		{ name: 'Link Dedicada', url: 'https://linkdedicada.com.br/', description: 'landing pages de link dedicado para empresas.' },
-		{ name: 'TIM Corporativo', url: 'https://timcorporativo.com.br/', description: 'site de telefonia empresarial.' },
-		{ name: 'Sorocaba Indica', url: 'https://sorocabaindica.com.br/', description: 'portais de buscas locais.' },
-		{ name: 'Campinas Indica', url: 'https://campinasindica.com.br/', description: 'portais de buscas locais.' },
-		{ name: 'Esquadrias Martins', url: 'https://esquadriasmartins.com.br/', description: 'vitrine de projetos de esquadrias.' },
-		{ name: 'Belle Moda Íntima', url: 'https://bellemodaintima.com.br/', description: 'e-commerce com catálogo sincronizado.' }
-	];
+	// Sites em produção (os mesmos cases do carrossel da seção de resultados)
+	const portfolio = cases.map((c) => ({ name: c.name, url: `https://${c.domain}/`, description: `${c.segment}.` }));
 
 	const jsonLd = graph(
 		websiteNode(),
@@ -210,16 +202,21 @@
 			</li>
 		</ul>
 
-		<h3>Sites em produção em que trabalhei</h3>
-		<p>Cada site tem um case com o que foi feito, a stack e o resultado no Google: <a href="/portfolio">veja o portfólio completo, com 21 sites</a>.</p>
-		<ul>
-			<li><a href="https://grupooc.com.br/">Grupo OC</a>: portal institucional do grupo.</li>
-			<li><a href="https://planotimempresa.com.br/">Plano TIM Empresa</a>: planos corporativos com captação de leads integrada ao CRM.</li>
-			<li><a href="https://linkdedicada.com.br/">Link Dedicada</a>: landing pages de link dedicado para empresas.</li>
-			<li><a href="https://timcorporativo.com.br/">TIM Corporativo</a>: site de telefonia empresarial.</li>
-			<li><a href="https://sorocabaindica.com.br/">Sorocaba Indica</a> e <a href="https://campinasindica.com.br/">Campinas Indica</a>: portais de buscas locais.</li>
-			<li><a href="https://esquadriasmartins.com.br/">Esquadrias Martins</a>: vitrine de projetos de esquadrias.</li>
-			<li><a href="https://bellemodaintima.com.br/">Belle Moda Íntima</a>: e-commerce com catálogo sincronizado.</li>
+		<h3 id="sites-titulo">Sites em produção em que trabalhei</h3>
+		<p>
+			{cases.length} sites, cada um com um case: o que foi feito, a stack e o resultado no Google. Role para
+			o lado e clique para ver o case, ou <a href={portfolioPage.path}>veja o portfólio completo</a>.
+		</p>
+		<ul class="carrossel-sites" aria-labelledby="sites-titulo">
+			{#each cases as c (c.slug)}
+				<li>
+					<a href={casePath(c.slug)}>
+						<img src={`/images/projetos/${c.slug}.webp`} alt={`Página inicial do site ${c.name}`} width="720" height="360" loading="lazy" decoding="async" />
+						<strong>{c.name}</strong>
+						<span>{c.segment}</span>
+					</a>
+				</li>
+			{/each}
 		</ul>
 	</section>
 

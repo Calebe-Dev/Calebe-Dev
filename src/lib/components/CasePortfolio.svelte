@@ -69,6 +69,10 @@
 			no SEO técnico do site{c.slug === 'bellemodaintima' ? '' : ', como parte da rede de sites que mantenho'}.
 		</p>
 		<p>Stack: {c.stack}.</p>
+		<p><a href={`https://${c.domain}/`}>Visitar {c.domain}</a></p>
+		<figure class="case-captura">
+			<img src={`/images/projetos/${c.slug}.webp`} alt={`Página inicial do site ${c.name}`} width="720" height="360" />
+		</figure>
 	</header>
 
 	<section aria-labelledby="feito-titulo">
