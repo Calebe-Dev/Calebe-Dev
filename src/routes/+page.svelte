@@ -5,6 +5,7 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import { absolute, businessNode, faqNode, graph, imageNode, logoNode, navNode, personNode, serviceArea, webPageNode, websiteNode, type Faq as FaqItem } from '$lib/schema';
+	import ProjetoRankingFixer from '$lib/components/ProjetoRankingFixer.svelte';
 	import { careerPage, cityPages, guides, person, regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/';
@@ -221,9 +222,16 @@
 		</ul>
 	</section>
 
+	<ProjetoRankingFixer />
+
 	<section id="experiencia" aria-labelledby="experiencia-titulo">
 		<h2 id="experiencia-titulo">Experiência profissional</h2>
 		<ul>
+			<li>
+				<strong>Fundador, Ranking Fixer</strong> (<time datetime="2026-10">outubro de 2026</time> até o
+				momento): consultoria de SEO técnico em inglês para empresas de outros países, em
+				<a href="https://rankingfixer.com/" hreflang="en">rankingfixer.com</a>.
+			</li>
 			<li>
 				<strong>Tech Lead e Desenvolvedor Full Stack, Grupo OC</strong> (<time datetime="2025-08">agosto de 2025</time> até o
 				momento): coordenação do time de TI, CRM em microsserviços, migração para Angular e Svelte,

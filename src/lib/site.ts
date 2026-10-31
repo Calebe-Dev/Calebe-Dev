@@ -177,6 +177,12 @@ export const freeSite = {
 	whatsappLabel: 'Consultar disponibilidade pelo WhatsApp'
 } as const;
 
+// Ranking Fixer: consultoria de SEO técnico em inglês fundada pelo Calebe (iniciativa internacional)
+export const rankingFixer = {
+	url: 'https://rankingfixer.com/',
+	guides: 'https://rankingfixer.com/guides'
+} as const;
+
 export const nichePages = [
 	{ path: '/site-para-advogado', name: 'Site para advogado', anchor: 'site para advogado dentro das regras da OAB' },
 	{ path: '/site-para-imobiliaria', name: 'Site para imobiliária', anchor: 'site para imobiliária e corretor de imóveis' },

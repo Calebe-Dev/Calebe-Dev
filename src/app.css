@@ -2036,3 +2036,113 @@ body > footer nav[aria-label='Redes sociais'] a:hover {
 		scroll-behavior: auto;
 	}
 }
+
+/* ---------- banner da Ranking Fixer (projeto próprio, iniciativa internacional) ---------- */
+
+main > section.projeto-rf {
+	--rf-verde: #12c26b;
+	color: #dbe4f5;
+	border: 1px solid rgb(18 194 107 / 0.35);
+	background: linear-gradient(140deg, #0b1220 0%, #0f1b33 55%, #0d2a24 100%);
+	box-shadow: 0 30px 60px -32px rgb(11 18 32 / 0.8);
+}
+
+.projeto-rf h2 {
+	color: var(--white);
+}
+
+.projeto-rf a:not(.projeto-rf-links a) {
+	color: var(--rf-verde);
+	font-weight: 700;
+}
+
+.projeto-rf-logo {
+	display: block;
+	width: 56px;
+	height: 56px;
+	margin: 0 0 14px;
+	border-radius: 16px;
+}
+
+.projeto-rf-selo {
+	display: inline-block;
+	margin: 0 0 10px;
+	padding: 4px 12px;
+	border: 1px solid rgb(18 194 107 / 0.45);
+	border-radius: 999px;
+	color: var(--rf-verde);
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+main section.projeto-rf ul > li::marker {
+	color: var(--rf-verde);
+}
+
+.projeto-rf ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 28px;
+}
+
+.projeto-rf-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 18px;
+}
+
+.projeto-rf-links a {
+	display: inline-flex;
+	align-items: center;
+	min-height: 48px;
+	padding: 12px 22px;
+	border: 1px solid var(--rf-verde);
+	border-radius: 999px;
+	color: var(--white);
+	font-weight: 700;
+	line-height: 1.3;
+	text-decoration: none;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.projeto-rf-links a:first-child {
+	background: var(--rf-verde);
+	color: #0b1220;
+}
+
+.projeto-rf-links a:hover {
+	background: var(--white);
+	border-color: var(--white);
+	color: #0b1220;
+}
+
+main > section.projeto-rf.compacto {
+	display: grid;
+	grid-template-columns: 56px minmax(0, 1fr);
+	column-gap: 18px;
+	align-items: start;
+}
+
+.projeto-rf.compacto .projeto-rf-logo {
+	grid-row: span 2;
+	margin: 4px 0 0;
+}
+
+.projeto-rf.compacto h2 {
+	margin-top: 0;
+	font-size: 1.25rem;
+}
+
+@media (max-width: 520px) {
+	main > section.projeto-rf.compacto {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.projeto-rf.compacto .projeto-rf-logo {
+		grid-row: auto;
+		margin: 0 0 12px;
+	}
+}

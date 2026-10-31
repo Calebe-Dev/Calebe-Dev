@@ -4,6 +4,7 @@
 	import Contact from '$lib/components/Contact.svelte';
 	import WhatsAppCta from '$lib/components/WhatsAppCta.svelte';
 	import Faq from '$lib/components/Faq.svelte';
+	import ProjetoRankingFixer from '$lib/components/ProjetoRankingFixer.svelte';
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { pageGraph, type Faq as FaqItem } from '$lib/schema';
@@ -212,6 +213,8 @@
 			<li><a href={guides.seoAngular.path}>SEO para sites Angular</a>: SSR, pré-renderização e indexação.</li>
 		</ul>
 	</section>
+
+	<ProjetoRankingFixer variante="compacto" />
 
 	<Faq {faqs} title="Perguntas frequentes sobre consultoria de SEO" />
 
