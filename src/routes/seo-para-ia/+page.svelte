@@ -121,7 +121,7 @@
 	<section aria-labelledby="nao-titulo">
 		<h2 id="nao-titulo">O que não funciona</h2>
 		<ul>
-			<li><strong>Arquivo llms.txt como solução:</strong> o Google já declarou que a busca não o utiliza, e nenhum grande motor de resposta confirmou depender dele. É barato de ter, mas não garante nada. Diferente do robots.txt, que controla o acesso dos robôs, o llms.txt é só um resumo do site em texto.</li>
+			<li><strong>Arquivo llms.txt como solução:</strong> o Google já declarou que a busca não o utiliza, e nenhum grande motor de resposta confirmou depender dele. É barato de ter, mas não garante nada. Diferente do robots.txt, que controla o acesso dos robôs, o llms.txt é só um resumo do site em texto (veja <a href={guides.llmsTxt.path}>o que é o llms.txt e quando vale a pena</a>).</li>
 			<li><strong>Repetir palavras-chave:</strong> a IA seleciona trechos que respondem bem, não trechos com mais repetições.</li>
 			<li><strong>Páginas geradas em massa:</strong> texto genérico produzido em escala é exatamente o que o Google classifica como spam e o que a IA não tem motivo para citar.</li>
 		</ul>
@@ -144,6 +144,7 @@
 	<Related
 		links={[
 			{ href: services.consultoriaSeo.path, text: 'Consultoria de SEO técnico' },
+			{ href: guides.aiMode.path, text: 'AI Mode e AI Overviews do Google' },
 			{ href: guides.siteNaoAparece.path, text: 'Diagnóstico de site que não aparece no Google' },
 			{ href: guides.seoAngular.path, text: 'Renderização e SEO em aplicações Angular' },
 			{ href: services.seoB2b.path, text: 'SEO para empresas B2B' }

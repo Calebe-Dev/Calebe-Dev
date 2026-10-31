@@ -25,6 +25,8 @@ Resultados verificáveis citados no site: CRM proprietário em microsserviços i
 - [Site não aparece no Google](https://calebearaujo.com.br/site-nao-aparece-no-google): diagnóstico de indexação em 7 passos.
 - [Migração de site sem perder SEO](https://calebearaujo.com.br/migracao-de-site-sem-perder-seo): inventário de URLs, redirecionamentos 301 e o que testar antes e depois.
 - [SEO para IA](https://calebearaujo.com.br/seo-para-ia): como ser citado por ChatGPT, Gemini e AI Overviews.
+- [AI Mode e AI Overviews do Google](https://calebearaujo.com.br/ai-mode-e-ai-overview): o que são, como escolhem as fontes, o que muda nos cliques e o que fazer no site.
+- [llms.txt](https://calebearaujo.com.br/llms-txt): o que é, quem usa, a diferença para o robots.txt e quando vale a pena ter.
 - [SEO para sites Angular](https://calebearaujo.com.br/seo-para-sites-angular): SSR, pré-renderização e indexação.
 
 ## Atendimento regional

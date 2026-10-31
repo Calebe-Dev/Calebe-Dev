@@ -25,6 +25,8 @@ const publicadaEm: Record<string, string> = {
 	'/site-para-arquiteto': '2026-10-29',
 	'/site-para-nutricionista': '2026-10-29',
 	'/portfolio': '2026-10-31',
+	'/ai-mode-e-ai-overview': '2026-10-31',
+	'/llms-txt': '2026-10-31',
 	'/portfolio/esquadriasmartins': '2026-10-31',
 	'/portfolio/timcorporativo': '2026-10-31',
 	'/portfolio/planotimempresa': '2026-10-31',
@@ -113,7 +115,9 @@ export const guides = {
 	seoAngular: { path: '/seo-para-sites-angular', name: 'SEO para sites Angular' },
 	comoAparecer: { path: '/como-aparecer-no-google', name: 'Como aparecer no Google' },
 	pequenasEmpresas: { path: '/seo-para-pequenas-empresas', name: 'SEO para pequenas empresas' },
-	migracao: { path: '/migracao-de-site-sem-perder-seo', name: 'Migração de site sem perder SEO' }
+	migracao: { path: '/migracao-de-site-sem-perder-seo', name: 'Migração de site sem perder SEO' },
+	aiMode: { path: '/ai-mode-e-ai-overview', name: 'AI Mode e AI Overviews' },
+	llmsTxt: { path: '/llms-txt', name: 'llms.txt' }
 } as const;
 
 export const careerPage = { path: '/desenvolvedor-full-stack-sorocaba', name: 'Desenvolvedor full stack em Sorocaba' };
@@ -148,6 +152,8 @@ export const menu: (MenuItem & { itens: MenuItem[] })[] = [
 			{ href: '/site-nao-aparece-no-google', label: 'Site não aparece no Google' },
 			{ href: '/migracao-de-site-sem-perder-seo', label: 'Migração de site sem perder SEO' },
 			{ href: '/seo-para-ia', label: 'SEO para IA' },
+			{ href: '/ai-mode-e-ai-overview', label: 'AI Mode e AI Overviews' },
+			{ href: '/llms-txt', label: 'llms.txt' },
 			{ href: '/seo-para-sites-angular', label: 'SEO para sites Angular' }
 		]
 	},
@@ -256,6 +262,8 @@ export const siteGroups: { id: string; title: string; entries: SiteEntry[] }[] =
 			{ href: guides.siteNaoAparece.path, text: 'Site não aparece no Google', note: 'diagnóstico de indexação em 7 passos' },
 			{ href: guides.migracao.path, text: 'Migração de site sem perder SEO', note: 'inventário de URLs, redirecionamentos 301 e o que testar antes e depois' },
 			{ href: guides.seoParaIa.path, text: 'SEO para IA', note: 'como aparecer no ChatGPT e no AI Overviews' },
+			{ href: guides.aiMode.path, text: 'AI Mode e AI Overviews do Google', note: 'o que são, como escolhem as fontes e o que muda nos cliques' },
+			{ href: guides.llmsTxt.path, text: 'llms.txt', note: 'o que é, para que serve e quando vale a pena ter' },
 			{ href: guides.seoAngular.path, text: 'SEO para sites Angular', note: 'SSR, pré-renderização e indexação' }
 		]
 	},
@@ -311,6 +319,8 @@ export const pageKeywords: Record<string, string[]> = {
 	'/site-nao-aparece-no-google': ['site não aparece no Google', 'meu site não aparece no Google', 'como indexar site no Google', 'colocar meu site no Google', 'site Hostinger não aparece no Google', 'Google Search Console'],
 	'/migracao-de-site-sem-perder-seo': ['migração de site', 'migração de site sem perder SEO', 'redirecionamento 301', 'redesign de site', 'migração de site WordPress', 'troca de domínio SEO'],
 	'/seo-para-ia': ['SEO para IA', 'SEO para inteligência artificial', 'GEO', 'GEO vs SEO', 'como aparecer no ChatGPT', 'AI Overviews'],
+	'/ai-mode-e-ai-overview': ['AI Mode', 'AI Mode Google', 'Modo IA do Google', 'AI Overview', 'AI Overviews', 'Visão geral criada por IA'],
+	'/llms-txt': ['llms.txt', 'llms txt', 'o que é llms.txt', 'llms.txt SEO', 'llms-full.txt', 'llms.txt vs robots.txt'],
 	'/seo-para-sites-angular': ['SEO Angular', 'Angular SSR', 'Angular Universal', 'Angular SSR vs SPA', 'pré-renderização Angular', 'indexação Angular'],
 	'/seo-para-pequenas-empresas': ['SEO para pequenas empresas', 'consultoria SEO para pequenas empresas', 'SEO para empresas', 'plano de SEO', 'SEO local para pequenas empresas', 'quanto investir em SEO'],
 	'/como-aparecer-no-google': ['como colocar minha empresa no Google', 'como aparecer no Google', 'como ficar em primeiro no Google', 'primeira página do Google', 'Google Meu Negócio', 'Perfil da Empresa no Google'],

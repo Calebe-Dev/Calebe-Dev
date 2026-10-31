@@ -156,6 +156,27 @@ code {
 	font-size: 0.9em;
 }
 
+/* bloco de código (ex.: trecho de arquivo): rola na horizontal dentro do próprio bloco */
+pre {
+	max-width: 100%;
+	margin: 0 0 1em;
+	padding: 16px 18px;
+	overflow-x: auto;
+	border: 1px solid var(--line);
+	border-radius: var(--radius-sm);
+	background: var(--blue-50);
+	font-size: 0.88rem;
+	line-height: 1.55;
+}
+
+pre code {
+	padding: 0;
+	overflow-wrap: normal;
+	white-space: pre;
+	background: none;
+	font-size: inherit;
+}
+
 [id] {
 	scroll-margin-top: 96px;
 }
