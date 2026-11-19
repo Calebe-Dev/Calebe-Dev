@@ -7,10 +7,10 @@
 	import Related from '$lib/components/Related.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { pageGraph, type Faq as FaqItem } from '$lib/schema';
-	import { services, type WhatsApp } from '$lib/site';
+	import { guides, services, type WhatsApp } from '$lib/site';
 
 	const path = services.otimizacaoDeSites.path;
-	const title = 'Otimização de sites lentos e Core Web Vitals - Calebe Araujo';
+	const title = 'Otimização de sites lentos: deixe o seu site rápido - Calebe Araujo';
 	const description =
 		'Otimização de sites lentos: diagnóstico de Core Web Vitals, imagens, scripts e infraestrutura. Caso real com carregamento reduzido de 8 s para 1 s.';
 	const whatsapp: WhatsApp = {
@@ -69,7 +69,7 @@
 		<HeroMidia foto="otimizacao-de-sites" />
 		<Breadcrumbs {crumbs} />
 
-		<h1>Otimização de sites lentos e Core Web Vitals</h1>
+		<h1>Otimização de sites lentos: deixe o seu site rápido</h1>
 
 		<p>
 			Otimização de sites é o trabalho de reduzir o tempo de carregamento e a instabilidade das páginas,
@@ -97,39 +97,13 @@
 	</section>
 
 	<section aria-labelledby="cwv-titulo">
-		<h2 id="cwv-titulo">O que são os Core Web Vitals</h2>
+		<h2 id="cwv-titulo">Como o Google mede a velocidade</h2>
 		<p>
-			Core Web Vitals são as três métricas que o Google usa para medir a experiência de carregamento,
-			interação e estabilidade de uma página. Os limites considerados bons, medidos em 75% das visitas,
-			são estes:
+			O Google mede a experiência de uma página com três métricas, os Core Web Vitals: LCP
+			(carregamento, bom até 2,5 s), INP (resposta a cliques e toques, bom até 200 ms) e CLS
+			(estabilidade do layout, bom até 0,1), sempre em 75% das visitas reais. O que cada uma mede,
+			como consultar e como corrigir está no guia de <a href={guides.coreWebVitals.path}>Core Web Vitals</a>.
 		</p>
-		<table>
-			<caption>Core Web Vitals e os limites considerados bons pelo Google</caption>
-			<thead>
-				<tr>
-					<th scope="col">Métrica</th>
-					<th scope="col">O que mede</th>
-					<th scope="col">Bom</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row">LCP (Largest Contentful Paint)</th>
-					<td>Tempo até o maior elemento visível carregar</td>
-					<td>Até 2,5 s</td>
-				</tr>
-				<tr>
-					<th scope="row">INP (Interaction to Next Paint)</th>
-					<td>Tempo de resposta a cliques e toques</td>
-					<td>Até 200 ms</td>
-				</tr>
-				<tr>
-					<th scope="row">CLS (Cumulative Layout Shift)</th>
-					<td>Quanto o layout se mexe durante o carregamento</td>
-					<td>Até 0,1</td>
-				</tr>
-			</tbody>
-		</table>
 	</section>
 
 	<section aria-labelledby="metodo-titulo">
@@ -159,6 +133,7 @@
 
 	<Related
 		links={[
+			{ href: guides.coreWebVitals.path, text: 'Core Web Vitals: LCP, INP e CLS explicados' },
 			{ href: services.auditoriaSeo.path, text: 'Auditoria de SEO com análise de performance' },
 			{ href: services.consultoriaSeo.path, text: 'Consultoria de SEO técnico' },
 			{ href: services.criacaoDeSites.path, text: 'Criação de sites rápidos desde o início' },

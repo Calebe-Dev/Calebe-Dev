@@ -27,6 +27,10 @@ const publicadaEm: Record<string, string> = {
 	'/portfolio': '2026-10-31',
 	'/ai-mode-e-ai-overview': '2026-10-31',
 	'/llms-txt': '2026-10-31',
+	'/perfil-da-empresa-no-google': '2026-11-18',
+	'/seo-local': '2026-11-18',
+	'/core-web-vitals': '2026-11-18',
+	'/site-para-dentista': '2026-11-18',
 	'/portfolio/esquadriasmartins': '2026-10-31',
 	'/portfolio/timcorporativo': '2026-10-31',
 	'/portfolio/planotimempresa': '2026-10-31',
@@ -117,7 +121,10 @@ export const guides = {
 	pequenasEmpresas: { path: '/seo-para-pequenas-empresas', name: 'SEO para pequenas empresas' },
 	migracao: { path: '/migracao-de-site-sem-perder-seo', name: 'Migração de site sem perder SEO' },
 	aiMode: { path: '/ai-mode-e-ai-overview', name: 'AI Mode e AI Overviews' },
-	llmsTxt: { path: '/llms-txt', name: 'llms.txt' }
+	llmsTxt: { path: '/llms-txt', name: 'llms.txt' },
+	perfilEmpresa: { path: '/perfil-da-empresa-no-google', name: 'Perfil da Empresa no Google' },
+	seoLocal: { path: '/seo-local', name: 'SEO local' },
+	coreWebVitals: { path: '/core-web-vitals', name: 'Core Web Vitals' }
 } as const;
 
 export const careerPage = { path: '/desenvolvedor-full-stack-sorocaba', name: 'Desenvolvedor full stack em Sorocaba' };
@@ -149,7 +156,10 @@ export const menu: (MenuItem & { itens: MenuItem[] })[] = [
 		itens: [
 			{ href: '/como-aparecer-no-google', label: 'Como aparecer no Google' },
 			{ href: '/seo-para-pequenas-empresas', label: 'SEO para pequenas empresas' },
+			{ href: '/perfil-da-empresa-no-google', label: 'Perfil da Empresa no Google' },
+			{ href: '/seo-local', label: 'SEO local' },
 			{ href: '/site-nao-aparece-no-google', label: 'Site não aparece no Google' },
+			{ href: '/core-web-vitals', label: 'Core Web Vitals' },
 			{ href: '/migracao-de-site-sem-perder-seo', label: 'Migração de site sem perder SEO' },
 			{ href: '/seo-para-ia', label: 'SEO para IA' },
 			{ href: '/ai-mode-e-ai-overview', label: 'AI Mode e AI Overviews' },
@@ -216,7 +226,8 @@ export const nichePages = [
 	{ path: '/site-para-advogado', name: 'Site para advogado', anchor: 'site para advogado dentro das regras da OAB' },
 	{ path: '/site-para-imobiliaria', name: 'Site para imobiliária', anchor: 'site para imobiliária e corretor de imóveis' },
 	{ path: '/site-para-arquiteto', name: 'Site para arquiteto', anchor: 'site para arquiteto com portfólio de projetos' },
-	{ path: '/site-para-nutricionista', name: 'Site para nutricionista', anchor: 'site para nutricionista dentro do código de ética' }
+	{ path: '/site-para-nutricionista', name: 'Site para nutricionista', anchor: 'site para nutricionista dentro do código de ética' },
+	{ path: '/site-para-dentista', name: 'Site para dentista', anchor: 'site para dentista dentro das regras do CFO' }
 ] as const;
 
 export const sitemapPage = { path: '/mapa-do-site', name: 'Mapa do site' };
@@ -259,7 +270,10 @@ export const siteGroups: { id: string; title: string; entries: SiteEntry[] }[] =
 		entries: [
 			{ href: guides.comoAparecer.path, text: 'Como colocar minha empresa no Google', note: 'guia sem jargão: Google Meu Negócio, site e primeira página' },
 			{ href: guides.pequenasEmpresas.path, text: 'SEO para pequenas empresas', note: 'o que fazer sozinho, o que contratar e um plano de 90 dias' },
+			{ href: guides.perfilEmpresa.path, text: 'Perfil da Empresa no Google', note: 'como criar, verificar e otimizar o antigo Google Meu Negócio' },
+			{ href: guides.seoLocal.path, text: 'SEO local', note: 'perfil, site, avaliações e NAP para aparecer na sua cidade' },
 			{ href: guides.siteNaoAparece.path, text: 'Site não aparece no Google', note: 'diagnóstico de indexação em 7 passos' },
+			{ href: guides.coreWebVitals.path, text: 'Core Web Vitals', note: 'LCP, INP e CLS: limites, como medir e como melhorar' },
 			{ href: guides.migracao.path, text: 'Migração de site sem perder SEO', note: 'inventário de URLs, redirecionamentos 301 e o que testar antes e depois' },
 			{ href: guides.seoParaIa.path, text: 'SEO para IA', note: 'como aparecer no ChatGPT e no AI Overviews' },
 			{ href: guides.aiMode.path, text: 'AI Mode e AI Overviews do Google', note: 'o que são, como escolhem as fontes e o que muda nos cliques' },
@@ -320,6 +334,10 @@ export const pageKeywords: Record<string, string[]> = {
 	'/migracao-de-site-sem-perder-seo': ['migração de site', 'migração de site sem perder SEO', 'redirecionamento 301', 'redesign de site', 'migração de site WordPress', 'troca de domínio SEO'],
 	'/seo-para-ia': ['SEO para IA', 'SEO para inteligência artificial', 'GEO', 'GEO vs SEO', 'como aparecer no ChatGPT', 'AI Overviews'],
 	'/ai-mode-e-ai-overview': ['AI Mode', 'AI Mode Google', 'Modo IA do Google', 'AI Overview', 'AI Overviews', 'Visão geral criada por IA'],
+	'/perfil-da-empresa-no-google': ['Perfil da Empresa no Google', 'Google Meu Negócio', 'Google Perfil de Empresa', 'criar perfil de empresa no Google', 'como cadastrar minha empresa no Google', 'Google Maps empresa'],
+	'/seo-local': ['SEO local', 'o que é SEO local', 'SEO local para pequenas empresas', 'ranqueamento no Google Maps', 'NAP', 'SEO para negócios locais'],
+	'/core-web-vitals': ['Core Web Vitals', 'LCP', 'INP', 'CLS', 'o que são Core Web Vitals', 'como melhorar Core Web Vitals'],
+	'/site-para-dentista': ['site para dentista', 'site para clínica odontológica', 'site para consultório odontológico', 'marketing odontológico', 'Resolução CFO 196/2019', 'SEO para dentistas'],
 	'/llms-txt': ['llms.txt', 'llms txt', 'o que é llms.txt', 'llms.txt SEO', 'llms-full.txt', 'llms.txt vs robots.txt'],
 	'/seo-para-sites-angular': ['SEO Angular', 'Angular SSR', 'Angular Universal', 'Angular SSR vs SPA', 'pré-renderização Angular', 'indexação Angular'],
 	'/seo-para-pequenas-empresas': ['SEO para pequenas empresas', 'consultoria SEO para pequenas empresas', 'SEO para empresas', 'plano de SEO', 'SEO local para pequenas empresas', 'quanto investir em SEO'],

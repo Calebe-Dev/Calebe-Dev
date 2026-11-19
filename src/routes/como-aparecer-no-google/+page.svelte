@@ -135,6 +135,10 @@
 				<li><strong>{passo.nome}</strong> {passo.texto}</li>
 			{/each}
 		</ol>
+		<p>
+			Cada campo do perfil, o que faz subir no mapa e os erros que levam à suspensão estão no guia
+			completo do <a href={guides.perfilEmpresa.path}>Perfil da Empresa no Google</a>.
+		</p>
 		<h3>Como colocar minha empresa no Google Maps</h3>
 		<p>
 			O cadastro no Google Maps é o próprio Perfil da Empresa: não existe um cadastro separado. Depois
@@ -248,6 +252,8 @@
 	<Related
 		links={[
 			{ href: services.criacaoDeSites.path, text: 'Criação de sites profissionais para empresas' },
+			{ href: guides.perfilEmpresa.path, text: 'Perfil da Empresa no Google: guia completo' },
+			{ href: guides.seoLocal.path, text: 'O que é SEO local' },
 			{ href: '/consultoria-seo-sorocaba', text: 'Google Meu Negócio e SEO local em Sorocaba' },
 			{ href: guides.pequenasEmpresas.path, text: 'Plano de SEO de 90 dias para pequenas empresas' },
 			{ href: guides.siteNaoAparece.path, text: 'Meu site sumiu do Google: o que fazer' },

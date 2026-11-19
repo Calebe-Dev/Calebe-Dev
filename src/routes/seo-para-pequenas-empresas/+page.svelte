@@ -201,6 +201,7 @@
 
 	<Related
 		links={[
+			{ href: guides.seoLocal.path, text: 'SEO local: aparecer no mapa da sua cidade' },
 			{ href: guides.comoAparecer.path, text: 'Como colocar a sua empresa no Google, sem jargão' },
 			{ href: services.consultoriaSeo.path, text: 'Consultoria de SEO técnico' },
 			{ href: services.auditoriaSeo.path, text: 'Auditoria de SEO do site da sua empresa' },

@@ -185,6 +185,10 @@
 			<li><strong>Avaliações reais:</strong> pedir avaliações a clientes atendidos e responder a todas, positivas ou não.</li>
 			<li><strong>Base técnica:</strong> site rápido no celular, indexado e com dados estruturados do negócio.</li>
 		</ol>
+		<p>
+			O passo a passo do perfil está no guia do <a href={guides.perfilEmpresa.path}>Perfil da Empresa no
+			Google</a>, e a explicação completa do método, no guia de <a href={guides.seoLocal.path}>SEO local</a>.
+		</p>
 	</section>
 
 	<section aria-labelledby="nacional-titulo">
