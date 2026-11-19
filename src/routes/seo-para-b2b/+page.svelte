@@ -8,11 +8,22 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import { pageGraph, type Faq as FaqItem } from '$lib/schema';
 	import { services, type WhatsApp } from '$lib/site';
+	import { cases, casePath, portfolioPage } from '$lib/portfolio';
+
+	// Casos B2B reais da rede (telecom para empresas), na ordem de crescimento de cliques
+	const casosB2b = ['linkdedicada', 'planotimcorporativo', 'planotimempresa', 'meupabxemnuvem']
+		.map((slug) => cases.find((c) => c.slug === slug)!)
+		.filter((c) => c.clicksX);
+	const vezes = (x: number) => `${x.toLocaleString('pt-BR', { maximumFractionDigits: 1 })}x`;
+	const mes = (ym: string) => {
+		const [y, m] = ym.split('-');
+		return `${['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'][Number(m) - 1]}/${y.slice(2)}`;
+	};
 
 	const path = services.seoB2b.path;
 	const title = 'SEO B2B: consultoria para gerar leads de empresas B2B - Calebe Araujo';
 	const description =
-		'SEO B2B para quem vende para empresas: páginas por solução e segmento, cauda longa comercial e leads medidos no CRM, com quem implementa no código.';
+		'SEO B2B com casos reais: sites de telecom para empresas com até 127x mais cliques no Google. Páginas por solução, cauda longa comercial e leads no CRM.';
 	const whatsapp: WhatsApp = {
 		message: 'Olá, Calebe! Vim pela página de SEO para B2B e quero gerar mais leads para a minha empresa.',
 		label: 'Falar sobre SEO B2B pelo WhatsApp'
@@ -35,6 +46,11 @@
 			question: 'Consultoria de SEO B2B ou agência de SEO B2B?',
 			answer:
 				'Depende de onde está o gargalo. Uma agência de SEO para empresas B2B costuma ser a escolha quando a necessidade é produzir muito conteúdo e campanhas todo mês. Uma consultoria de SEO B2B feita por um desenvolvedor faz mais sentido quando o problema está no site: páginas que não indexam, falta de uma página por solução ou leads que chegam sem origem no CRM. Os dois modelos podem trabalhar juntos, com o consultor cuidando da base técnica.'
+		},
+		{
+			question: 'Quanto tempo o SEO B2B leva para gerar leads?',
+			answer:
+				'Em sites que já existem, páginas de solução bem estruturadas costumam receber as primeiras visitas qualificadas em dois a quatro meses. Como as buscas B2B têm pouca concorrência de conteúdo bom, é comum ranquear antes do que em mercados B2C, mas o lead depende também do ciclo de compra do cliente, que pode levar meses.'
 		},
 		{
 			question: 'Vale a pena manter um blog em uma empresa B2B?',
@@ -136,13 +152,55 @@
 	</section>
 
 	<section aria-labelledby="experiencia-titulo">
-		<h2 id="experiencia-titulo">Experiência com SEO B2B: rede de sites de telecom empresarial</h2>
+		<h2 id="experiencia-titulo">Casos de SEO B2B: rede de sites de telecom empresarial</h2>
 		<p>
 			No Grupo OC, trabalho em uma rede de sites B2B de telecomunicações para empresas, com páginas de
 			planos corporativos, link dedicado e telefonia empresarial. Os sites são integrados a um CRM
 			próprio em microsserviços, que centraliza os leads de 25 sites e mostra de qual página veio cada
 			oportunidade. É esse modelo, de páginas por intenção ligadas ao CRM, que aplico em projetos B2B.
 		</p>
+		<table>
+			<caption>Cliques no Google: mês de referência comparado ao melhor mês dos últimos 12 (Search Console)</caption>
+			<thead>
+				<tr>
+					<th scope="col">Site</th>
+					<th scope="col">O que vende</th>
+					<th scope="col">Crescimento de cliques</th>
+				</tr>
+			</thead>
+			<tbody>
+				{#each casosB2b as c (c.slug)}
+					<tr>
+						<th scope="row"><a href={casePath(c.slug)}>{c.name}</a></th>
+						<td>{c.segment}</td>
+						<td>{vezes(c.clicksX!)} ({mes(c.base)} a {mes(c.bestClicksMonth)})</td>
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+		<p>
+			Os números absolutos de tráfego pertencem aos clientes; por isso mostro quantas vezes o resultado
+			cresceu. O que esses sites têm em comum é o que descrevo acima: uma página por solução ("link
+			dedicado", "PABX em nuvem", "plano TIM para CNPJ"), buscas de baixo volume e alta intenção e
+			o lead registrado no CRM com a página de origem. Os detalhes de cada projeto estão no
+			<a href={portfolioPage.path}>portfólio</a>.
+		</p>
+	</section>
+
+	<section aria-labelledby="keywords-titulo">
+		<h2 id="keywords-titulo">Palavras-chave B2B: poucas buscas, alto valor</h2>
+		<p>
+			Em B2B, o custo por clique mostra quanto vale uma busca. No Google Ads, termos como "SEO B2B" e
+			"link dedicado" chegam a dezenas ou centenas de reais por clique, mesmo com poucas centenas de
+			pesquisas por mês. Cada visita orgânica nessas buscas é um clique que a empresa não paga. Por
+			isso a pesquisa de palavras-chave B2B prioriza:
+		</p>
+		<ul>
+			<li><strong>Termos de solução:</strong> o nome do que se compra, como "PABX em nuvem" ou "software de gestão para indústria".</li>
+			<li><strong>Termos de requisito:</strong> "com SLA", "para CNPJ", "com nota fiscal", "integração com ERP".</li>
+			<li><strong>Termos de decisão:</strong> "preço", "quanto custa", "melhor", "comparativo", "alternativa a".</li>
+			<li><strong>Termos de segmento:</strong> a solução aplicada a um setor, quando há busca real por essa combinação.</li>
+		</ul>
 	</section>
 
 	<section aria-labelledby="marketing-titulo">
@@ -169,6 +227,7 @@
 	<Related
 		links={[
 			{ href: services.consultoriaSeo.path, text: 'Consultoria de SEO técnico' },
+			{ href: portfolioPage.path, text: 'Portfólio: 21 sites em produção' },
 			{ href: services.guestPost.path, text: 'Guest posts em portais do seu setor' },
 			{ href: services.sistemasWeb.path, text: 'CRM e integrações para leads B2B' },
 			{ href: services.criacaoDeSites.path, text: 'Sites com páginas por solução e segmento' },

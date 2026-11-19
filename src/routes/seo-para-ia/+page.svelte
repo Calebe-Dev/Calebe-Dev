@@ -118,6 +118,22 @@
 		</ol>
 	</section>
 
+	<section aria-labelledby="chatgpt-titulo">
+		<h2 id="chatgpt-titulo">Como aparecer no ChatGPT: passo a passo</h2>
+		<p>
+			O ChatGPT só cita sites quando faz uma busca na web, e essa busca usa robôs próprios da OpenAI e
+			índices de terceiros. Para a sua empresa aparecer nas respostas:
+		</p>
+		<ol>
+			<li><strong>Libere o OAI-SearchBot</strong> no robots.txt e no firewall do provedor. Bloquear o GPTBot (treinamento) não impede a citação; bloquear o OAI-SearchBot impede.</li>
+			<li><strong>Cadastre o site no Bing Webmaster Tools</strong> e envie o sitemap, porque parte das buscas do ChatGPT passa por esse índice.</li>
+			<li><strong>Tenha uma página para cada pergunta comercial</strong> do seu cliente, como preço, prazo, cidade atendida e comparação com alternativas.</li>
+			<li><strong>Diga com clareza quem é a empresa:</strong> nome, cidade, serviços e contato iguais no site, no Perfil da Empresa no Google, no LinkedIn e nos diretórios.</li>
+			<li><strong>Seja mencionado em outros sites:</strong> portais do setor, diretórios e notícias locais. A IA tende a citar quem outras fontes já citam.</li>
+			<li><strong>Teste:</strong> pergunte ao ChatGPT, com a busca ativada, o que o seu cliente perguntaria ("quem faz X em Sorocaba?") e veja quais sites aparecem como fonte. Repita todo mês.</li>
+		</ol>
+	</section>
+
 	<section aria-labelledby="nao-titulo">
 		<h2 id="nao-titulo">O que não funciona</h2>
 		<ul>

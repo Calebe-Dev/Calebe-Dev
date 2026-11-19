@@ -10,9 +10,9 @@
 	import { guides, services, type WhatsApp } from '$lib/site';
 
 	const path = guides.aiMode.path;
-	const title = 'AI Mode e AI Overviews do Google: o que muda para o seu site - Calebe Araujo';
+	const title = 'AI Overview e AI Mode do Google: o que são e o que muda no seu site - Calebe Araujo';
 	const description =
-		'O que são o Modo IA (AI Mode) e os AI Overviews do Google, como escolhem as fontes, o que muda nos cliques e o que fazer no site para ser citado.';
+		'O que é AI Overview e o que é o AI Mode (Modo IA) do Google, a diferença entre os dois, como escolhem as fontes e o que fazer no site para ser citado.';
 	const whatsapp: WhatsApp = {
 		message: 'Olá, Calebe! Quero entender como o meu site aparece no AI Mode e nos AI Overviews. Meu site é: ',
 		label: 'Avaliar o meu site pelo WhatsApp'
@@ -48,6 +48,11 @@
 				'Dá, com as mesmas regras que controlam o trecho nos resultados: nosnippet, data-nosnippet ou max-snippet limitam o que pode ser mostrado, e noindex tira a página da busca. O Google-Extended, no robots.txt, não tira o site dos AI Overviews; ele controla o uso do conteúdo pelo Gemini. Bloquear o trecho também piora a aparência do site nos resultados comuns, então raramente compensa.'
 		},
 		{
+			question: 'Dá para desativar o AI Overview nas minhas buscas?',
+			answer:
+				'Não existe um botão para desligar o AI Overview na busca do Google. O que dá para fazer é usar o filtro "Web" na página de resultados, que mostra apenas os links, sem o resumo de IA. O Modo IA, por outro lado, só aparece para quem escolhe entrar nele.'
+		},
+		{
 			question: 'O AI Mode está disponível no Brasil?',
 			answer:
 				'Sim. Os AI Overviews chegaram ao Brasil em agosto de 2024, e o Modo IA passou a funcionar em português do Brasil em setembro de 2025.'
@@ -60,7 +65,7 @@
 		description,
 		crumbs,
 		faqs,
-		article: { headline: 'AI Mode e AI Overviews do Google: o que muda para o seu site' }
+		article: { headline: 'AI Overview e AI Mode do Google: o que são e o que muda no seu site' }
 	});
 </script>
 
@@ -71,7 +76,7 @@
 		<HeroMidia foto="seo-para-ia" />
 		<Breadcrumbs {crumbs} />
 
-		<h1>AI Mode e AI Overviews do Google: o que muda para o seu site</h1>
+		<h1>AI Overview e AI Mode do Google: o que são e o que muda no seu site</h1>
 
 		<p>
 			Os AI Overviews (Visão geral criada por IA) são os resumos gerados por inteligência artificial que
@@ -87,6 +92,28 @@
 
 		<WhatsAppCta {...whatsapp} />
 	</header>
+
+	<section aria-labelledby="overview-titulo">
+		<h2 id="overview-titulo">O que é AI Overview</h2>
+		<p>
+			AI Overview (em português, Visão geral criada por IA) é o resumo escrito pelo Gemini, a IA do
+			Google, que aparece no topo de algumas buscas, antes dos links comuns. Ele responde a pergunta em
+			poucos parágrafos e mostra, ao lado ou abaixo do texto, os sites usados como fonte. O Google decide
+			sozinho quando exibir: o resumo aparece mais em perguntas do tipo "o que é", "como fazer" e
+			"qual a diferença", e menos em buscas por uma marca ou por um produto para comprar.
+		</p>
+	</section>
+
+	<section aria-labelledby="modo-titulo">
+		<h2 id="modo-titulo">O que é o AI Mode (Modo IA) do Google</h2>
+		<p>
+			AI Mode, ou Modo IA, é uma aba da busca do Google em que a pessoa conversa com a IA em vez de
+			receber uma lista de links. Ela faz uma pergunta longa, recebe uma resposta completa com links
+			para as fontes e pode continuar perguntando, como num chat. Para usar, basta tocar em "Modo IA"
+			na página de resultados ou no app do Google. Diferente do AI Overview, é a pessoa que escolhe
+			entrar no Modo IA.
+		</p>
+	</section>
 
 	<section aria-labelledby="diferenca-titulo">
 		<h2 id="diferenca-titulo">Qual a diferença entre AI Overview e AI Mode</h2>

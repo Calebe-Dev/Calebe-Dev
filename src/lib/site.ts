@@ -4,7 +4,7 @@
 export const SITE_URL = 'https://calebearaujo.com.br';
 
 // Data da última revisão do conteúdo (lastmod do sitemap e "atualizado em" das páginas)
-export const UPDATED = '2026-10-31';
+export const UPDATED = '2026-11-18';
 
 // Datas completas (ISO 8601 com fuso de Brasília), formato que o Google pede nos dados estruturados
 const HORARIO = 'T09:00:00-03:00';
@@ -188,7 +188,7 @@ export const menu: (MenuItem & { itens: MenuItem[] })[] = [
 export const cityPages = [
 	// `anchor`: texto descritivo usado fora do hub regional (evita a mesma âncora exata em todo o site)
 	{ path: '/criacao-de-sites-sorocaba', city: 'Sorocaba', service: 'Criação de sites', km: 0, anchor: 'sites para empresas de Sorocaba' },
-	{ path: '/consultoria-seo-sorocaba', city: 'Sorocaba', service: 'Consultoria de SEO', km: 0, anchor: 'SEO local e técnico para empresas de Sorocaba' },
+	{ path: '/consultoria-seo-sorocaba', city: 'Sorocaba', service: 'Consultoria de SEO', km: 0, anchor: 'otimização de sites e SEO local para empresas de Sorocaba' },
 	{ path: '/criacao-de-sites-itu', city: 'Itu', service: 'Criação de sites', km: 31, anchor: 'sites para turismo, comércio e indústria em Itu' },
 	{ path: '/criacao-de-sites-indaiatuba', city: 'Indaiatuba', service: 'Criação de sites e SEO', km: 52, anchor: 'site e SEO para empresas de Indaiatuba' },
 	{ path: '/criacao-de-sites-jundiai', city: 'Jundiaí', service: 'Criação de sites', km: 67, anchor: 'sites para logística e indústria em Jundiaí' },
@@ -310,9 +310,9 @@ export const pageKeywords: Record<string, string[]> = {
 	'/desenvolvedor-full-stack-sorocaba': ['desenvolvedor full stack Sorocaba', 'tech lead Sorocaba', 'desenvolvedor Angular', 'desenvolvedor Node.js', 'desenvolvedor web Sorocaba', 'currículo desenvolvedor full stack'],
 	'/sorocaba-e-regiao': ['criação de sites região de Sorocaba', 'SEO interior de São Paulo', 'atendimento em Sorocaba e região'],
 	'/criacao-de-sites-sorocaba': ['criação de sites Sorocaba', 'site para empresa em Sorocaba', 'desenvolvedor web Sorocaba'],
-	'/consultoria-seo-sorocaba': ['consultoria de SEO Sorocaba', 'consultor de SEO Sorocaba', 'SEO em Sorocaba', 'SEO local Sorocaba', 'agência de SEO Sorocaba', 'Perfil da Empresa no Google Sorocaba'],
+	'/consultoria-seo-sorocaba': ['consultoria de SEO Sorocaba', 'consultor de SEO Sorocaba', 'SEO em Sorocaba', 'SEO local Sorocaba', 'agência de SEO Sorocaba', 'otimização de sites Sorocaba', 'manutenção de sites Sorocaba', 'Perfil da Empresa no Google Sorocaba'],
 	'/criacao-de-sites-itu': ['criação de sites Itu', 'site para turismo em Itu', 'site para empresa em Itu'],
-	'/criacao-de-sites-indaiatuba': ['criação de sites Indaiatuba', 'SEO Indaiatuba', 'marketing digital Indaiatuba'],
+	'/criacao-de-sites-indaiatuba': ['criação de sites Indaiatuba', 'SEO Indaiatuba', 'otimização de sites Indaiatuba', 'agência de SEO Indaiatuba', 'marketing digital Indaiatuba'],
 	'/criacao-de-sites-jundiai': ['criação de sites Jundiaí', 'site para empresa de logística', 'site industrial Jundiaí'],
 	'/criacao-de-sites-campinas': ['criação de sites Campinas SP', 'desenvolvimento de sites Campinas', 'SEO local Campinas', 'como aparecer no Google em Campinas'],
 	'/consultoria-seo-sao-paulo': ['consultoria de SEO São Paulo', 'consultoria SEO SP', 'consultor de SEO São Paulo', 'SEO técnico São Paulo', 'SEO Osasco'],
@@ -323,7 +323,7 @@ export const pageKeywords: Record<string, string[]> = {
 	'/llms-txt': ['llms.txt', 'llms txt', 'o que é llms.txt', 'llms.txt SEO', 'llms-full.txt', 'llms.txt vs robots.txt'],
 	'/seo-para-sites-angular': ['SEO Angular', 'Angular SSR', 'Angular Universal', 'Angular SSR vs SPA', 'pré-renderização Angular', 'indexação Angular'],
 	'/seo-para-pequenas-empresas': ['SEO para pequenas empresas', 'consultoria SEO para pequenas empresas', 'SEO para empresas', 'plano de SEO', 'SEO local para pequenas empresas', 'quanto investir em SEO'],
-	'/como-aparecer-no-google': ['como colocar minha empresa no Google', 'como aparecer no Google', 'como ficar em primeiro no Google', 'primeira página do Google', 'Google Meu Negócio', 'Perfil da Empresa no Google'],
+	'/como-aparecer-no-google': ['como colocar minha empresa no Google', 'como aparecer no Google', 'como ficar em primeiro no Google', 'primeira página do Google', 'como cadastrar minha empresa no Google', 'como colocar minha empresa no Google Maps', 'Google Meu Negócio', 'Perfil da Empresa no Google'],
 	'/guest-post': ['guest post', 'guest post para SEO', 'artigo convidado', 'backlinks', 'link building', 'guest post e publieditorial'],
 	'/copywriter-seo': ['copywriter SEO', 'redator SEO', 'vaga de copywriter', 'copywriter remoto', 'redação para landing pages', 'copywriter Sorocaba'],
 	'/mapa-do-site': ['mapa do site', 'Calebe Araujo', 'páginas do site'],

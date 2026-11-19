@@ -131,7 +131,7 @@
 
 	<Related
 		links={[
-			{ href: '/consultoria-seo-sorocaba', text: 'SEO local para o site da sua empresa' },
+			{ href: '/consultoria-seo-sorocaba', text: 'Otimização de sites e SEO em Sorocaba' },
 			{ href: services.otimizacaoDeSites.path, text: 'Otimização de um site que já existe' },
 			{ href: '/criacao-de-sites-itu', text: 'Projetos de site na região de Itu' },
 			{ href: regionPage.path, text: 'Atendimento em Sorocaba e região' }

@@ -10,9 +10,9 @@
 	import { guides, regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/consultoria-seo-sorocaba';
-	const title = 'SEO em Sorocaba: consultoria de SEO local e técnico - Calebe Araujo';
+	const title = 'SEO em Sorocaba: consultor e otimização de sites para o Google - Calebe Araujo';
 	const description =
-		'SEO em Sorocaba: consultoria de SEO local e técnico, Google Meu Negócio e site corrigido no código por um consultor que atende a cidade e a região.';
+		'SEO em Sorocaba: otimização de sites, SEO local e Google Meu Negócio com um consultor que corrige o site no código. Uma alternativa à agência de SEO.';
 	const whatsapp: WhatsApp = {
 		message: 'Olá, Calebe! Sou de Sorocaba e quero melhorar o SEO do meu site. Meu site é: ',
 		label: 'Falar sobre SEO em Sorocaba pelo WhatsApp'
@@ -38,6 +38,11 @@
 			question: 'Consultor de SEO ou agência de marketing digital em Sorocaba?',
 			answer:
 				'Uma agência de marketing digital em Sorocaba costuma reunir redes sociais, anúncios, design e SEO no mesmo contrato, o que faz sentido para quem quer terceirizar todo o marketing. Se a necessidade é aparecer no Google, com SEO técnico, SEO local e otimização do site, um consultor que também desenvolve resolve direto no código, sem intermediários. Os dois modelos podem trabalhar juntos: a agência cuida das campanhas e o consultor, da base técnica do site.'
+		},
+		{
+			question: 'Quanto tempo leva para um site aparecer melhor no Google em Sorocaba?',
+			answer:
+				'Correções técnicas, como indexação e títulos, costumam aparecer no Search Console em duas a seis semanas. Subir para as primeiras posições em buscas locais com concorrência leva de três a seis meses, dependendo do estado do site, das avaliações no Perfil da Empresa e de quantas páginas de serviço precisam ser criadas.'
 		},
 		{
 			question: 'O trabalho de SEO local inclui o Perfil da Empresa no Google?',
@@ -68,11 +73,12 @@
 		<HeroMidia foto="consultoria-seo" />
 		<Breadcrumbs {crumbs} />
 
-		<h1>SEO em Sorocaba: consultoria de SEO local e técnico</h1>
+		<h1>SEO em Sorocaba: consultor e otimização de sites para o Google</h1>
 
 		<p>
-			Como consultor de SEO em Sorocaba, ajudo empresas da cidade e de Votorantim a aparecer melhor no
-			Google, tanto no mapa das buscas locais quanto nos resultados orgânicos. A diferença de trabalhar
+			Como consultor de SEO em Sorocaba, faço a otimização de sites de empresas da cidade e de
+			Votorantim para que apareçam melhor no Google, tanto no mapa das buscas locais quanto nos
+			resultados orgânicos. A diferença de trabalhar
 			comigo é que, além de diagnosticar, eu desenvolvo: as correções técnicas são feitas no próprio
 			site, sem depender de outro fornecedor.
 		</p>
@@ -94,10 +100,79 @@
 			palavras-chave sem olhar como as pessoas realmente pesquisam leva a páginas otimizadas para a
 			busca errada.
 		</p>
+	</section>
+
+	<section aria-labelledby="otimizacao-titulo">
+		<h2 id="otimizacao-titulo">Otimização de sites em Sorocaba: o que entra no trabalho</h2>
 		<p>
-			Quem procura SEO em Sorocaba também pesquisa por "agência de SEO" e "agência de marketing digital".
-			Para essas empresas, a pergunta certa não é o tipo de fornecedor, e sim quem vai implementar as
-			mudanças no site, porque é lá que a maior parte dos problemas de posicionamento aparece.
+			Otimização de sites para SEO é o conjunto de correções que fazem o Google entender, indexar e
+			posicionar as páginas de uma empresa. Em sites de empresas de Sorocaba, os problemas que mais
+			encontro são sempre os mesmos, e todos são corrigidos direto no código:
+		</p>
+		<ul>
+			<li><strong>Páginas que não indexam:</strong> noindex esquecido, canonical errado, conteúdo carregado só por JavaScript ou URLs duplicadas com e sem "www".</li>
+			<li><strong>Um serviço sem página própria:</strong> tudo em uma página "Serviços", o que impede de ranquear para buscas como "manutenção de ar-condicionado em Sorocaba".</li>
+			<li><strong>Title, meta description e H1 genéricos:</strong> "Home" ou só o nome da empresa, sem o serviço e a cidade.</li>
+			<li><strong>Site lento no celular:</strong> tema pesado, imagens sem compressão e dezenas de scripts, o que piora as Core Web Vitals e faz o visitante desistir.</li>
+			<li><strong>Dados do negócio inconsistentes:</strong> telefone e endereço diferentes no site e no Perfil da Empresa, e nenhum dado estruturado (schema LocalBusiness).</li>
+		</ul>
+		<p>
+			Quando o problema principal é velocidade, o trabalho é o de
+			<a href={services.otimizacaoDeSites.path}>otimização de sites lentos e Core Web Vitals</a>, com o caso
+			real de um site que passou de 8 s para 1 s de carregamento.
+		</p>
+	</section>
+
+	<section aria-labelledby="agencia-titulo">
+		<h2 id="agencia-titulo">Agência de SEO em Sorocaba ou consultor?</h2>
+		<p>
+			Quem procura uma agência de SEO em Sorocaba normalmente quer a mesma coisa: aparecer no Google e
+			receber contatos. Eu não sou uma agência: trabalho sozinho, como consultor e desenvolvedor. A
+			diferença prática está em quem implementa as mudanças no site, porque é lá que a maior parte dos
+			problemas de posicionamento aparece.
+		</p>
+		<table>
+			<caption>Agência de SEO e consultor-desenvolvedor, lado a lado</caption>
+			<thead>
+				<tr>
+					<th scope="col">Aspecto</th>
+					<th scope="col">Agência de SEO</th>
+					<th scope="col">Consultor que desenvolve</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">Quem faz as correções</th>
+					<td>Equipe de conteúdo; o código costuma depender do desenvolvedor do cliente</td>
+					<td>O próprio consultor, no código do site</td>
+				</tr>
+				<tr>
+					<th scope="row">Volume de conteúdo</th>
+					<td>Alto, com redatores dedicados</td>
+					<td>Menor, focado nas páginas que geram contato</td>
+				</tr>
+				<tr>
+					<th scope="row">Contato</th>
+					<td>Atendimento por gerente de conta</td>
+					<td>Direto com quem executa</td>
+				</tr>
+				<tr>
+					<th scope="row">Faz mais sentido quando</th>
+					<td>A empresa precisa de muito conteúdo e campanhas todo mês</td>
+					<td>O site tem problema técnico, é lento ou não tem página por serviço</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
+	<section aria-labelledby="manutencao-titulo">
+		<h2 id="manutencao-titulo">Manutenção de sites em Sorocaba</h2>
+		<p>
+			SEO não termina na entrega. Atualizações de plugins, um formulário que para de enviar ou uma página
+			nova publicada sem title derrubam o resultado sem ninguém perceber. Na manutenção, acompanho o
+			Search Console todo mês, corrijo erros de indexação, mantenho o site rápido e publico as páginas
+			novas já otimizadas. O ranqueamento de sites em Sorocaba depende dessa constância: quem corrige
+			e mede todo mês passa à frente de quem otimizou uma vez só.
 		</p>
 	</section>
 

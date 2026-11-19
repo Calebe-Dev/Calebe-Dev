@@ -10,9 +10,9 @@
 	import { guides, services, type WhatsApp } from '$lib/site';
 
 	const path = guides.siteNaoAparece.path;
-	const title = 'Site não aparece no Google: diagnóstico passo a passo - Calebe Araujo';
+	const title = 'Meu site não aparece no Google: por que e o que fazer - Calebe Araujo';
 	const description =
-		'Seu site não aparece no Google? Veja como diagnosticar indexação, noindex, robots.txt, canonical e JavaScript, passo a passo, no Search Console.';
+		'Por que meu site não aparece no Google? As 7 causas mais comuns (indexação, noindex, robots.txt, canonical, JavaScript) e o que fazer em cada uma.';
 	const whatsapp: WhatsApp = {
 		message: 'Olá, Calebe! Meu site não aparece no Google. O endereço é: ',
 		label: 'Pedir ajuda com o meu site pelo WhatsApp'
@@ -63,7 +63,7 @@
 			name: 'Diagnóstico em 7 passos',
 			steps: passosDiagnostico.map((p) => ({ name: p.nome.replace(/:$/, ''), text: `${p.nome} ${semTags(p.html)}` }))
 		},
-		article: { headline: 'Site não aparece no Google: diagnóstico passo a passo' }
+		article: { headline: 'Meu site não aparece no Google: por que e o que fazer' }
 	});
 </script>
 
@@ -74,7 +74,7 @@
 		<HeroMidia foto="site-nao-aparece" />
 		<Breadcrumbs {crumbs} />
 
-		<h1>Site não aparece no Google: diagnóstico passo a passo</h1>
+		<h1>Meu site não aparece no Google: por que e o que fazer</h1>
 
 		<p>
 			Quando um site não aparece no Google, nem na pesquisa pelo nome da empresa, o motivo é um destes:

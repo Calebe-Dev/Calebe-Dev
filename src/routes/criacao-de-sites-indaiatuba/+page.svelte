@@ -10,9 +10,9 @@
 	import { regionPage, services, type WhatsApp } from '$lib/site';
 
 	const path = '/criacao-de-sites-indaiatuba';
-	const title = 'Criação de sites e SEO em Indaiatuba - Calebe Araujo';
+	const title = 'Criação de sites, SEO e otimização de sites em Indaiatuba - Calebe Araujo';
 	const description =
-		'Criação de sites e SEO em Indaiatuba (SP): sites rápidos, páginas por serviço e SEO local para empresas da cidade e da região de Viracopos.';
+		'Criação de sites e otimização de sites para SEO em Indaiatuba (SP): sites rápidos, páginas por serviço e SEO local para empresas da região de Viracopos.';
 	const whatsapp: WhatsApp = {
 		message: 'Olá, Calebe! Sou de Indaiatuba e quero um orçamento de site e SEO.',
 		label: 'Pedir orçamento em Indaiatuba pelo WhatsApp'
@@ -135,6 +135,25 @@
 			<li><strong>Indústria, logística e B2B:</strong> compradores de outras empresas pesquisam por solução, especificação e capacidade de atendimento. O site precisa de páginas por solução e de um pedido de cotação simples.</li>
 			<li><strong>Serviços e comércio local:</strong> o cliente está na cidade e decide pelo mapa do Google e pelo celular. O site precisa estar alinhado ao Perfil da Empresa no Google (o antigo Google Meu Negócio), com uma página para cada serviço.</li>
 		</ul>
+	</section>
+
+	<section aria-labelledby="otimizacao-titulo">
+		<h2 id="otimizacao-titulo">Otimização de sites e SEO em Indaiatuba para quem já tem site</h2>
+		<p>
+			Nem toda empresa precisa de um site novo. Quando o site já existe, mas não aparece no Google, a
+			otimização de sites resolve o que impede o posicionamento sem refazer tudo:
+		</p>
+		<ul>
+			<li><strong>Indexação:</strong> páginas fora do Google por noindex, robots.txt ou canonical errado.</li>
+			<li><strong>Uma página por serviço:</strong> com o serviço e "Indaiatuba" no título, no H1 e no texto, para disputar buscas como "manutenção industrial em Indaiatuba".</li>
+			<li><strong>Velocidade no celular:</strong> imagens, scripts e hospedagem, medidos nas Core Web Vitals.</li>
+			<li><strong>SEO local:</strong> Perfil da Empresa no Google, avaliações e dados idênticos no site e no perfil.</li>
+		</ul>
+		<p>
+			Quem procura uma agência de SEO em Indaiatuba encontra aqui um consultor que também desenvolve:
+			as correções são feitas no código do site, sem intermediários. O método é o mesmo da
+			<a href="/consultoria-seo-sorocaba">consultoria de SEO em Sorocaba</a>, a cerca de 50 km.
+		</p>
 	</section>
 
 	<section aria-labelledby="entrega-titulo">

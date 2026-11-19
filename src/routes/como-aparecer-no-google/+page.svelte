@@ -12,7 +12,7 @@
 	const path = guides.comoAparecer.path;
 	const title = 'Como colocar minha empresa no Google e na primeira página - Calebe Araujo';
 	const description =
-		'Guia sem jargão para colocar sua empresa no Google: Perfil da Empresa (o antigo Google Meu Negócio), site e o que ajuda a chegar à primeira página.';
+		'Como cadastrar sua empresa no Google e no Google Maps, passo a passo e sem jargão: Perfil da Empresa (antigo Google Meu Negócio), site e primeira página.';
 	const whatsapp: WhatsApp = {
 		message: 'Olá, Calebe! Quero colocar minha empresa no Google. Minha empresa é: ',
 		label: 'Falar sobre aparecer no Google pelo WhatsApp'
@@ -33,6 +33,11 @@
 			question: 'Dá para aparecer no Google sem pagar?',
 			answer:
 				'Sim. Criar o Perfil da Empresa no Google e aparecer nos resultados de pesquisa são gratuitos. Você só paga se quiser anúncios ou se contratar alguém para fazer o site e o trabalho para ele aparecer bem.'
+		},
+		{
+			question: 'Como cadastrar minha empresa no Google pelo celular?',
+			answer:
+				'Pelo app do Google Maps: toque na foto da sua conta, escolha "Adicionar sua empresa" e preencha nome, categoria, endereço ou área de atendimento, telefone e site. No fim, o Google pede a verificação, geralmente por vídeo mostrando a empresa ou por código. O mesmo cadastro também pode ser feito pesquisando o nome da empresa no Google e tocando em "Você é o proprietário desta empresa?".'
 		},
 		{
 			question: 'Google Meu Negócio e Perfil da Empresa no Google são a mesma coisa?',
@@ -74,7 +79,7 @@
 		<h1>Como colocar minha empresa no Google e na primeira página</h1>
 
 		<p>
-			Para colocar a sua empresa no Google existem três caminhos, que podem andar juntos: o Perfil da
+			Para colocar a sua empresa no Google (e cadastrar a empresa no Google Maps) existem três caminhos, que podem andar juntos: o Perfil da
 			Empresa no Google (o antigo Google Meu Negócio), que faz a empresa aparecer no mapa; um site com
 			uma página para cada serviço, que aparece nos resultados de pesquisa; e os anúncios, que aparecem
 			enquanto você paga. Os dois primeiros são gratuitos para criar; o que custa é o trabalho de
@@ -130,6 +135,13 @@
 				<li><strong>{passo.nome}</strong> {passo.texto}</li>
 			{/each}
 		</ol>
+		<h3>Como colocar minha empresa no Google Maps</h3>
+		<p>
+			O cadastro no Google Maps é o próprio Perfil da Empresa: não existe um cadastro separado. Depois
+			que o perfil é verificado, a empresa passa a aparecer no Maps, no mapa da busca e no painel da
+			direita quando alguém pesquisa o nome dela. Pelo app do Google Maps, o caminho é tocar na foto da
+			conta, em "Sua empresa" ou "Adicionar sua empresa", e seguir os mesmos passos acima.
+		</p>
 		<h3>Empresa sem endereço também aparece</h3>
 		<p>
 			Quem atende na casa do cliente ou trabalha de casa pode esconder o endereço e informar uma área
@@ -176,6 +188,24 @@
 			No mapa, o Google informa que a ordem depende de relevância, distância e proeminência, que é o
 			quanto a empresa é conhecida. Nos resultados de pesquisa, os sinais são muitos, mas esses quatro
 			são os que estão nas suas mãos.
+		</p>
+	</section>
+
+	<section aria-labelledby="checklist-titulo">
+		<h2 id="checklist-titulo">Checklist para chegar à primeira página</h2>
+		<p>Use esta lista para revisar a sua empresa uma vez por mês:</p>
+		<ul>
+			<li>O perfil está verificado, com categoria principal certa e todos os serviços cadastrados?</li>
+			<li>Há fotos reais publicadas nos últimos 30 dias?</li>
+			<li>Todas as avaliações recebidas foram respondidas?</li>
+			<li>Cada serviço importante tem uma página no site, com o nome do serviço e a cidade no título?</li>
+			<li>O site abre em menos de 3 segundos no celular?</li>
+			<li>O Search Console mostra as páginas indexadas e sem erros?</li>
+			<li>Nome, endereço e telefone são idênticos no site, no perfil, nas redes sociais e nos diretórios?</li>
+		</ul>
+		<p>
+			Se a empresa ainda não tem site, existe a opção de começar sem custo: veja como funciona o
+			<a href={services.siteGratis.path}>site grátis para empresas</a>.
 		</p>
 	</section>
 
