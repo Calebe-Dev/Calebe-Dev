@@ -184,7 +184,7 @@
 		links={[
 			{ href: services.siteGratis.path, text: 'Como funciona o site grátis para empresas' },
 			...nichePages.filter((p) => p.path !== path).map((p) => ({ href: p.path, text: p.anchor[0].toUpperCase() + p.anchor.slice(1) })),
-			{ href: '/como-aparecer-no-google', text: 'Como o consultório aparece no mapa do Google' }
+			{ href: 'https://rankingfixer.com/pt/como-aparecer-no-google', text: 'Como o consultório aparece no mapa do Google' }
 		]}
 	/>
 

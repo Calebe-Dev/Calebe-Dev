@@ -333,8 +333,8 @@
 		links={[
 			{ href: services.criacaoDeSites.path, text: 'Criação de sites profissionais sob medida' },
 			{ href: services.landingPage.path, text: 'Landing pages para anúncios' },
-			{ href: '/como-aparecer-no-google', text: 'Como colocar a sua empresa no Google' },
-			{ href: '/seo-para-pequenas-empresas', text: 'SEO para pequenas empresas: plano de 90 dias' }
+			{ href: 'https://rankingfixer.com/pt/como-aparecer-no-google', text: 'Como colocar a sua empresa no Google' },
+			{ href: 'https://rankingfixer.com/pt/seo-para-pequenas-empresas', text: 'SEO para pequenas empresas: plano de 90 dias' }
 		]}
 	/>
 

@@ -11,13 +11,10 @@ const HORARIO = 'T09:00:00-03:00';
 // Publicação: relançamento do site em 23/10/2026; páginas criadas depois têm a própria data
 const RELANCAMENTO = '2026-10-23';
 const publicadaEm: Record<string, string> = {
-	'/como-aparecer-no-google': '2026-10-24',
 	'/guest-post': '2026-10-24',
 	'/copywriter-seo': '2026-10-24',
 	'/politica-de-privacidade': '2026-10-28',
 	'/criacao-de-landing-page': '2026-10-29',
-	'/seo-para-pequenas-empresas': '2026-10-29',
-	'/migracao-de-site-sem-perder-seo': '2026-10-29',
 	'/crm-personalizado': '2026-10-29',
 	'/site-gratis-para-empresas': '2026-10-29',
 	'/site-para-advogado': '2026-10-29',
@@ -27,9 +24,6 @@ const publicadaEm: Record<string, string> = {
 	'/portfolio': '2026-10-31',
 	'/ai-mode-e-ai-overview': '2026-10-31',
 	'/llms-txt': '2026-10-31',
-	'/perfil-da-empresa-no-google': '2026-11-18',
-	'/seo-local': '2026-11-18',
-	'/core-web-vitals': '2026-11-18',
 	'/site-para-dentista': '2026-11-18',
 	'/portfolio/esquadriasmartins': '2026-10-31',
 	'/portfolio/timcorporativo': '2026-10-31',
@@ -100,31 +94,31 @@ export const defaultWhatsApp: WhatsApp = {
 
 // Páginas de serviço (pillars). `path` é a URL canônica, sem barra final.
 export const services = {
-	consultoriaSeo: { path: '/consultoria-seo', name: 'Consultoria de SEO' },
-	auditoriaSeo: { path: '/auditoria-seo', name: 'Auditoria de SEO' },
+	consultoriaSeo: { path: 'https://rankingfixer.com/pt', name: 'Consultoria de SEO' },
+	auditoriaSeo: { path: 'https://rankingfixer.com/pt/auditoria-seo', name: 'Auditoria de SEO' },
 	criacaoDeSites: { path: '/criacao-de-sites', name: 'Criação de sites' },
 	landingPage: { path: '/criacao-de-landing-page', name: 'Criação de landing page' },
 	siteGratis: { path: '/site-gratis-para-empresas', name: 'Site grátis para empresas' },
-	otimizacaoDeSites: { path: '/otimizacao-de-sites', name: 'Otimização de sites' },
+	otimizacaoDeSites: { path: 'https://rankingfixer.com/pt/otimizacao-de-sites', name: 'Otimização de sites' },
 	sistemasWeb: { path: '/desenvolvimento-de-sistemas-web', name: 'Desenvolvimento de sistemas web' },
 	crmPersonalizado: { path: '/crm-personalizado', name: 'CRM personalizado' },
-	seoB2b: { path: '/seo-para-b2b', name: 'SEO para empresas B2B' },
+	seoB2b: { path: 'https://rankingfixer.com/pt/seo-b2b', name: 'SEO para empresas B2B' },
 	guestPost: { path: '/guest-post', name: 'Guest post para SEO' }
 } as const;
 
 // Guias (cluster pages) da consultoria de SEO: respondem dúvidas reais e levam à auditoria/consultoria
 export const guides = {
-	siteNaoAparece: { path: '/site-nao-aparece-no-google', name: 'Site não aparece no Google' },
+	siteNaoAparece: { path: 'https://rankingfixer.com/pt/site-nao-aparece-no-google', name: 'Site não aparece no Google' },
 	seoParaIa: { path: '/seo-para-ia', name: 'SEO para IA' },
-	seoAngular: { path: '/seo-para-sites-angular', name: 'SEO para sites Angular' },
-	comoAparecer: { path: '/como-aparecer-no-google', name: 'Como aparecer no Google' },
-	pequenasEmpresas: { path: '/seo-para-pequenas-empresas', name: 'SEO para pequenas empresas' },
-	migracao: { path: '/migracao-de-site-sem-perder-seo', name: 'Migração de site sem perder SEO' },
+	seoAngular: { path: 'https://rankingfixer.com/pt/seo-para-sites-angular', name: 'SEO para sites Angular' },
+	comoAparecer: { path: 'https://rankingfixer.com/pt/como-aparecer-no-google', name: 'Como aparecer no Google' },
+	pequenasEmpresas: { path: 'https://rankingfixer.com/pt/seo-para-pequenas-empresas', name: 'SEO para pequenas empresas' },
+	migracao: { path: 'https://rankingfixer.com/pt/migracao-de-site-sem-perder-seo', name: 'Migração de site sem perder SEO' },
 	aiMode: { path: '/ai-mode-e-ai-overview', name: 'AI Mode e AI Overviews' },
 	llmsTxt: { path: '/llms-txt', name: 'llms.txt' },
-	perfilEmpresa: { path: '/perfil-da-empresa-no-google', name: 'Perfil da Empresa no Google' },
-	seoLocal: { path: '/seo-local', name: 'SEO local' },
-	coreWebVitals: { path: '/core-web-vitals', name: 'Core Web Vitals' }
+	perfilEmpresa: { path: 'https://rankingfixer.com/pt/perfil-da-empresa-no-google', name: 'Perfil da Empresa no Google' },
+	seoLocal: { path: 'https://rankingfixer.com/pt/seo-local', name: 'SEO local' },
+	coreWebVitals: { path: 'https://rankingfixer.com/pt/core-web-vitals', name: 'Core Web Vitals' }
 } as const;
 
 export const careerPage = { path: '/desenvolvedor-full-stack-sorocaba', name: 'Desenvolvedor full stack em Sorocaba' };
@@ -154,17 +148,17 @@ export const menu: (MenuItem & { itens: MenuItem[] })[] = [
 		href: '/mapa-do-site#guias-titulo',
 		label: 'Guias',
 		itens: [
-			{ href: '/como-aparecer-no-google', label: 'Como aparecer no Google' },
-			{ href: '/seo-para-pequenas-empresas', label: 'SEO para pequenas empresas' },
-			{ href: '/perfil-da-empresa-no-google', label: 'Perfil da Empresa no Google' },
-			{ href: '/seo-local', label: 'SEO local' },
-			{ href: '/site-nao-aparece-no-google', label: 'Site não aparece no Google' },
-			{ href: '/core-web-vitals', label: 'Core Web Vitals' },
-			{ href: '/migracao-de-site-sem-perder-seo', label: 'Migração de site sem perder SEO' },
+			{ href: 'https://rankingfixer.com/pt/como-aparecer-no-google', label: 'Como aparecer no Google' },
+			{ href: 'https://rankingfixer.com/pt/seo-para-pequenas-empresas', label: 'SEO para pequenas empresas' },
+			{ href: 'https://rankingfixer.com/pt/perfil-da-empresa-no-google', label: 'Perfil da Empresa no Google' },
+			{ href: 'https://rankingfixer.com/pt/seo-local', label: 'SEO local' },
+			{ href: 'https://rankingfixer.com/pt/site-nao-aparece-no-google', label: 'Site não aparece no Google' },
+			{ href: 'https://rankingfixer.com/pt/core-web-vitals', label: 'Core Web Vitals' },
+			{ href: 'https://rankingfixer.com/pt/migracao-de-site-sem-perder-seo', label: 'Migração de site sem perder SEO' },
 			{ href: '/seo-para-ia', label: 'SEO para IA' },
 			{ href: '/ai-mode-e-ai-overview', label: 'AI Mode e AI Overviews' },
 			{ href: '/llms-txt', label: 'llms.txt' },
-			{ href: '/seo-para-sites-angular', label: 'SEO para sites Angular' }
+			{ href: 'https://rankingfixer.com/pt/seo-para-sites-angular', label: 'SEO para sites Angular' }
 		]
 	},
 	{
@@ -173,12 +167,12 @@ export const menu: (MenuItem & { itens: MenuItem[] })[] = [
 		itens: [
 			{ href: regionPage.path, label: 'Atendimento no raio de 90 km' },
 			{ href: '/criacao-de-sites-sorocaba', label: 'Criação de sites em Sorocaba' },
-			{ href: '/consultoria-seo-sorocaba', label: 'Consultoria de SEO em Sorocaba' },
+			{ href: 'https://rankingfixer.com/pt/consultoria-seo-sorocaba', label: 'Consultoria de SEO em Sorocaba' },
 			{ href: '/criacao-de-sites-itu', label: 'Criação de sites em Itu' },
 			{ href: '/criacao-de-sites-indaiatuba', label: 'Sites e SEO em Indaiatuba' },
 			{ href: '/criacao-de-sites-jundiai', label: 'Criação de sites em Jundiaí' },
 			{ href: '/criacao-de-sites-campinas', label: 'Criação de sites em Campinas' },
-			{ href: '/consultoria-seo-sao-paulo', label: 'Consultoria de SEO em São Paulo' }
+			{ href: 'https://rankingfixer.com/pt/consultoria-seo-sao-paulo', label: 'Consultoria de SEO em São Paulo' }
 		]
 	},
 	{
@@ -198,12 +192,12 @@ export const menu: (MenuItem & { itens: MenuItem[] })[] = [
 export const cityPages = [
 	// `anchor`: texto descritivo usado fora do hub regional (evita a mesma âncora exata em todo o site)
 	{ path: '/criacao-de-sites-sorocaba', city: 'Sorocaba', service: 'Criação de sites', km: 0, anchor: 'sites para empresas de Sorocaba' },
-	{ path: '/consultoria-seo-sorocaba', city: 'Sorocaba', service: 'Consultoria de SEO', km: 0, anchor: 'otimização de sites e SEO local para empresas de Sorocaba' },
+	{ path: 'https://rankingfixer.com/pt/consultoria-seo-sorocaba', city: 'Sorocaba', service: 'Consultoria de SEO', km: 0, anchor: 'otimização de sites e SEO local para empresas de Sorocaba' },
 	{ path: '/criacao-de-sites-itu', city: 'Itu', service: 'Criação de sites', km: 31, anchor: 'sites para turismo, comércio e indústria em Itu' },
 	{ path: '/criacao-de-sites-indaiatuba', city: 'Indaiatuba', service: 'Criação de sites e SEO', km: 52, anchor: 'site e SEO para empresas de Indaiatuba' },
 	{ path: '/criacao-de-sites-jundiai', city: 'Jundiaí', service: 'Criação de sites', km: 67, anchor: 'sites para logística e indústria em Jundiaí' },
 	{ path: '/criacao-de-sites-campinas', city: 'Campinas', service: 'Criação de sites', km: 77, anchor: 'como se destacar no Google em Campinas' },
-	{ path: '/consultoria-seo-sao-paulo', city: 'São Paulo', service: 'Consultoria de SEO', km: 84, anchor: 'SEO técnico para empresas da capital paulista' }
+	{ path: 'https://rankingfixer.com/pt/consultoria-seo-sao-paulo', city: 'São Paulo', service: 'Consultoria de SEO', km: 84, anchor: 'SEO técnico para empresas da capital paulista' }
 ] as const;
 
 // Oferta de site grátis: termos decididos (até 5 páginas, até 5 sites por mês, cliente cuida do domínio).
@@ -308,11 +302,8 @@ export const siteGroups: { id: string; title: string; entries: SiteEntry[] }[] =
 // Palavras-chave de cada página (meta keywords e keywords do schema), do mapa de keywords da análise
 export const pageKeywords: Record<string, string[]> = {
 	'/': ['Calebe Araujo', 'desenvolvedor full stack', 'tech lead', 'consultor de SEO técnico', 'especialista em SEO', 'desenvolvedor web', 'software sob medida', 'Sorocaba'],
-	'/consultoria-seo': ['consultoria de SEO', 'consultor SEO', 'consultoria de SEO técnico', 'especialista em SEO', 'consultoria SEO para pequenas empresas', 'consultoria de SEO para WordPress'],
-	'/auditoria-seo': ['auditoria de SEO', 'auditoria SEO técnica', 'auditoria SEO completa', 'auditoria de SEO online', 'checklist de SEO', 'análise de SEO do site'],
 	'/criacao-de-sites': ['criação de sites', 'criação de sites profissionais', 'desenvolvimento de sites', 'site institucional', 'site para empresa'],
 	'/criacao-de-landing-page': ['criação de landing page', 'landing page profissional', 'landing page de alta conversão', 'landing page para empresas', 'landing page preço', 'landing page para Google Ads'],
-	'/otimizacao-de-sites': ['otimização de sites', 'site lento', 'Core Web Vitals', 'teste de velocidade do site', 'PageSpeed Insights'],
 	'/desenvolvimento-de-sistemas-web': ['desenvolvimento de sistemas web', 'software sob medida', 'software personalizado', 'sistema personalizado para empresa', 'integração de sistemas', 'APIs REST'],
 	'/site-gratis-para-empresas': ['site grátis para empresas', 'site gratuito para empresa', 'criar site grátis', 'site profissional grátis', 'site grátis com domínio próprio', 'hospedagem de site grátis'],
 	'/site-para-advogado': ['site para advogado', 'site para escritório de advocacia', 'Provimento 205/2021', 'publicidade na advocacia', 'site de advocacia grátis'],
@@ -320,28 +311,17 @@ export const pageKeywords: Record<string, string[]> = {
 	'/site-para-arquiteto': ['site para arquiteto', 'site para arquitetos', 'portfólio de arquitetura', 'Resolução CAU/BR 75/2014', 'site de arquitetura grátis'],
 	'/site-para-nutricionista': ['site para nutricionista', 'site para nutricionistas', 'código de ética do nutricionista', 'antes e depois nutricionista', 'site de nutrição grátis'],
 	'/crm-personalizado': ['CRM personalizado', 'CRM sob medida', 'quanto custa um CRM', 'CRM pronto ou personalizado', 'desenvolvimento de CRM', 'integração com CRM'],
-	'/seo-para-b2b': ['SEO B2B', 'SEO para empresas B2B', 'consultoria de SEO B2B', 'marketing B2B', 'geração de leads B2B', 'marketing industrial B2B'],
 	'/desenvolvedor-full-stack-sorocaba': ['desenvolvedor full stack Sorocaba', 'tech lead Sorocaba', 'desenvolvedor Angular', 'desenvolvedor Node.js', 'desenvolvedor web Sorocaba', 'currículo desenvolvedor full stack'],
 	'/sorocaba-e-regiao': ['criação de sites região de Sorocaba', 'SEO interior de São Paulo', 'atendimento em Sorocaba e região'],
 	'/criacao-de-sites-sorocaba': ['criação de sites Sorocaba', 'site para empresa em Sorocaba', 'desenvolvedor web Sorocaba'],
-	'/consultoria-seo-sorocaba': ['consultoria de SEO Sorocaba', 'consultor de SEO Sorocaba', 'SEO em Sorocaba', 'SEO local Sorocaba', 'agência de SEO Sorocaba', 'otimização de sites Sorocaba', 'manutenção de sites Sorocaba', 'Perfil da Empresa no Google Sorocaba'],
 	'/criacao-de-sites-itu': ['criação de sites Itu', 'site para turismo em Itu', 'site para empresa em Itu'],
 	'/criacao-de-sites-indaiatuba': ['criação de sites Indaiatuba', 'SEO Indaiatuba', 'otimização de sites Indaiatuba', 'agência de SEO Indaiatuba', 'marketing digital Indaiatuba'],
 	'/criacao-de-sites-jundiai': ['criação de sites Jundiaí', 'site para empresa de logística', 'site industrial Jundiaí'],
 	'/criacao-de-sites-campinas': ['criação de sites Campinas SP', 'desenvolvimento de sites Campinas', 'SEO local Campinas', 'como aparecer no Google em Campinas'],
-	'/consultoria-seo-sao-paulo': ['consultoria de SEO São Paulo', 'consultoria SEO SP', 'consultor de SEO São Paulo', 'SEO técnico São Paulo', 'SEO Osasco'],
-	'/site-nao-aparece-no-google': ['site não aparece no Google', 'meu site não aparece no Google', 'como indexar site no Google', 'colocar meu site no Google', 'site Hostinger não aparece no Google', 'Google Search Console'],
-	'/migracao-de-site-sem-perder-seo': ['migração de site', 'migração de site sem perder SEO', 'redirecionamento 301', 'redesign de site', 'migração de site WordPress', 'troca de domínio SEO'],
 	'/seo-para-ia': ['SEO para IA', 'SEO para inteligência artificial', 'GEO', 'GEO vs SEO', 'como aparecer no ChatGPT', 'AI Overviews'],
 	'/ai-mode-e-ai-overview': ['AI Mode', 'AI Mode Google', 'Modo IA do Google', 'AI Overview', 'AI Overviews', 'Visão geral criada por IA'],
-	'/perfil-da-empresa-no-google': ['Perfil da Empresa no Google', 'Google Meu Negócio', 'Google Perfil de Empresa', 'criar perfil de empresa no Google', 'como cadastrar minha empresa no Google', 'Google Maps empresa'],
-	'/seo-local': ['SEO local', 'o que é SEO local', 'SEO local para pequenas empresas', 'ranqueamento no Google Maps', 'NAP', 'SEO para negócios locais'],
-	'/core-web-vitals': ['Core Web Vitals', 'LCP', 'INP', 'CLS', 'o que são Core Web Vitals', 'como melhorar Core Web Vitals'],
 	'/site-para-dentista': ['site para dentista', 'site para clínica odontológica', 'site para consultório odontológico', 'marketing odontológico', 'Resolução CFO 196/2019', 'SEO para dentistas'],
 	'/llms-txt': ['llms.txt', 'llms txt', 'o que é llms.txt', 'llms.txt SEO', 'llms-full.txt', 'llms.txt vs robots.txt'],
-	'/seo-para-sites-angular': ['SEO Angular', 'Angular SSR', 'Angular Universal', 'Angular SSR vs SPA', 'pré-renderização Angular', 'indexação Angular'],
-	'/seo-para-pequenas-empresas': ['SEO para pequenas empresas', 'consultoria SEO para pequenas empresas', 'SEO para empresas', 'plano de SEO', 'SEO local para pequenas empresas', 'quanto investir em SEO'],
-	'/como-aparecer-no-google': ['como colocar minha empresa no Google', 'como aparecer no Google', 'como ficar em primeiro no Google', 'primeira página do Google', 'como cadastrar minha empresa no Google', 'como colocar minha empresa no Google Maps', 'Google Meu Negócio', 'Perfil da Empresa no Google'],
 	'/guest-post': ['guest post', 'guest post para SEO', 'artigo convidado', 'backlinks', 'link building', 'guest post e publieditorial'],
 	'/copywriter-seo': ['copywriter SEO', 'redator SEO', 'vaga de copywriter', 'copywriter remoto', 'redação para landing pages', 'copywriter Sorocaba'],
 	'/mapa-do-site': ['mapa do site', 'Calebe Araujo', 'páginas do site'],

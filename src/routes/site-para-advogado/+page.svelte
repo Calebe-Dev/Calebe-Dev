@@ -191,7 +191,7 @@
 		links={[
 			{ href: services.siteGratis.path, text: 'Como funciona o site grátis para empresas' },
 			...nichePages.filter((p) => p.path !== path).map((p) => ({ href: p.path, text: p.anchor[0].toUpperCase() + p.anchor.slice(1) })),
-			{ href: '/seo-para-pequenas-empresas', text: 'SEO para pequenos escritórios: plano de 90 dias' }
+			{ href: 'https://rankingfixer.com/pt/seo-para-pequenas-empresas', text: 'SEO para pequenos escritórios: plano de 90 dias' }
 		]}
 	/>
 

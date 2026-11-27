@@ -1347,13 +1347,13 @@ main > p:last-child {
 /* ---------- camada visual: ícones, cards e capturas, só com CSS (o HTML e os textos não mudam) ---------- */
 
 /* ícone de cada destino: o link (ou o título do serviço na home) recebe a imagem pelo endereço */
-a[href='/consultoria-seo'],
-#servicos > h3:has(+ p a[href='/consultoria-seo']:last-of-type) {
+a[href='https://rankingfixer.com/pt'],
+#servicos > h3:has(+ p a[href='https://rankingfixer.com/pt']:last-of-type) {
 	--icone: url('/images/icones/consultoria-seo.svg');
 }
 
-a[href='/auditoria-seo'],
-#servicos > h3:has(+ p a[href='/auditoria-seo']:last-of-type) {
+a[href='https://rankingfixer.com/pt/auditoria-seo'],
+#servicos > h3:has(+ p a[href='https://rankingfixer.com/pt/auditoria-seo']:last-of-type) {
 	--icone: url('/images/icones/auditoria-seo.svg');
 }
 
@@ -1372,8 +1372,8 @@ a[href='/criacao-de-landing-page'] {
 	--icone: url('/images/icones/landing-page.svg');
 }
 
-a[href='/otimizacao-de-sites'],
-#servicos > h3:has(+ p a[href='/otimizacao-de-sites']:last-of-type) {
+a[href='https://rankingfixer.com/pt/otimizacao-de-sites'],
+#servicos > h3:has(+ p a[href='https://rankingfixer.com/pt/otimizacao-de-sites']:last-of-type) {
 	--icone: url('/images/icones/otimizacao-de-sites.svg');
 }
 
@@ -1386,26 +1386,26 @@ a[href='/crm-personalizado'] {
 	--icone: url('/images/icones/crm-personalizado.svg');
 }
 
-a[href='/seo-para-b2b'],
-#servicos > h3:has(+ p a[href='/seo-para-b2b']:last-of-type) {
+a[href='https://rankingfixer.com/pt/seo-b2b'],
+#servicos > h3:has(+ p a[href='https://rankingfixer.com/pt/seo-b2b']:last-of-type) {
 	--icone: url('/images/icones/seo-b2b.svg');
 }
 
-a[href='/como-aparecer-no-google'],
-#servicos > h3:has(+ p a[href='/como-aparecer-no-google']:last-of-type) {
+a[href='https://rankingfixer.com/pt/como-aparecer-no-google'],
+#servicos > h3:has(+ p a[href='https://rankingfixer.com/pt/como-aparecer-no-google']:last-of-type) {
 	--icone: url('/images/icones/aparecer-no-google.svg');
 }
 
-a[href='/seo-para-pequenas-empresas'] {
+a[href='https://rankingfixer.com/pt/seo-para-pequenas-empresas'] {
 	--icone: url('/images/icones/pequenas-empresas.svg');
 }
 
-a[href='/migracao-de-site-sem-perder-seo'] {
+a[href='https://rankingfixer.com/pt/migracao-de-site-sem-perder-seo'] {
 	--icone: url('/images/icones/migracao-de-site.svg');
 }
 
-a[href='/site-nao-aparece-no-google'],
-#servicos > h3:has(+ p a[href='/site-nao-aparece-no-google']:last-of-type) {
+a[href='https://rankingfixer.com/pt/site-nao-aparece-no-google'],
+#servicos > h3:has(+ p a[href='https://rankingfixer.com/pt/site-nao-aparece-no-google']:last-of-type) {
 	--icone: url('/images/icones/site-nao-aparece.svg');
 }
 
@@ -1414,8 +1414,8 @@ a[href='/seo-para-ia'],
 	--icone: url('/images/icones/seo-para-ia.svg');
 }
 
-a[href='/seo-para-sites-angular'],
-#servicos > h3:has(+ p a[href='/seo-para-sites-angular']:last-of-type) {
+a[href='https://rankingfixer.com/pt/seo-para-sites-angular'],
+#servicos > h3:has(+ p a[href='https://rankingfixer.com/pt/seo-para-sites-angular']:last-of-type) {
 	--icone: url('/images/icones/seo-angular.svg');
 }
 
@@ -1435,8 +1435,8 @@ a[href='/mapa-do-site'],
 }
 
 a[href^='/criacao-de-sites-'],
-a[href='/consultoria-seo-sorocaba'],
-a[href='/consultoria-seo-sao-paulo'] {
+a[href='https://rankingfixer.com/pt/consultoria-seo-sorocaba'],
+a[href='https://rankingfixer.com/pt/consultoria-seo-sao-paulo'] {
 	--icone: url('/images/icones/cidade.svg');
 }
 

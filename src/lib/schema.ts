@@ -12,7 +12,9 @@ const LOGO_ID = `${SITE_URL}/#logo`;
 const NAV_ID = `${SITE_URL}/#navegacao`;
 const YEAR = Number(UPDATED.slice(0, 4));
 
-export const absolute = (path: string) => (path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`);
+// URL externa (ex.: páginas de SEO que foram para rankingfixer.com/pt) passa sem mudança
+export const absolute = (path: string) =>
+	path.startsWith('http') ? path : path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`;
 const imageId = (path: string) => `${absolute(path)}#imagem`;
 
 // Raio de atendimento: 90 km a partir do centro de Sorocaba
