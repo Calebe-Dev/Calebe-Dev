@@ -6,31 +6,31 @@ Resultados verificáveis citados no site: CRM proprietário em microsserviços i
 
 ## Serviços
 
-- [Consultoria de SEO técnico](https://calebearaujo.com.br/consultoria-seo): diagnóstico, plano priorizado e correções implementadas no código.
-- [Auditoria de SEO](https://calebearaujo.com.br/auditoria-seo): relatório técnico, on-page e de conteúdo, priorizado por impacto.
+- [Consultoria de SEO técnico](https://rankingfixer.com/pt): diagnóstico, plano priorizado e correções implementadas no código.
+- [Auditoria de SEO](https://rankingfixer.com/pt/auditoria-seo): relatório técnico, on-page e de conteúdo, priorizado por impacto.
 - [Criação de sites](https://calebearaujo.com.br/criacao-de-sites): sites institucionais e landing pages rápidos e otimizados.
 - [Site grátis para empresas](https://calebearaujo.com.br/site-gratis-para-empresas): criação e hospedagem gratuitas no primeiro ano de site com até 5 páginas, entregue em até 7 dias, para qualquer nicho; o cliente paga só o domínio; até 5 sites por mês. O código, o design, os textos e o SEO são de Calebe Araujo; o cliente recebe o uso do site.
   - Por segmento: [advogado](https://calebearaujo.com.br/site-para-advogado), [imobiliária](https://calebearaujo.com.br/site-para-imobiliaria), [arquiteto](https://calebearaujo.com.br/site-para-arquiteto), [nutricionista](https://calebearaujo.com.br/site-para-nutricionista), [dentista](https://calebearaujo.com.br/site-para-dentista).
 - [Criação de landing page](https://calebearaujo.com.br/criacao-de-landing-page): páginas de uma oferta só, para anúncios e para a busca orgânica, com contatos medidos.
-- [Otimização de sites](https://calebearaujo.com.br/otimizacao-de-sites): Core Web Vitals e performance.
+- [Otimização de sites](https://rankingfixer.com/pt/otimizacao-de-sites): Core Web Vitals e performance.
 - [Sistemas web e software sob medida](https://calebearaujo.com.br/desenvolvimento-de-sistemas-web): CRMs, integrações, APIs REST e headless CMS.
 - [CRM personalizado](https://calebearaujo.com.br/crm-personalizado): quando um CRM sob medida vale mais que um CRM pronto, o que define o custo e o caso do CRM que integra 25 sites.
-- [SEO para B2B](https://calebearaujo.com.br/seo-para-b2b): geração de leads B2B pela busca orgânica.
+- [SEO para B2B](https://rankingfixer.com/pt/seo-b2b): geração de leads B2B pela busca orgânica.
 - [Guest post para SEO](https://calebearaujo.com.br/guest-post): artigos convidados em sites do nicho, com backlinks dentro das regras do Google.
 
 ## Guias
 
-- [Como colocar minha empresa no Google](https://calebearaujo.com.br/como-aparecer-no-google): guia sem jargão sobre Perfil da Empresa no Google (antigo Google Meu Negócio), site e primeira página.
-- [SEO para pequenas empresas](https://calebearaujo.com.br/seo-para-pequenas-empresas): o que fazer sozinho, o que contratar e um plano de 90 dias.
-- [Perfil da Empresa no Google](https://calebearaujo.com.br/perfil-da-empresa-no-google): como criar, verificar e otimizar o antigo Google Meu Negócio.
-- [SEO local](https://calebearaujo.com.br/seo-local): o que é e como fazer a empresa aparecer no mapa e nas buscas da cidade.
-- [Core Web Vitals](https://calebearaujo.com.br/core-web-vitals): LCP, INP e CLS, os limites do Google, como medir e como melhorar.
-- [Site não aparece no Google](https://calebearaujo.com.br/site-nao-aparece-no-google): diagnóstico de indexação em 7 passos.
-- [Migração de site sem perder SEO](https://calebearaujo.com.br/migracao-de-site-sem-perder-seo): inventário de URLs, redirecionamentos 301 e o que testar antes e depois.
+- [Como colocar minha empresa no Google](https://rankingfixer.com/pt/como-aparecer-no-google): guia sem jargão sobre Perfil da Empresa no Google (antigo Google Meu Negócio), site e primeira página.
+- [SEO para pequenas empresas](https://rankingfixer.com/pt/seo-para-pequenas-empresas): o que fazer sozinho, o que contratar e um plano de 90 dias.
+- [Perfil da Empresa no Google](https://rankingfixer.com/pt/perfil-da-empresa-no-google): como criar, verificar e otimizar o antigo Google Meu Negócio.
+- [SEO local](https://rankingfixer.com/pt/seo-local): o que é e como fazer a empresa aparecer no mapa e nas buscas da cidade.
+- [Core Web Vitals](https://rankingfixer.com/pt/core-web-vitals): LCP, INP e CLS, os limites do Google, como medir e como melhorar.
+- [Site não aparece no Google](https://rankingfixer.com/pt/site-nao-aparece-no-google): diagnóstico de indexação em 7 passos.
+- [Migração de site sem perder SEO](https://rankingfixer.com/pt/migracao-de-site-sem-perder-seo): inventário de URLs, redirecionamentos 301 e o que testar antes e depois.
 - [SEO para IA](https://calebearaujo.com.br/seo-para-ia): como ser citado por ChatGPT, Gemini e AI Overviews.
 - [AI Mode e AI Overviews do Google](https://calebearaujo.com.br/ai-mode-e-ai-overview): o que são, como escolhem as fontes, o que muda nos cliques e o que fazer no site.
 - [llms.txt](https://calebearaujo.com.br/llms-txt): o que é, quem usa, a diferença para o robots.txt e quando vale a pena ter.
-- [SEO para sites Angular](https://calebearaujo.com.br/seo-para-sites-angular): SSR, pré-renderização e indexação.
+- [SEO para sites Angular](https://rankingfixer.com/pt/seo-para-sites-angular): SSR, pré-renderização e indexação.
 
 ## Atendimento regional
 

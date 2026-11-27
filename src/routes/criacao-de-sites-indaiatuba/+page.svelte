@@ -152,7 +152,7 @@
 		<p>
 			Quem procura uma agência de SEO em Indaiatuba encontra aqui um consultor que também desenvolve:
 			as correções são feitas no código do site, sem intermediários. O método é o mesmo da
-			<a href="/consultoria-seo-sorocaba">consultoria de SEO em Sorocaba</a>, a cerca de 50 km.
+			<a href="https://rankingfixer.com/pt/consultoria-seo-sorocaba">consultoria de SEO em Sorocaba</a>, a cerca de 50 km.
 		</p>
 	</section>
 
